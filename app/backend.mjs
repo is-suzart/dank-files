@@ -3589,10 +3589,10 @@ function jsxDEV(tag2, props, _key, _isStatic, _source, _self) {
 }
 
 // src/components/NativeTextField.tsx
-var dms = importQml("qs.DankCommon.Widgets"), NativeTextField = component(
+var dms = importQml("qs.DCommon.Widgets"), NativeTextField = component(
   "NativeTextField",
   ({ onTextEdited, onAccepted, ...props }) => /* @__PURE__ */ jsxDEV(
-    dms.DankTextField,
+    dms.DTextField,
     {
       ...props,
       ...onTextEdited ? { onTextEdited: qmlReadEvent(["text"], onTextEdited) } : {},
@@ -3610,7 +3610,7 @@ var dms = importQml("qs.DankCommon.Widgets"), NativeTextField = component(
 
 // src/native/QuietButton.tsx
 init_src();
-var controls = importQml("QtQuick.Controls"), qml2 = importQml("QtQuick"), layouts = importQml("QtQuick.Layouts"), dms2 = importQml("qs.DankCommon.Widgets"), QuietButton = component(
+var controls = importQml("QtQuick.Controls"), qml2 = importQml("QtQuick"), layouts = importQml("QtQuick.Layouts"), dms2 = importQml("qs.DCommon.Widgets"), QuietButton = component(
   "QuietButton",
   (props) => {
     let { qmlDeclarations: inheritedDeclarations, ...rest } = props;
@@ -3619,7 +3619,7 @@ var controls = importQml("QtQuick.Controls"), qml2 = importQml("QtQuick"), layou
     return scope.id("root"), /* @__PURE__ */ jsxDEV(
       controls.Button,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           iconName: { type: "string", value: "" },
@@ -3782,7 +3782,7 @@ var controls = importQml("QtQuick.Controls"), qml2 = importQml("QtQuick"), layou
                 }
               ),
               /* @__PURE__ */ jsxDEV(
-                dms2.DankIcon,
+                dms2.DIcon,
                 {
                   visible: qmlExpression(
                     scope,
@@ -3845,7 +3845,7 @@ var controls = importQml("QtQuick.Controls"), qml2 = importQml("QtQuick"), layou
         ...props,
         children: [
           /* @__PURE__ */ jsxDEV(
-            dms2.DankIcon,
+            dms2.DIcon,
             {
               "anchors.right": qmlExpression(scope, ($qml) => parent.right),
               "anchors.rightMargin": 8,
@@ -3945,14 +3945,14 @@ init_src();
 
 // src/native/ContextAction.tsx
 init_src();
-var controls3 = importQml("QtQuick.Controls"), layouts3 = importQml("QtQuick.Layouts"), dms3 = importQml("qs.DankCommon.Widgets"), qml4 = importQml("QtQuick"), ContextAction = component(
+var controls3 = importQml("QtQuick.Controls"), layouts3 = importQml("QtQuick.Layouts"), dms3 = importQml("qs.DCommon.Widgets"), qml4 = importQml("QtQuick"), ContextAction = component(
   "ContextAction",
   (props) => {
     let scope = createQmlScope({ ...props.qmlId ? { root: props.qmlId } : {}, app: "app" });
     return scope.id("root"), /* @__PURE__ */ jsxDEV(
       controls3.MenuItem,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           hint: { type: "string", value: "" }
@@ -4068,7 +4068,7 @@ var controls4 = importQml("QtQuick.Controls"), qml5 = importQml("QtQuick"), AppM
   return /* @__PURE__ */ jsxDEV(
     controls4.Menu,
     {
-      qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+      qmlImports: ["Quickshell", "qs.DCommon.Common"],
       padding: 6,
       overlap: 0,
       implicitWidth: 260,
@@ -4183,7 +4183,7 @@ init_src();
 
 // src/native/PathBar.tsx
 init_src();
-var qml7 = importQml("QtQuick"), qt = importQml("QtQml"), dms4 = importQml("qs.DankCommon.Widgets"), PathBar = component("PathBar", (props) => {
+var qml7 = importQml("QtQuick"), qt = importQml("QtQml"), dms4 = importQml("qs.DCommon.Widgets"), PathBar = component("PathBar", (props) => {
   props = {
     ...props,
     onNavigate: props.onNavigate ? qmlReadEvent(["target"], props.onNavigate) : void 0,
@@ -4194,7 +4194,7 @@ var qml7 = importQml("QtQuick"), qt = importQml("QtQml"), dms4 = importQml("qs.D
   return scope.id("root"), scope.id("crumbs"), scope.id("crumb"), scope.id("click"), scope.id("editor"), /* @__PURE__ */ jsxDEV(
     qml7.Rectangle,
     {
-      qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+      qmlImports: ["Quickshell", "qs.DCommon.Common"],
       qmlId: scope.id("root"),
       qmlDeclarations: {
         text: { type: "string", value: "" },
@@ -4419,7 +4419,7 @@ var qml7 = importQml("QtQuick"), qt = importQml("QtQml"), dms4 = importQml("qs.D
           }
         ),
         /* @__PURE__ */ jsxDEV(
-          dms4.DankTextField,
+          dms4.DTextField,
           {
             qmlId: scope.id("editor"),
             "anchors.fill": qmlExpression(scope, ($qml) => parent),
@@ -4771,7 +4771,7 @@ init_src();
 
 // src/components/SectionTitle.tsx
 init_src();
-var qml9 = importQml("QtQuick"), dms5 = importQml("qs.DankCommon.Widgets"), SectionTitle = component("SectionTitle", ({ text: text2, width: width2 = "fill", objectName }) => /* @__PURE__ */ jsxDEV(qml9.Item, { objectName, width: width2, height: 30, children: /* @__PURE__ */ jsxDEV(
+var qml9 = importQml("QtQuick"), dms5 = importQml("qs.DCommon.Widgets"), SectionTitle = component("SectionTitle", ({ text: text2, width: width2 = "fill", objectName }) => /* @__PURE__ */ jsxDEV(qml9.Item, { objectName, width: width2, height: 30, children: /* @__PURE__ */ jsxDEV(
   dms5.StyledText,
   {
     width: "fill",
@@ -4859,7 +4859,7 @@ var qml11 = importQml("QtQuick"), PlaceButton = component(
     return scope.id("root"), scope.id("menu"), /* @__PURE__ */ jsxDEV(
       QuietButton,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           drive: { type: "bool", value: !1 },
@@ -5104,7 +5104,7 @@ var nativeQuick = importQml("QtQuick"), PlaceItem = component("PlaceItem", ({ pl
 }));
 
 // src/components/Sidebar.tsx
-var nativeWidgets = importQml("qs.DankCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2 }) => {
+var nativeWidgets = importQml("qs.DCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2 }) => {
   let hasDrives = computed(() => manager2.drives().length > 0), hasGames = computed(() => manager2.games().length > 0), showSidebarSpecial = () => manager2.preferences?.().showSidebarSpecial ?? !0, showSidebarPlaces = () => manager2.preferences?.().showSidebarPlaces ?? !0, showSidebarVolumes = () => manager2.preferences?.().showSidebarVolumes ?? !0, showSidebarGames = () => manager2.preferences?.().showSidebarGames ?? !0;
   return /* @__PURE__ */ jsxDEV(nativeQuick2.Column, { width: "fill", spacing: 4, children: [
     /* @__PURE__ */ jsxDEV(Show, { when: showSidebarSpecial, children: () => /* @__PURE__ */ jsxDEV(QuietButton, { width: "fill", iconName: "applications-other", selected: () => manager2.path?.() === "applications:///", text: t("Aplicativos"), onClicked: () => {
@@ -5374,7 +5374,7 @@ var qml14 = importQml("QtQuick"), pdf = importQml("QtQuick.Pdf"), PdfPreview = c
   return scope.id("root"), scope.id("document"), scope.id("view"), /* @__PURE__ */ jsxDEV(
     qml14.Item,
     {
-      qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+      qmlImports: ["Quickshell", "qs.DCommon.Common"],
       qmlId: scope.id("root"),
       qmlDeclarations: {
         source: { type: "url", value: "" },
@@ -5490,7 +5490,7 @@ var qt2 = importQml("QtQml"), qml15 = importQml("QtQuick"), controls7 = importQm
     return scope.id("root"), scope.id("image"), scope.id("pdf"), scope.id("video"), scope.id("pan"), /* @__PURE__ */ jsxDEV(
       qml15.Rectangle,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           source: { type: "url", value: "" },
@@ -5741,7 +5741,7 @@ var qt2 = importQml("QtQml"), qml15 = importQml("QtQuick"), controls7 = importQm
 );
 
 // src/components/DetailsPanel.tsx
-var nativeWidgets2 = importQml("qs.DankCommon.Widgets"), nativeQuick3 = importQml("QtQuick"), DetailsPanel = component("DetailsPanel", ({ manager: manager2 }) => {
+var nativeWidgets2 = importQml("qs.DCommon.Widgets"), nativeQuick3 = importQml("QtQuick"), DetailsPanel = component("DetailsPanel", ({ manager: manager2 }) => {
   let application = computed(() => manager2.path() === "applications:///"), file = computed(() => manager2.selected()), permissions = computed(() => {
     let mode = parseInt(manager2.selectedDetails()?.permissions ?? "0", 8), describe = (bits) => [bits & 4 ? t("ler") : "", bits & 2 ? t("alterar") : "", bits & 1 ? file()?.directory ? t("acessar") : t("executar") : ""].filter(Boolean).join(", ") || t("sem acesso");
     return manager2.selectedDetails() ? t("Propriet\xE1rio: {owner} \xB7 Grupo: {group} \xB7 Outros: {others}", { owner: describe(mode >> 6 & 7), group: describe(mode >> 3 & 7), others: describe(mode & 7) }) : "";
@@ -5897,7 +5897,7 @@ var nativeWidgets2 = importQml("qs.DankCommon.Widgets"), nativeQuick3 = importQm
 // src/components/PreferencesContent.tsx
 init_i18n2();
 init_src();
-var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), PreferencesContent = component("PreferencesContent", ({ preferences, onChanged }) => /* @__PURE__ */ jsxDEV(qml16.Column, { width: 480, spacing: 18, children: [
+var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DCommon.Widgets"), PreferencesContent = component("PreferencesContent", ({ preferences, onChanged }) => /* @__PURE__ */ jsxDEV(qml16.Column, { width: 480, spacing: 18, children: [
   /* @__PURE__ */ jsxDEV(SectionTitle, { text: t("APAR\xCANCIA") }, void 0, !1, {
     fileName: "src/components/PreferencesContent.tsx",
     lineNumber: 11,
@@ -5909,7 +5909,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     columnNumber: 3
   }),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankSlider,
+    dms6.DSlider,
     {
       objectName: "preferencesGrid",
       width: "fill",
@@ -5929,7 +5929,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       objectName: "preferencesThumbnails",
       width: "fill",
@@ -5946,7 +5946,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       objectName: "preferencesDetailsAlwaysVisible",
       width: "fill",
@@ -5969,7 +5969,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     columnNumber: 3
   }),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       width: "fill",
       text: t("Ordenar pastas antes dos arquivos"),
@@ -5985,7 +5985,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       width: "fill",
       text: t("Abrir com clique \xFAnico"),
@@ -6002,7 +6002,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       width: "fill",
       text: t("Mostrar a\xE7\xE3o de terminal"),
@@ -6018,7 +6018,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       objectName: "preferencesShowSidebarSpecial",
       width: "fill",
@@ -6035,7 +6035,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       objectName: "preferencesShowSidebarPlaces",
       width: "fill",
@@ -6052,7 +6052,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       objectName: "preferencesShowSidebarVolumes",
       width: "fill",
@@ -6069,7 +6069,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       objectName: "preferencesShowSidebarGames",
       width: "fill",
@@ -6086,7 +6086,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
     }
   ),
   /* @__PURE__ */ jsxDEV(
-    dms6.DankToggle,
+    dms6.DToggle,
     {
       objectName: "preferencesReduceAnimations",
       width: "fill",
@@ -6117,7 +6117,7 @@ var qml16 = importQml("QtQuick"), dms6 = importQml("qs.DankCommon.Widgets"), Pre
 // src/components/FolderList.tsx
 init_i18n2();
 init_src();
-var nativeWidgets3 = importQml("qs.DankCommon.Widgets"), FolderList = component("FolderList", ({ folders, enabled, onChosen }) => /* @__PURE__ */ jsxDEV(qml.ScrollView, { objectName: "destinationFolders", width: 480, height: 300, children: /* @__PURE__ */ jsxDEV(qml.Column, { width: "fill", spacing: 4, children: [
+var nativeWidgets3 = importQml("qs.DCommon.Widgets"), FolderList = component("FolderList", ({ folders, enabled, onChosen }) => /* @__PURE__ */ jsxDEV(qml.ScrollView, { objectName: "destinationFolders", width: 480, height: 300, children: /* @__PURE__ */ jsxDEV(qml.Column, { width: "fill", spacing: 4, children: [
   /* @__PURE__ */ jsxDEV(For, { each: folders, by: (folder) => folder.path, children: (folder) => /* @__PURE__ */ jsxDEV(
     QuietButton,
     {
@@ -6170,7 +6170,7 @@ var qml17 = importQml("QtQuick"), effects = importQml("QtQuick.Effects"), EntryI
   return scope.id("root"), scope.id("image"), /* @__PURE__ */ jsxDEV(
     qml17.Item,
     {
-      qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+      qmlImports: ["Quickshell", "qs.DCommon.Common"],
       qmlId: scope.id("root"),
       qmlDeclarations: {
         source: { type: "url", value: "" },
@@ -6267,7 +6267,7 @@ var qml17 = importQml("QtQuick"), effects = importQml("QtQuick.Effects"), EntryI
 });
 
 // src/components/AppearancePalette.tsx
-var nativeWidgets4 = importQml("qs.DankCommon.Widgets"), qml18 = importQml("QtQuick"), controls8 = importQml("QtQuick.Controls"), colors = ["", "#448aff", "#66bb6a", "#ffb74d", "#ef5350", "#ab47bc", "#26a69a", "#ec407a"], pageSize = 35, AppearancePalette = component("AppearancePalette", (props) => {
+var nativeWidgets4 = importQml("qs.DCommon.Widgets"), qml18 = importQml("QtQuick"), controls8 = importQml("QtQuick.Controls"), colors = ["", "#448aff", "#66bb6a", "#ffb74d", "#ef5350", "#ab47bc", "#26a69a", "#ec407a"], pageSize = 35, AppearancePalette = component("AppearancePalette", (props) => {
   let { manager: manager2, colorValue, emblemValue, iconValue, onColorChosen, onEmblemChosen, onIconChosen } = props, tab = signal("emblems"), search = signal(""), page = signal(0), palette = (key, fallback) => manager2.palette()[key] || fallback, filtered = computed(() => [{ name: t("Nenhum"), source: "" }, ...manager2.iconCatalog()[tab()]].filter((item2) => item2.name.toLocaleLowerCase().includes(search().toLocaleLowerCase())));
   effect(() => {
     tab(), search(), manager2.iconCatalog(), page.set(0);
@@ -6507,7 +6507,7 @@ var dialogs = importQml("QtQuick.Dialogs"), IconPicker = component(
 // src/components/FolderAppearanceDialog.tsx
 init_i18n2();
 init_src();
-var nativeLayouts = importQml("QtQuick.Layouts"), nativeQuick4 = importQml("QtQuick"), nativeWidgets5 = importQml("qs.DankCommon.Widgets"), FolderAppearanceDialog = component("FolderAppearanceDialog", ({ manager: manager2 }) => {
+var nativeLayouts = importQml("QtQuick.Layouts"), nativeQuick4 = importQml("QtQuick"), nativeWidgets5 = importQml("qs.DCommon.Widgets"), FolderAppearanceDialog = component("FolderAppearanceDialog", ({ manager: manager2 }) => {
   let color = signal(""), emblem = signal(""), icon = signal("");
   return effect(() => {
     if (manager2.appearanceOpen()) {
@@ -6553,7 +6553,7 @@ var nativeLayouts = importQml("QtQuick.Layouts"), nativeQuick4 = importQml("QtQu
         lineNumber: 23,
         columnNumber: 9
       }),
-      /* @__PURE__ */ jsxDEV(nativeWidgets5.DankButton, { objectName: "appearanceSave", text: t("Salvar"), onClicked: () => {
+      /* @__PURE__ */ jsxDEV(nativeWidgets5.DButton, { objectName: "appearanceSave", text: t("Salvar"), onClicked: () => {
         manager2.saveFolderAppearance({ color: color(), emblem: emblem(), icon: icon() });
       } }, void 0, !1, {
         fileName: "src/components/FolderAppearanceDialog.tsx",
@@ -6615,7 +6615,7 @@ var qml20 = importQml("QtQuick"), layouts7 = importQml("QtQuick.Layouts"), contr
     return scope.id("root"), /* @__PURE__ */ jsxDEV(
       qml20.Column,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           mode: { type: "int", value: 420 }
@@ -6739,7 +6739,7 @@ var qml20 = importQml("QtQuick"), layouts7 = importQml("QtQuick.Layouts"), contr
 // src/native/PreviewContent.tsx
 init_i18n2();
 init_src();
-var qml21 = importQml("QtQuick"), layouts8 = importQml("QtQuick.Layouts"), dms7 = importQml("qs.DankCommon.Widgets"), PreviewContent = component(
+var qml21 = importQml("QtQuick"), layouts8 = importQml("QtQuick.Layouts"), dms7 = importQml("qs.DCommon.Widgets"), PreviewContent = component(
   "PreviewContent",
   (props) => {
     let scope = createQmlScope({ ...props.qmlId ? { root: props.qmlId } : {}, app: "app" });
@@ -6753,7 +6753,7 @@ var qml21 = importQml("QtQuick"), layouts8 = importQml("QtQuick.Layouts"), dms7 
     }), /* @__PURE__ */ jsxDEV(
       qml21.Item,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           source: { type: "url", value: "" },
@@ -6901,7 +6901,7 @@ var qml21 = importQml("QtQuick"), layouts8 = importQml("QtQuick.Layouts"), dms7 
             }
           ),
           /* @__PURE__ */ jsxDEV(
-            dms7.DankButton,
+            dms7.DButton,
             {
               objectName: "previewClose",
               text: t("Fechar"),
@@ -6936,7 +6936,7 @@ var qml21 = importQml("QtQuick"), layouts8 = importQml("QtQuick.Layouts"), dms7 
 // src/native/ApplicationChooser.tsx
 init_i18n2();
 init_src();
-var qml22 = importQml("QtQuick"), qt3 = importQml("QtQml"), dms8 = importQml("qs.DankCommon.Widgets"), controls10 = importQml("QtQuick.Controls"), ApplicationChooser = component(
+var qml22 = importQml("QtQuick"), qt3 = importQml("QtQml"), dms8 = importQml("qs.DCommon.Widgets"), controls10 = importQml("QtQuick.Controls"), ApplicationChooser = component(
   "ApplicationChooser",
   (props) => {
     props = {
@@ -6952,7 +6952,7 @@ var qml22 = importQml("QtQuick"), qt3 = importQml("QtQml"), dms8 = importQml("qs
     return /* @__PURE__ */ jsxDEV(
       qml22.Column,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           applications: {
@@ -6967,7 +6967,7 @@ var qml22 = importQml("QtQuick"), qt3 = importQml("QtQml"), dms8 = importQml("qs
         ...props,
         children: [
           /* @__PURE__ */ jsxDEV(
-            dms8.DankTextField,
+            dms8.DTextField,
             {
               qmlId: scope.id("search"),
               objectName: "chooserSearch",
@@ -7070,7 +7070,7 @@ var qml22 = importQml("QtQuick"), qt3 = importQml("QtQml"), dms8 = importQml("qs
 );
 
 // src/components/FileDialogs.tsx
-var nativeLayouts2 = importQml("QtQuick.Layouts"), nativeControls = importQml("QtQuick.Controls"), nativeQuick5 = importQml("QtQuick"), nativeWidgets6 = importQml("qs.DankCommon.Widgets"), NameDialog = component("NameDialog", ({ manager: manager2 }) => {
+var nativeLayouts2 = importQml("QtQuick.Layouts"), nativeControls = importQml("QtQuick.Controls"), nativeQuick5 = importQml("QtQuick"), nativeWidgets6 = importQml("qs.DCommon.Widgets"), NameDialog = component("NameDialog", ({ manager: manager2 }) => {
   let name = signal("");
   return effect(() => {
     name.set(manager2.editRequest()?.name ?? "");
@@ -7116,12 +7116,12 @@ var nativeLayouts2 = importQml("QtQuick.Layouts"), nativeControls = importQml("Q
           columnNumber: 7
         }),
         /* @__PURE__ */ jsxDEV(nativeLayouts2.RowLayout, { width: "fill", children: [
-          /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { objectName: "editCancel", text: t("Cancelar"), enabled: () => !manager2.mutating(), onClicked: manager2.cancelEdit }, void 0, !1, {
+          /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { objectName: "editCancel", text: t("Cancelar"), enabled: () => !manager2.mutating(), onClicked: manager2.cancelEdit }, void 0, !1, {
             fileName: "src/components/FileDialogs.tsx",
             lineNumber: 33,
             columnNumber: 9
           }),
-          /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { objectName: "editSave", text: () => manager2.mutating() ? t("Salvando\u2026") : t("Salvar"), enabled: () => !manager2.mutating(), onClicked: () => {
+          /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { objectName: "editSave", text: () => manager2.mutating() ? t("Salvando\u2026") : t("Salvar"), enabled: () => !manager2.mutating(), onClicked: () => {
             manager2.submitEdit(name());
           } }, void 0, !1, {
             fileName: "src/components/FileDialogs.tsx",
@@ -7186,12 +7186,12 @@ var nativeLayouts2 = importQml("QtQuick.Layouts"), nativeControls = importQml("Q
           columnNumber: 7
         }),
         /* @__PURE__ */ jsxDEV(nativeLayouts2.RowLayout, { width: "fill", children: [
-          /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { text: t("Cancelar"), enabled: () => !manager2.mutating(), onClicked: manager2.cancelEdit }, void 0, !1, {
+          /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { text: t("Cancelar"), enabled: () => !manager2.mutating(), onClicked: manager2.cancelEdit }, void 0, !1, {
             fileName: "src/components/FileDialogs.tsx",
             lineNumber: 50,
             columnNumber: 9
           }),
-          /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { objectName: "destinationConfirm", text: t("Escolher esta pasta"), enabled: () => !manager2.destinationBusy() && !manager2.mutating(), onClicked: () => {
+          /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { objectName: "destinationConfirm", text: t("Escolher esta pasta"), enabled: () => !manager2.destinationBusy() && !manager2.mutating(), onClicked: () => {
             manager2.confirmDestination();
           } }, void 0, !1, {
             fileName: "src/components/FileDialogs.tsx",
@@ -7247,26 +7247,26 @@ var nativeLayouts2 = importQml("QtQuick.Layouts"), nativeControls = importQml("Q
       columnNumber: 7
     }),
     /* @__PURE__ */ jsxDEV(nativeLayouts2.RowLayout, { width: "fill", children: [
-      /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { text: t("Cancelar"), enabled: () => !manager2.mutating(), onClicked: manager2.cancelConflict }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { text: t("Cancelar"), enabled: () => !manager2.mutating(), onClicked: manager2.cancelConflict }, void 0, !1, {
         fileName: "src/components/FileDialogs.tsx",
         lineNumber: 68,
         columnNumber: 9
       }),
-      /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { text: t("Ignorar"), enabled: () => !manager2.mutating(), onClicked: () => {
+      /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { text: t("Ignorar"), enabled: () => !manager2.mutating(), onClicked: () => {
         manager2.resolveConflict("skip");
       } }, void 0, !1, {
         fileName: "src/components/FileDialogs.tsx",
         lineNumber: 69,
         columnNumber: 9
       }),
-      /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { objectName: "conflictRename", text: t("Renomear"), enabled: () => !manager2.mutating(), onClicked: () => {
+      /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { objectName: "conflictRename", text: t("Renomear"), enabled: () => !manager2.mutating(), onClicked: () => {
         manager2.resolveConflict("rename", name());
       } }, void 0, !1, {
         fileName: "src/components/FileDialogs.tsx",
         lineNumber: 70,
         columnNumber: 9
       }),
-      /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { text: t("Substituir"), enabled: () => !manager2.mutating(), onClicked: () => {
+      /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { text: t("Substituir"), enabled: () => !manager2.mutating(), onClicked: () => {
         manager2.resolveConflict("replace");
       } }, void 0, !1, {
         fileName: "src/components/FileDialogs.tsx",
@@ -7317,7 +7317,7 @@ var nativeLayouts2 = importQml("QtQuick.Layouts"), nativeControls = importQml("Q
         lineNumber: 86,
         columnNumber: 45
       }),
-      /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { objectName: "permissionsSave", text: t("Salvar"), enabled: () => !manager2.mutating(), onClicked: () => {
+      /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { objectName: "permissionsSave", text: t("Salvar"), enabled: () => !manager2.mutating(), onClicked: () => {
         manager2.savePermissions(mode());
       } }, void 0, !1, {
         fileName: "src/components/FileDialogs.tsx",
@@ -7411,7 +7411,7 @@ var nativeLayouts2 = importQml("QtQuick.Layouts"), nativeControls = importQml("Q
           columnNumber: 9
         }
       ),
-      /* @__PURE__ */ jsxDEV(nativeWidgets6.DankButton, { objectName: "preferencesClose", text: t("Fechar"), onClicked: manager2.closePreferences }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV(nativeWidgets6.DButton, { objectName: "preferencesClose", text: t("Fechar"), onClicked: manager2.closePreferences }, void 0, !1, {
         fileName: "src/components/FileDialogs.tsx",
         lineNumber: 107,
         columnNumber: 9
@@ -8258,24 +8258,29 @@ function createUiTransport(send, timeoutMs = 5e3) {
   };
 }
 
+// scripts/dms-source.mjs
+function adaptDmsQml(source, legacy = process.env.NANDOMO_FM_DMS_LEGACY === "1") {
+  return legacy ? source.replaceAll("qs.DCommon.", "qs.DankCommon.").replace(/(^[ \t]*|\.)(DButton|DTextField|DSlider|DToggle|DIcon)\b/gm, (_, prefix, name) => prefix + "Dank" + name.slice(1)) : source;
+}
+
 // src/infrastructure/quickshellScene.ts
 init_src();
 function createQuickshellScene(tree, context, onError, patch, request) {
   let bindings = signal({}), scene = createNativeScene(
     tree,
     (key, value2) => bindings.set({ ...bindings.peek(), [key]: value2 }),
-    patch,
+    patch ? (command) => patch("source" in command && typeof command.source == "string" ? { ...command, source: adaptDmsQml(command.source) } : command) : void 0,
     onError,
     {
       fragment: !0,
       dynamicFragments: !!patch,
       context,
-      imports: ["qs.DankCommon.Common"],
+      imports: ["qs.DCommon.Common"],
       dialogAppearance: { background: qmlExpression(createQmlScope(), (_objects) => Style.surfaceContainerHigh), foreground: qmlExpression(createQmlScope(), (_objects) => Style.surfaceText) }
     }
   );
   return {
-    snapshot: () => ({ source: scene.source, bindings: bindings() }),
+    snapshot: () => ({ source: adaptDmsQml(scene.source), bindings: bindings() }),
     dispatch: scene.dispatch,
     mount: () => scene.mount((name) => {
       if (!request) throw new Error("Native reference transport unavailable");

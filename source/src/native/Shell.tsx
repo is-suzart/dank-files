@@ -61,7 +61,7 @@ export const Shell = component<Record<string, any>>("Shell", (props) => {
   scope.id("detailsSlot");
   return (
     <shell.ShellRoot
-      qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+      qmlImports={["Quickshell", "qs.DCommon.Common"]}
       qmlId={scope.id("app")}
       qmlDeclarations={{
         state: {

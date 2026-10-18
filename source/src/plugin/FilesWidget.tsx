@@ -6,15 +6,15 @@ const widgets = native.importQml('qs.Widgets');
 const qt = native.importQml('QtQml');
 const PluginComponent = plugins.PluginComponent!;
 const DankIcon = widgets.DankIcon!;
-declare const Qt: any, Quickshell: any, Theme: any;
+declare const Qt: any, Quickshell: any, Theme: any, root: any;
 
 export function renderFilesWidget() {
-  const scope = createQmlScope();
+  const scope = createQmlScope({root:"root"});
   const icon = () => <qt.Component>
-    <DankIcon name="folder" size={24} color={qmlExpression(scope, () => Theme.surfaceText)} />
+    <DankIcon name="folder" size={qmlExpression(scope, ($qml) => $qml.root.iconSize)} color={qmlExpression(scope, () => Theme.surfaceText)} />
   </qt.Component>;
   const scene = createNativeScene(
-    <PluginComponent
+    <PluginComponent qmlId={scope.id("root")}
       qmlImports={['Quickshell', 'qs.Common']}
       // DMS forwards hover activation to pillClickAction by default.
       qmlMethods={{triggerHoverPopout: qmlHandler(scope, () => {})}}

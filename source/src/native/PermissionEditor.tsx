@@ -29,7 +29,7 @@ export const PermissionEditor = component<PermissionEditorProps>(
     scope.id("root");
     return (
       <qml.Column
-        qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+        qmlImports={["Quickshell", "qs.DCommon.Common"]}
         qmlId={scope.id("root")}
         qmlDeclarations={{
           mode: { type: "int", value: 420 },

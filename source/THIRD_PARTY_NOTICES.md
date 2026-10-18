@@ -6,6 +6,9 @@ trademarks. The current plugin distribution does not bundle Qt, Quickshell,
 DMS, GTK or icon-theme binaries/assets; they are installed separately.
 
 - **Dank Material Shell**: MIT. [Upstream license](https://github.com/AvengeMedia/DankMaterialShell/blob/master/LICENSE).
+- **DCommon shared QML widgets**: current SDK files include Apache-2.0 notices.
+  The SDK is supplied by the installed DMS and is not bundled here; see
+  [dank-qml-common](https://github.com/AvengeMedia/dank-qml-common).
 - **Quickshell**: LGPL version 3. [Upstream license](https://github.com/quickshell-mirror/quickshell/blob/master/LICENSE).
 - **Qt**: module-specific licensing, including LGPL, GPL and commercial options.
   [Qt licensing](https://doc.qt.io/qt-6/licensing.html).

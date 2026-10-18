@@ -10,7 +10,7 @@ const qml = importQml("QtQuick");
 const layouts = importQml("QtQuick.Layouts");
 import { FilePreview } from "./FilePreview.js";
 import { QuietButton } from "./QuietButton.js";
-const dms = importQml("qs.DankCommon.Widgets");
+const dms = importQml("qs.DCommon.Widgets");
 declare let ApplicationWindow: any,
   maxWidth: any,
   maxHeight: any,
@@ -37,7 +37,7 @@ export const PreviewContent = component<PreviewContentProps>(
     effect(() => { if(typeof props.source === "function") props.source(); zoom.set(1); angle.set(0); resetToken.set(resetToken.peek()+1); });
     return (
       <qml.Item
-        qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+        qmlImports={["Quickshell", "qs.DCommon.Common"]}
         qmlId={scope.id("root")}
         qmlDeclarations={{
           source: { type: "url", value: "" },
@@ -130,7 +130,7 @@ export const PreviewContent = component<PreviewContentProps>(
             $qml.root.opened();
           })}
         />
-        <dms.DankButton
+        <dms.DButton
           objectName="previewClose"
           text={t('Fechar')}
           {...{

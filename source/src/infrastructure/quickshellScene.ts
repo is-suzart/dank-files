@@ -1,3 +1,4 @@
+import { adaptDmsQml } from '../../scripts/dms-source.mjs';
 import { signal } from '@nandomo/core';
 import { createNativeScene, createQmlScope, qmlExpression, type QmlObject } from '@nandomo/bridge-qml';
 
@@ -8,11 +9,11 @@ export function createQuickshellScene(tree:unknown, context:string, onError:(err
   patch?: (command:object)=>Promise<void>, request?: (command:object)=>Promise<unknown>) {
   const bindings=signal<Record<string,unknown>>({});
   const scene=createNativeScene(tree,
-    (key,value)=>bindings.set({...bindings.peek(),[key]:value}),patch,onError,
-    {fragment:true,dynamicFragments:!!patch,context,imports:['qs.DankCommon.Common'],
+    (key,value)=>bindings.set({...bindings.peek(),[key]:value}),patch ? command=>patch('source' in command && typeof command.source==='string' ? {...command,source:adaptDmsQml(command.source)} : command) : undefined,onError,
+    {fragment:true,dynamicFragments:!!patch,context,imports:['qs.DCommon.Common'],
       dialogAppearance:{background:qmlExpression(createQmlScope(),(_objects)=>Style.surfaceContainerHigh),foreground:qmlExpression(createQmlScope(),(_objects)=>Style.surfaceText)}});
   return {
-    snapshot:()=>({source:scene.source,bindings:bindings()}),
+    snapshot:()=>({source:adaptDmsQml(scene.source),bindings:bindings()}),
     dispatch:scene.dispatch,
     mount:()=>scene.mount(name => {
       if(!request) throw new Error('Native reference transport unavailable');

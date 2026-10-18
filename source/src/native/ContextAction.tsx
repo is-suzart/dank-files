@@ -7,7 +7,7 @@ import {
 } from "@nandomo/bridge-qml";
 const controls = importQml("QtQuick.Controls");
 const layouts = importQml("QtQuick.Layouts");
-const dms = importQml("qs.DankCommon.Widgets");
+const dms = importQml("qs.DCommon.Widgets");
 const qml = importQml("QtQuick");
 declare let visible: any, Style: any;
 type Binding<T> = T | (() => T);
@@ -21,7 +21,7 @@ export const ContextAction = component<ContextActionProps>(
     scope.id("root");
     return (
       <controls.MenuItem
-        qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+        qmlImports={["Quickshell", "qs.DCommon.Common"]}
         qmlId={scope.id("root")}
         qmlDeclarations={{
           hint: { type: "string", value: "" },

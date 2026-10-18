@@ -3875,23 +3875,28 @@ function createUiTransport(send, timeoutMs = 5e3) {
   };
 }
 
+// scripts/dms-source.mjs
+function adaptDmsQml(source, legacy = process.env.NANDOMO_FM_DMS_LEGACY === "1") {
+  return legacy ? source.replaceAll("qs.DCommon.", "qs.DankCommon.").replace(/(^[ \t]*|\.)(DButton|DTextField|DSlider|DToggle|DIcon)\b/gm, (_, prefix, name) => prefix + "Dank" + name.slice(1)) : source;
+}
+
 // src/infrastructure/quickshellScene.ts
 function createQuickshellScene(tree, context, onError, patch, request2) {
   let bindings = signal({}), scene = createNativeScene(
     tree,
     (key, value) => bindings.set({ ...bindings.peek(), [key]: value }),
-    patch,
+    patch ? (command) => patch("source" in command && typeof command.source == "string" ? { ...command, source: adaptDmsQml(command.source) } : command) : void 0,
     onError,
     {
       fragment: !0,
       dynamicFragments: !!patch,
       context,
-      imports: ["qs.DankCommon.Common"],
+      imports: ["qs.DCommon.Common"],
       dialogAppearance: { background: qmlExpression(createQmlScope(), (_objects) => Style.surfaceContainerHigh), foreground: qmlExpression(createQmlScope(), (_objects) => Style.surfaceText) }
     }
   );
   return {
-    snapshot: () => ({ source: scene.source, bindings: bindings() }),
+    snapshot: () => ({ source: adaptDmsQml(scene.source), bindings: bindings() }),
     dispatch: scene.dispatch,
     mount: () => scene.mount((name) => {
       if (!request2) throw new Error("Native reference transport unavailable");
@@ -4469,7 +4474,7 @@ function jsxDEV(tag, props, _key, _isStatic, _source, _self) {
 }
 
 // src/native/QuietButton.tsx
-var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layouts = importQml("QtQuick.Layouts"), dms = importQml("qs.DankCommon.Widgets"), QuietButton = component(
+var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layouts = importQml("QtQuick.Layouts"), dms = importQml("qs.DCommon.Widgets"), QuietButton = component(
   "QuietButton",
   (props) => {
     let { qmlDeclarations: inheritedDeclarations, ...rest } = props;
@@ -4478,7 +4483,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
     return scope.id("root"), /* @__PURE__ */ jsxDEV(
       controls.Button,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           iconName: { type: "string", value: "" },
@@ -4641,7 +4646,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
                 }
               ),
               /* @__PURE__ */ jsxDEV(
-                dms.DankIcon,
+                dms.DIcon,
                 {
                   visible: qmlExpression(
                     scope,
@@ -4704,7 +4709,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
         ...props,
         children: [
           /* @__PURE__ */ jsxDEV(
-            dms.DankIcon,
+            dms.DIcon,
             {
               "anchors.right": qmlExpression(scope, ($qml) => parent.right),
               "anchors.rightMargin": 8,
@@ -4743,7 +4748,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
 );
 
 // src/components/SectionTitle.tsx
-var qml2 = importQml("QtQuick"), dms2 = importQml("qs.DankCommon.Widgets"), SectionTitle = component("SectionTitle", ({ text: text3, width = "fill", objectName }) => /* @__PURE__ */ jsxDEV(qml2.Item, { objectName, width, height: 30, children: /* @__PURE__ */ jsxDEV(
+var qml2 = importQml("QtQuick"), dms2 = importQml("qs.DCommon.Widgets"), SectionTitle = component("SectionTitle", ({ text: text3, width = "fill", objectName }) => /* @__PURE__ */ jsxDEV(qml2.Item, { objectName, width, height: 30, children: /* @__PURE__ */ jsxDEV(
   dms2.StyledText,
   {
     width: "fill",
@@ -4820,7 +4825,7 @@ var controls2 = importQml("QtQuick.Controls"), qml4 = importQml("QtQuick"), AppM
   return /* @__PURE__ */ jsxDEV(
     controls2.Menu,
     {
-      qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+      qmlImports: ["Quickshell", "qs.DCommon.Common"],
       padding: 6,
       overlap: 0,
       implicitWidth: 260,
@@ -4856,14 +4861,14 @@ var controls2 = importQml("QtQuick.Controls"), qml4 = importQml("QtQuick"), AppM
 });
 
 // src/native/ContextAction.tsx
-var controls3 = importQml("QtQuick.Controls"), layouts2 = importQml("QtQuick.Layouts"), dms3 = importQml("qs.DankCommon.Widgets"), qml5 = importQml("QtQuick"), ContextAction = component(
+var controls3 = importQml("QtQuick.Controls"), layouts2 = importQml("QtQuick.Layouts"), dms3 = importQml("qs.DCommon.Widgets"), qml5 = importQml("QtQuick"), ContextAction = component(
   "ContextAction",
   (props) => {
     let scope = createQmlScope({ ...props.qmlId ? { root: props.qmlId } : {}, app: "app" });
     return scope.id("root"), /* @__PURE__ */ jsxDEV(
       controls3.MenuItem,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           hint: { type: "string", value: "" }
@@ -4984,7 +4989,7 @@ var qml6 = importQml("QtQuick"), PlaceButton = component(
     return scope.id("root"), scope.id("menu"), /* @__PURE__ */ jsxDEV(
       QuietButton,
       {
-        qmlImports: ["Quickshell", "qs.DankCommon.Common"],
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
         qmlDeclarations: {
           drive: { type: "bool", value: !1 },
@@ -5228,7 +5233,7 @@ var nativeQuick = importQml("QtQuick"), PlaceItem = component("PlaceItem", ({ pl
 }));
 
 // src/components/Sidebar.tsx
-var nativeWidgets = importQml("qs.DankCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2 }) => {
+var nativeWidgets = importQml("qs.DCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2 }) => {
   let hasDrives = computed(() => manager2.drives().length > 0), hasGames = computed(() => manager2.games().length > 0), showSidebarSpecial = () => manager2.preferences?.().showSidebarSpecial ?? !0, showSidebarPlaces = () => manager2.preferences?.().showSidebarPlaces ?? !0, showSidebarVolumes = () => manager2.preferences?.().showSidebarVolumes ?? !0, showSidebarGames = () => manager2.preferences?.().showSidebarGames ?? !0;
   return /* @__PURE__ */ jsxDEV(nativeQuick2.Column, { width: "fill", spacing: 4, children: [
     /* @__PURE__ */ jsxDEV(Show, { when: showSidebarSpecial, children: () => /* @__PURE__ */ jsxDEV(QuietButton, { width: "fill", iconName: "applications-other", selected: () => manager2.path?.() === "applications:///", text: t("Aplicativos"), onClicked: () => {
@@ -5386,10 +5391,10 @@ var nativeWidgets = importQml("qs.DankCommon.Widgets"), nativeQuick2 = importQml
 });
 
 // src/components/NativeTextField.tsx
-var dms4 = importQml("qs.DankCommon.Widgets"), NativeTextField = component(
+var dms4 = importQml("qs.DCommon.Widgets"), NativeTextField = component(
   "NativeTextField",
   ({ onTextEdited, onAccepted, ...props }) => /* @__PURE__ */ jsxDEV(
-    dms4.DankTextField,
+    dms4.DTextField,
     {
       ...props,
       ...onTextEdited ? { onTextEdited: qmlReadEvent(["text"], onTextEdited) } : {},
@@ -5406,7 +5411,7 @@ var dms4 = importQml("qs.DankCommon.Widgets"), NativeTextField = component(
 );
 
 // src/portal/app.tsx
-var qml8 = importQml("QtQuick"), dms5 = importQml("qs.DankCommon.Widgets"), controls4 = importQml("QtQuick.Controls"), layouts3 = importQml("QtQuick.Layouts"), ChooserHeader = component(
+var qml8 = importQml("QtQuick"), dms5 = importQml("qs.DCommon.Widgets"), controls4 = importQml("QtQuick.Controls"), layouts3 = importQml("QtQuick.Layouts"), ChooserHeader = component(
   "ChooserHeader",
   ({ manager: manager2, chooser: chooser2 }) => /* @__PURE__ */ jsxDEV(layouts3.ColumnLayout, { objectName: "chooserHeader", spacing: 6, "Layout.fillWidth": !0, children: [
     /* @__PURE__ */ jsxDEV(layouts3.RowLayout, { spacing: 6, "Layout.fillWidth": !0, children: [

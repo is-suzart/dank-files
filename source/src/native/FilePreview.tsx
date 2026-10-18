@@ -40,7 +40,7 @@ export const FilePreview = component<FilePreviewProps>(
     scope.id("pan");
     return (
       <qml.Rectangle
-        qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+        qmlImports={["Quickshell", "qs.DCommon.Common"]}
         qmlId={scope.id("root")}
         qmlDeclarations={{
           source: { type: "url", value: "" },

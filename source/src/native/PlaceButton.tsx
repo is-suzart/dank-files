@@ -33,7 +33,7 @@ export const PlaceButton = component<PlaceButtonProps>(
     scope.id("menu");
     return (
       <QuietButton
-        qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+        qmlImports={["Quickshell", "qs.DCommon.Common"]}
         qmlId={scope.id("root")}
         qmlDeclarations={{
           drive: { type: "bool", value: false },

@@ -9,9 +9,10 @@ import qs.Widgets
 
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent"}
 PluginComponent {
-id: n0
+id: root
 objectName: "n0"
 function triggerHoverPopout() { return (() => { const __name = function(fn) { return fn; }; return (()=>{})({}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent","property":"qmlId"}
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent","property":"qmlMethods"}
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent","property":"pillClickAction"}
@@ -30,7 +31,7 @@ objectName: "n2"
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":14,"columnNumber":5,"component":"qml:DankIcon","property":"name"}
 name: "folder"
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":14,"columnNumber":5,"component":"qml:DankIcon","property":"size"}
-size: 24
+size: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.iconSize)({"root": root}); })()
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":14,"columnNumber":5,"component":"qml:DankIcon","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return (()=>Theme.surfaceText)({}); })()
 }
@@ -49,7 +50,7 @@ objectName: "n4"
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":14,"columnNumber":5,"component":"qml:DankIcon","property":"name"}
 name: "folder"
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":14,"columnNumber":5,"component":"qml:DankIcon","property":"size"}
-size: 24
+size: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.iconSize)({"root": root}); })()
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":14,"columnNumber":5,"component":"qml:DankIcon","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return (()=>Theme.surfaceText)({}); })()
 }

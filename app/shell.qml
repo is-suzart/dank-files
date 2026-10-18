@@ -4,10 +4,10 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
-import qs.DankCommon.Common
+import qs.DCommon.Common
 import QtQml
 import Quickshell.Io
-import qs.DankCommon.Widgets
+import qs.DCommon.Widgets
 import QtQuick.Effects
 import QtQuick.Pdf
 import QtMultimedia
@@ -5208,23 +5208,23 @@ Layout.alignment: (() => { const __name = function(fn) { return fn; }; return ($
 fillMode: (() => { const __name = function(fn) { return fn; }; return ($qml=>Image.PreserveAspectFit)({}); })()
 }
 
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon"}
-DankIcon {
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon"}
+DIcon {
 id: n350
 objectName: "n350"
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"visible"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon","property":"visible"}
 visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.actionIcon.length>0)({"root": ndScope39_root}); })()
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"name"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon","property":"name"}
 name: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.actionIcon)({"root": ndScope39_root}); })()
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"color"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Style.surfaceText)({}); })()
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"size"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon","property":"size"}
 size: 18
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"Layout.preferredWidth"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon","property":"Layout.preferredWidth"}
 Layout.preferredWidth: 18
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"Layout.preferredHeight"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon","property":"Layout.preferredHeight"}
 Layout.preferredHeight: 18
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"Layout.alignment"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DIcon","property":"Layout.alignment"}
 Layout.alignment: (() => { const __name = function(fn) { return fn; }; return ($qml=>Qt.AlignCenter)({}); })()
 }
 
@@ -5261,23 +5261,23 @@ onClicked: function() { (() => { const __name = function(fn) { return fn; }; ret
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":41,"columnNumber":7,"component":"qml:Button"}
 
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon"}
-DankIcon {
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon"}
+DIcon {
 id: n352
 objectName: "n352"
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"anchors.right"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon","property":"anchors.right"}
 anchors.right: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent.right)({}); })()
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"anchors.rightMargin"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon","property":"anchors.rightMargin"}
 anchors.rightMargin: 8
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"anchors.verticalCenter"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon","property":"anchors.verticalCenter"}
 anchors.verticalCenter: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent.verticalCenter)({}); })()
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"name"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon","property":"name"}
 name: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.statusIcon)({"root": ndScope39_root}); })()
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"size"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon","property":"size"}
 size: 16
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"color"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Style.surfaceText)({}); })()
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"visible"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DIcon","property":"visible"}
 visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.statusIcon.length>0)({"root": ndScope39_root}); })()
 }
 

@@ -9,7 +9,7 @@ import {
 const qml = importQml("QtQuick");
 import { QuietButton } from "./QuietButton.js";
 const qt = importQml("QtQml");
-const dms = importQml("qs.DankCommon.Widgets");
+const dms = importQml("qs.DCommon.Widgets");
 declare let editing: any,
   path: any,
   home: any,
@@ -50,7 +50,7 @@ export const PathBar = component<PathBarProps>("PathBar", (props) => {
   scope.id("editor");
   return (
     <qml.Rectangle
-      qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+      qmlImports={["Quickshell", "qs.DCommon.Common"]}
       qmlId={scope.id("root")}
       qmlDeclarations={{
         text: { type: "string", value: "" },
@@ -204,7 +204,7 @@ export const PathBar = component<PathBarProps>("PathBar", (props) => {
           />
         </qml.Row>
       </qml.Flickable>
-      <dms.DankTextField
+      <dms.DTextField
         qmlId={scope.id("editor")}
         {...{ "anchors.fill": qmlExpression(scope, ($qml) => parent) }}
         visible={qmlExpression(scope, ($qml) => $qml.root.editing)}

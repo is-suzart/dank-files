@@ -20,7 +20,7 @@ export const PdfPreview = component<PdfPreviewProps>("PdfPreview", (props) => {
   scope.id("view");
   return (
     <qml.Item
-      qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+      qmlImports={["Quickshell", "qs.DCommon.Common"]}
       qmlId={scope.id("root")}
       qmlDeclarations={{
         source: { type: "url", value: "" },

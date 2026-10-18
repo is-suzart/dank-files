@@ -1,4 +1,4 @@
-const nativeWidgets=importQml('qs.DankCommon.Widgets');
+const nativeWidgets=importQml('qs.DCommon.Widgets');
 import { t } from '../infrastructure/i18n.js';
 import { component, computed, effect, For, signal } from '@nandomo/core';
 import { importQml, qmlEnum } from '@nandomo/bridge-qml';

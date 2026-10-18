@@ -1,11 +1,11 @@
 /** Launches one Dank Files chooser window for a portal request (installed bundle entry). */
-import { mkdtemp, symlink, copyFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import { launchOptions } from './launch-options.mjs';
-import { findDmsSource } from './dms-source.mjs';
+import { findDmsSource, mountDmsSource, adaptDmsQml } from './dms-source.mjs';
 
 const requestFile = process.argv[2] ?? process.env.DANK_FILES_PORTAL_REQUEST;
 if (!requestFile) throw new Error('requisição do portal ausente');
@@ -13,11 +13,11 @@ const app = fileURLToPath(new URL('./', import.meta.url));
 const source = await findDmsSource();
 const runtime = await mkdtemp(join(tmpdir(), 'dank-files-chooser-'));
 try {
-  await symlink(join(source, 'DankCommon'), join(runtime, 'DankCommon'), 'dir');
-  await copyFile(join(app, 'shell.qml'), join(runtime, 'shell.qml'));
+  const layout = await mountDmsSource(source, runtime);
+  await writeFile(join(runtime,'shell.qml'),adaptDmsQml(await readFile(join(app,'shell.qml'),'utf8'),layout.legacy));
   const child = spawn(process.env.NANDOMO_QUICKSHELL_BINARY || 'qs', ['--path', join(runtime, 'shell.qml')], {
     stdio: 'inherit',
-    env: { ...process.env, QT_QPA_PLATFORM: launchOptions([]).platform, NANDOMO_FM_DESKTOP_INTEGRATION: '0', NANDOMO_FM_DEV: '0', NANDOMO_FM_NODE: process.execPath,
+    env: { ...process.env, NANDOMO_FM_DMS_LEGACY:layout.legacy?'1':'0', QT_QPA_PLATFORM: launchOptions([]).platform, NANDOMO_FM_DESKTOP_INTEGRATION: '0', NANDOMO_FM_DEV: '0', NANDOMO_FM_NODE: process.execPath,
       NANDOMO_FM_LINUX_HELPER: fileURLToPath(new URL('./linux-desktop.py', import.meta.url)),
       NANDOMO_FM_BACKEND: fileURLToPath(new URL('./portal-main.mjs', import.meta.url)),
       DANK_FILES_PORTAL_REQUEST: requestFile },

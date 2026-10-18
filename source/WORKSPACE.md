@@ -594,7 +594,7 @@ recovery guarantee. `--uninstall` removes the registration and restores the
 configuration backup; restart the portal service afterward.
 
 Requires `xdg-desktop-portal`, Python/PyGObject, Node, Quickshell and an available
-DMS DankCommon source. Restart browsers after changing the portal. Browsers
+DMS shared-widget source. Restart browsers after changing the portal. Browsers
 which use their own file dialogs must first enable their portal integration;
 setting `inode/directory` alone does not select upload/download dialogs.
 

@@ -9,7 +9,7 @@ import {
 } from "@nandomo/bridge-qml";
 const qml = importQml("QtQuick");
 const qt = importQml("QtQml");
-const dms = importQml("qs.DankCommon.Widgets");
+const dms = importQml("qs.DCommon.Widgets");
 const controls = importQml("QtQuick.Controls");
 import { QuietButton } from "./QuietButton.js";
 declare let parent: any,
@@ -47,7 +47,7 @@ export const ApplicationChooser = component<ApplicationChooserProps>(
     });
     return (
       <qml.Column
-        qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+        qmlImports={["Quickshell", "qs.DCommon.Common"]}
         qmlId={scope.id("root")}
         qmlDeclarations={{
           applications: {
@@ -61,7 +61,7 @@ export const ApplicationChooser = component<ApplicationChooserProps>(
         spacing={12}
         {...props}
       >
-        <dms.DankTextField
+        <dms.DTextField
           qmlId={scope.id("search")}
           objectName="chooserSearch"
           width={qmlExpression(scope, ($qml) => parent.width)}

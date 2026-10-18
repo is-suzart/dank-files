@@ -12,6 +12,7 @@ try {
   // Reproduce DMS 1.6's inherited hover-to-click dispatch, without loading shell services.
   await writeFile(join(root,'Modules/Plugins/PluginComponent.qml'),`import QtQuick
 Item {
+  property int iconSize: 24
   property var pillClickAction
   property Component horizontalBarPill
   property Component verticalBarPill
@@ -33,6 +34,11 @@ ShellRoot {
     if (calls !== 0) { console.warn("WIDGET_HOVER_FAIL", calls); Qt.exit(1); return; }
     widget.triggerPopout();
     if (calls !== 1) { console.warn("WIDGET_CLICK_FAIL", calls); Qt.exit(1); return; }
+    var horizontal = widget.horizontalBarPill.createObject(widget);
+    var vertical = widget.verticalBarPill.createObject(widget);
+    widget.iconSize = 31;
+    if (horizontal.size !== 31 || vertical.size !== 31) { console.warn("WIDGET_SIZE_FAIL"); Qt.exit(1); return; }
+    horizontal.destroy(); vertical.destroy();
     console.warn("PLUGIN_WIDGET_PASS: six hover events launch zero apps; one click launches one");
     Qt.quit();
   })

@@ -1,7 +1,7 @@
 import { importQml } from '@nandomo/bridge-qml';
 const nativeLayouts=importQml('QtQuick.Layouts');
 const nativeQuick=importQml('QtQuick');
-const nativeWidgets=importQml('qs.DankCommon.Widgets');
+const nativeWidgets=importQml('qs.DCommon.Widgets');
 import { AppearancePalette } from './AppearancePalette.js';
 import { IconPicker } from './IconPicker.js';
 import { t } from '../infrastructure/i18n.js';
@@ -21,7 +21,7 @@ export const FolderAppearanceDialog=component<{manager:FileManager}>('FolderAppe
       <nativeLayouts.RowLayout width="fill">
         <QuietButton text={t("Restaurar padrão")} onClicked={()=>{color.set('');emblem.set('');icon.set('');}} />
         <nativeQuick.Item {...{'Layout.fillWidth':true}} />
-        <nativeWidgets.DankButton objectName="appearanceSave" text={t("Salvar")} onClicked={()=>{void manager.saveFolderAppearance({color:color(),emblem:emblem(),icon:icon()});}} />
+        <nativeWidgets.DButton objectName="appearanceSave" text={t("Salvar")} onClicked={()=>{void manager.saveFolderAppearance({color:color(),emblem:emblem(),icon:icon()});}} />
       </nativeLayouts.RowLayout>
     </nativeQuick.Column>
   </Dialog>;

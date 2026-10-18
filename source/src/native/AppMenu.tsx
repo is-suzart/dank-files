@@ -14,7 +14,7 @@ export const AppMenu = component<AppMenuProps>("AppMenu", (props) => {
   const scope = createQmlScope(props.qmlId ? { root: props.qmlId } : {});
   return (
     <controls.Menu
-      qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+      qmlImports={["Quickshell", "qs.DCommon.Common"]}
       padding={6}
       overlap={0}
       implicitWidth={260}

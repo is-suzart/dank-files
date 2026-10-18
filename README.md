@@ -21,7 +21,7 @@ A standalone file manager integrated with [Dank Material Shell](https://github.c
 
 ## Requirements
 
-Linux, Node.js **20+**, DMS **1.5+**, Quickshell, and Qt Quick Controls/Layouts/Dialogs/PDF/Multimedia. Install GLib/GIO (`gio`), libarchive (`bsdtar`), Python 3, PyGObject and GTK 4 for the corresponding file and desktop integrations.
+Linux, Node.js **20+**, DMS **1.6.3+**, Quickshell, and Qt Quick Controls/Layouts/Dialogs/PDF/Multimedia. Install GLib/GIO (`gio`), libarchive (`bsdtar`), Python 3, PyGObject and GTK 4 for the corresponding file and desktop integrations.
 
 Optional: GVfs/FUSE and protocol backends for mounted network locations, `ffmpegthumbnailer` for video thumbnails, `udisksctl` for volume actions, and the codecs used by Qt Multimedia. Package names vary by distribution. See [installation notes](INSTALL.md).
 
@@ -33,7 +33,7 @@ git clone https://github.com/is-suzart/dank-files.git ~/.config/DankMaterialShel
 
 Open **DMS Settings → Plugins**, scan and enable **Dank Files**, then add its widget to DankBar. One click opens a new window. Hovering does not launch it.
 
-DMS must be running so the launcher can discover DankCommon. `NANDOMO_DMS_SOURCE` can point to the DMS source directory when automatic discovery is unavailable. The launcher prefers native Wayland in a Wayland session.
+DMS must be running so the launcher can discover its `DCommon` or legacy `DankCommon` SDK. `NANDOMO_DMS_SOURCE` can point to the DMS source directory when automatic discovery is unavailable. The launcher prefers native Wayland in a Wayland session.
 
 To launch directly:
 
@@ -72,7 +72,7 @@ npm test
 
 The QML is generated from TSX, not maintained by hand. The app source is currently developed in the Nandomo workspace; its core/bridge packages are **not yet published as standalone development dependencies**. This repository deliberately does not copy the rest of that framework. The generated runtime works independently, but rebuilding the TSX snapshot still requires the matching Nandomo workspace. See [source build notes](source/README.md).
 
-Before publication, the application passed **139 development tests**, package relocation/widget checks and native QML workflow checks. The local package checker verifies syntax and packaging; it does not simulate a desktop session. Automated GitHub Actions are not configured in this initial publication.
+Before publication, the application passed **141 development tests**, package relocation/widget checks and native QML workflow checks. The local package checker verifies syntax and packaging; it does not simulate a desktop session. Automated GitHub Actions are not configured in this initial publication.
 
 ## Preview limitations
 
@@ -95,6 +95,13 @@ Browsers using their own picker must enable portal support separately.
 The chooser currently opens independently; attaching it modally to the browser
 window is not implemented. The public portal-to-chooser flow was tested with
 real Quickshell controls on Wayland, alongside the development and package checks.
+
+## DMS compatibility and related plugins
+
+See [compatibility and comparison notes](COMPATIBILITY.md) for the tested DMS
+1.6.3/current upstream SDK layouts and the differences from DMS File Manager.
+The registry submission requests review under the major-improvement exception;
+acceptance is up to the registry maintainers.
 
 ## License
 

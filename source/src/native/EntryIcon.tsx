@@ -21,7 +21,7 @@ export const EntryIcon = component<EntryIconProps>("EntryIcon", (props) => {
   scope.id("image");
   return (
     <qml.Item
-      qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+      qmlImports={["Quickshell", "qs.DCommon.Common"]}
       qmlId={scope.id("root")}
       qmlDeclarations={{
         source: { type: "url", value: "" },

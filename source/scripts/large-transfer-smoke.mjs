@@ -25,9 +25,10 @@ try {
  async function manifest(dir){const result=[];async function walk(path,relative){const info=await lstat(path);if(info.isDirectory()){for(const name of (await readdir(path)).sort())await walk(join(path,name),relative+'/'+name);}else if(info.isSymbolicLink())result.push([relative,'link',await readlink(path)]);else{const hash=createHash('sha256');for await(const data of createReadStream(path))hash.update(data);result.push([relative,info.size,hash.digest('hex')]);}}await walk(dir,'');return result;}
  const expected=await manifest(source);
  const {renderLargeTransferShell}=await tsImport('../tests/large-transfer-native-fixture.tsx',{parentURL:import.meta.url,tsconfig:fileURLToPath(new URL('../tsconfig.json',import.meta.url))});
- await writeFile(join(memory,'shell.qml'),renderLargeTransferShell());await symlink(join(await findDmsSource(),'DankCommon'),join(memory,'DankCommon'),'dir');
+ const layout=await mountDmsSource(await findDmsSource(),memory);
+ await writeFile(join(memory,'shell.qml'),adaptDmsQml(renderLargeTransferShell(),layout.legacy));
  async function exercise(source,start,destination,cancel){
-  const child=spawn('qs',['--path',join(memory,'shell.qml')],{env:{...process.env,HOME:disk,XDG_DATA_HOME:join(disk,'xdg-data'),XDG_CONFIG_HOME:join(disk,'config'),XDG_CACHE_HOME:join(disk,'cache'),NANDOMO_FM_CONFIG_DIR:join(disk,'preferences'),LC_ALL:'en_US.UTF-8',LANG:'en_US.UTF-8',LANGUAGE:'',
+  const child=spawn('qs',['--path',join(memory,'shell.qml')],{env:{...process.env,NANDOMO_FM_DMS_LEGACY:layout.legacy?'1':'0',HOME:disk,XDG_DATA_HOME:join(disk,'xdg-data'),XDG_CONFIG_HOME:join(disk,'config'),XDG_CACHE_HOME:join(disk,'cache'),NANDOMO_FM_CONFIG_DIR:join(disk,'preferences'),LC_ALL:'en_US.UTF-8',LANG:'en_US.UTF-8',LANGUAGE:'',
    QT_QPA_PLATFORM:'offscreen',QT_QUICK_BACKEND:'software',NANDOMO_FM_DESKTOP_INTEGRATION:'0',NANDOMO_FM_NODE:process.execPath,NANDOMO_FM_BACKEND:fileURLToPath(new URL('../dist/dankFiles/app/backend.mjs',import.meta.url)),NANDOMO_FM_START_PATH:start,
    TRANSFER_SOURCE_URL:pathToFileURL(source).href,TRANSFER_START:start,TRANSFER_DESTINATION:destination,TRANSFER_CANCEL:cancel?'1':'0'},stdio:['ignore','pipe','pipe']});
   let logs='';child.stdout.on('data',d=>{logs+=d;});child.stderr.on('data',d=>{logs+=d;});const timer=setTimeout(()=>child.kill('SIGTERM'),70000);

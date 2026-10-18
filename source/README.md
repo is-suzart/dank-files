@@ -15,3 +15,8 @@ pnpm plugin:test
 The workspace's application `tsconfig.json` extends `../../tsconfig.base.json`; this snapshot includes a local copy of that configuration for reference. The workspace packaging command writes `dist/dankFiles/`. Publish the contents of that generated directory as the plugin runtime, and keep this source snapshot in sync.
 
 `WORKSPACE.md` contains the longer development notes from the application. Some commands describe the original monorepo layout and are not installation instructions for this standalone repository.
+
+Source builds now target the current DCommon SDK. Set `NANDOMO_DMS_SOURCE` to a
+current DMS checkout (with its submodule initialized) when generating declarations
+on a legacy DMS installation. Packaged runtime compatibility is documented in
+[COMPATIBILITY.md](../COMPATIBILITY.md).

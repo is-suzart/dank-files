@@ -8,7 +8,7 @@ import { QuietButton } from '../native/QuietButton.js';
 import { NativeTextField } from '../components/NativeTextField.js';
 
 const qml = importQml('QtQuick');
-const dms = importQml('qs.DankCommon.Widgets');
+const dms = importQml('qs.DCommon.Widgets');
 const controls = importQml('QtQuick.Controls');
 const layouts = importQml('QtQuick.Layouts');
 

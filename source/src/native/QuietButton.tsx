@@ -8,7 +8,7 @@ import {
 const controls = importQml("QtQuick.Controls");
 const qml = importQml("QtQuick");
 const layouts = importQml("QtQuick.Layouts");
-const dms = importQml("qs.DankCommon.Widgets");
+const dms = importQml("qs.DCommon.Widgets");
 declare let iconName: any,
   ApplicationWindow: any,
   text: any,
@@ -39,7 +39,7 @@ export const QuietButton = component<QuietButtonProps>(
     scope.id("root");
     return (
       <controls.Button
-        qmlImports={["Quickshell", "qs.DankCommon.Common"]}
+        qmlImports={["Quickshell", "qs.DCommon.Common"]}
         qmlId={scope.id("root")}
         qmlDeclarations={{
           iconName: { type: "string", value: "" },
@@ -203,7 +203,7 @@ export const QuietButton = component<QuietButtonProps>(
               }}
               fillMode={qmlExpression(scope, ($qml) => Image.PreserveAspectFit)}
             />
-            <dms.DankIcon
+            <dms.DIcon
               visible={qmlExpression(
                 scope,
                 ($qml) => $qml.root.actionIcon.length > 0,
@@ -240,7 +240,7 @@ export const QuietButton = component<QuietButtonProps>(
         }
         {...props}
       >
-        <dms.DankIcon
+        <dms.DIcon
           {...{ "anchors.right": qmlExpression(scope, ($qml) => parent.right) }}
           {...{ "anchors.rightMargin": 8 }}
           {...{

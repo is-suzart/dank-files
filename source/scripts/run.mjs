@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
-import { findDmsSource } from './dms-source.mjs';
+import { findDmsSource, mountDmsSource, adaptDmsQml } from './dms-source.mjs';
 import { launchOptions } from './launch-options.mjs';
 const { startPath, platform: qtPlatform } = launchOptions(process.argv.slice(2));
 if (startPath && !(await stat(startPath)).isDirectory()) throw new Error('O caminho deve ser uma pasta.');
@@ -17,7 +17,7 @@ const source = await findDmsSource();
 const stopWatching=await watchProject(app);
 const runtime = await mkdtemp(join(tmpdir(),'nandomo-file-manager-'));
 try {
-  await symlink(join(source,'DankCommon'),join(runtime,'DankCommon'),'dir');
+  const layout=await mountDmsSource(source,runtime);
   let generatedSource;
   if(process.env.NANDOMO_FM_SELECTION_SMOKE==='1') {
     const {renderSelectionShell}=await tsImport('../tests/native-keyboard-probe.tsx',{parentURL:import.meta.url,tsconfig:join(app,'tsconfig.json')});
@@ -28,9 +28,9 @@ try {
   }
   const { formatQmlDiagnostic } = await tsImport('../../../packages/bridge-qml/src/diagnostics.ts', {parentURL:import.meta.url});
   const shellPath = join(runtime,'shell.qml');
-  await writeFile(shellPath,generatedSource);
+  await writeFile(shellPath,adaptDmsQml(generatedSource,layout.legacy));
   const child = spawn(process.env.NANDOMO_QUICKSHELL_BINARY || 'qs',['--path',join(runtime,'shell.qml')], {
-    stdio:['inherit','pipe','pipe'], env:{...process.env,...(isolatedSmoke?{NANDOMO_FM_DESKTOP_INTEGRATION:'0'}:{}),...(startPath?{NANDOMO_FM_START_PATH:startPath}:{}),...(qtPlatform?{QT_QPA_PLATFORM:qtPlatform}:{}),NANDOMO_FM_HMR_SMOKE:process.argv.includes('--hmr-smoke') ? '1':'0',NANDOMO_FM_DEV:process.argv.includes('--dev') ? '1' : '0',NANDOMO_FM_NODE:process.execPath,NANDOMO_FM_BACKEND:join(app,sidebarSmoke ? 'scripts/sidebar-smoke-backend.mjs' : 'scripts/backend.mjs'),NANDOMO_FM_UX_SMOKE:process.argv.includes('--ux-smoke')?'1':'0',NANDOMO_FM_SMOKE:process.argv.includes('--smoke')?'1':'0',NANDOMO_FM_SIDEBAR_SMOKE:sidebarSmoke?'1':'0'},
+    stdio:['inherit','pipe','pipe'], env:{...process.env,NANDOMO_FM_DMS_LEGACY:layout.legacy?'1':'0',...(isolatedSmoke?{NANDOMO_FM_DESKTOP_INTEGRATION:'0'}:{}),...(startPath?{NANDOMO_FM_START_PATH:startPath}:{}),...(qtPlatform?{QT_QPA_PLATFORM:qtPlatform}:{}),NANDOMO_FM_HMR_SMOKE:process.argv.includes('--hmr-smoke') ? '1':'0',NANDOMO_FM_DEV:process.argv.includes('--dev') ? '1' : '0',NANDOMO_FM_NODE:process.execPath,NANDOMO_FM_BACKEND:join(app,sidebarSmoke ? 'scripts/sidebar-smoke-backend.mjs' : 'scripts/backend.mjs'),NANDOMO_FM_UX_SMOKE:process.argv.includes('--ux-smoke')?'1':'0',NANDOMO_FM_SMOKE:process.argv.includes('--smoke')?'1':'0',NANDOMO_FM_SIDEBAR_SMOKE:sidebarSmoke?'1':'0'},
   });
   function forwardDiagnostics(input, output) {
     input.setEncoding('utf8');

@@ -1,10 +1,10 @@
-import { mkdtemp, symlink, copyFile, rm, stat } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import { launchOptions } from './launch-options.mjs';
-import { findDmsSource } from './dms-source.mjs';
+import { findDmsSource, mountDmsSource, adaptDmsQml } from './dms-source.mjs';
 
 const { startPath, platform } = launchOptions(process.argv.slice(2));
 if (process.argv.slice(2).some(arg => arg.startsWith('--') && arg !== '--' && arg !== '--dbus')) throw new Error('Este pacote não inclui modo de desenvolvimento.');
@@ -12,11 +12,11 @@ if (startPath && !(await stat(startPath)).isDirectory()) throw new Error('O cami
 const source = await findDmsSource();
 const runtime = await mkdtemp(join(tmpdir(), 'nandomo-files-plugin-'));
 try {
-  await symlink(join(source, 'DankCommon'), join(runtime, 'DankCommon'), 'dir');
-  await copyFile(new URL('./shell.qml', import.meta.url), join(runtime, 'shell.qml'));
+  const layout = await mountDmsSource(source, runtime);
+  await writeFile(join(runtime,'shell.qml'),adaptDmsQml(await readFile(new URL('./shell.qml',import.meta.url),'utf8'),layout.legacy));
   const child = spawn(process.env.NANDOMO_QUICKSHELL_BINARY || 'qs', ['--path', join(runtime, 'shell.qml')], {
     stdio: 'inherit',
-    env: {...process.env, NANDOMO_FM_DEV:'0', NANDOMO_FM_NODE:process.execPath,
+    env: {...process.env, NANDOMO_FM_DMS_LEGACY:layout.legacy?'1':'0', NANDOMO_FM_DEV:'0', NANDOMO_FM_NODE:process.execPath,
       NANDOMO_FM_LINUX_HELPER:fileURLToPath(new URL('./linux-desktop.py',import.meta.url)),
       NANDOMO_FM_BACKEND:fileURLToPath(new URL('./backend.mjs', import.meta.url)),
       ...(platform ? {QT_QPA_PLATFORM:platform} : {}),

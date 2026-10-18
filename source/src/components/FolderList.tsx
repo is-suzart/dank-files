@@ -1,5 +1,5 @@
 import { importQml } from '@nandomo/bridge-qml';
-const nativeWidgets=importQml('qs.DankCommon.Widgets');
+const nativeWidgets=importQml('qs.DCommon.Widgets');
 import { t } from '../infrastructure/i18n.js';
 import { component, For, Show } from '@nandomo/core';
 import { qml } from '@nandomo/bridge-qml';

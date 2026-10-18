@@ -2,7 +2,7 @@ import { importQml } from '@nandomo/bridge-qml';
 const nativeLayouts=importQml('QtQuick.Layouts');
 const nativeControls=importQml("QtQuick.Controls");
 const nativeQuick=importQml('QtQuick');
-const nativeWidgets=importQml('qs.DankCommon.Widgets');
+const nativeWidgets=importQml('qs.DCommon.Widgets');
 import { PreferencesContent } from './PreferencesContent.js';
 import { FolderList } from './FolderList.js';
 import { FolderAppearanceDialog } from './FolderAppearanceDialog.js';
@@ -30,8 +30,8 @@ const NameDialog=component<{manager:FileManager}>('NameDialog',({manager})=>{
         enabled={()=>!manager.mutating()} onTextEdited={text=>name.set(text)} onAccepted={()=>{void manager.submitEdit(name());}} />
       <nativeWidgets.StyledText width="fill" text={manager.error} />
       <nativeLayouts.RowLayout width="fill">
-        <nativeWidgets.DankButton objectName="editCancel" text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.cancelEdit} />
-        <nativeWidgets.DankButton objectName="editSave" text={()=>manager.mutating() ? t('Salvando…') : t('Salvar')} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.submitEdit(name());}} />
+        <nativeWidgets.DButton objectName="editCancel" text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.cancelEdit} />
+        <nativeWidgets.DButton objectName="editSave" text={()=>manager.mutating() ? t('Salvando…') : t('Salvar')} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.submitEdit(name());}} />
       </nativeLayouts.RowLayout>
     </nativeQuick.Column>
     </DialogBody>
@@ -47,8 +47,8 @@ const DestinationDialog=component<{manager:FileManager}>('DestinationDialog',({m
       <FolderList folders={manager.destinationFolders} enabled={()=>!manager.destinationBusy() && !manager.mutating()} onChosen={target=>{void manager.browseDestination(target);}} />
       <nativeWidgets.StyledText width="fill" text={()=>manager.destinationBusy() ? t('Carregando pastas…') : manager.error()} />
       <nativeLayouts.RowLayout width="fill">
-        <nativeWidgets.DankButton text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.cancelEdit} />
-        <nativeWidgets.DankButton objectName="destinationConfirm" text={t("Escolher esta pasta")} enabled={()=>!manager.destinationBusy() && !manager.mutating()} onClicked={()=>{void manager.confirmDestination();}} />
+        <nativeWidgets.DButton text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.cancelEdit} />
+        <nativeWidgets.DButton objectName="destinationConfirm" text={t("Escolher esta pasta")} enabled={()=>!manager.destinationBusy() && !manager.mutating()} onClicked={()=>{void manager.confirmDestination();}} />
       </nativeLayouts.RowLayout>
     </nativeQuick.Column>
     </DialogBody>
@@ -65,10 +65,10 @@ const ConflictDialog=component<{manager:FileManager}>('ConflictDialog',({manager
       <DankTextField objectName="conflictName" text={name} placeholderText={t("Novo nome")} enabled={()=>!manager.mutating()} onTextEdited={name.set} />
       <nativeWidgets.StyledText width="fill" text={manager.error} />
       <nativeLayouts.RowLayout width="fill">
-        <nativeWidgets.DankButton text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.cancelConflict} />
-        <nativeWidgets.DankButton text={t("Ignorar")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.resolveConflict('skip');}} />
-        <nativeWidgets.DankButton objectName="conflictRename" text={t("Renomear")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.resolveConflict('rename',name());}} />
-        <nativeWidgets.DankButton text={t("Substituir")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.resolveConflict('replace');}} />
+        <nativeWidgets.DButton text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.cancelConflict} />
+        <nativeWidgets.DButton text={t("Ignorar")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.resolveConflict('skip');}} />
+        <nativeWidgets.DButton objectName="conflictRename" text={t("Renomear")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.resolveConflict('rename',name());}} />
+        <nativeWidgets.DButton text={t("Substituir")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.resolveConflict('replace');}} />
       </nativeLayouts.RowLayout>
     </nativeQuick.Column>
     </DialogBody>
@@ -83,7 +83,7 @@ const PermissionsDialog=component<{manager:FileManager}>('PermissionsDialog',({m
       <nativeWidgets.StyledText width="fill" text={()=>manager.permissionsTarget()?.name ?? ''} />
       <PermissionEditor objectName="permissionsEditor" mode={mode} enabled={()=>!manager.mutating()} onModeChanged={mode.set} />
       <nativeWidgets.StyledText width="fill" text={manager.error} />
-      <nativeLayouts.RowLayout width="fill"><QuietButton text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.closePermissions} /><nativeWidgets.DankButton objectName="permissionsSave" text={t("Salvar")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.savePermissions(mode());}} /></nativeLayouts.RowLayout>
+      <nativeLayouts.RowLayout width="fill"><QuietButton text={t("Cancelar")} enabled={()=>!manager.mutating()} onClicked={manager.closePermissions} /><nativeWidgets.DButton objectName="permissionsSave" text={t("Salvar")} enabled={()=>!manager.mutating()} onClicked={()=>{void manager.savePermissions(mode());}} /></nativeLayouts.RowLayout>
     </nativeQuick.Column>
     </DialogBody>
   </Dialog>;
@@ -104,7 +104,7 @@ export const FileDialogs=component<{manager:FileManager}>('FileDialogs',({manage
           height={qmlExpression(dialogScope, () => Math.max(180, Math.min(620, (ApplicationWindow.window ? ApplicationWindow.window.height : 800) - 180)))} clip={true}>
           <PreferencesContent preferences={manager.preferences} onChanged={manager.setPreference} />
         </nativeControls.ScrollView>
-        <nativeWidgets.DankButton objectName="preferencesClose" text={t("Fechar")} onClicked={manager.closePreferences} />
+        <nativeWidgets.DButton objectName="preferencesClose" text={t("Fechar")} onClicked={manager.closePreferences} />
       </nativeQuick.Column>
       </DialogBody>
     </Dialog>

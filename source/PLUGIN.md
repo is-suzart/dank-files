@@ -7,7 +7,7 @@ Nandomo checkout, pnpm, TypeScript or a build step.
 
 ## Requirements
 
-- Linux, Node.js 20+, Dank Material Shell 1.5+ and Quickshell.
+- Linux, Node.js 20+, Dank Material Shell 1.6.3+ and Quickshell.
 - Qt Quick Controls, Layouts, Dialogs, PDF and Multimedia modules.
 - GLib/GIO (`gio`) and libarchive (`bsdtar`).
 - Python 3, PyGObject and GTK 4 for desktop clipboard, D-Bus and network integration.
@@ -31,8 +31,8 @@ To run directly from the plugin directory:
 node app/launch.mjs /path/to/folder
 ```
 
-The launcher finds the running DMS DankCommon directory. If discovery fails,
-set `NANDOMO_DMS_SOURCE` to the DMS directory containing `DankCommon`.
+The launcher finds the running DMS shared-widget directory (`DCommon` or legacy `DankCommon`). If discovery fails,
+set `NANDOMO_DMS_SOURCE` to the DMS quickshell directory containing `DCommon` or `DankCommon`.
 Wayland sessions prefer native Wayland over an inherited `xcb` setting;
 `NANDOMO_FM_QT_PLATFORM` is an explicit diagnostic override.
 Icons follow the theme configured in DMS, including inherited themes.
@@ -99,7 +99,7 @@ recovery guarantee. `--uninstall` removes the registration and restores the
 configuration backup; restart the portal service afterward.
 
 Requires `xdg-desktop-portal`, Python/PyGObject, Node, Quickshell and an available
-DMS DankCommon source. Restart browsers after changing the portal. Browsers
+DMS shared-widget source. Restart browsers after changing the portal. Browsers
 which use their own file dialogs must first enable their portal integration;
 setting `inode/directory` alone does not select upload/download dialogs.
 
@@ -112,3 +112,9 @@ private buses. `pnpm exec tsx tests/portal-native-smoke.tsx` additionally runs t
 public portal through a real Quickshell chooser, including subfolder navigation,
 filtering and file selection; set `PORTAL_TEST_PLATFORM=wayland` for a native
 Wayland run. No browser profiles are modified by the installer.
+
+## DMS compatibility and overlapping plugins
+
+See [compatibility notes](COMPATIBILITY.md) for the tested DMS layouts and the
+comparison with the existing DMS File Manager plugin. Source builds require the
+current DCommon SDK; prebuilt packages adapt to the detected runtime layout.
