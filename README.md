@@ -4,6 +4,8 @@ A standalone file manager integrated with [Dank Material Shell](https://github.c
 
 **Version 0.1.0 — public preview.** This repository ships the installable plugin and an application source snapshot. No build is required to install it.
 
+![Dank Files file manager](assets/preview.png)
+
 ## Features
 
 - Independent window, tabs, breadcrumbs, grid/list/column views and folder search.
