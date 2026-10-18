@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "rootDir": ".",
+    "outDir": "dist",
+    "jsxImportSource": "@nandomo/bridge-qml",
+    "jsx": "react-jsxdev"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    ".nandomo/**/*.d.ts"
+  ]
+}

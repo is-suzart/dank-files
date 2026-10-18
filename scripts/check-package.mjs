@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {readFile,readdir,stat} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+const root=new URL('../',import.meta.url);
+const manifest=JSON.parse(await readFile(new URL('plugin.json',root),'utf8'));
+assert.equal(manifest.id,'dankFiles');assert.equal(manifest.name,'Dank Files');assert.equal(manifest.version,'0.1.0');
+for(const path of [manifest.component,'app/backend.mjs','app/shell.qml','app/launch.mjs','app/register-desktop.mjs','app/linux-desktop.py'])assert.ok((await stat(new URL(path,root))).isFile());
+for(const file of await readdir(new URL('app/',root)))if(file.endsWith('.mjs'))execFileSync(process.execPath,['--check',fileURLToPath(new URL('app/'+file,root))],{stdio:'pipe'});
+for(const file of ['FilesWidget.qml','app/backend.mjs','app/shell.qml'])assert.doesNotMatch(await readFile(new URL(file,root),'utf8'),/\/home\/savunma|\.codex\//,file+' contains a development path');
+const launcher=await readFile(new URL('app/launch.mjs',root),'utf8');assert.ok(launcher.includes("'./backend.mjs'"));assert.ok(launcher.includes("'./shell.qml'"));
+console.log('DANK_FILES_PACKAGE_PASS: manifest, runtime syntax, entry points and portable paths');

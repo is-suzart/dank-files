@@ -1,0 +1,20 @@
+{
+  "name": "dank-files",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A file manager integrated with Dank Material Shell",
+  "author": "Igor Suzart",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/is-suzart/dank-files.git"
+  },
+  "scripts": {
+    "start": "node app/launch.mjs",
+    "install:desktop": "node app/register-desktop.mjs",
+    "test": "node scripts/check-package.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

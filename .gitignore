@@ -1,0 +1,6 @@
+node_modules/
+.nandomo/
+__pycache__/
+*.pyc
+*.update
+.DS_Store

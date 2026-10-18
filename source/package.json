@@ -1,0 +1,28 @@
+{
+  "name": "@nandomo/dank-files",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:desktop": "node scripts/install-desktop.mjs",
+    "start": "node scripts/run.mjs",
+    "test": "pnpm qml:prepare && node --import tsx --test tests/*.test.ts tests/*.test.mjs",
+    "typecheck": "pnpm qml:prepare && tsc --noEmit",
+    "qml:prepare": "node node_modules/@nandomo/bridge-qml/scripts/prepare-project.mjs .",
+    "qml:check": "node node_modules/@nandomo/bridge-qml/scripts/prepare-project.mjs . --check",
+    "build": "pnpm typecheck",
+    "dev": "node scripts/run.mjs --dev",
+    "plugin:build": "pnpm typecheck && node scripts/build-plugin.mjs",
+    "plugin:test": "pnpm plugin:build && node scripts/plugin-widget-smoke.mjs && node scripts/plugin-smoke.mjs",
+    "plugin:install": "pnpm plugin:test && node scripts/install-plugin.mjs"
+  },
+  "dependencies": {
+    "@nandomo/core": "workspace:*",
+    "@nandomo/bridge-qml": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.4.0"
+  }
+}

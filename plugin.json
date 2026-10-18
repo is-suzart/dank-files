@@ -1,0 +1,24 @@
+{
+  "id": "dankFiles",
+  "name": "Dank Files",
+  "author": "Igor Suzart",
+  "description": "A standalone file manager integrated with Dank Material Shell",
+  "version": "0.1.0",
+  "type": "widget",
+  "component": "./FilesWidget.qml",
+  "icon": "folder",
+  "capabilities": [
+    "dankbar-widget"
+  ],
+  "requires_dms": ">=1.5.0",
+  "requires": [
+    "node",
+    "qs",
+    "gio",
+    "python3",
+    "bsdtar"
+  ],
+  "permissions": [
+    "process"
+  ]
+}
