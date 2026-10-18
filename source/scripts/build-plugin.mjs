@@ -22,11 +22,13 @@ await build({entryPoints:[join(project, 'src/main.ts')], outfile:join(output, 'a
 for (const [from, to] of [['plugin-launch.mjs','launch.mjs'], ['launch-options.mjs','launch-options.mjs'], ['dms-source.mjs','dms-source.mjs'], ['linux-desktop.py','linux-desktop.py'], ['install-desktop.mjs','register-desktop.mjs']]) {
   await copyFile(join(project, 'scripts', from), join(output, 'app', to));
 }
-await writeFile(join(output, 'plugin.json'), JSON.stringify({id:'dankFiles', name:'Dank Files', author:'Igor Suzart',
+await writeFile(join(output, 'plugin.json'), JSON.stringify({id:'dankFiles', name:'Dank Files', author:'Igor Suzart', license:'BSD-3-Clause',
   description:'A standalone file manager integrated with Dank Material Shell', version:'0.1.0',
   type:'widget', component:'./FilesWidget.qml', icon:'folder', capabilities:['dankbar-widget'],
   requires_dms:'>=1.5.0', requires:['node', 'qs', 'gio', 'python3', 'bsdtar'], permissions:['process'],
 }, null, 2)+'\n');
 await copyFile(join(project, 'PLUGIN.md'), join(output, 'README.md'));
+await copyFile(join(project, 'LICENSE'), join(output, 'LICENSE'));
+await copyFile(join(project, 'THIRD_PARTY_NOTICES.md'), join(output, 'THIRD_PARTY_NOTICES.md'));
 execFileSync('tar', ['-czf', join(dist, 'dankFiles.tar.gz'), '-C', dist, 'dankFiles']);
 console.log('Plugin: '+output+'\nArchive: '+join(dist, 'dankFiles.tar.gz'));

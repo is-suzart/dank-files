@@ -78,4 +78,4 @@ Undo is session-local and does not cover every operation; replacement operations
 
 ## License
 
-No license has been selected for this initial public preview. Public availability does not grant an open-source license.
+Dank Files is licensed under [BSD-3-Clause](LICENSE), a permissive open-source license. Third-party runtime dependencies retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md).

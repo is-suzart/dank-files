@@ -20,5 +20,6 @@
   ],
   "permissions": [
     "process"
-  ]
+  ],
+  "license": "BSD-3-Clause"
 }

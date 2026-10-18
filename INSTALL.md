@@ -71,4 +71,4 @@ Application sources are TypeScript/TSX; generated `.qml` files are installation
 artifacts. The distribution repository includes the application source snapshot
 but not the entire Nandomo framework workspace. See its README for build details.
 
-No license has been selected for this initial public preview.
+Dank Files is licensed under BSD-3-Clause. Third-party runtime dependencies retain their own licenses; see LICENSE and THIRD_PARTY_NOTICES.md in the distribution repository.
