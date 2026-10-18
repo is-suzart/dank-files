@@ -72,3 +72,43 @@ artifacts. The distribution repository includes the application source snapshot
 but not the entire Nandomo framework workspace. See its README for build details.
 
 Dank Files is licensed under BSD-3-Clause. Third-party runtime dependencies retain their own licenses; see LICENSE and THIRD_PARTY_NOTICES.md in the distribution repository.
+
+## Portal FileChooser backend (opt-in)
+
+The bundle includes an `org.freedesktop.impl.portal.FileChooser` backend for
+OpenFile, SaveFile and SaveFiles. Applications that use the desktop portal can
+select files in Dank Files, including multiple files and folders, filters,
+additional choices and explicit overwrite confirmation.
+
+From an installed plugin directory:
+
+```bash
+node app/install-portal-backend.mjs             # preview; writes nothing
+node app/install-portal-backend.mjs --enable
+systemctl --user restart xdg-desktop-portal.service
+```
+
+Development: run `pnpm plugin:build`, then use
+`node scripts/install-portal-backend.mjs --enable` from the application directory.
+The installer registers the backend for the current user, backs up the active
+portal configuration (including desktop-specific configurations), and changes
+only `org.freedesktop.impl.portal.FileChooser` under `[preferred]` to
+`dank-files;gtk`. Screen sharing, screenshots and other portal preferences stay
+as configured. GTK remains an alternative preference, not a per-request crash
+recovery guarantee. `--uninstall` removes the registration and restores the
+configuration backup; restart the portal service afterward.
+
+Requires `xdg-desktop-portal`, Python/PyGObject, Node, Quickshell and an available
+DMS DankCommon source. Restart browsers after changing the portal. Browsers
+which use their own file dialogs must first enable their portal integration;
+setting `inode/directory` alone does not select upload/download dialogs.
+
+The chooser currently opens as a separate window: foreign-parent attachment and
+browser-relative modality are not implemented. MIME filters use the OS
+shared-mime-info catalog, with common-type fallbacks on minimal installations.
+
+Validation includes the D-Bus backend contract and public portal forwarding on
+private buses. `pnpm exec tsx tests/portal-native-smoke.tsx` additionally runs the
+public portal through a real Quickshell chooser, including subfolder navigation,
+filtering and file selection; set `PORTAL_TEST_PLATFORM=wayland` for a native
+Wayland run. No browser profiles are modified by the installer.

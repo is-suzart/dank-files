@@ -165,4 +165,10 @@ export const en: Catalog = {
   'Falha ao aplicar as permissões.': 'Could not apply the permissions.',
   'Falha ao montar o volume.': 'Could not mount the volume.',
   'Falha ao desmontar o volume.': 'Could not unmount the volume.',
+  'Selecionar': 'Select',
+  'Subir': 'Up',
+  'Filtro': 'Filter',
+  'O arquivo já existe. Substituir?': 'The file already exists. Replace it?',
+  'não foi possível gerar um nome único': 'Could not generate a unique name',
+  'requisição do portal ausente': 'Missing portal request',
 };

@@ -31,7 +31,7 @@ para o teste, além de DMS/Quickshell.
 ## Desenvolvimento com hot reload
 
 ```sh
-pnpm --dir <nandomo-workspace> --filter @nandomo/dank-files dev
+pnpm --dir /home/savunma/Code/nandomo --filter @nandomo/dank-files dev
 ```
 
 Salvar `src/app.tsx` ou arquivos em `src/components/` recompila e remonta as
@@ -126,7 +126,7 @@ encerra o modelo, seus watchers e a UI quando o processo fecha.
 ## Executar
 
 ```sh
-cd <nandomo-workspace>
+cd /home/savunma/Code/nandomo
 pnpm --filter @nandomo/dank-files start
 ```
 
@@ -228,7 +228,7 @@ que o destino foi preservado e remove somente sua fixture ao terminar:
 ```sh
 NANDOMO_DMS_SOURCE=/caminho/do/DMS XDG_RUNTIME_DIR=/tmp/runtime-fm \
 NANDOMO_FM_QT_PLATFORM=xcb QT_QUICK_BACKEND=software \
-  xvfb-run -a node <nandomo-workspace>/examples/file-manager-qml/scripts/ux-smoke.mjs
+  xvfb-run -a node /home/savunma/Code/nandomo/examples/file-manager-qml/scripts/ux-smoke.mjs
 ```
 
 Sucesso: `FM_UX_SMOKE_PASS` e `FM_UX_FILESYSTEM_PASS`.
@@ -318,7 +318,7 @@ programa que as produziu. A redação chinesa ainda precisa de revisão por fala
 Teste opcional de movimentação grande, com arquivos temporários próprios:
 
 ```bash
-cd <nandomo-workspace>/examples/file-manager-qml
+cd /home/savunma/Code/nandomo/examples/file-manager-qml
 pnpm plugin:build
 node scripts/large-transfer-smoke.mjs
 ```
@@ -349,7 +349,7 @@ O smoke de arraste usa mouse real via xdotool numa tela Xvfb de 1280×900:
 ```sh
 NANDOMO_DMS_SOURCE=/caminho/do/DMS XDG_RUNTIME_DIR=/tmp/runtime-fm \
 NANDOMO_FM_QT_PLATFORM=xcb QT_QUICK_BACKEND=software \
-  xvfb-run -a -s '-screen 0 1280x900x24' node <nandomo-workspace>/examples/file-manager-qml/scripts/drag-smoke.mjs
+  xvfb-run -a -s '-screen 0 1280x900x24' node /home/savunma/Code/nandomo/examples/file-manager-qml/scripts/drag-smoke.mjs
 ```
 
 Confere Ctrl+arrastar (preserva origem) e Shift+arrastar (move), somente em sua
@@ -441,7 +441,7 @@ animações**, que desativa as transições curtas de seleção, botões e detal
 No Wayland, especialmente para arrastar arquivos entre aplicações, inicie com:
 
 ```sh
-QT_QPA_PLATFORM=wayland pnpm --dir <nandomo-workspace> --filter @nandomo/dank-files dev
+QT_QPA_PLATFORM=wayland pnpm --dir /home/savunma/Code/nandomo --filter @nandomo/dank-files dev
 ```
 
 O launcher respeita a plataforma explicitamente configurada. O arraste oferece
@@ -475,7 +475,7 @@ ativa não recria os botões da barra de abas.
 ## Registro no desktop Linux
 
 ```sh
-pnpm --dir <nandomo-workspace> --filter @nandomo/dank-files install:desktop
+pnpm --dir /home/savunma/Code/nandomo --filter @nandomo/dank-files install:desktop
 ```
 
 Registra **Nandomo Arquivos** no menu e como opção para `inode/directory`, sem
@@ -506,8 +506,8 @@ Para remover o registro, apague apenas `io.github.is_suzart.DankFiles.desktop` d
 ## Plugin DMS distribuível (preview)
 
 ```sh
-pnpm --dir <nandomo-workspace> --filter @nandomo/dank-files plugin:build
-pnpm --dir <nandomo-workspace> --filter @nandomo/dank-files plugin:test
+pnpm --dir /home/savunma/Code/nandomo --filter @nandomo/dank-files plugin:build
+pnpm --dir /home/savunma/Code/nandomo --filter @nandomo/dank-files plugin:test
 ```
 
 O artefato `dist/dankFiles.tar.gz` contém a pasta instalável `dankFiles`.
@@ -518,7 +518,7 @@ na máquina de destino. Dependências nativas e instalação: [PLUGIN.md](PLUGIN
 Para o smoke nativo do pacote extraído, sem abrir janela no desktop:
 
 ```sh
-node <nandomo-workspace>/examples/file-manager-qml/scripts/plugin-smoke.mjs --native
+node /home/savunma/Code/nandomo/examples/file-manager-qml/scripts/plugin-smoke.mjs --native
 ```
 
 `plugin:install` compila, testa e copia para o diretório de plugins do usuário.
@@ -543,7 +543,7 @@ pastas remotas continuam valendo; falhas mantêm o ícone original.
 Smoke nativo (requer ffmpeg para gerar apenas uma fixture temporária):
 
 ```sh
-node <nandomo-workspace>/examples/file-manager-qml/scripts/video-native-smoke.mjs
+node /home/savunma/Code/nandomo/examples/file-manager-qml/scripts/video-native-smoke.mjs
 ```
 
 
@@ -556,7 +556,7 @@ limpa o deslocamento. O arraste é tratado no Qt, sem IPC por movimento do mouse
 Smoke de arraste real com imagem e PDF temporários (QtTest só para a fixture):
 
 ```sh
-node <nandomo-workspace>/examples/file-manager-qml/scripts/pan-native-smoke.mjs
+node /home/savunma/Code/nandomo/examples/file-manager-qml/scripts/pan-native-smoke.mjs
 ```
 
 ### Barra compacta e operações
@@ -567,3 +567,43 @@ nem o checkbox de subpastas. Compactação, extração, desfazer e esvaziamento 
 lixeira ficam no menu de contexto; renomear vários itens abre o fluxo em lote.
 Configurações de comportamento permanecem em Preferências. Durante uma
 transferência, o progresso e o botão Cancelar ficam juntos no rodapé.
+
+## Portal FileChooser backend (opt-in)
+
+The bundle includes an `org.freedesktop.impl.portal.FileChooser` backend for
+OpenFile, SaveFile and SaveFiles. Applications that use the desktop portal can
+select files in Dank Files, including multiple files and folders, filters,
+additional choices and explicit overwrite confirmation.
+
+From an installed plugin directory:
+
+```bash
+node app/install-portal-backend.mjs             # preview; writes nothing
+node app/install-portal-backend.mjs --enable
+systemctl --user restart xdg-desktop-portal.service
+```
+
+Development: run `pnpm plugin:build`, then use
+`node scripts/install-portal-backend.mjs --enable` from the application directory.
+The installer registers the backend for the current user, backs up the active
+portal configuration (including desktop-specific configurations), and changes
+only `org.freedesktop.impl.portal.FileChooser` under `[preferred]` to
+`dank-files;gtk`. Screen sharing, screenshots and other portal preferences stay
+as configured. GTK remains an alternative preference, not a per-request crash
+recovery guarantee. `--uninstall` removes the registration and restores the
+configuration backup; restart the portal service afterward.
+
+Requires `xdg-desktop-portal`, Python/PyGObject, Node, Quickshell and an available
+DMS DankCommon source. Restart browsers after changing the portal. Browsers
+which use their own file dialogs must first enable their portal integration;
+setting `inode/directory` alone does not select upload/download dialogs.
+
+The chooser currently opens as a separate window: foreign-parent attachment and
+browser-relative modality are not implemented. MIME filters use the OS
+shared-mime-info catalog, with common-type fallbacks on minimal installations.
+
+Validation includes the D-Bus backend contract and public portal forwarding on
+private buses. `pnpm exec tsx tests/portal-native-smoke.tsx` additionally runs the
+public portal through a real Quickshell chooser, including subfolder navigation,
+filtering and file selection; set `PORTAL_TEST_PLATFORM=wayland` for a native
+Wayland run. No browser profiles are modified by the installer.

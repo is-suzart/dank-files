@@ -1270,7 +1270,13 @@ var en, init_en = __esm({
       "Falha ao mover.": "Could not move.",
       "Falha ao aplicar as permiss\xF5es.": "Could not apply the permissions.",
       "Falha ao montar o volume.": "Could not mount the volume.",
-      "Falha ao desmontar o volume.": "Could not unmount the volume."
+      "Falha ao desmontar o volume.": "Could not unmount the volume.",
+      Selecionar: "Select",
+      Subir: "Up",
+      Filtro: "Filter",
+      "O arquivo j\xE1 existe. Substituir?": "The file already exists. Replace it?",
+      "n\xE3o foi poss\xEDvel gerar um nome \xFAnico": "Could not generate a unique name",
+      "requisi\xE7\xE3o do portal ausente": "Missing portal request"
     };
   }
 });
@@ -1438,7 +1444,13 @@ var zhHans, init_zh_Hans = __esm({
       "Falha ao mover.": "\u65E0\u6CD5\u79FB\u52A8\u3002",
       "Falha ao aplicar as permiss\xF5es.": "\u65E0\u6CD5\u5E94\u7528\u6743\u9650\u3002",
       "Falha ao montar o volume.": "\u65E0\u6CD5\u6302\u8F7D\u8BE5\u5377\u3002",
-      "Falha ao desmontar o volume.": "\u65E0\u6CD5\u5378\u8F7D\u8BE5\u5377\u3002"
+      "Falha ao desmontar o volume.": "\u65E0\u6CD5\u5378\u8F7D\u8BE5\u5377\u3002",
+      Selecionar: "\u9009\u62E9",
+      Subir: "\u4E0A\u4E00\u7EA7",
+      Filtro: "\u7B5B\u9009",
+      "O arquivo j\xE1 existe. Substituir?": "\u6587\u4EF6\u5DF2\u5B58\u5728\uFF0C\u662F\u5426\u66FF\u6362\uFF1F",
+      "n\xE3o foi poss\xEDvel gerar um nome \xFAnico": "\u65E0\u6CD5\u751F\u6210\u552F\u4E00\u540D\u79F0",
+      "requisi\xE7\xE3o do portal ausente": "\u7F3A\u5C11\u95E8\u6237\u8BF7\u6C42"
     };
   }
 });
@@ -2154,9 +2166,9 @@ function createFileManager(home3, services) {
     return () => {
       stop2(), clearTimeout(timer);
     };
-  }), stopWatching2, visibleEntries = computed(() => sortEntries((searchResults() ?? entries()).filter((item2) => !searchText().trim() || item2.name.toLowerCase().includes(searchText().trim().toLowerCase())), order(), descending(), hidden(), preferences().foldersFirst).map(decorate)), visibleColumns = computed(() => (searchText().trim() ? [{ path: path3(), entries: visibleEntries() }] : columns()).map((column) => ({
+  }), stopWatching2, entryFilter = signal(void 0), visibleEntries = computed(() => sortEntries((searchResults() ?? entries()).filter((item2) => !entryFilter() || entryFilter()(item2)).filter((item2) => !searchText().trim() || item2.name.toLowerCase().includes(searchText().trim().toLowerCase())), order(), descending(), hidden(), preferences().foldersFirst).map(decorate)), visibleColumns = computed(() => (searchText().trim() ? [{ path: path3(), entries: visibleEntries() }] : columns()).map((column) => ({
     path: column.path,
-    entries: sortEntries(column.entries, order(), descending(), hidden(), preferences().foldersFirst).map(decorate)
+    entries: sortEntries(column.entries.filter((item2) => !entryFilter() || entryFilter()(item2)), order(), descending(), hidden(), preferences().foldersFirst).map(decorate)
   }))), candidates = () => {
     let paths = new Set(entries.peek().map((entry3) => entry3.path));
     return [...searchResults.peek() ?? entries.peek(), ...columns.peek().flatMap((column) => column.entries).filter((entry3) => !paths.has(entry3.path))];
@@ -2299,10 +2311,11 @@ function createFileManager(home3, services) {
       !disposed && token === detailsGeneration && selectedDetails.set(value2);
     }).catch(() => {
     });
-  }), snapshot = computed(() => ({
+  }), chooserMode = !1, snapshot = computed(() => ({
+    chooser: chooserMode,
     locale: services.locale?.(),
     detailsOpen: detailsOpen(),
-    detailsVisible: preferences().detailsAlwaysVisible || !!selected() && detailsOpen(),
+    detailsVisible: !chooserMode && (preferences().detailsAlwaysVisible || !!selected() && detailsOpen()),
     remote: remote(),
     transferStatus: transferStatus() + (operationProgress() && operationProgress().total > 0 ? " \xB7 " + Math.round(operationProgress().completed / operationProgress().total * 100) + "%" : ""),
     destinationPath: destinationPath(),
@@ -2593,6 +2606,13 @@ function createFileManager(home3, services) {
   });
   return {
     tools,
+    /** Portal chooser windows browse with the same views but never run file commands. */
+    setEntryFilter(filter) {
+      entryFilter.set(filter);
+    },
+    setChooserMode(value2) {
+      chooserMode = value2;
+    },
     searchText,
     searchRecursive,
     searchBusy,
@@ -8311,194 +8331,195 @@ function runQuickshell(manager2, regions, options = {}) {
     resolveClosed = resolve4;
   });
   function handle(command) {
-    switch (command.action) {
-      case "uiEvent": {
-        if (reloading) return;
-        let event = command.value;
-        if (!event || typeof event.handler != "string" || !Array.isArray(event.args)) throw new Error("Evento de UI inv\xE1lido.");
-        let eventGeneration = event.generation;
-        if (typeof eventGeneration == "number" && eventGeneration !== generation) return;
-        (event.scene === "sidebar" ? scenes.sidebar : event.scene === "details" ? scenes.details : event.scene === "dialogs" ? scenes.dialogs : scenes.toolbar).dispatch(event.handler, event.args);
-        break;
+    if (!options.onCommand?.(command))
+      switch (command.action) {
+        case "uiEvent": {
+          if (reloading) return;
+          let event = command.value;
+          if (!event || typeof event.handler != "string" || !Array.isArray(event.args)) throw new Error("Evento de UI inv\xE1lido.");
+          let eventGeneration = event.generation;
+          if (typeof eventGeneration == "number" && eventGeneration !== generation) return;
+          (event.scene === "sidebar" ? scenes.sidebar : event.scene === "details" ? scenes.details : event.scene === "dialogs" ? scenes.dialogs : scenes.toolbar).dispatch(event.handler, event.args);
+          break;
+        }
+        case "uiMounted": {
+          if (reloading) break;
+          (command.value === "toolbar" || command.value === "sidebar" || command.value === "details" || command.value === "dialogs") && scenes[command.value].mount();
+          break;
+        }
+        case "uiResult": {
+          let result = command.value;
+          result && typeof result.request == "number" && transport.acknowledge({ request: result.request, error: typeof result.error == "string" ? result.error : void 0, value: result.value });
+          break;
+        }
+        case "properties":
+          manager2.openDetails(typeof command.value == "string" ? command.value : void 0);
+          break;
+        case "closeDetails":
+          manager2.closeDetails();
+          break;
+        case "trash":
+          manager2.trashSelected();
+          break;
+        case "select":
+          (command.value === null || typeof command.value == "string") && manager2.select(command.value);
+          break;
+        case "selectPath": {
+          let value2 = command.value;
+          value2 && (typeof value2.path == "string" || value2.path === null) && ["replace", "toggle", "range", "context"].includes(String(value2.mode)) && manager2.selectPath(value2.path, value2.mode);
+          break;
+        }
+        case "selectAll":
+          manager2.selectAll();
+          break;
+        case "selectStep": {
+          let value2 = command.value;
+          value2 && ["index", "row", "column"].includes(String(value2.axis)) && typeof value2.delta == "number" && manager2.navigateSelection(value2.axis, value2.delta, value2.extend === !0);
+          break;
+        }
+        case "newMenu":
+          manager2.requestNew();
+          break;
+        case "closeNewMenu":
+          manager2.closeNewMenu();
+          break;
+        case "create":
+          (command.value === "file" || command.value === "folder") && manager2.requestCreate(command.value);
+          break;
+        case "drop": {
+          let value2 = command.value;
+          value2 && Array.isArray(value2.urls) && value2.urls.every((url) => typeof url == "string") && typeof value2.folder == "string" && (value2.mode === "copy" || value2.mode === "move") && manager2.dropFiles(value2.urls, value2.folder, value2.mode);
+          break;
+        }
+        case "openDesktop":
+          manager2.openDesktopFile();
+          break;
+        case "manageApplication":
+          manager2.manageApplication();
+          break;
+        case "hideApplication":
+          manager2.hideApplication();
+          break;
+        case "applications":
+          manager2.showApplications();
+          break;
+        case "special":
+          (command.value === "trash:///" || command.value === "recent:///") && manager2.special(command.value);
+          break;
+        case "editPermissions":
+          manager2.editPermissions();
+          break;
+        case "addPlace":
+          manager2.addSelectedPlace();
+          break;
+        case "customizeFolder":
+          manager2.customizeFolder();
+          break;
+        case "preferences":
+          manager2.showPreferences();
+          break;
+        case "closePreferences":
+          manager2.closePreferences();
+          break;
+        case "closeChooser":
+          manager2.closeChooser();
+          break;
+        case "openWith":
+          manager2.chooseApplication(typeof command.value == "string" ? command.value : void 0);
+          break;
+        case "terminal":
+          manager2.terminal();
+          break;
+        case "copy":
+          manager2.copy();
+          break;
+        case "cut":
+          manager2.cut();
+          break;
+        case "paste":
+          manager2.paste();
+          break;
+        case "undo":
+          manager2.undo();
+          break;
+        case "cancelTransfer":
+          manager2.cancelTransfer();
+          break;
+        case "restoreTrash":
+          manager2.restoreSelected();
+          break;
+        case "fileTool":
+          (command.value === "archive" || command.value === "extract" || command.value === "bulk" || command.value === "emptyTrash") && manager2.tools.open(command.value);
+          break;
+        case "browseDestination":
+          typeof command.value == "string" && manager2.browseDestination(command.value);
+          break;
+        case "transfer":
+          (command.value === "copy" || command.value === "move") && manager2.requestTransfer(command.value);
+          break;
+        case "rename":
+          manager2.requestRename();
+          break;
+        case "preview":
+          manager2.requestPreview();
+          break;
+        case "closePreview":
+          manager2.closePreview();
+          break;
+        case "cancelEdit":
+          manager2.cancelEdit();
+          break;
+        case "navigate":
+          typeof command.value == "string" && manager2.navigate(command.value);
+          break;
+        case "column":
+          typeof command.value == "string" && typeof command.index == "number" && manager2.openColumn(command.value, command.index);
+          break;
+        case "back":
+          manager2.back();
+          break;
+        case "forward":
+          manager2.forward();
+          break;
+        case "up":
+          manager2.up();
+          break;
+        case "refresh":
+          manager2.refresh();
+          break;
+        case "hidden":
+          manager2.toggleHidden();
+          break;
+        case "descending":
+          manager2.toggleDescending();
+          break;
+        case "sort":
+          ["name", "size", "modified", "type"].includes(String(command.value)) && manager2.setOrder(command.value);
+          break;
+        case "view":
+          ["list", "grid", "columns"].includes(String(command.value)) && manager2.setView(command.value);
+          break;
+        case "newTab":
+          manager2.newTab(typeof command.value == "string" ? command.value : void 0);
+          break;
+        case "closeTab":
+          manager2.closeTab(typeof command.value == "string" ? command.value : void 0);
+          break;
+        case "selectTab":
+          typeof command.value == "string" && manager2.selectTab(command.value);
+          break;
+        case "nextTab":
+          manager2.nextTab();
+          break;
+        case "prevTab":
+          manager2.prevTab();
+          break;
+        case "open":
+          typeof command.value == "string" && manager2.open(command.value);
+          break;
+        default:
+          manager2.reportError("Comando desconhecido.");
       }
-      case "uiMounted": {
-        if (reloading) break;
-        (command.value === "toolbar" || command.value === "sidebar" || command.value === "details" || command.value === "dialogs") && scenes[command.value].mount();
-        break;
-      }
-      case "uiResult": {
-        let result = command.value;
-        result && typeof result.request == "number" && transport.acknowledge({ request: result.request, error: typeof result.error == "string" ? result.error : void 0, value: result.value });
-        break;
-      }
-      case "properties":
-        manager2.openDetails(typeof command.value == "string" ? command.value : void 0);
-        break;
-      case "closeDetails":
-        manager2.closeDetails();
-        break;
-      case "trash":
-        manager2.trashSelected();
-        break;
-      case "select":
-        (command.value === null || typeof command.value == "string") && manager2.select(command.value);
-        break;
-      case "selectPath": {
-        let value2 = command.value;
-        value2 && (typeof value2.path == "string" || value2.path === null) && ["replace", "toggle", "range", "context"].includes(String(value2.mode)) && manager2.selectPath(value2.path, value2.mode);
-        break;
-      }
-      case "selectAll":
-        manager2.selectAll();
-        break;
-      case "selectStep": {
-        let value2 = command.value;
-        value2 && ["index", "row", "column"].includes(String(value2.axis)) && typeof value2.delta == "number" && manager2.navigateSelection(value2.axis, value2.delta, value2.extend === !0);
-        break;
-      }
-      case "newMenu":
-        manager2.requestNew();
-        break;
-      case "closeNewMenu":
-        manager2.closeNewMenu();
-        break;
-      case "create":
-        (command.value === "file" || command.value === "folder") && manager2.requestCreate(command.value);
-        break;
-      case "drop": {
-        let value2 = command.value;
-        value2 && Array.isArray(value2.urls) && value2.urls.every((url) => typeof url == "string") && typeof value2.folder == "string" && (value2.mode === "copy" || value2.mode === "move") && manager2.dropFiles(value2.urls, value2.folder, value2.mode);
-        break;
-      }
-      case "openDesktop":
-        manager2.openDesktopFile();
-        break;
-      case "manageApplication":
-        manager2.manageApplication();
-        break;
-      case "hideApplication":
-        manager2.hideApplication();
-        break;
-      case "applications":
-        manager2.showApplications();
-        break;
-      case "special":
-        (command.value === "trash:///" || command.value === "recent:///") && manager2.special(command.value);
-        break;
-      case "editPermissions":
-        manager2.editPermissions();
-        break;
-      case "addPlace":
-        manager2.addSelectedPlace();
-        break;
-      case "customizeFolder":
-        manager2.customizeFolder();
-        break;
-      case "preferences":
-        manager2.showPreferences();
-        break;
-      case "closePreferences":
-        manager2.closePreferences();
-        break;
-      case "closeChooser":
-        manager2.closeChooser();
-        break;
-      case "openWith":
-        manager2.chooseApplication(typeof command.value == "string" ? command.value : void 0);
-        break;
-      case "terminal":
-        manager2.terminal();
-        break;
-      case "copy":
-        manager2.copy();
-        break;
-      case "cut":
-        manager2.cut();
-        break;
-      case "paste":
-        manager2.paste();
-        break;
-      case "undo":
-        manager2.undo();
-        break;
-      case "cancelTransfer":
-        manager2.cancelTransfer();
-        break;
-      case "restoreTrash":
-        manager2.restoreSelected();
-        break;
-      case "fileTool":
-        (command.value === "archive" || command.value === "extract" || command.value === "bulk" || command.value === "emptyTrash") && manager2.tools.open(command.value);
-        break;
-      case "browseDestination":
-        typeof command.value == "string" && manager2.browseDestination(command.value);
-        break;
-      case "transfer":
-        (command.value === "copy" || command.value === "move") && manager2.requestTransfer(command.value);
-        break;
-      case "rename":
-        manager2.requestRename();
-        break;
-      case "preview":
-        manager2.requestPreview();
-        break;
-      case "closePreview":
-        manager2.closePreview();
-        break;
-      case "cancelEdit":
-        manager2.cancelEdit();
-        break;
-      case "navigate":
-        typeof command.value == "string" && manager2.navigate(command.value);
-        break;
-      case "column":
-        typeof command.value == "string" && typeof command.index == "number" && manager2.openColumn(command.value, command.index);
-        break;
-      case "back":
-        manager2.back();
-        break;
-      case "forward":
-        manager2.forward();
-        break;
-      case "up":
-        manager2.up();
-        break;
-      case "refresh":
-        manager2.refresh();
-        break;
-      case "hidden":
-        manager2.toggleHidden();
-        break;
-      case "descending":
-        manager2.toggleDescending();
-        break;
-      case "sort":
-        ["name", "size", "modified", "type"].includes(String(command.value)) && manager2.setOrder(command.value);
-        break;
-      case "view":
-        ["list", "grid", "columns"].includes(String(command.value)) && manager2.setView(command.value);
-        break;
-      case "newTab":
-        manager2.newTab(typeof command.value == "string" ? command.value : void 0);
-        break;
-      case "closeTab":
-        manager2.closeTab(typeof command.value == "string" ? command.value : void 0);
-        break;
-      case "selectTab":
-        typeof command.value == "string" && manager2.selectTab(command.value);
-        break;
-      case "nextTab":
-        manager2.nextTab();
-        break;
-      case "prevTab":
-        manager2.prevTab();
-        break;
-      case "open":
-        typeof command.value == "string" && manager2.open(command.value);
-        break;
-      default:
-        manager2.reportError("Comando desconhecido.");
-    }
   }
   input2.on("line", (line) => {
     try {
@@ -8514,7 +8535,9 @@ function runQuickshell(manager2, regions, options = {}) {
       transport.close(), input2.close(), resolveClosed();
     }
   }
-  input2.once("close", dispose);
+  input2.once("close", () => {
+    dispose(), options.onClosed?.();
+  });
   async function replaceRegions(regions2) {
     if (disposed) throw new Error("UI runtime closed");
     if (reloading) throw new Error("UI reload already in progress");

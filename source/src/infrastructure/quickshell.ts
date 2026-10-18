@@ -13,7 +13,7 @@ export class ViewReloadError extends Error {
 interface Command { action:string; value?:unknown; index?:number; }
 
 /** Process/protocol adapter for the TSX-authored Quickshell window. */
-export function runQuickshell(manager:FileManager, regions:AppRegions, options:{input?:NodeJS.ReadableStream;send?:(message:object)=>void}={}) {
+export function runQuickshell(manager:FileManager, regions:AppRegions, options:{input?:NodeJS.ReadableStream;send?:(message:object)=>void;onCommand?:(command:Command)=>boolean;onClosed?:()=>void}={}) {
   const send=options.send ?? ((message:object)=>{process.stdout.write(JSON.stringify(message)+'\n');});
   const transport=createUiTransport(send);
   let generation=0, reloading=false;
@@ -42,6 +42,7 @@ export function runQuickshell(manager:FileManager, regions:AppRegions, options:{
   const closed=new Promise<void>(resolve=>{resolveClosed=resolve;});
 
   function handle(command:Command) {
+    if(options.onCommand?.(command)) return;
     switch(command.action) {
       case 'uiEvent': {
         if(reloading)return;
@@ -144,7 +145,7 @@ export function runQuickshell(manager:FileManager, regions:AppRegions, options:{
     output.dispose(); for(const scene of Object.values(scenes))scene.dispose(); transport.close(); input.close();
     resolveClosed();
   }
-  input.once('close',dispose);
+  input.once('close',()=>{dispose();options.onClosed?.();});
   async function replaceRegions(regions:AppRegions) {
     if(disposed)throw new Error('UI runtime closed');
     if(reloading)throw new Error('UI reload already in progress');

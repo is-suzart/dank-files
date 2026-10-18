@@ -29,7 +29,7 @@ property var dialogsObject: null
 property var detailsBridge: (() => { const __name = function(fn) { return fn; }; return ($qml=>({dispatch:__name(function(handler,args){if(!$qml.app.applyingBindings)$qml.app.send("uiEvent",{scene:"details",handler,args,generation:$qml.app.uiGeneration})},"dispatch")}))({"app": app}); })()
 property var dialogsBridge: (() => { const __name = function(fn) { return fn; }; return ($qml=>({dispatch:__name(function(handler,args){if(!$qml.app.applyingBindings)$qml.app.send("uiEvent",{scene:"dialogs",handler,args,generation:$qml.app.uiGeneration})},"dispatch")}))({"app": app}); })()
 property var contextTarget: null
-property var catalog: {"pt-BR":{"Desktop clipboard unavailable":"A área de transferência do sistema está indisponível.","Desktop integration unavailable":"A integração com o desktop está indisponível.","Desktop integration closed":"A integração com o desktop foi encerrada.","Desktop request timed out":"A solicitação ao desktop demorou demais.","Invalid file location":"Local de arquivo inválido.","Invalid file clipboard":"A área de transferência não contém arquivos válidos.","Invalid clipboard action":"Ação da área de transferência inválida.","Clipboard too large":"O conteúdo da área de transferência excede o limite.","Invalid clipboard format":"Formato da área de transferência inválido.","{count} itens":{"one":"{count} item","other":"{count} itens"},"{count} pastas":{"one":"{count} pasta","other":"{count} pastas"},"{count} selecionados":{"one":"{count} selecionado","other":"{count} selecionados"}},"en":{"Dank Files":"Dank Files","Carregando…":"Loading…","Carregando pastas…":"Loading folders…","{count} itens":{"one":"{count} item","other":"{count} items"},"{count} pastas":{"one":"{count} folder","other":"{count} folders"},"{count} selecionados":{"one":"{count} selected","other":"{count} selected"},"Pasta pessoal":"Home","Sistema":"System","Tipo: Pasta":"Type: Folder","Tamanho: {size}":"Size: {size}","Modificado: {date}":"Modified: {date}","Aplicativos":"Applications","Lixeira":"Trash","Recentes":"Recent","LUGARES":"PLACES","VOLUMES":"VOLUMES","JOGOS":"GAMES","Nenhum volume detectado":"No volume detected","Nenhuma instalação detectada":"No installation detected","Abrir em nova aba":"Open in new tab","Nova aba":"New tab","Nome":"Name","Tamanho":"Size","Modificado":"Modified","Tipo":"Type","Visualização em lista":"List view","Visualização em grade":"Grid view","Visualização em colunas":"Columns view","Ordenar":"Sort","nome":"name","tamanho":"size","data":"date","tipo":"type","decrescente":"descending","crescente":"ascending","Espaço":"Space","Ler":"Read","Alterar":"Write","Executar/acessar":"Execute/enter","Pasta":"Folder","Arquivos":"Files","Nova pasta":"New folder","Novo arquivo":"New file","Novo arquivo vazio":"Empty new file","Abrir app":"Open app","Abrir pasta":"Open folder","Abrir no app padrão":"Open with default app","Abrir .desktop":"Open .desktop","Abrir com…":"Open with…","Abrir terminal aqui":"Open terminal here","Desinstalar…":"Uninstall…","Ocultar":"Hide","Adicionar pasta a Locais":"Add folder to Places","Adicionar pasta atual a Locais":"Add current folder to Places","Remover de Locais":"Remove from Places","Cor, emblema e ícone…":"Color, badge and icon…","Pré-visualizar":"Preview","Pré-visualização":"Preview","Renomear":"Rename","Renomear…":"Rename…","Recortar":"Cut","Copiar":"Copy","Colar":"Paste","Mover para…":"Move to…","Copiar para…":"Copy to…","Mover para a lixeira":"Move to trash","Copiar caminho":"Copy path","Atualizar":"Refresh","Propriedades":"Properties","Voltar":"Back","Avançar":"Forward","Pasta acima":"Parent folder","Arquivos ocultos escondidos":"Hidden files hidden","Arquivos ocultos visíveis":"Hidden files shown","Montar":"Mount","Desmontar":"Unmount","Abrir":"Open","Volume desmontado — botão direito para montar":"Volume unmounted — right-click to mount","Fechar detalhes":"Close details","Selecione um item para ver os detalhes.":"Select an item to see its details.","Avançado":"Advanced","Editar permissões":"Edit permissions","Editar permissões…":"Edit permissions…","Proprietário":"Owner","Grupo":"Group","Outros":"Others","Proprietário: {owner}":"Owner: {owner}","Proprietário: {owner} · Grupo: {group} · Outros: {others}":"Owner: {owner} · Group: {group} · Others: {others}","ler":"read","alterar":"write","executar":"execute","acessar":"enter","sem acesso":"no access","Cancelar":"Cancel","Salvar":"Save","Salvando…":"Saving…","Fechar":"Close","Escolher esta pasta":"Choose this folder","Pasta de destino (caminho completo)":"Destination folder (full path)","Já existe um item com esse nome":"An item with that name already exists","Você pode escolher outro nome, ignorar este item ou substituir um arquivo comum.":"You can pick another name, skip this item or replace a regular file.","Novo nome":"New name","Ignorar":"Skip","Substituir":"Replace","Preferências":"Preferences","Escolher aplicativo":"Choose application","Padrão do sistema":"System default","Posição do vídeo":"Video position","Pausar":"Pause","Reproduzir":"Play","Nenhuma subpasta":"No subfolder","Usar ícone de pasta":"Use folder icon","Emblemas":"Badges","Logos e ícones":"Logos and icons","Buscar ícone…":"Search icon…","Anterior":"Previous","Próxima":"Next","{count} ícones":{"one":"{count} icon","other":"{count} icons"},"Escolher imagem para o ícone…":"Choose image for the icon…","Ícone da pasta":"Folder icon","Personalizar pasta":"Customize folder","Cor da pasta":"Folder color","Restaurar padrão":"Restore default","Nenhum":"None","APARÊNCIA":"APPEARANCE","COMPORTAMENTO":"BEHAVIOUR","Tamanho dos ícones: {size} px":"Icon size: {size} px","Mostrar miniaturas":"Show thumbnails","Manter painel de detalhes visível":"Keep details panel visible","Reserva espaço para os detalhes. Desativado: o painel abre por Propriedades.":"Reserves space for details. Disabled: the panel opens from Properties.","Ordenar pastas antes dos arquivos":"Sort folders before files","Abrir com clique único":"Open with a single click","Desativado: duplo clique abre; clique simples seleciona.":"Disabled: double click opens, single click selects.","Mostrar ação de terminal":"Show terminal action","Mostrar itens especiais na barra lateral":"Show special items in the sidebar","Mostrar lugares na barra lateral":"Show places in the sidebar","Mostrar volumes na barra lateral":"Show volumes in the sidebar","Mostrar jogos na barra lateral":"Show games in the sidebar","Reduzir animações":"Reduce animations","Desativado: transições curtas de foco, seleção, painel e diálogos.":"Disabled: short focus, selection, panel and dialog transitions.","Alterações são salvas automaticamente.":"Changes are saved automatically.","Falha ao ler a pasta.":"Could not read the folder.","Falha ao abrir o arquivo.":"Could not open the file.","Falha ao criar o item.":"Could not create the item.","Falha ao renomear.":"Could not rename.","Falha ao mover para a lixeira.":"Could not move to trash.","Falha ao copiar.":"Could not copy.","Falha ao mover.":"Could not move.","Falha ao aplicar as permissões.":"Could not apply the permissions.","Falha ao montar o volume.":"Could not mount the volume.","Falha ao desmontar o volume.":"Could not unmount the volume.","Fechar busca":"Close search","Invalid file location":"Invalid file location.","Invalid file clipboard":"The clipboard does not contain valid files.","Invalid clipboard action":"Invalid clipboard action.","Clipboard too large":"The clipboard contents exceed the limit.","Invalid clipboard format":"Invalid clipboard format.","Associados ao tipo de arquivo":"Recommended for this file type","Todos os aplicativos":"All applications","Buscar aplicativo":"Search applications","Diminuir zoom":"Zoom out","Aumentar zoom":"Zoom in","Girar à esquerda":"Rotate left","Girar à direita":"Rotate right","Restaurar visualização":"Reset view","Comando inválido.":"Invalid command.","Evento de UI inválido.":"Invalid UI event.","Configurações":"Settings","Jogos":"Games","Biblioteca · {name}":"Library · {name}","Prefixo · {name}":"Prefix · {name}","Área de trabalho":"Desktop","Downloads":"Downloads","Documentos":"Documents","Imagens":"Pictures","Músicas":"Music","Vídeos":"Videos","Projetos":"Projects","Buscando…":"Searching…","Limite: 10.000 resultados":"Limit: 10,000 results","Ordem decrescente":"Descending order","Ordem crescente":"Ascending order","Sem prévia para este formato":"No preview for this format","Não foi possível carregar a prévia":"Could not load preview","Carregando prévia…":"Loading preview…","Movendo: {name} → {destination}":"Moving: {name} → {destination}","Copiando: {name} → {destination}":"Copying: {name} → {destination}","Transferência indisponível.":"File transfer is unavailable.","Escolha um nome diferente.":"Choose a different name.","Substituição indisponível.":"Replacement is unavailable.","Aplicativos indisponíveis.":"Applications are unavailable.","Local virtual indisponível.":"This virtual location is unavailable.","Não foi possível consultar volumes.":"Could not read volumes.","Aplicativo inválido.":"Invalid application.","Não foi possível iniciar o aplicativo.":"Could not launch the application.","Lixeira indisponível.":"Trash is unavailable.","Aplicativos não podem ser alterados nesta visualização.":"Applications cannot be modified in this view.","Informe a pasta de destino.":"Enter the destination folder.","Local indisponível.":"Location is unavailable.","Edição de permissões indisponível.":"Permission editing is unavailable.","Abra uma pasta para adicioná-la a Locais.":"Open a folder to add it to Places.","Favoritos indisponíveis.":"Bookmarks are unavailable.","Volumes indisponíveis.":"Volumes are unavailable.","Personalização indisponível.":"Customization is unavailable.","Seletor indisponível.":"File picker is unavailable.","Editor de texto indisponível.":"Text editor is unavailable.","Gerenciador de aplicativos indisponível.":"Application manager is unavailable.","Ocultar indisponível.":"Hiding is unavailable.","Arrastar arquivos indisponível.":"File dragging is unavailable.","Copie arquivos de uma localização local ou montada.":"Copy files from a local or mounted location.","Renomeação em lote indisponível.":"Bulk renaming is unavailable.","Compactação indisponível.":"Compression is unavailable.","Extração indisponível.":"Extraction is unavailable.","O seletor não retornou uma URL de arquivo.":"The picker did not return a file URL.","Escolha uma pasta.":"Choose a folder.","Configure um editor padrão para arquivos de texto.":"Set a default editor for text files.","Editor padrão não encontrado.":"Default editor not found.","Nenhum terminal compatível encontrado.":"No supported terminal found.","Este tipo de arquivo não pode ser copiado.":"This file type cannot be copied.","O arquivo compactado aponta para fora do destino.":"The archive points outside the destination.","Permissões inválidas.":"Invalid permissions.","Abra o arquivo original para editar permissões.":"Open the original file to edit permissions.","Substituição disponível somente entre arquivos comuns. Renomeie pastas ou links.":"Only regular files can be replaced. Rename folders or links.","O destino mudou. Tente novamente.":"The destination changed. Try again.","Não foi possível abrir o arquivo.":"Could not open the file.","Dispositivo indisponível.":"Device is unavailable.","Item fora da lixeira.":"Item is outside the trash.","Item da lixeira não existe.":"Trash item no longer exists.","Metadados da lixeira inválidos.":"Invalid trash metadata.","Local original indisponível.":"Original location is unavailable.","Local original inválido.":"Invalid original location.","Local virtual desconhecido.":"Unknown virtual location.","Já existe um item com esse nome. Escolha como continuar.":"An item with this name already exists. Choose how to continue.","Lixeira parcialmente processada: {count} concluído(s), {reasons}":"Trash operation incomplete: {count} completed; {reasons}","Restaurado, mas os metadados ficaram: {reason}":"Restored, but metadata could not be removed: {reason}","Renomeação incompleta. Arquivos preservados em: {paths}":"Rename incomplete. Files were preserved at: {paths}","Desktop clipboard unavailable":"Desktop clipboard is unavailable.","Desktop integration unavailable":"Desktop integration is unavailable.","Desktop integration closed":"Desktop integration has closed.","Desktop request timed out":"The desktop request timed out.","A localização requer um backend GVfs com acesso FUSE.":"This location requires a GVfs backend with FUSE access.","Buscar nesta pasta…":"Search this folder…","Buscar arquivos":"Search files","Subpastas":"Subfolders","Limpar":"Clear","Restaurar":"Restore","Esvaziar…":"Empty…","Desfazer":"Undo","Ações":"Actions","Compactar…":"Compress…","Extrair…":"Extract…","Renomear em lote…":"Bulk rename…","Compactar":"Compress","Extrair":"Extract","Renomear em lote":"Bulk rename","Esvaziar lixeira":"Empty trash","Confirmar":"Confirm","Excluir permanentemente":"Delete permanently","Excluir permanentemente {count} itens da lixeira? Esta ação não pode ser desfeita.":"Permanently delete {count} items from the trash? This cannot be undone.","Use {name} para o nome original e {n} para numerar. A extensão é preservada.":"Use {name} for the original name and {n} for numbering. Extensions are preserved.","Informe o nome no diretório atual. ZIP e TAR.GZ são suportados para compactação.":"Enter a name in the current folder. ZIP and TAR.GZ are supported for compression.","Operação cancelada. Itens já concluídos foram preservados.":"Operation cancelled. Completed items were preserved.","Já existe um item com esse nome. Nada foi substituído.":"An item with this name already exists. Nothing was replaced.","Já existe um item com esse nome.":"An item with this name already exists.","Informe um nome sem separadores de diretório.":"Enter a name without directory separators.","Aguarde o fim da operação atual.":"Wait for the current operation to finish.","Escolha uma pasta de destino.":"Choose a destination folder.","Selecione um item para transferir.":"Select an item to transfer.","A origem mudou durante a cópia. Tente novamente.":"The source changed while copying. Try again.","O item mudou desde a operação. Nada foi desfeito.":"The item changed since the operation. Nothing was undone.","Um item mudou desde a renomeação. Nada foi desfeito.":"An item changed since renaming. Nothing was undone.","Use .zip ou .tar.gz.":"Use .zip or .tar.gz.","Selecione itens da mesma pasta.":"Select items from the same folder.","Abra a pasta original para esta operação.":"Open the original folder for this operation.","Selecione um arquivo compactado.":"Select an archive.","Use {name} para o nome original e/ou {n} para a sequência.":"Use {name} for the original name and/or {n} for numbering.","Os novos nomes não podem ser repetidos.":"The new names must be unique.","O destino foi copiado, mas a origem mudou e foi preservada.":"The destination was copied, but the source changed and was preserved.","Não é possível transferir uma pasta para dentro dela mesma.":"A folder cannot be transferred into itself.","Origem e destino são iguais.":"Source and destination are the same.","Abra uma pasta para criar um item.":"Open a folder to create an item.","Abra a pasta original para renomear este item.":"Open the original folder to rename this item.","Abra uma pasta para transferir este item.":"Open a folder to transfer this item.","Abra a pasta original para recortar este item.":"Open the original folder to cut this item.","Instale GVfs para abrir locais de rede.":"Install GVfs to open network locations."},"zh-Hans":{"Dank Files":"Dank Files","Carregando…":"正在加载…","Carregando pastas…":"正在加载文件夹…","{count} itens":"共 {count} 个项目","{count} pastas":"共 {count} 个文件夹","{count} selecionados":"已选择 {count} 项","Pasta pessoal":"主目录","Sistema":"系统","Tipo: Pasta":"类型：文件夹","Tamanho: {size}":"大小：{size}","Modificado: {date}":"修改时间：{date}","Aplicativos":"应用程序","Lixeira":"回收站","Recentes":"最近使用","LUGARES":"位置","VOLUMES":"卷","JOGOS":"游戏","Nenhum volume detectado":"未检测到卷","Nenhuma instalação detectada":"未检测到安装项目","Abrir em nova aba":"在新标签页中打开","Nova aba":"新建标签页","Nome":"名称","Tamanho":"大小","Modificado":"修改时间","Tipo":"类型","Visualização em lista":"列表视图","Visualização em grade":"网格视图","Visualização em colunas":"分栏视图","Ordenar":"排序","nome":"名称","tamanho":"大小","data":"日期","tipo":"类型","decrescente":"降序","crescente":"升序","Espaço":"空格","Ler":"读取","Alterar":"写入","Executar/acessar":"执行/进入","Pasta":"文件夹","Arquivos":"文件","Nova pasta":"新建文件夹","Novo arquivo":"新建文件","Novo arquivo vazio":"新建空文件","Abrir app":"打开应用","Abrir pasta":"打开文件夹","Abrir no app padrão":"用默认应用打开","Abrir .desktop":"打开 .desktop","Abrir com…":"打开方式…","Abrir terminal aqui":"在此处打开终端","Desinstalar…":"卸载…","Ocultar":"隐藏","Adicionar pasta a Locais":"将文件夹添加到位置","Adicionar pasta atual a Locais":"将当前文件夹添加到位置","Remover de Locais":"从位置中移除","Cor, emblema e ícone…":"颜色、徽标和图标…","Pré-visualizar":"预览","Pré-visualização":"预览","Renomear":"重命名","Renomear…":"重命名…","Recortar":"剪切","Copiar":"复制","Colar":"粘贴","Mover para…":"移动到…","Copiar para…":"复制到…","Mover para a lixeira":"移到回收站","Copiar caminho":"复制路径","Atualizar":"刷新","Propriedades":"属性","Voltar":"后退","Avançar":"前进","Pasta acima":"上一级文件夹","Arquivos ocultos escondidos":"隐藏文件已隐藏","Arquivos ocultos visíveis":"显示隐藏文件","Montar":"挂载","Desmontar":"卸载","Abrir":"打开","Volume desmontado — botão direito para montar":"卷未挂载 — 右键可挂载","Fechar detalhes":"关闭详情","Selecione um item para ver os detalhes.":"请选择一个项目以查看详情。","Avançado":"高级","Editar permissões":"编辑权限","Editar permissões…":"编辑权限…","Proprietário":"所有者","Grupo":"用户组","Outros":"其他","Proprietário: {owner}":"所有者：{owner}","Proprietário: {owner} · Grupo: {group} · Outros: {others}":"所有者：{owner} · 用户组：{group} · 其他：{others}","ler":"读取","alterar":"写入","executar":"执行","acessar":"进入","sem acesso":"无权限","Cancelar":"取消","Salvar":"保存","Salvando…":"正在保存…","Fechar":"关闭","Escolher esta pasta":"选择此文件夹","Pasta de destino (caminho completo)":"目标文件夹（完整路径）","Já existe um item com esse nome":"同名项目已存在","Você pode escolher outro nome, ignorar este item ou substituir um arquivo comum.":"您可以换一个名称、跳过此项目或替换普通文件。","Novo nome":"新名称","Ignorar":"跳过","Substituir":"替换","Preferências":"首选项","Escolher aplicativo":"选择应用","Padrão do sistema":"系统默认","Posição do vídeo":"视频进度","Pausar":"暂停","Reproduzir":"播放","Nenhuma subpasta":"没有子文件夹","Usar ícone de pasta":"使用文件夹图标","Emblemas":"徽标","Logos e ícones":"标志与图标","Buscar ícone…":"搜索图标…","Anterior":"上一页","Próxima":"下一页","{count} ícones":"共 {count} 个图标","Escolher imagem para o ícone…":"选择图标图片…","Ícone da pasta":"文件夹图标","Personalizar pasta":"自定义文件夹","Cor da pasta":"文件夹颜色","Restaurar padrão":"恢复默认","Nenhum":"无","APARÊNCIA":"外观","COMPORTAMENTO":"行为","Tamanho dos ícones: {size} px":"图标大小：{size} 像素","Mostrar miniaturas":"显示缩略图","Manter painel de detalhes visível":"始终显示详情面板","Reserva espaço para os detalhes. Desativado: o painel abre por Propriedades.":"为详情预留空间。关闭时：从属性对话框打开面板。","Ordenar pastas antes dos arquivos":"文件夹排在文件之前","Abrir com clique único":"单击打开","Desativado: duplo clique abre; clique simples seleciona.":"关闭时：双击打开，单击选中。","Mostrar ação de terminal":"显示终端操作","Mostrar itens especiais na barra lateral":"在侧边栏显示特殊位置","Mostrar lugares na barra lateral":"在侧边栏显示位置","Mostrar volumes na barra lateral":"在侧边栏显示卷","Mostrar jogos na barra lateral":"在侧边栏显示游戏","Reduzir animações":"减少动画","Desativado: transições curtas de foco, seleção, painel e diálogos.":"关闭时：使用简短的焦点、选中、面板和对话框过渡。","Alterações são salvas automaticamente.":"更改将自动保存。","Falha ao ler a pasta.":"无法读取文件夹。","Falha ao abrir o arquivo.":"无法打开文件。","Falha ao criar o item.":"无法创建项目。","Falha ao renomear.":"无法重命名。","Falha ao mover para a lixeira.":"无法移到回收站。","Falha ao copiar.":"无法复制。","Falha ao mover.":"无法移动。","Falha ao aplicar as permissões.":"无法应用权限。","Falha ao montar o volume.":"无法挂载该卷。","Falha ao desmontar o volume.":"无法卸载该卷。","Fechar busca":"关闭搜索","Invalid file location":"无效的文件位置。","Invalid file clipboard":"剪贴板中没有有效文件。","Invalid clipboard action":"无效的剪贴板操作。","Clipboard too large":"剪贴板内容超出上限。","Invalid clipboard format":"无效的剪贴板格式。","Associados ao tipo de arquivo":"此文件类型的推荐应用","Todos os aplicativos":"所有应用程序","Buscar aplicativo":"搜索应用程序","Diminuir zoom":"缩小","Aumentar zoom":"放大","Girar à esquerda":"向左旋转","Girar à direita":"向右旋转","Restaurar visualização":"重置视图","Comando inválido.":"无效的命令。","Evento de UI inválido.":"无效的界面事件。","Configurações":"设置","Jogos":"游戏","Biblioteca · {name}":"游戏库 · {name}","Prefixo · {name}":"前缀 · {name}","Área de trabalho":"桌面","Downloads":"下载","Documentos":"文档","Imagens":"图片","Músicas":"音乐","Vídeos":"视频","Projetos":"项目","Buscando…":"正在搜索…","Limite: 10.000 resultados":"上限：10,000 个结果","Ordem decrescente":"降序","Ordem crescente":"升序","Sem prévia para este formato":"此格式不支持预览","Não foi possível carregar a prévia":"无法加载预览","Carregando prévia…":"正在加载预览…","Movendo: {name} → {destination}":"正在移动：{name} → {destination}","Copiando: {name} → {destination}":"正在复制：{name} → {destination}","Transferência indisponível.":"文件传输不可用。","Escolha um nome diferente.":"请选择其他名称。","Substituição indisponível.":"替换不可用。","Aplicativos indisponíveis.":"应用程序不可用。","Local virtual indisponível.":"此虚拟位置不可用。","Não foi possível consultar volumes.":"无法读取卷。","Aplicativo inválido.":"无效的应用程序。","Não foi possível iniciar o aplicativo.":"无法启动应用程序。","Lixeira indisponível.":"回收站不可用。","Aplicativos não podem ser alterados nesta visualização.":"无法在此视图中修改应用程序。","Informe a pasta de destino.":"请输入目标文件夹。","Local indisponível.":"位置不可用。","Edição de permissões indisponível.":"权限编辑不可用。","Abra uma pasta para adicioná-la a Locais.":"请打开文件夹以将其添加到位置。","Favoritos indisponíveis.":"书签不可用。","Volumes indisponíveis.":"卷不可用。","Personalização indisponível.":"自定义不可用。","Seletor indisponível.":"文件选择器不可用。","Editor de texto indisponível.":"文本编辑器不可用。","Gerenciador de aplicativos indisponível.":"应用程序管理器不可用。","Ocultar indisponível.":"隐藏操作不可用。","Arrastar arquivos indisponível.":"文件拖放不可用。","Copie arquivos de uma localização local ou montada.":"请从本地或已挂载的位置复制文件。","Renomeação em lote indisponível.":"批量重命名不可用。","Compactação indisponível.":"压缩不可用。","Extração indisponível.":"解压不可用。","O seletor não retornou uma URL de arquivo.":"选择器未返回文件 URL。","Escolha uma pasta.":"请选择文件夹。","Configure um editor padrão para arquivos de texto.":"请为文本文件设置默认编辑器。","Editor padrão não encontrado.":"未找到默认编辑器。","Nenhum terminal compatível encontrado.":"未找到支持的终端。","Este tipo de arquivo não pode ser copiado.":"无法复制此类型的文件。","O arquivo compactado aponta para fora do destino.":"压缩文件指向目标文件夹之外。","Permissões inválidas.":"无效的权限。","Abra o arquivo original para editar permissões.":"请打开原文件以编辑权限。","Substituição disponível somente entre arquivos comuns. Renomeie pastas ou links.":"只能替换普通文件。请重命名文件夹或链接。","O destino mudou. Tente novamente.":"目标发生变化，请重试。","Não foi possível abrir o arquivo.":"无法打开文件。","Dispositivo indisponível.":"设备不可用。","Item fora da lixeira.":"项目不在回收站中。","Item da lixeira não existe.":"回收站中的项目已不存在。","Metadados da lixeira inválidos.":"回收站元数据无效。","Local original indisponível.":"原位置不可用。","Local original inválido.":"原位置无效。","Local virtual desconhecido.":"未知的虚拟位置。","Já existe um item com esse nome. Escolha como continuar.":"已存在同名项目，请选择如何继续。","Lixeira parcialmente processada: {count} concluído(s), {reasons}":"回收站操作未完成：已完成 {count} 项；{reasons}","Restaurado, mas os metadados ficaram: {reason}":"已还原，但无法删除元数据：{reason}","Renomeação incompleta. Arquivos preservados em: {paths}":"重命名未完成。文件保留于：{paths}","Desktop clipboard unavailable":"桌面剪贴板不可用。","Desktop integration unavailable":"桌面集成不可用。","Desktop integration closed":"桌面集成已关闭。","Desktop request timed out":"桌面请求超时。","A localização requer um backend GVfs com acesso FUSE.":"此位置需要支持 FUSE 访问的 GVfs 后端。","Buscar nesta pasta…":"搜索此文件夹…","Buscar arquivos":"搜索文件","Subpastas":"子文件夹","Limpar":"清除","Restaurar":"还原","Esvaziar…":"清空…","Desfazer":"撤销","Ações":"操作","Compactar…":"压缩…","Extrair…":"解压…","Renomear em lote…":"批量重命名…","Compactar":"压缩","Extrair":"解压","Renomear em lote":"批量重命名","Esvaziar lixeira":"清空回收站","Confirmar":"确认","Excluir permanentemente":"永久删除","Excluir permanentemente {count} itens da lixeira? Esta ação não pode ser desfeita.":"永久删除回收站中的 {count} 个项目？此操作无法撤销。","Use {name} para o nome original e {n} para numerar. A extensão é preservada.":"使用 {name} 表示原名称，{n} 表示序号。保留文件扩展名。","Informe o nome no diretório atual. ZIP e TAR.GZ são suportados para compactação.":"输入当前文件夹中的名称。支持 ZIP 和 TAR.GZ 压缩。","Operação cancelada. Itens já concluídos foram preservados.":"操作已取消。已完成的项目已保留。","Já existe um item com esse nome. Nada foi substituído.":"已存在同名项目，未替换任何内容。","Já existe um item com esse nome.":"已存在同名项目。","Informe um nome sem separadores de diretório.":"请输入不含目录分隔符的名称。","Aguarde o fim da operação atual.":"请等待当前操作完成。","Escolha uma pasta de destino.":"请选择目标文件夹。","Selecione um item para transferir.":"请选择要传输的项目。","A origem mudou durante a cópia. Tente novamente.":"源文件在复制过程中发生变化，请重试。","O item mudou desde a operação. Nada foi desfeito.":"项目在操作后发生变化，未撤销任何内容。","Um item mudou desde a renomeação. Nada foi desfeito.":"项目在重命名后发生变化，未撤销任何内容。","Use .zip ou .tar.gz.":"请使用 .zip 或 .tar.gz。","Selecione itens da mesma pasta.":"请选择同一文件夹中的项目。","Abra a pasta original para esta operação.":"请打开原文件夹以执行此操作。","Selecione um arquivo compactado.":"请选择压缩文件。","Use {name} para o nome original e/ou {n} para a sequência.":"使用 {name} 表示原名称，{n} 表示序号。","Os novos nomes não podem ser repetidos.":"新名称不能重复。","O destino foi copiado, mas a origem mudou e foi preservada.":"目标已复制，但源文件发生变化，因此已保留。","Não é possível transferir uma pasta para dentro dela mesma.":"无法将文件夹传输到其自身内部。","Origem e destino são iguais.":"源位置和目标位置相同。","Abra uma pasta para criar um item.":"请打开文件夹以创建项目。","Abra a pasta original para renomear este item.":"请打开原文件夹以重命名此项目。","Abra uma pasta para transferir este item.":"请打开文件夹以传输此项目。","Abra a pasta original para recortar este item.":"请打开原文件夹以剪切此项目。","Instale GVfs para abrir locais de rede.":"请安装 GVfs 以打开网络位置。"}}
+property var catalog: {"pt-BR":{"Desktop clipboard unavailable":"A área de transferência do sistema está indisponível.","Desktop integration unavailable":"A integração com o desktop está indisponível.","Desktop integration closed":"A integração com o desktop foi encerrada.","Desktop request timed out":"A solicitação ao desktop demorou demais.","Invalid file location":"Local de arquivo inválido.","Invalid file clipboard":"A área de transferência não contém arquivos válidos.","Invalid clipboard action":"Ação da área de transferência inválida.","Clipboard too large":"O conteúdo da área de transferência excede o limite.","Invalid clipboard format":"Formato da área de transferência inválido.","{count} itens":{"one":"{count} item","other":"{count} itens"},"{count} pastas":{"one":"{count} pasta","other":"{count} pastas"},"{count} selecionados":{"one":"{count} selecionado","other":"{count} selecionados"}},"en":{"Dank Files":"Dank Files","Carregando…":"Loading…","Carregando pastas…":"Loading folders…","{count} itens":{"one":"{count} item","other":"{count} items"},"{count} pastas":{"one":"{count} folder","other":"{count} folders"},"{count} selecionados":{"one":"{count} selected","other":"{count} selected"},"Pasta pessoal":"Home","Sistema":"System","Tipo: Pasta":"Type: Folder","Tamanho: {size}":"Size: {size}","Modificado: {date}":"Modified: {date}","Aplicativos":"Applications","Lixeira":"Trash","Recentes":"Recent","LUGARES":"PLACES","VOLUMES":"VOLUMES","JOGOS":"GAMES","Nenhum volume detectado":"No volume detected","Nenhuma instalação detectada":"No installation detected","Abrir em nova aba":"Open in new tab","Nova aba":"New tab","Nome":"Name","Tamanho":"Size","Modificado":"Modified","Tipo":"Type","Visualização em lista":"List view","Visualização em grade":"Grid view","Visualização em colunas":"Columns view","Ordenar":"Sort","nome":"name","tamanho":"size","data":"date","tipo":"type","decrescente":"descending","crescente":"ascending","Espaço":"Space","Ler":"Read","Alterar":"Write","Executar/acessar":"Execute/enter","Pasta":"Folder","Arquivos":"Files","Nova pasta":"New folder","Novo arquivo":"New file","Novo arquivo vazio":"Empty new file","Abrir app":"Open app","Abrir pasta":"Open folder","Abrir no app padrão":"Open with default app","Abrir .desktop":"Open .desktop","Abrir com…":"Open with…","Abrir terminal aqui":"Open terminal here","Desinstalar…":"Uninstall…","Ocultar":"Hide","Adicionar pasta a Locais":"Add folder to Places","Adicionar pasta atual a Locais":"Add current folder to Places","Remover de Locais":"Remove from Places","Cor, emblema e ícone…":"Color, badge and icon…","Pré-visualizar":"Preview","Pré-visualização":"Preview","Renomear":"Rename","Renomear…":"Rename…","Recortar":"Cut","Copiar":"Copy","Colar":"Paste","Mover para…":"Move to…","Copiar para…":"Copy to…","Mover para a lixeira":"Move to trash","Copiar caminho":"Copy path","Atualizar":"Refresh","Propriedades":"Properties","Voltar":"Back","Avançar":"Forward","Pasta acima":"Parent folder","Arquivos ocultos escondidos":"Hidden files hidden","Arquivos ocultos visíveis":"Hidden files shown","Montar":"Mount","Desmontar":"Unmount","Abrir":"Open","Volume desmontado — botão direito para montar":"Volume unmounted — right-click to mount","Fechar detalhes":"Close details","Selecione um item para ver os detalhes.":"Select an item to see its details.","Avançado":"Advanced","Editar permissões":"Edit permissions","Editar permissões…":"Edit permissions…","Proprietário":"Owner","Grupo":"Group","Outros":"Others","Proprietário: {owner}":"Owner: {owner}","Proprietário: {owner} · Grupo: {group} · Outros: {others}":"Owner: {owner} · Group: {group} · Others: {others}","ler":"read","alterar":"write","executar":"execute","acessar":"enter","sem acesso":"no access","Cancelar":"Cancel","Salvar":"Save","Salvando…":"Saving…","Fechar":"Close","Escolher esta pasta":"Choose this folder","Pasta de destino (caminho completo)":"Destination folder (full path)","Já existe um item com esse nome":"An item with that name already exists","Você pode escolher outro nome, ignorar este item ou substituir um arquivo comum.":"You can pick another name, skip this item or replace a regular file.","Novo nome":"New name","Ignorar":"Skip","Substituir":"Replace","Preferências":"Preferences","Escolher aplicativo":"Choose application","Padrão do sistema":"System default","Posição do vídeo":"Video position","Pausar":"Pause","Reproduzir":"Play","Nenhuma subpasta":"No subfolder","Usar ícone de pasta":"Use folder icon","Emblemas":"Badges","Logos e ícones":"Logos and icons","Buscar ícone…":"Search icon…","Anterior":"Previous","Próxima":"Next","{count} ícones":{"one":"{count} icon","other":"{count} icons"},"Escolher imagem para o ícone…":"Choose image for the icon…","Ícone da pasta":"Folder icon","Personalizar pasta":"Customize folder","Cor da pasta":"Folder color","Restaurar padrão":"Restore default","Nenhum":"None","APARÊNCIA":"APPEARANCE","COMPORTAMENTO":"BEHAVIOUR","Tamanho dos ícones: {size} px":"Icon size: {size} px","Mostrar miniaturas":"Show thumbnails","Manter painel de detalhes visível":"Keep details panel visible","Reserva espaço para os detalhes. Desativado: o painel abre por Propriedades.":"Reserves space for details. Disabled: the panel opens from Properties.","Ordenar pastas antes dos arquivos":"Sort folders before files","Abrir com clique único":"Open with a single click","Desativado: duplo clique abre; clique simples seleciona.":"Disabled: double click opens, single click selects.","Mostrar ação de terminal":"Show terminal action","Mostrar itens especiais na barra lateral":"Show special items in the sidebar","Mostrar lugares na barra lateral":"Show places in the sidebar","Mostrar volumes na barra lateral":"Show volumes in the sidebar","Mostrar jogos na barra lateral":"Show games in the sidebar","Reduzir animações":"Reduce animations","Desativado: transições curtas de foco, seleção, painel e diálogos.":"Disabled: short focus, selection, panel and dialog transitions.","Alterações são salvas automaticamente.":"Changes are saved automatically.","Falha ao ler a pasta.":"Could not read the folder.","Falha ao abrir o arquivo.":"Could not open the file.","Falha ao criar o item.":"Could not create the item.","Falha ao renomear.":"Could not rename.","Falha ao mover para a lixeira.":"Could not move to trash.","Falha ao copiar.":"Could not copy.","Falha ao mover.":"Could not move.","Falha ao aplicar as permissões.":"Could not apply the permissions.","Falha ao montar o volume.":"Could not mount the volume.","Falha ao desmontar o volume.":"Could not unmount the volume.","Selecionar":"Select","Subir":"Up","Filtro":"Filter","O arquivo já existe. Substituir?":"The file already exists. Replace it?","não foi possível gerar um nome único":"Could not generate a unique name","requisição do portal ausente":"Missing portal request","Fechar busca":"Close search","Invalid file location":"Invalid file location.","Invalid file clipboard":"The clipboard does not contain valid files.","Invalid clipboard action":"Invalid clipboard action.","Clipboard too large":"The clipboard contents exceed the limit.","Invalid clipboard format":"Invalid clipboard format.","Associados ao tipo de arquivo":"Recommended for this file type","Todos os aplicativos":"All applications","Buscar aplicativo":"Search applications","Diminuir zoom":"Zoom out","Aumentar zoom":"Zoom in","Girar à esquerda":"Rotate left","Girar à direita":"Rotate right","Restaurar visualização":"Reset view","Comando inválido.":"Invalid command.","Evento de UI inválido.":"Invalid UI event.","Configurações":"Settings","Jogos":"Games","Biblioteca · {name}":"Library · {name}","Prefixo · {name}":"Prefix · {name}","Área de trabalho":"Desktop","Downloads":"Downloads","Documentos":"Documents","Imagens":"Pictures","Músicas":"Music","Vídeos":"Videos","Projetos":"Projects","Buscando…":"Searching…","Limite: 10.000 resultados":"Limit: 10,000 results","Ordem decrescente":"Descending order","Ordem crescente":"Ascending order","Sem prévia para este formato":"No preview for this format","Não foi possível carregar a prévia":"Could not load preview","Carregando prévia…":"Loading preview…","Movendo: {name} → {destination}":"Moving: {name} → {destination}","Copiando: {name} → {destination}":"Copying: {name} → {destination}","Transferência indisponível.":"File transfer is unavailable.","Escolha um nome diferente.":"Choose a different name.","Substituição indisponível.":"Replacement is unavailable.","Aplicativos indisponíveis.":"Applications are unavailable.","Local virtual indisponível.":"This virtual location is unavailable.","Não foi possível consultar volumes.":"Could not read volumes.","Aplicativo inválido.":"Invalid application.","Não foi possível iniciar o aplicativo.":"Could not launch the application.","Lixeira indisponível.":"Trash is unavailable.","Aplicativos não podem ser alterados nesta visualização.":"Applications cannot be modified in this view.","Informe a pasta de destino.":"Enter the destination folder.","Local indisponível.":"Location is unavailable.","Edição de permissões indisponível.":"Permission editing is unavailable.","Abra uma pasta para adicioná-la a Locais.":"Open a folder to add it to Places.","Favoritos indisponíveis.":"Bookmarks are unavailable.","Volumes indisponíveis.":"Volumes are unavailable.","Personalização indisponível.":"Customization is unavailable.","Seletor indisponível.":"File picker is unavailable.","Editor de texto indisponível.":"Text editor is unavailable.","Gerenciador de aplicativos indisponível.":"Application manager is unavailable.","Ocultar indisponível.":"Hiding is unavailable.","Arrastar arquivos indisponível.":"File dragging is unavailable.","Copie arquivos de uma localização local ou montada.":"Copy files from a local or mounted location.","Renomeação em lote indisponível.":"Bulk renaming is unavailable.","Compactação indisponível.":"Compression is unavailable.","Extração indisponível.":"Extraction is unavailable.","O seletor não retornou uma URL de arquivo.":"The picker did not return a file URL.","Escolha uma pasta.":"Choose a folder.","Configure um editor padrão para arquivos de texto.":"Set a default editor for text files.","Editor padrão não encontrado.":"Default editor not found.","Nenhum terminal compatível encontrado.":"No supported terminal found.","Este tipo de arquivo não pode ser copiado.":"This file type cannot be copied.","O arquivo compactado aponta para fora do destino.":"The archive points outside the destination.","Permissões inválidas.":"Invalid permissions.","Abra o arquivo original para editar permissões.":"Open the original file to edit permissions.","Substituição disponível somente entre arquivos comuns. Renomeie pastas ou links.":"Only regular files can be replaced. Rename folders or links.","O destino mudou. Tente novamente.":"The destination changed. Try again.","Não foi possível abrir o arquivo.":"Could not open the file.","Dispositivo indisponível.":"Device is unavailable.","Item fora da lixeira.":"Item is outside the trash.","Item da lixeira não existe.":"Trash item no longer exists.","Metadados da lixeira inválidos.":"Invalid trash metadata.","Local original indisponível.":"Original location is unavailable.","Local original inválido.":"Invalid original location.","Local virtual desconhecido.":"Unknown virtual location.","Já existe um item com esse nome. Escolha como continuar.":"An item with this name already exists. Choose how to continue.","Lixeira parcialmente processada: {count} concluído(s), {reasons}":"Trash operation incomplete: {count} completed; {reasons}","Restaurado, mas os metadados ficaram: {reason}":"Restored, but metadata could not be removed: {reason}","Renomeação incompleta. Arquivos preservados em: {paths}":"Rename incomplete. Files were preserved at: {paths}","Desktop clipboard unavailable":"Desktop clipboard is unavailable.","Desktop integration unavailable":"Desktop integration is unavailable.","Desktop integration closed":"Desktop integration has closed.","Desktop request timed out":"The desktop request timed out.","A localização requer um backend GVfs com acesso FUSE.":"This location requires a GVfs backend with FUSE access.","Buscar nesta pasta…":"Search this folder…","Buscar arquivos":"Search files","Subpastas":"Subfolders","Limpar":"Clear","Restaurar":"Restore","Esvaziar…":"Empty…","Desfazer":"Undo","Ações":"Actions","Compactar…":"Compress…","Extrair…":"Extract…","Renomear em lote…":"Bulk rename…","Compactar":"Compress","Extrair":"Extract","Renomear em lote":"Bulk rename","Esvaziar lixeira":"Empty trash","Confirmar":"Confirm","Excluir permanentemente":"Delete permanently","Excluir permanentemente {count} itens da lixeira? Esta ação não pode ser desfeita.":"Permanently delete {count} items from the trash? This cannot be undone.","Use {name} para o nome original e {n} para numerar. A extensão é preservada.":"Use {name} for the original name and {n} for numbering. Extensions are preserved.","Informe o nome no diretório atual. ZIP e TAR.GZ são suportados para compactação.":"Enter a name in the current folder. ZIP and TAR.GZ are supported for compression.","Operação cancelada. Itens já concluídos foram preservados.":"Operation cancelled. Completed items were preserved.","Já existe um item com esse nome. Nada foi substituído.":"An item with this name already exists. Nothing was replaced.","Já existe um item com esse nome.":"An item with this name already exists.","Informe um nome sem separadores de diretório.":"Enter a name without directory separators.","Aguarde o fim da operação atual.":"Wait for the current operation to finish.","Escolha uma pasta de destino.":"Choose a destination folder.","Selecione um item para transferir.":"Select an item to transfer.","A origem mudou durante a cópia. Tente novamente.":"The source changed while copying. Try again.","O item mudou desde a operação. Nada foi desfeito.":"The item changed since the operation. Nothing was undone.","Um item mudou desde a renomeação. Nada foi desfeito.":"An item changed since renaming. Nothing was undone.","Use .zip ou .tar.gz.":"Use .zip or .tar.gz.","Selecione itens da mesma pasta.":"Select items from the same folder.","Abra a pasta original para esta operação.":"Open the original folder for this operation.","Selecione um arquivo compactado.":"Select an archive.","Use {name} para o nome original e/ou {n} para a sequência.":"Use {name} for the original name and/or {n} for numbering.","Os novos nomes não podem ser repetidos.":"The new names must be unique.","O destino foi copiado, mas a origem mudou e foi preservada.":"The destination was copied, but the source changed and was preserved.","Não é possível transferir uma pasta para dentro dela mesma.":"A folder cannot be transferred into itself.","Origem e destino são iguais.":"Source and destination are the same.","Abra uma pasta para criar um item.":"Open a folder to create an item.","Abra a pasta original para renomear este item.":"Open the original folder to rename this item.","Abra uma pasta para transferir este item.":"Open a folder to transfer this item.","Abra a pasta original para recortar este item.":"Open the original folder to cut this item.","Instale GVfs para abrir locais de rede.":"Install GVfs to open network locations."},"zh-Hans":{"Dank Files":"Dank Files","Carregando…":"正在加载…","Carregando pastas…":"正在加载文件夹…","{count} itens":"共 {count} 个项目","{count} pastas":"共 {count} 个文件夹","{count} selecionados":"已选择 {count} 项","Pasta pessoal":"主目录","Sistema":"系统","Tipo: Pasta":"类型：文件夹","Tamanho: {size}":"大小：{size}","Modificado: {date}":"修改时间：{date}","Aplicativos":"应用程序","Lixeira":"回收站","Recentes":"最近使用","LUGARES":"位置","VOLUMES":"卷","JOGOS":"游戏","Nenhum volume detectado":"未检测到卷","Nenhuma instalação detectada":"未检测到安装项目","Abrir em nova aba":"在新标签页中打开","Nova aba":"新建标签页","Nome":"名称","Tamanho":"大小","Modificado":"修改时间","Tipo":"类型","Visualização em lista":"列表视图","Visualização em grade":"网格视图","Visualização em colunas":"分栏视图","Ordenar":"排序","nome":"名称","tamanho":"大小","data":"日期","tipo":"类型","decrescente":"降序","crescente":"升序","Espaço":"空格","Ler":"读取","Alterar":"写入","Executar/acessar":"执行/进入","Pasta":"文件夹","Arquivos":"文件","Nova pasta":"新建文件夹","Novo arquivo":"新建文件","Novo arquivo vazio":"新建空文件","Abrir app":"打开应用","Abrir pasta":"打开文件夹","Abrir no app padrão":"用默认应用打开","Abrir .desktop":"打开 .desktop","Abrir com…":"打开方式…","Abrir terminal aqui":"在此处打开终端","Desinstalar…":"卸载…","Ocultar":"隐藏","Adicionar pasta a Locais":"将文件夹添加到位置","Adicionar pasta atual a Locais":"将当前文件夹添加到位置","Remover de Locais":"从位置中移除","Cor, emblema e ícone…":"颜色、徽标和图标…","Pré-visualizar":"预览","Pré-visualização":"预览","Renomear":"重命名","Renomear…":"重命名…","Recortar":"剪切","Copiar":"复制","Colar":"粘贴","Mover para…":"移动到…","Copiar para…":"复制到…","Mover para a lixeira":"移到回收站","Copiar caminho":"复制路径","Atualizar":"刷新","Propriedades":"属性","Voltar":"后退","Avançar":"前进","Pasta acima":"上一级文件夹","Arquivos ocultos escondidos":"隐藏文件已隐藏","Arquivos ocultos visíveis":"显示隐藏文件","Montar":"挂载","Desmontar":"卸载","Abrir":"打开","Volume desmontado — botão direito para montar":"卷未挂载 — 右键可挂载","Fechar detalhes":"关闭详情","Selecione um item para ver os detalhes.":"请选择一个项目以查看详情。","Avançado":"高级","Editar permissões":"编辑权限","Editar permissões…":"编辑权限…","Proprietário":"所有者","Grupo":"用户组","Outros":"其他","Proprietário: {owner}":"所有者：{owner}","Proprietário: {owner} · Grupo: {group} · Outros: {others}":"所有者：{owner} · 用户组：{group} · 其他：{others}","ler":"读取","alterar":"写入","executar":"执行","acessar":"进入","sem acesso":"无权限","Cancelar":"取消","Salvar":"保存","Salvando…":"正在保存…","Fechar":"关闭","Escolher esta pasta":"选择此文件夹","Pasta de destino (caminho completo)":"目标文件夹（完整路径）","Já existe um item com esse nome":"同名项目已存在","Você pode escolher outro nome, ignorar este item ou substituir um arquivo comum.":"您可以换一个名称、跳过此项目或替换普通文件。","Novo nome":"新名称","Ignorar":"跳过","Substituir":"替换","Preferências":"首选项","Escolher aplicativo":"选择应用","Padrão do sistema":"系统默认","Posição do vídeo":"视频进度","Pausar":"暂停","Reproduzir":"播放","Nenhuma subpasta":"没有子文件夹","Usar ícone de pasta":"使用文件夹图标","Emblemas":"徽标","Logos e ícones":"标志与图标","Buscar ícone…":"搜索图标…","Anterior":"上一页","Próxima":"下一页","{count} ícones":"共 {count} 个图标","Escolher imagem para o ícone…":"选择图标图片…","Ícone da pasta":"文件夹图标","Personalizar pasta":"自定义文件夹","Cor da pasta":"文件夹颜色","Restaurar padrão":"恢复默认","Nenhum":"无","APARÊNCIA":"外观","COMPORTAMENTO":"行为","Tamanho dos ícones: {size} px":"图标大小：{size} 像素","Mostrar miniaturas":"显示缩略图","Manter painel de detalhes visível":"始终显示详情面板","Reserva espaço para os detalhes. Desativado: o painel abre por Propriedades.":"为详情预留空间。关闭时：从属性对话框打开面板。","Ordenar pastas antes dos arquivos":"文件夹排在文件之前","Abrir com clique único":"单击打开","Desativado: duplo clique abre; clique simples seleciona.":"关闭时：双击打开，单击选中。","Mostrar ação de terminal":"显示终端操作","Mostrar itens especiais na barra lateral":"在侧边栏显示特殊位置","Mostrar lugares na barra lateral":"在侧边栏显示位置","Mostrar volumes na barra lateral":"在侧边栏显示卷","Mostrar jogos na barra lateral":"在侧边栏显示游戏","Reduzir animações":"减少动画","Desativado: transições curtas de foco, seleção, painel e diálogos.":"关闭时：使用简短的焦点、选中、面板和对话框过渡。","Alterações são salvas automaticamente.":"更改将自动保存。","Falha ao ler a pasta.":"无法读取文件夹。","Falha ao abrir o arquivo.":"无法打开文件。","Falha ao criar o item.":"无法创建项目。","Falha ao renomear.":"无法重命名。","Falha ao mover para a lixeira.":"无法移到回收站。","Falha ao copiar.":"无法复制。","Falha ao mover.":"无法移动。","Falha ao aplicar as permissões.":"无法应用权限。","Falha ao montar o volume.":"无法挂载该卷。","Falha ao desmontar o volume.":"无法卸载该卷。","Selecionar":"选择","Subir":"上一级","Filtro":"筛选","O arquivo já existe. Substituir?":"文件已存在，是否替换？","não foi possível gerar um nome único":"无法生成唯一名称","requisição do portal ausente":"缺少门户请求","Fechar busca":"关闭搜索","Invalid file location":"无效的文件位置。","Invalid file clipboard":"剪贴板中没有有效文件。","Invalid clipboard action":"无效的剪贴板操作。","Clipboard too large":"剪贴板内容超出上限。","Invalid clipboard format":"无效的剪贴板格式。","Associados ao tipo de arquivo":"此文件类型的推荐应用","Todos os aplicativos":"所有应用程序","Buscar aplicativo":"搜索应用程序","Diminuir zoom":"缩小","Aumentar zoom":"放大","Girar à esquerda":"向左旋转","Girar à direita":"向右旋转","Restaurar visualização":"重置视图","Comando inválido.":"无效的命令。","Evento de UI inválido.":"无效的界面事件。","Configurações":"设置","Jogos":"游戏","Biblioteca · {name}":"游戏库 · {name}","Prefixo · {name}":"前缀 · {name}","Área de trabalho":"桌面","Downloads":"下载","Documentos":"文档","Imagens":"图片","Músicas":"音乐","Vídeos":"视频","Projetos":"项目","Buscando…":"正在搜索…","Limite: 10.000 resultados":"上限：10,000 个结果","Ordem decrescente":"降序","Ordem crescente":"升序","Sem prévia para este formato":"此格式不支持预览","Não foi possível carregar a prévia":"无法加载预览","Carregando prévia…":"正在加载预览…","Movendo: {name} → {destination}":"正在移动：{name} → {destination}","Copiando: {name} → {destination}":"正在复制：{name} → {destination}","Transferência indisponível.":"文件传输不可用。","Escolha um nome diferente.":"请选择其他名称。","Substituição indisponível.":"替换不可用。","Aplicativos indisponíveis.":"应用程序不可用。","Local virtual indisponível.":"此虚拟位置不可用。","Não foi possível consultar volumes.":"无法读取卷。","Aplicativo inválido.":"无效的应用程序。","Não foi possível iniciar o aplicativo.":"无法启动应用程序。","Lixeira indisponível.":"回收站不可用。","Aplicativos não podem ser alterados nesta visualização.":"无法在此视图中修改应用程序。","Informe a pasta de destino.":"请输入目标文件夹。","Local indisponível.":"位置不可用。","Edição de permissões indisponível.":"权限编辑不可用。","Abra uma pasta para adicioná-la a Locais.":"请打开文件夹以将其添加到位置。","Favoritos indisponíveis.":"书签不可用。","Volumes indisponíveis.":"卷不可用。","Personalização indisponível.":"自定义不可用。","Seletor indisponível.":"文件选择器不可用。","Editor de texto indisponível.":"文本编辑器不可用。","Gerenciador de aplicativos indisponível.":"应用程序管理器不可用。","Ocultar indisponível.":"隐藏操作不可用。","Arrastar arquivos indisponível.":"文件拖放不可用。","Copie arquivos de uma localização local ou montada.":"请从本地或已挂载的位置复制文件。","Renomeação em lote indisponível.":"批量重命名不可用。","Compactação indisponível.":"压缩不可用。","Extração indisponível.":"解压不可用。","O seletor não retornou uma URL de arquivo.":"选择器未返回文件 URL。","Escolha uma pasta.":"请选择文件夹。","Configure um editor padrão para arquivos de texto.":"请为文本文件设置默认编辑器。","Editor padrão não encontrado.":"未找到默认编辑器。","Nenhum terminal compatível encontrado.":"未找到支持的终端。","Este tipo de arquivo não pode ser copiado.":"无法复制此类型的文件。","O arquivo compactado aponta para fora do destino.":"压缩文件指向目标文件夹之外。","Permissões inválidas.":"无效的权限。","Abra o arquivo original para editar permissões.":"请打开原文件以编辑权限。","Substituição disponível somente entre arquivos comuns. Renomeie pastas ou links.":"只能替换普通文件。请重命名文件夹或链接。","O destino mudou. Tente novamente.":"目标发生变化，请重试。","Não foi possível abrir o arquivo.":"无法打开文件。","Dispositivo indisponível.":"设备不可用。","Item fora da lixeira.":"项目不在回收站中。","Item da lixeira não existe.":"回收站中的项目已不存在。","Metadados da lixeira inválidos.":"回收站元数据无效。","Local original indisponível.":"原位置不可用。","Local original inválido.":"原位置无效。","Local virtual desconhecido.":"未知的虚拟位置。","Já existe um item com esse nome. Escolha como continuar.":"已存在同名项目，请选择如何继续。","Lixeira parcialmente processada: {count} concluído(s), {reasons}":"回收站操作未完成：已完成 {count} 项；{reasons}","Restaurado, mas os metadados ficaram: {reason}":"已还原，但无法删除元数据：{reason}","Renomeação incompleta. Arquivos preservados em: {paths}":"重命名未完成。文件保留于：{paths}","Desktop clipboard unavailable":"桌面剪贴板不可用。","Desktop integration unavailable":"桌面集成不可用。","Desktop integration closed":"桌面集成已关闭。","Desktop request timed out":"桌面请求超时。","A localização requer um backend GVfs com acesso FUSE.":"此位置需要支持 FUSE 访问的 GVfs 后端。","Buscar nesta pasta…":"搜索此文件夹…","Buscar arquivos":"搜索文件","Subpastas":"子文件夹","Limpar":"清除","Restaurar":"还原","Esvaziar…":"清空…","Desfazer":"撤销","Ações":"操作","Compactar…":"压缩…","Extrair…":"解压…","Renomear em lote…":"批量重命名…","Compactar":"压缩","Extrair":"解压","Renomear em lote":"批量重命名","Esvaziar lixeira":"清空回收站","Confirmar":"确认","Excluir permanentemente":"永久删除","Excluir permanentemente {count} itens da lixeira? Esta ação não pode ser desfeita.":"永久删除回收站中的 {count} 个项目？此操作无法撤销。","Use {name} para o nome original e {n} para numerar. A extensão é preservada.":"使用 {name} 表示原名称，{n} 表示序号。保留文件扩展名。","Informe o nome no diretório atual. ZIP e TAR.GZ são suportados para compactação.":"输入当前文件夹中的名称。支持 ZIP 和 TAR.GZ 压缩。","Operação cancelada. Itens já concluídos foram preservados.":"操作已取消。已完成的项目已保留。","Já existe um item com esse nome. Nada foi substituído.":"已存在同名项目，未替换任何内容。","Já existe um item com esse nome.":"已存在同名项目。","Informe um nome sem separadores de diretório.":"请输入不含目录分隔符的名称。","Aguarde o fim da operação atual.":"请等待当前操作完成。","Escolha uma pasta de destino.":"请选择目标文件夹。","Selecione um item para transferir.":"请选择要传输的项目。","A origem mudou durante a cópia. Tente novamente.":"源文件在复制过程中发生变化，请重试。","O item mudou desde a operação. Nada foi desfeito.":"项目在操作后发生变化，未撤销任何内容。","Um item mudou desde a renomeação. Nada foi desfeito.":"项目在重命名后发生变化，未撤销任何内容。","Use .zip ou .tar.gz.":"请使用 .zip 或 .tar.gz。","Selecione itens da mesma pasta.":"请选择同一文件夹中的项目。","Abra a pasta original para esta operação.":"请打开原文件夹以执行此操作。","Selecione um arquivo compactado.":"请选择压缩文件。","Use {name} para o nome original e/ou {n} para a sequência.":"使用 {name} 表示原名称，{n} 表示序号。","Os novos nomes não podem ser repetidos.":"新名称不能重复。","O destino foi copiado, mas a origem mudou e foi preservada.":"目标已复制，但源文件发生变化，因此已保留。","Não é possível transferir uma pasta para dentro dela mesma.":"无法将文件夹传输到其自身内部。","Origem e destino são iguais.":"源位置和目标位置相同。","Abra uma pasta para criar um item.":"请打开文件夹以创建项目。","Abra a pasta original para renomear este item.":"请打开原文件夹以重命名此项目。","Abra uma pasta para transferir este item.":"请打开文件夹以传输此项目。","Abra a pasta original para recortar este item.":"请打开原文件夹以剪切此项目。","Instale GVfs para abrir locais de rede.":"请安装 GVfs 以打开网络位置。"}}
 property string locale: (() => { const __name = function(fn) { return fn; }; return (q=>q.app.state.locale||"en")({"app": app}); })()
 property string fallbackLocale: "en"
 property string sourceLocale: "pt-BR"
@@ -115,7 +115,7 @@ stdinEnabled: true
 // @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"running"}
 running: true
 // @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"stdout"}
-stdout:
+stdout: 
 // @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":666,"columnNumber":11,"component":"qml:SplitParser"}
 SplitParser {
 id: n5
@@ -124,7 +124,7 @@ objectName: "n5"
 onRead: function() { (() => { const __name = function(fn) { return fn; }; return (($qml,...args)=>(data=>{try{$qml.app.receive(JSON.parse(data))}catch(error){console.warn("Resposta inv\xE1lida",error)}})(...args))({"app": app}, ...arguments); })(); }
 }
 // @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"stderr"}
-stderr:
+stderr: 
 // @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":681,"columnNumber":11,"component":"qml:SplitParser"}
 SplitParser {
 id: n6
@@ -308,7 +308,15 @@ objectName: "n19"
 visible: false
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":154,"columnNumber":7}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":154,"columnNumber":7,"component":"qml:Item"}
+Item {
+id: n20
+objectName: "n20"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":154,"columnNumber":7,"component":"qml:Item","property":"visible"}
+visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.chooser)({"app": app}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":154,"columnNumber":7,"component":"qml:Item","property":"children"}
+
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":157,"columnNumber":9}
 
 // @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":20,"columnNumber":3}
 
@@ -317,7 +325,7 @@ visible: false
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu"}
 Menu {
 id: ndScope0_newMenu
-objectName: "n20"
+objectName: "n21"
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"padding"}
 padding: 6
@@ -326,11 +334,11 @@ overlap: 0
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"implicitWidth"}
 implicitWidth: 260
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle"}
 Rectangle {
-id: n21
-objectName: "n21"
+id: n22
+objectName: "n22"
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Style.surfaceContainerHigh)({}); })()
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle","property":"radius"}
@@ -352,7 +360,7 @@ onClosed: function() { (() => { const __name = function(fn) { return fn; }; retu
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope2_root
-objectName: "n22"
+objectName: "n23"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -360,11 +368,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n23
-objectName: "n23"
+id: n24
+objectName: "n24"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -375,11 +383,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n24
-objectName: "n24"
+id: n25
+objectName: "n25"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope2_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -388,8 +396,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n25
-objectName: "n25"
+id: n26
+objectName: "n26"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope2_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -404,8 +412,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n26
-objectName: "n26"
+id: n27
+objectName: "n27"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope2_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -418,8 +426,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n27
-objectName: "n27"
+id: n28
+objectName: "n28"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope2_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -429,11 +437,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n28
-objectName: "n28"
+id: n29
+objectName: "n29"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -450,7 +458,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope3_root
-objectName: "n29"
+objectName: "n30"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -458,11 +466,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n30
-objectName: "n30"
+id: n31
+objectName: "n31"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -473,11 +481,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n31
-objectName: "n31"
+id: n32
+objectName: "n32"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope3_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -486,8 +494,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n32
-objectName: "n32"
+id: n33
+objectName: "n33"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope3_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -502,8 +510,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n33
-objectName: "n33"
+id: n34
+objectName: "n34"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope3_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -516,8 +524,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n34
-objectName: "n34"
+id: n35
+objectName: "n35"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope3_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -527,11 +535,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n35
-objectName: "n35"
+id: n36
+objectName: "n36"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -549,7 +557,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu"}
 Menu {
 id: ndScope0_applicationMenu
-objectName: "n36"
+objectName: "n37"
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"padding"}
 padding: 6
@@ -558,11 +566,11 @@ overlap: 0
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"implicitWidth"}
 implicitWidth: 260
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle"}
 Rectangle {
-id: n37
-objectName: "n37"
+id: n38
+objectName: "n38"
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Style.surfaceContainerHigh)({}); })()
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle","property":"radius"}
@@ -582,7 +590,7 @@ border.color: (() => { const __name = function(fn) { return fn; }; return ($qml=
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope5_root
-objectName: "n38"
+objectName: "n39"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -590,11 +598,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n39
-objectName: "n39"
+id: n40
+objectName: "n40"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -605,11 +613,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n40
-objectName: "n40"
+id: n41
+objectName: "n41"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope5_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -618,8 +626,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n41
-objectName: "n41"
+id: n42
+objectName: "n42"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope5_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -634,8 +642,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n42
-objectName: "n42"
+id: n43
+objectName: "n43"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope5_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -648,8 +656,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n43
-objectName: "n43"
+id: n44
+objectName: "n44"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope5_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -659,11 +667,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n44
-objectName: "n44"
+id: n45
+objectName: "n45"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -680,7 +688,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope6_root
-objectName: "n45"
+objectName: "n46"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -688,11 +696,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n46
-objectName: "n46"
+id: n47
+objectName: "n47"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -703,11 +711,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n47
-objectName: "n47"
+id: n48
+objectName: "n48"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope6_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -716,8 +724,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n48
-objectName: "n48"
+id: n49
+objectName: "n49"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope6_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -732,8 +740,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n49
-objectName: "n49"
+id: n50
+objectName: "n50"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope6_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -746,8 +754,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n50
-objectName: "n50"
+id: n51
+objectName: "n51"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope6_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -757,11 +765,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n51
-objectName: "n51"
+id: n52
+objectName: "n52"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -778,7 +786,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope7_root
-objectName: "n52"
+objectName: "n53"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -786,11 +794,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n53
-objectName: "n53"
+id: n54
+objectName: "n54"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -801,11 +809,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n54
-objectName: "n54"
+id: n55
+objectName: "n55"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope7_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -814,8 +822,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n55
-objectName: "n55"
+id: n56
+objectName: "n56"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope7_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -830,8 +838,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n56
-objectName: "n56"
+id: n57
+objectName: "n57"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope7_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -844,8 +852,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n57
-objectName: "n57"
+id: n58
+objectName: "n58"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope7_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -855,11 +863,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n58
-objectName: "n58"
+id: n59
+objectName: "n59"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -876,7 +884,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope8_root
-objectName: "n59"
+objectName: "n60"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -884,11 +892,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n60
-objectName: "n60"
+id: n61
+objectName: "n61"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -899,11 +907,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n61
-objectName: "n61"
+id: n62
+objectName: "n62"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope8_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -912,8 +920,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n62
-objectName: "n62"
+id: n63
+objectName: "n63"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope8_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -928,8 +936,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n63
-objectName: "n63"
+id: n64
+objectName: "n64"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope8_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -942,8 +950,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n64
-objectName: "n64"
+id: n65
+objectName: "n65"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope8_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -953,11 +961,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n65
-objectName: "n65"
+id: n66
+objectName: "n66"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -975,7 +983,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu"}
 Menu {
 id: ndScope0_contextMenu
-objectName: "n66"
+objectName: "n67"
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"padding"}
 padding: 6
@@ -984,11 +992,11 @@ overlap: 0
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"implicitWidth"}
 implicitWidth: 260
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":16,"columnNumber":5,"component":"qml:Menu","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle"}
 Rectangle {
-id: n67
-objectName: "n67"
+id: n68
+objectName: "n68"
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Style.surfaceContainerHigh)({}); })()
 // @nandomo-source {"fileName":"src/native/AppMenu.tsx","lineNumber":22,"columnNumber":9,"component":"qml:Rectangle","property":"radius"}
@@ -1008,7 +1016,7 @@ border.color: (() => { const __name = function(fn) { return fn; }; return ($qml=
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope10_root
-objectName: "n68"
+objectName: "n69"
 property string hint: "Enter"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1016,11 +1024,11 @@ property string hint: "Enter"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n69
-objectName: "n69"
+id: n70
+objectName: "n70"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1031,11 +1039,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n70
-objectName: "n70"
+id: n71
+objectName: "n71"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope10_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1044,8 +1052,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n71
-objectName: "n71"
+id: n72
+objectName: "n72"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope10_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1060,8 +1068,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n72
-objectName: "n72"
+id: n73
+objectName: "n73"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope10_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1074,8 +1082,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n73
-objectName: "n73"
+id: n74
+objectName: "n74"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope10_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1085,11 +1093,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n74
-objectName: "n74"
+id: n75
+objectName: "n75"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1111,7 +1119,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope11_root
-objectName: "n75"
+objectName: "n76"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1119,11 +1127,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n76
-objectName: "n76"
+id: n77
+objectName: "n77"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1134,11 +1142,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n77
-objectName: "n77"
+id: n78
+objectName: "n78"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope11_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1147,8 +1155,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n78
-objectName: "n78"
+id: n79
+objectName: "n79"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope11_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1163,8 +1171,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n79
-objectName: "n79"
+id: n80
+objectName: "n80"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope11_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1177,8 +1185,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n80
-objectName: "n80"
+id: n81
+objectName: "n81"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope11_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1188,11 +1196,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n81
-objectName: "n81"
+id: n82
+objectName: "n82"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1211,7 +1219,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope12_root
-objectName: "n82"
+objectName: "n83"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1219,11 +1227,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n83
-objectName: "n83"
+id: n84
+objectName: "n84"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1234,11 +1242,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n84
-objectName: "n84"
+id: n85
+objectName: "n85"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope12_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1247,8 +1255,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n85
-objectName: "n85"
+id: n86
+objectName: "n86"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope12_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1263,8 +1271,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n86
-objectName: "n86"
+id: n87
+objectName: "n87"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope12_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1277,8 +1285,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n87
-objectName: "n87"
+id: n88
+objectName: "n88"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope12_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1288,11 +1296,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n88
-objectName: "n88"
+id: n89
+objectName: "n89"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1313,7 +1321,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope13_root
-objectName: "n89"
+objectName: "n90"
 property string hint: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.tr("Espa\xE7o"))({"app": app}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1321,11 +1329,11 @@ property string hint: (() => { const __name = function(fn) { return fn; }; retur
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n90
-objectName: "n90"
+id: n91
+objectName: "n91"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1336,11 +1344,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n91
-objectName: "n91"
+id: n92
+objectName: "n92"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope13_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1349,8 +1357,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n92
-objectName: "n92"
+id: n93
+objectName: "n93"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope13_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1365,8 +1373,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n93
-objectName: "n93"
+id: n94
+objectName: "n94"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope13_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1379,8 +1387,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n94
-objectName: "n94"
+id: n95
+objectName: "n95"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope13_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1390,11 +1398,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n95
-objectName: "n95"
+id: n96
+objectName: "n96"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1416,7 +1424,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope14_root
-objectName: "n96"
+objectName: "n97"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1424,11 +1432,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n97
-objectName: "n97"
+id: n98
+objectName: "n98"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1439,11 +1447,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n98
-objectName: "n98"
+id: n99
+objectName: "n99"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope14_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1452,8 +1460,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n99
-objectName: "n99"
+id: n100
+objectName: "n100"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope14_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1468,8 +1476,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n100
-objectName: "n100"
+id: n101
+objectName: "n101"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope14_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1482,8 +1490,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n101
-objectName: "n101"
+id: n102
+objectName: "n102"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope14_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1493,11 +1501,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n102
-objectName: "n102"
+id: n103
+objectName: "n103"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1514,7 +1522,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope15_root
-objectName: "n103"
+objectName: "n104"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1522,11 +1530,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n104
-objectName: "n104"
+id: n105
+objectName: "n105"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1537,11 +1545,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n105
-objectName: "n105"
+id: n106
+objectName: "n106"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope15_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1550,8 +1558,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n106
-objectName: "n106"
+id: n107
+objectName: "n107"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope15_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1566,8 +1574,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n107
-objectName: "n107"
+id: n108
+objectName: "n108"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope15_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1580,8 +1588,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n108
-objectName: "n108"
+id: n109
+objectName: "n109"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope15_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1591,11 +1599,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n109
-objectName: "n109"
+id: n110
+objectName: "n110"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1614,7 +1622,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope16_root
-objectName: "n110"
+objectName: "n111"
 property string hint: "F2"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1622,11 +1630,11 @@ property string hint: "F2"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n111
-objectName: "n111"
+id: n112
+objectName: "n112"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1637,11 +1645,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n112
-objectName: "n112"
+id: n113
+objectName: "n113"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope16_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1650,8 +1658,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n113
-objectName: "n113"
+id: n114
+objectName: "n114"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope16_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1666,8 +1674,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n114
-objectName: "n114"
+id: n115
+objectName: "n115"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope16_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1680,8 +1688,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n115
-objectName: "n115"
+id: n116
+objectName: "n116"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope16_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1691,11 +1699,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n116
-objectName: "n116"
+id: n117
+objectName: "n117"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1714,14 +1722,14 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":157,"columnNumber":7,"component":"qml:MenuSeparator"}
 MenuSeparator {
-id: n117
-objectName: "n117"
-// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":157,"columnNumber":7,"component":"qml:MenuSeparator","property":"contentItem"}
-contentItem:
-// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":159,"columnNumber":11,"component":"qml:Rectangle"}
-Rectangle {
 id: n118
 objectName: "n118"
+// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":157,"columnNumber":7,"component":"qml:MenuSeparator","property":"contentItem"}
+contentItem: 
+// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":159,"columnNumber":11,"component":"qml:Rectangle"}
+Rectangle {
+id: n119
+objectName: "n119"
 // @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":159,"columnNumber":11,"component":"qml:Rectangle","property":"implicitWidth"}
 implicitWidth: 236
 // @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":159,"columnNumber":11,"component":"qml:Rectangle","property":"implicitHeight"}
@@ -1738,7 +1746,7 @@ opacity: 0.2
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope17_root
-objectName: "n119"
+objectName: "n120"
 property string hint: "Ctrl+X"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1746,11 +1754,11 @@ property string hint: "Ctrl+X"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n120
-objectName: "n120"
+id: n121
+objectName: "n121"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1761,11 +1769,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n121
-objectName: "n121"
+id: n122
+objectName: "n122"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope17_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1774,8 +1782,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n122
-objectName: "n122"
+id: n123
+objectName: "n123"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope17_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1790,8 +1798,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n123
-objectName: "n123"
+id: n124
+objectName: "n124"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope17_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1804,8 +1812,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n124
-objectName: "n124"
+id: n125
+objectName: "n125"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope17_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1815,11 +1823,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n125
-objectName: "n125"
+id: n126
+objectName: "n126"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1841,7 +1849,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope18_root
-objectName: "n126"
+objectName: "n127"
 property string hint: "Ctrl+C"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1849,11 +1857,11 @@ property string hint: "Ctrl+C"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n127
-objectName: "n127"
+id: n128
+objectName: "n128"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1864,11 +1872,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n128
-objectName: "n128"
+id: n129
+objectName: "n129"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope18_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1877,8 +1885,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n129
-objectName: "n129"
+id: n130
+objectName: "n130"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope18_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1893,8 +1901,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n130
-objectName: "n130"
+id: n131
+objectName: "n131"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope18_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1907,8 +1915,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n131
-objectName: "n131"
+id: n132
+objectName: "n132"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope18_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -1918,11 +1926,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n132
-objectName: "n132"
+id: n133
+objectName: "n133"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -1942,7 +1950,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope19_root
-objectName: "n133"
+objectName: "n134"
 property string hint: "Ctrl+V"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -1950,11 +1958,11 @@ property string hint: "Ctrl+V"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n134
-objectName: "n134"
+id: n135
+objectName: "n135"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -1965,11 +1973,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n135
-objectName: "n135"
+id: n136
+objectName: "n136"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope19_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -1978,8 +1986,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n136
-objectName: "n136"
+id: n137
+objectName: "n137"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope19_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -1994,8 +2002,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n137
-objectName: "n137"
+id: n138
+objectName: "n138"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope19_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2008,8 +2016,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n138
-objectName: "n138"
+id: n139
+objectName: "n139"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope19_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2019,11 +2027,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n139
-objectName: "n139"
+id: n140
+objectName: "n140"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2051,11 +2059,11 @@ property string hint: "Ctrl+Z"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n141
-objectName: "n141"
+id: n142
+objectName: "n142"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2066,11 +2074,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n142
-objectName: "n142"
+id: n143
+objectName: "n143"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope20_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2079,8 +2087,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n143
-objectName: "n143"
+id: n144
+objectName: "n144"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope20_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2095,8 +2103,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n144
-objectName: "n144"
+id: n145
+objectName: "n145"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope20_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2109,8 +2117,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n145
-objectName: "n145"
+id: n146
+objectName: "n146"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope20_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2120,11 +2128,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n146
-objectName: "n146"
+id: n147
+objectName: "n147"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2153,11 +2161,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n148
-objectName: "n148"
+id: n149
+objectName: "n149"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2168,11 +2176,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n149
-objectName: "n149"
+id: n150
+objectName: "n150"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope21_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2181,8 +2189,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n150
-objectName: "n150"
+id: n151
+objectName: "n151"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope21_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2197,8 +2205,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n151
-objectName: "n151"
+id: n152
+objectName: "n152"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope21_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2211,8 +2219,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n152
-objectName: "n152"
+id: n153
+objectName: "n153"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope21_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2222,11 +2230,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n153
-objectName: "n153"
+id: n154
+objectName: "n154"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2256,11 +2264,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n155
-objectName: "n155"
+id: n156
+objectName: "n156"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2271,11 +2279,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n156
-objectName: "n156"
+id: n157
+objectName: "n157"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope22_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2284,8 +2292,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n157
-objectName: "n157"
+id: n158
+objectName: "n158"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope22_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2300,8 +2308,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n158
-objectName: "n158"
+id: n159
+objectName: "n159"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope22_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2314,8 +2322,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n159
-objectName: "n159"
+id: n160
+objectName: "n160"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope22_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2325,11 +2333,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n160
-objectName: "n160"
+id: n161
+objectName: "n161"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2351,7 +2359,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope23_root
-objectName: "n161"
+objectName: "n162"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -2359,11 +2367,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n162
-objectName: "n162"
+id: n163
+objectName: "n163"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2374,11 +2382,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n163
-objectName: "n163"
+id: n164
+objectName: "n164"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope23_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2387,8 +2395,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n164
-objectName: "n164"
+id: n165
+objectName: "n165"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope23_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2403,8 +2411,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n165
-objectName: "n165"
+id: n166
+objectName: "n166"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope23_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2417,8 +2425,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n166
-objectName: "n166"
+id: n167
+objectName: "n167"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope23_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2428,11 +2436,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n167
-objectName: "n167"
+id: n168
+objectName: "n168"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2453,7 +2461,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope24_root
-objectName: "n168"
+objectName: "n169"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -2461,11 +2469,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n169
-objectName: "n169"
+id: n170
+objectName: "n170"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2476,11 +2484,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n170
-objectName: "n170"
+id: n171
+objectName: "n171"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope24_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2489,8 +2497,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n171
-objectName: "n171"
+id: n172
+objectName: "n172"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope24_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2505,8 +2513,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n172
-objectName: "n172"
+id: n173
+objectName: "n173"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope24_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2519,8 +2527,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n173
-objectName: "n173"
+id: n174
+objectName: "n174"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope24_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2530,11 +2538,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n174
-objectName: "n174"
+id: n175
+objectName: "n175"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2555,7 +2563,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope25_root
-objectName: "n175"
+objectName: "n176"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -2563,11 +2571,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n176
-objectName: "n176"
+id: n177
+objectName: "n177"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2578,11 +2586,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n177
-objectName: "n177"
+id: n178
+objectName: "n178"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope25_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2591,8 +2599,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n178
-objectName: "n178"
+id: n179
+objectName: "n179"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope25_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2607,8 +2615,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n179
-objectName: "n179"
+id: n180
+objectName: "n180"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope25_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2621,8 +2629,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n180
-objectName: "n180"
+id: n181
+objectName: "n181"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope25_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2632,11 +2640,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n181
-objectName: "n181"
+id: n182
+objectName: "n182"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2657,7 +2665,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope26_root
-objectName: "n182"
+objectName: "n183"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -2665,11 +2673,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n183
-objectName: "n183"
+id: n184
+objectName: "n184"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2680,11 +2688,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n184
-objectName: "n184"
+id: n185
+objectName: "n185"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope26_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2693,8 +2701,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n185
-objectName: "n185"
+id: n186
+objectName: "n186"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope26_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2709,8 +2717,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n186
-objectName: "n186"
+id: n187
+objectName: "n187"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope26_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2723,8 +2731,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n187
-objectName: "n187"
+id: n188
+objectName: "n188"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope26_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2734,11 +2742,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n188
-objectName: "n188"
+id: n189
+objectName: "n189"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2759,7 +2767,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope27_root
-objectName: "n189"
+objectName: "n190"
 property string hint: "Delete"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -2767,11 +2775,11 @@ property string hint: "Delete"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n190
-objectName: "n190"
+id: n191
+objectName: "n191"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2782,11 +2790,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n191
-objectName: "n191"
+id: n192
+objectName: "n192"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope27_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2795,8 +2803,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n192
-objectName: "n192"
+id: n193
+objectName: "n193"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope27_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2811,8 +2819,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n193
-objectName: "n193"
+id: n194
+objectName: "n194"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope27_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2825,8 +2833,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n194
-objectName: "n194"
+id: n195
+objectName: "n195"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope27_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2836,11 +2844,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n195
-objectName: "n195"
+id: n196
+objectName: "n196"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2862,7 +2870,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope28_root
-objectName: "n196"
+objectName: "n197"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -2870,11 +2878,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n197
-objectName: "n197"
+id: n198
+objectName: "n198"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -2885,11 +2893,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n198
-objectName: "n198"
+id: n199
+objectName: "n199"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope28_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -2898,8 +2906,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n199
-objectName: "n199"
+id: n200
+objectName: "n200"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope28_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -2914,8 +2922,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n200
-objectName: "n200"
+id: n201
+objectName: "n201"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope28_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2928,8 +2936,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n201
-objectName: "n201"
+id: n202
+objectName: "n202"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope28_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -2939,11 +2947,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n202
-objectName: "n202"
+id: n203
+objectName: "n203"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -2961,14 +2969,14 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":256,"columnNumber":7,"component":"qml:MenuSeparator"}
 MenuSeparator {
-id: n203
-objectName: "n203"
-// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":256,"columnNumber":7,"component":"qml:MenuSeparator","property":"contentItem"}
-contentItem:
-// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":258,"columnNumber":11,"component":"qml:Rectangle"}
-Rectangle {
 id: n204
 objectName: "n204"
+// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":256,"columnNumber":7,"component":"qml:MenuSeparator","property":"contentItem"}
+contentItem: 
+// @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":258,"columnNumber":11,"component":"qml:Rectangle"}
+Rectangle {
+id: n205
+objectName: "n205"
 // @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":258,"columnNumber":11,"component":"qml:Rectangle","property":"implicitWidth"}
 implicitWidth: 236
 // @nandomo-source {"fileName":"src/native/FileContextMenus.tsx","lineNumber":258,"columnNumber":11,"component":"qml:Rectangle","property":"implicitHeight"}
@@ -2985,7 +2993,7 @@ opacity: 0.2
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope29_root
-objectName: "n205"
+objectName: "n206"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -2993,11 +3001,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n206
-objectName: "n206"
+id: n207
+objectName: "n207"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -3008,11 +3016,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n207
-objectName: "n207"
+id: n208
+objectName: "n208"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope29_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -3021,8 +3029,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n208
-objectName: "n208"
+id: n209
+objectName: "n209"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope29_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -3037,8 +3045,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n209
-objectName: "n209"
+id: n210
+objectName: "n210"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope29_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3051,8 +3059,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n210
-objectName: "n210"
+id: n211
+objectName: "n211"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope29_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3062,11 +3070,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n211
-objectName: "n211"
+id: n212
+objectName: "n212"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -3083,7 +3091,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope30_root
-objectName: "n212"
+objectName: "n213"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -3091,11 +3099,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n213
-objectName: "n213"
+id: n214
+objectName: "n214"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -3106,11 +3114,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n214
-objectName: "n214"
+id: n215
+objectName: "n215"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope30_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -3119,8 +3127,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n215
-objectName: "n215"
+id: n216
+objectName: "n216"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope30_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -3135,8 +3143,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n216
-objectName: "n216"
+id: n217
+objectName: "n217"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope30_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3149,8 +3157,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n217
-objectName: "n217"
+id: n218
+objectName: "n218"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope30_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3160,11 +3168,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n218
-objectName: "n218"
+id: n219
+objectName: "n219"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -3181,7 +3189,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope31_root
-objectName: "n219"
+objectName: "n220"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -3189,11 +3197,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n220
-objectName: "n220"
+id: n221
+objectName: "n221"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -3204,11 +3212,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n221
-objectName: "n221"
+id: n222
+objectName: "n222"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope31_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -3217,8 +3225,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n222
-objectName: "n222"
+id: n223
+objectName: "n223"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope31_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -3233,8 +3241,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n223
-objectName: "n223"
+id: n224
+objectName: "n224"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope31_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3247,8 +3255,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n224
-objectName: "n224"
+id: n225
+objectName: "n225"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope31_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3258,11 +3266,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n225
-objectName: "n225"
+id: n226
+objectName: "n226"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -3287,11 +3295,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n227
-objectName: "n227"
+id: n228
+objectName: "n228"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -3302,11 +3310,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n228
-objectName: "n228"
+id: n229
+objectName: "n229"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope32_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -3315,8 +3323,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n229
-objectName: "n229"
+id: n230
+objectName: "n230"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope32_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -3331,8 +3339,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n230
-objectName: "n230"
+id: n231
+objectName: "n231"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope32_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3345,8 +3353,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n231
-objectName: "n231"
+id: n232
+objectName: "n232"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope32_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3356,11 +3364,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n232
-objectName: "n232"
+id: n233
+objectName: "n233"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -3380,7 +3388,7 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem"}
 MenuItem {
 id: ndScope33_root
-objectName: "n233"
+objectName: "n234"
 property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlImports"}
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"qmlId"}
@@ -3388,11 +3396,11 @@ property string hint: ""
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>visible?36:0)({}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"indicator"}
-indicator:
+indicator: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item"}
 Item {
-id: n234
-objectName: "n234"
+id: n235
+objectName: "n235"
 width: 0
 height: 0
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":30,"columnNumber":20,"component":"qml:Item","property":"width"}
@@ -3403,11 +3411,11 @@ leftPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"rightPadding"}
 rightPadding: 12
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n235
-objectName: "n235"
+id: n236
+objectName: "n236"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.enabled?1:.35)({"root": ndScope33_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":34,"columnNumber":11,"component":"qml:RowLayout","property":"children"}
@@ -3416,8 +3424,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n236
-objectName: "n236"
+id: n237
+objectName: "n237"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.checked?"\u2713":"")({"root": ndScope33_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":39,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
@@ -3432,8 +3440,8 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Style.pr
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n237
-objectName: "n237"
+id: n238
+objectName: "n238"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text)({"root": ndScope33_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":45,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3446,8 +3454,8 @@ Layout.fillWidth: true
 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n238
-objectName: "n238"
+id: n239
+objectName: "n239"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.hint)({"root": ndScope33_root}); })()
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":51,"columnNumber":13,"component":"qml:StyledText","property":"color"}
@@ -3457,11 +3465,11 @@ font.pixelSize: 12
 }
 }
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":23,"columnNumber":7,"component":"qml:MenuItem","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n239
-objectName: "n239"
+id: n240
+objectName: "n240"
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/ContextAction.tsx","lineNumber":59,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -3477,248 +3485,249 @@ enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>visi
 onTriggered: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("properties",$qml.app.contextTarget.path)})({"app": app}, ...arguments); })(); }
 }
 }
-
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":156,"columnNumber":7,"component":"qml:Shortcut"}
-Shortcut {
-id: n240
-objectName: "n240"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":156,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Ctrl+F"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":156,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return (q=>!q.app.state.modalsOpen)({"app": app}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":156,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{const search=$qml.app.findUi("fileSearch",$qml.app.toolbarObject);if(search&&search.visible){search.forceActiveFocus();search.selectAll()}else{const button=$qml.app.findUi("toolbarSearch",$qml.app.toolbarObject);if(button)button.clicked()}})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":161,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":160,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n241
 objectName: "n241"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":161,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Ctrl+Z"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":161,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.canUndo&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":161,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("undo")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":160,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Ctrl+F"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":160,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return (q=>!q.app.state.modalsOpen)({"app": app}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":160,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{const search=$qml.app.findUi("fileSearch",$qml.app.toolbarObject);if(search&&search.visible){search.forceActiveFocus();search.selectAll()}else{const button=$qml.app.findUi("toolbarSearch",$qml.app.toolbarObject);if(button)button.clicked()}})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":163,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":165,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n242
 objectName: "n242"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":163,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Ctrl+C"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":163,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.selectionCount&&!$qml.app.state.mutating&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":163,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("copy")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":165,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Ctrl+Z"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":165,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.canUndo&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":165,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("undo")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":170,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":167,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n243
 objectName: "n243"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":170,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Ctrl+X"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":170,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":167,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Ctrl+C"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":167,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
 enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.selectionCount&&!$qml.app.state.mutating&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":170,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("cut")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":167,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("copy")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":177,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":174,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n244
 objectName: "n244"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":177,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Ctrl+V"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":177,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.canPaste&&!$qml.app.state.mutating&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":177,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("paste")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":174,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Ctrl+X"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":174,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.selectionCount&&!$qml.app.state.mutating&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":174,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("cut")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":184,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":181,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n245
 objectName: "n245"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":184,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Ctrl+A"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":184,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.entries.length&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":184,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("selectAll")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":181,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Ctrl+V"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":181,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.canPaste&&!$qml.app.state.mutating&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":181,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("paste")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":191,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":188,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n246
 objectName: "n246"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":191,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Delete"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":191,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&$qml.app.state.selectionCount>0&&!$qml.app.state.mutating&&$qml.app.state.path.indexOf(":///")<0&&(!$qml.window.activeFocusItem||typeof $qml.window.activeFocusItem.text!=="string"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":191,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("trash")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":188,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Ctrl+A"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":188,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.entries.length&&!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":188,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("selectAll")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":196,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":195,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n247
 objectName: "n247"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":196,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Alt+Return"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":196,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&!!$qml.app.state.selected&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":196,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("properties")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":195,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Delete"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":195,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&$qml.app.state.selectionCount>0&&!$qml.app.state.mutating&&$qml.app.state.path.indexOf(":///")<0&&(!$qml.window.activeFocusItem||typeof $qml.window.activeFocusItem.text!=="string"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":195,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("trash")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":197,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":200,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n248
 objectName: "n248"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":197,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "F2"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":197,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&$qml.app.state.selectionCount===1&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":197,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("rename")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":200,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Alt+Return"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":200,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&!!$qml.app.state.selected&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":200,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("properties")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":204,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":201,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n249
 objectName: "n249"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":204,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
-sequence: "Space"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":204,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
-enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&$qml.app.state.selectionCount===1&&!!$qml.app.state.selected&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":204,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
-onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("preview")})({"app": app}, ...arguments); })(); }
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":201,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "F2"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":201,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&$qml.app.state.selectionCount===1&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":201,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("rename")})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":211,"columnNumber":7,"component":"qml:Shortcut"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":208,"columnNumber":7,"component":"qml:Shortcut"}
 Shortcut {
 id: n250
 objectName: "n250"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":211,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":208,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
+sequence: "Space"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":208,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&$qml.app.state.selectionCount===1&&!!$qml.app.state.selected&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":208,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("preview")})({"app": app}, ...arguments); })(); }
+}
+
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":215,"columnNumber":7,"component":"qml:Shortcut"}
+Shortcut {
+id: n251
+objectName: "n251"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":215,"columnNumber":7,"component":"qml:Shortcut","property":"sequence"}
 sequence: "Escape"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":211,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":215,"columnNumber":7,"component":"qml:Shortcut","property":"enabled"}
 enabled: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.modalsOpen&&!($qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined"))({"app": app, "window": ndScope0_window}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":211,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":215,"columnNumber":7,"component":"qml:Shortcut","property":"onActivated"}
 onActivated: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.app.send("select",null)})({"app": app}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout"}
 ColumnLayout {
 id: ndScope0_fileContent
-objectName: "n251"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout","property":"focus"}
+objectName: "n252"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout","property":"focus"}
 focus: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout","property":"anchors.fill"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout","property":"anchors.margins"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout","property":"anchors.margins"}
 anchors.margins: 12
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout","property":"spacing"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout","property":"spacing"}
 spacing: 8
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout","property":"Keys.onPressed"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout","property":"Keys.onPressed"}
 Keys.onPressed: function() { (() => { const __name = function(fn) { return fn; }; return (($qml,event)=>{if($qml.app.state.modalsOpen||$qml.window.activeFocusItem&&typeof $qml.window.activeFocusItem.cursorPosition!=="undefined")return;var entries=$qml.app.state.entries||[];if(!entries.length)return;var extend=!!(event.modifiers&Qt.ShiftModifier);var mode=extend?"range":"replace";if(event.key===Qt.Key_Home){$qml.app.send("selectPath",{path:entries[0].path,mode});$qml.app.revealKeyboard();event.accepted=true;return}if(event.key===Qt.Key_End){$qml.app.send("selectPath",{path:entries[entries.length-1].path,mode});$qml.app.revealKeyboard();event.accepted=true;return}var view=$qml.app.state.view;var row=view==="grid"?Math.max(1,Math.floor($qml.filesGrid.width/$qml.filesGrid.cellWidth)):1;var axis="row";var delta=0;if(event.key===Qt.Key_Down)delta=row;else if(event.key===Qt.Key_Up)delta=-row;else if(view==="columns"&&event.key===Qt.Key_Right){axis="column";delta=1}else if(view==="columns"&&event.key===Qt.Key_Left){axis="column";delta=-1}else if(view==="grid"&&event.key===Qt.Key_Right){axis="index";delta=1}else if(view==="grid"&&event.key===Qt.Key_Left){axis="index";delta=-1}else return;$qml.app.send("selectStep",{axis,delta,extend});$qml.app.revealKeyboard();event.accepted=true})({"app": app, "window": ndScope0_window, "filesGrid": ndScope0_filesGrid}, ...arguments); })(); }
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout","property":"children"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":221,"columnNumber":7,"component":"qml:ColumnLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":225,"columnNumber":7,"component":"qml:ColumnLayout"}
 
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":282,"columnNumber":9,"component":"qml:Item"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":286,"columnNumber":9,"component":"qml:Item"}
 Item {
 id: ndScope0_toolbarSlot
-objectName: "n252"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":282,"columnNumber":9,"component":"qml:Item","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":282,"columnNumber":9,"component":"qml:Item","property":"Layout.fillWidth"}
+objectName: "n253"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":286,"columnNumber":9,"component":"qml:Item","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":286,"columnNumber":9,"component":"qml:Item","property":"Layout.fillWidth"}
 Layout.fillWidth: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":282,"columnNumber":9,"component":"qml:Item","property":"implicitHeight"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":286,"columnNumber":9,"component":"qml:Item","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.toolbarObject?$qml.app.toolbarObject.implicitHeight:92)({"app": app}); })()
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":289,"columnNumber":9,"component":"qml:RowLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":293,"columnNumber":9,"component":"qml:RowLayout"}
 RowLayout {
-id: n253
-objectName: "n253"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":289,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillWidth"}
-Layout.fillWidth: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":289,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillHeight"}
-Layout.fillHeight: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":289,"columnNumber":9,"component":"qml:RowLayout","property":"spacing"}
-spacing: 12
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":289,"columnNumber":9,"component":"qml:RowLayout","property":"children"}
-
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":289,"columnNumber":9,"component":"qml:RowLayout"}
-
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":294,"columnNumber":11,"component":"qml:Rectangle"}
-Rectangle {
 id: n254
 objectName: "n254"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":294,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.preferredWidth"}
-Layout.preferredWidth: 220
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":294,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.fillHeight"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":293,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillWidth"}
+Layout.fillWidth: true
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":293,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillHeight"}
 Layout.fillHeight: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":294,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
-radius: 8
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":294,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
-color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Qt.lighter($qml.theme.surfaceContainer,1.2))({"theme": ndScope0_theme}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":294,"columnNumber":11,"component":"qml:Rectangle","property":"children"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":293,"columnNumber":9,"component":"qml:RowLayout","property":"spacing"}
+spacing: 12
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":293,"columnNumber":9,"component":"qml:RowLayout","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":302,"columnNumber":13,"component":"qml:ScrollView"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":293,"columnNumber":9,"component":"qml:RowLayout"}
+
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":298,"columnNumber":11,"component":"qml:Rectangle"}
+Rectangle {
+id: n255
+objectName: "n255"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":298,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.preferredWidth"}
+Layout.preferredWidth: 220
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":298,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.fillHeight"}
+Layout.fillHeight: true
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":298,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
+radius: 8
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":298,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
+color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Qt.lighter($qml.theme.surfaceContainer,1.2))({"theme": ndScope0_theme}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":298,"columnNumber":11,"component":"qml:Rectangle","property":"children"}
+
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":306,"columnNumber":13,"component":"qml:ScrollView"}
 ScrollView {
 id: ndScope0_sidebarScroll
-objectName: "n255"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":302,"columnNumber":13,"component":"qml:ScrollView","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":302,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.fill"}
+objectName: "n256"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":306,"columnNumber":13,"component":"qml:ScrollView","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":306,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":302,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.margins"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":306,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.margins"}
 anchors.margins: 12
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":302,"columnNumber":13,"component":"qml:ScrollView","property":"clip"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":306,"columnNumber":13,"component":"qml:ScrollView","property":"clip"}
 clip: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":302,"columnNumber":13,"component":"qml:ScrollView","property":"contentWidth"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":306,"columnNumber":13,"component":"qml:ScrollView","property":"contentWidth"}
 contentWidth: (() => { const __name = function(fn) { return fn; }; return ($qml=>availableWidth)({}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":302,"columnNumber":13,"component":"qml:ScrollView","property":"children"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":306,"columnNumber":13,"component":"qml:ScrollView","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":309,"columnNumber":15,"component":"qml:Item"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":313,"columnNumber":15,"component":"qml:Item"}
 Item {
 id: ndScope0_sidebarSlot
-objectName: "n256"
+objectName: "n257"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.sidebarScroll.availableWidth)({"sidebarScroll": ndScope0_sidebarScroll}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":309,"columnNumber":15,"component":"qml:Item","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":309,"columnNumber":15,"component":"qml:Item","property":"width"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":309,"columnNumber":15,"component":"qml:Item","property":"implicitHeight"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":313,"columnNumber":15,"component":"qml:Item","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":313,"columnNumber":15,"component":"qml:Item","property":"width"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":313,"columnNumber":15,"component":"qml:Item","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.sidebarObject?$qml.app.sidebarObject.implicitHeight:0)({"app": app}); })()
 }
 }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":323,"columnNumber":11,"component":"qml:ColumnLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":327,"columnNumber":11,"component":"qml:ColumnLayout"}
 ColumnLayout {
-id: n257
-objectName: "n257"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":323,"columnNumber":11,"component":"qml:ColumnLayout","property":"Layout.fillWidth"}
+id: n258
+objectName: "n258"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":327,"columnNumber":11,"component":"qml:ColumnLayout","property":"Layout.fillWidth"}
 Layout.fillWidth: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":323,"columnNumber":11,"component":"qml:ColumnLayout","property":"Layout.fillHeight"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":327,"columnNumber":11,"component":"qml:ColumnLayout","property":"Layout.fillHeight"}
 Layout.fillHeight: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":323,"columnNumber":11,"component":"qml:ColumnLayout","property":"spacing"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":327,"columnNumber":11,"component":"qml:ColumnLayout","property":"spacing"}
 spacing: 8
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":323,"columnNumber":11,"component":"qml:ColumnLayout","property":"children"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":327,"columnNumber":11,"component":"qml:ColumnLayout","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":328,"columnNumber":13}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":332,"columnNumber":13}
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":45,"columnNumber":3}
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":46,"columnNumber":5,"component":"qml:StackLayout"}
 StackLayout {
 id: ndScope0_fileViews
-objectName: "n258"
+objectName: "n259"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":46,"columnNumber":5,"component":"qml:StackLayout","property":"qmlId"}
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":46,"columnNumber":5,"component":"qml:StackLayout","property":"Layout.fillWidth"}
 Layout.fillWidth: true
@@ -3745,17 +3754,17 @@ clip: true
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":58,"columnNumber":7,"component":"qml:ListView","property":"model"}
 model: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.entries)({"app": app}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":58,"columnNumber":7,"component":"qml:ListView","property":"ScrollBar.vertical"}
-ScrollBar.vertical:
+ScrollBar.vertical: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":69,"columnNumber":37,"component":"qml:ScrollBar"}
 ScrollBar {
-id: n260
-objectName: "n260"
+id: n261
+objectName: "n261"
 }
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":58,"columnNumber":7,"component":"qml:ListView","property":"delegate"}
-delegate:
+delegate: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":71,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n261
+id: n262
 objectName: (() => { const __name = function(fn) { return fn; }; return ($qml=>"listRow:"+modelData.path)({}); })()
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>ListView.view.width)({}); })()
 height: 42
@@ -3783,15 +3792,15 @@ color: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.a
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":13,"component":"qml:Behavior"}
 Behavior on color {
-id: n262
-objectName: "n262"
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
-animation:
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":52,"component":"qml:ColorAnimation"}
-ColorAnimation {
 id: n263
 objectName: "n263"
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
+animation: 
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":52,"component":"qml:ColorAnimation"}
+ColorAnimation {
+id: n264
+objectName: "n264"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":105,"columnNumber":52,"component":"qml:ColorAnimation","property":"duration"}
 duration: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.preferences&&$qml.app.state.preferences.reduceAnimations?0:90)({"app": app}); })()
 }
@@ -3799,8 +3808,8 @@ duration: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qm
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":106,"columnNumber":13,"component":"qml:RowLayout"}
 RowLayout {
-id: n264
-objectName: "n264"
+id: n265
+objectName: "n265"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":106,"columnNumber":13,"component":"qml:RowLayout","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":106,"columnNumber":13,"component":"qml:RowLayout","property":"anchors.margins"}
@@ -3814,7 +3823,7 @@ anchors.margins: 8
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":23,"columnNumber":5,"component":"qml:Item"}
 Item {
 id: ndScope34_root
-objectName: "n265"
+objectName: "n266"
 property url source: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.fileIcon(modelData.icon))({"app": app}); })()
 property url fallbackSource: (() => { const __name = function(fn) { return fn; }; return (q=>q.app.state.path==="applications:///"?q.app.fileIcon("package-x-generic"):"")({"app": app}); })()
 property color tint: (() => { const __name = function(fn) { return fn; }; return ($qml=>modelData.folderColor||"transparent")({}); })()
@@ -3837,7 +3846,7 @@ Layout.preferredHeight: 24
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":34,"columnNumber":7,"component":"qml:Image"}
 Image {
 id: ndScope34_image
-objectName: "n266"
+objectName: "n267"
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":34,"columnNumber":7,"component":"qml:Image","property":"qmlId"}
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":34,"columnNumber":7,"component":"qml:Image","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
@@ -3853,8 +3862,8 @@ visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":42,"columnNumber":7,"component":"qml:Image"}
 Image {
-id: n267
-objectName: "n267"
+id: n268
+objectName: "n268"
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":42,"columnNumber":7,"component":"qml:Image","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return (()=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":42,"columnNumber":7,"component":"qml:Image","property":"source"}
@@ -3867,8 +3876,8 @@ fillMode: (() => { const __name = function(fn) { return fn; }; return (()=>Image
 
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":47,"columnNumber":7,"component":"qml:MultiEffect"}
 MultiEffect {
-id: n268
-objectName: "n268"
+id: n269
+objectName: "n269"
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":47,"columnNumber":7,"component":"qml:MultiEffect","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.image)({"image": ndScope34_image}); })()
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":47,"columnNumber":7,"component":"qml:MultiEffect","property":"source"}
@@ -3883,8 +3892,8 @@ colorizationColor: (() => { const __name = function(fn) { return fn; }; return (
 
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":54,"columnNumber":7,"component":"qml:Image"}
 Image {
-id: n269
-objectName: "n269"
+id: n270
+objectName: "n270"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>Math.max(14,parent.width*.3))({}); })()
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>width)({}); })()
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":54,"columnNumber":7,"component":"qml:Image","property":"anchors.right"}
@@ -3907,8 +3916,8 @@ fillMode: (() => { const __name = function(fn) { return fn; }; return ($qml=>Ima
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":125,"columnNumber":15,"component":"qml:Label"}
 Label {
-id: n270
-objectName: "n270"
+id: n271
+objectName: "n271"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":125,"columnNumber":15,"component":"qml:Label","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>modelData.name)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":125,"columnNumber":15,"component":"qml:Label","property":"font.pixelSize"}
@@ -3923,8 +3932,8 @@ elide: (() => { const __name = function(fn) { return fn; }; return ($qml=>Text.E
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":132,"columnNumber":15,"component":"qml:Label"}
 Label {
-id: n271
-objectName: "n271"
+id: n272
+objectName: "n272"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":132,"columnNumber":15,"component":"qml:Label","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>modelData.directory?$qml.app.tr("Pasta"):$qml.app.sizeText(modelData.size))({"app": app}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":132,"columnNumber":15,"component":"qml:Label","property":"color"}
@@ -3935,8 +3944,8 @@ Layout.preferredWidth: 100
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":144,"columnNumber":15,"component":"qml:Label"}
 Label {
-id: n272
-objectName: "n272"
+id: n273
+objectName: "n273"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":144,"columnNumber":15,"component":"qml:Label","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>Qt.formatDateTime(new Date(modelData.modified),"dd/MM/yyyy"))({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":144,"columnNumber":15,"component":"qml:Label","property":"elide"}
@@ -3951,7 +3960,7 @@ Layout.preferredWidth: 95
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":156,"columnNumber":13,"component":"qml:Item"}
 Item {
 id: ndScope0_dragProxy
-objectName: "n273"
+objectName: "n274"
 width: 1
 height: 1
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":156,"columnNumber":13,"component":"qml:Item","property":"qmlId"}
@@ -3981,8 +3990,8 @@ Drag.onDragFinished: function() { (() => { const __name = function(fn) { return 
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":220,"columnNumber":13,"component":"qml:DropArea"}
 DropArea {
-id: n274
-objectName: "n274"
+id: n275
+objectName: "n275"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":220,"columnNumber":13,"component":"qml:DropArea","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":220,"columnNumber":13,"component":"qml:DropArea","property":"enabled"}
@@ -3996,7 +4005,7 @@ onDropped: function() { (() => { const __name = function(fn) { return fn; }; ret
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":241,"columnNumber":13,"component":"qml:MouseArea"}
 MouseArea {
 id: ndScope0_rowMouse
-objectName: "n275"
+objectName: "n276"
 property bool nbDragging: false
 property real nbOriginX: 0
 property real nbOriginY: 0
@@ -4032,8 +4041,8 @@ onDoubleClicked: function() { (() => { const __name = function(fn) { return fn; 
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":347,"columnNumber":9,"component":"qml:MouseArea"}
 MouseArea {
-id: n276
-objectName: "n276"
+id: n277
+objectName: "n277"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.filesList.width)({"filesList": ndScope0_filesList}); })()
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.filesList.height)({"filesList": ndScope0_filesList}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":347,"columnNumber":9,"component":"qml:MouseArea","property":"parent"}
@@ -4050,8 +4059,8 @@ onClicked: function() { (() => { const __name = function(fn) { return fn; }; ret
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":370,"columnNumber":9,"component":"qml:DropArea"}
 DropArea {
-id: n277
-objectName: "n277"
+id: n278
+objectName: "n278"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":370,"columnNumber":9,"component":"qml:DropArea","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":370,"columnNumber":9,"component":"qml:DropArea","property":"z"}
@@ -4088,18 +4097,18 @@ cellWidth: (() => { const __name = function(fn) { return fn; }; return ($qml=>Ma
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":406,"columnNumber":7,"component":"qml:GridView","property":"cellHeight"}
 cellHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>($qml.app.state.preferences?$qml.app.state.preferences.gridSize:96)+58)({"app": app}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":406,"columnNumber":7,"component":"qml:GridView","property":"ScrollBar.vertical"}
-ScrollBar.vertical:
+ScrollBar.vertical: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":446,"columnNumber":37,"component":"qml:ScrollBar"}
 ScrollBar {
-id: n279
-objectName: "n279"
-}
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":406,"columnNumber":7,"component":"qml:GridView","property":"delegate"}
-delegate:
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":448,"columnNumber":11,"component":"qml:Rectangle"}
-Rectangle {
 id: n280
 objectName: "n280"
+}
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":406,"columnNumber":7,"component":"qml:GridView","property":"delegate"}
+delegate: 
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":448,"columnNumber":11,"component":"qml:Rectangle"}
+Rectangle {
+id: n281
+objectName: "n281"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>GridView.view.cellWidth-12)({}); })()
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>GridView.view.cellHeight-8)({}); })()
 required property var modelData
@@ -4124,15 +4133,15 @@ color: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.a
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":13,"component":"qml:Behavior"}
 Behavior on color {
-id: n281
-objectName: "n281"
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
-animation:
-// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":52,"component":"qml:ColorAnimation"}
-ColorAnimation {
 id: n282
 objectName: "n282"
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
+animation: 
+// @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":52,"component":"qml:ColorAnimation"}
+ColorAnimation {
+id: n283
+objectName: "n283"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":478,"columnNumber":52,"component":"qml:ColorAnimation","property":"duration"}
 duration: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.preferences&&$qml.app.state.preferences.reduceAnimations?0:90)({"app": app}); })()
 }
@@ -4140,8 +4149,8 @@ duration: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qm
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":479,"columnNumber":13,"component":"qml:ColumnLayout"}
 ColumnLayout {
-id: n283
-objectName: "n283"
+id: n284
+objectName: "n284"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":479,"columnNumber":13,"component":"qml:ColumnLayout","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":479,"columnNumber":13,"component":"qml:ColumnLayout","property":"anchors.margins"}
@@ -4152,8 +4161,8 @@ anchors.margins: 8
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":483,"columnNumber":15,"component":"qml:Item"}
 Item {
-id: n284
-objectName: "n284"
+id: n285
+objectName: "n285"
 readonly property bool hasPreview: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qml.app.state.remote&&(!$qml.app.state.preferences||$qml.app.state.preferences.thumbnails)&&!modelData.directory&&/\.(pdf|png|jpe?g|webp|gif|bmp|svg)$/i.test(modelData.name))({"app": app}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":483,"columnNumber":15,"component":"qml:Item","property":"qmlDeclarations"}
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":483,"columnNumber":15,"component":"qml:Item","property":"Layout.alignment"}
@@ -4171,7 +4180,7 @@ Layout.preferredHeight: (() => { const __name = function(fn) { return fn; }; ret
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":23,"columnNumber":5,"component":"qml:Item"}
 Item {
 id: ndScope35_root
-objectName: "n285"
+objectName: "n286"
 property url source: (() => { const __name = function(fn) { return fn; }; return ($qml=>($qml.app.state.videoThumbnails||{})[modelData.path]||$qml.app.fileIcon(modelData.icon))({"app": app}); })()
 property url fallbackSource: (() => { const __name = function(fn) { return fn; }; return (q=>q.app.state.path==="applications:///"?q.app.fileIcon("package-x-generic"):"")({"app": app}); })()
 property color tint: (() => { const __name = function(fn) { return fn; }; return ($qml=>modelData.folderColor||"transparent")({}); })()
@@ -4194,7 +4203,7 @@ visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>!par
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":34,"columnNumber":7,"component":"qml:Image"}
 Image {
 id: ndScope35_image
-objectName: "n286"
+objectName: "n287"
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":34,"columnNumber":7,"component":"qml:Image","property":"qmlId"}
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":34,"columnNumber":7,"component":"qml:Image","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
@@ -4210,8 +4219,8 @@ visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":42,"columnNumber":7,"component":"qml:Image"}
 Image {
-id: n287
-objectName: "n287"
+id: n288
+objectName: "n288"
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":42,"columnNumber":7,"component":"qml:Image","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return (()=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":42,"columnNumber":7,"component":"qml:Image","property":"source"}
@@ -4224,8 +4233,8 @@ fillMode: (() => { const __name = function(fn) { return fn; }; return (()=>Image
 
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":47,"columnNumber":7,"component":"qml:MultiEffect"}
 MultiEffect {
-id: n288
-objectName: "n288"
+id: n289
+objectName: "n289"
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":47,"columnNumber":7,"component":"qml:MultiEffect","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.image)({"image": ndScope35_image}); })()
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":47,"columnNumber":7,"component":"qml:MultiEffect","property":"source"}
@@ -4240,8 +4249,8 @@ colorizationColor: (() => { const __name = function(fn) { return fn; }; return (
 
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":54,"columnNumber":7,"component":"qml:Image"}
 Image {
-id: n289
-objectName: "n289"
+id: n290
+objectName: "n290"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>Math.max(14,parent.width*.3))({}); })()
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>width)({}); })()
 // @nandomo-source {"fileName":"src/native/EntryIcon.tsx","lineNumber":54,"columnNumber":7,"component":"qml:Image","property":"anchors.right"}
@@ -4273,10 +4282,10 @@ anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":543,"columnNumber":17,"component":"qml:Loader","property":"active"}
 active: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent.hasPreview)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":543,"columnNumber":17,"component":"qml:Loader","property":"sourceComponent"}
-sourceComponent:
+sourceComponent: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":554,"columnNumber":21,"component":"qml:Component"}
 Component {
-id: n291
+id: n292
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":554,"columnNumber":21,"component":"qml:Component","property":"children"}
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":555,"columnNumber":23}
@@ -4284,7 +4293,7 @@ id: n291
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":42,"columnNumber":7,"component":"qml:Rectangle"}
 Rectangle {
 id: ndScope36_root
-objectName: "n292"
+objectName: "n293"
 property url source: (() => { const __name = function(fn) { return fn; }; return ($qml=>"file://"+modelData.path.split("/").map(encodeURIComponent).join("/"))({}); })()
 property string kind: (() => { const __name = function(fn) { return fn; }; return ($qml=>/\.pdf$/i.test(modelData.name)?"pdf":"image")({}); })()
 property bool expanded: false
@@ -4323,8 +4332,8 @@ clip: true
 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":107,"columnNumber":9,"component":"qml:Image"}
 Image {
-id: n293
-objectName: "n293"
+id: n294
+objectName: "n294"
 width: 96
 height: 96
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":107,"columnNumber":9,"component":"qml:Image","property":"anchors.centerIn"}
@@ -4350,11 +4359,11 @@ scale: 1
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":117,"columnNumber":9,"component":"qml:Image","property":"rotation"}
 rotation: 0
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":117,"columnNumber":9,"component":"qml:Image","property":"transform"}
-transform:
+transform: 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":122,"columnNumber":26,"component":"qml:Translate"}
 Translate {
-id: n295
-objectName: "n295"
+id: n296
+objectName: "n296"
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":122,"columnNumber":26,"component":"qml:Translate","property":"x"}
 x: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.panX)({"root": ndScope36_root}); })()
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":122,"columnNumber":26,"component":"qml:Translate","property":"y"}
@@ -4389,11 +4398,11 @@ scale: 1
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":138,"columnNumber":9,"component":"qml:Loader","property":"rotation"}
 rotation: 0
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":138,"columnNumber":9,"component":"qml:Loader","property":"transform"}
-transform:
+transform: 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":143,"columnNumber":26,"component":"qml:Translate"}
 Translate {
-id: n297
-objectName: "n297"
+id: n298
+objectName: "n298"
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":143,"columnNumber":26,"component":"qml:Translate","property":"x"}
 x: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.panX)({"root": ndScope36_root}); })()
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":143,"columnNumber":26,"component":"qml:Translate","property":"y"}
@@ -4406,10 +4415,10 @@ anchors.margins: 8
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":138,"columnNumber":9,"component":"qml:Loader","property":"active"}
 active: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.kind==="pdf"&&String($qml.root.source).length>0)({"root": ndScope36_root}); })()
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":138,"columnNumber":9,"component":"qml:Loader","property":"sourceComponent"}
-sourceComponent:
+sourceComponent: 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":152,"columnNumber":13,"component":"qml:Component"}
 Component {
-id: n298
+id: n299
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":152,"columnNumber":13,"component":"qml:Component","property":"children"}
 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":153,"columnNumber":15}
@@ -4417,7 +4426,7 @@ id: n298
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":22,"columnNumber":5,"component":"qml:Item"}
 Item {
 id: ndScope37_root
-objectName: "n299"
+objectName: "n300"
 property url source: ""
 property bool expanded: false
 readonly property string previewStatus: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.document.status===PdfDocument.Ready?"ready":$qml.document.status===PdfDocument.Error?"error":"loading")({"document": ndScope37_document}); })()
@@ -4433,8 +4442,8 @@ function resetView() { return (() => { const __name = function(fn) { return fn; 
 
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":55,"columnNumber":7,"component":"qml:Rectangle"}
 Rectangle {
-id: n300
-objectName: "n300"
+id: n301
+objectName: "n301"
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":55,"columnNumber":7,"component":"qml:Rectangle","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":55,"columnNumber":7,"component":"qml:Rectangle","property":"color"}
@@ -4446,7 +4455,7 @@ visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>!$qm
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":60,"columnNumber":7,"component":"qml:PdfDocument"}
 PdfDocument {
 id: ndScope37_document
-objectName: "n301"
+objectName: "n302"
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":60,"columnNumber":7,"component":"qml:PdfDocument","property":"qmlId"}
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":60,"columnNumber":7,"component":"qml:PdfDocument","property":"source"}
 source: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.source)({"root": ndScope37_root}); })()
@@ -4454,8 +4463,8 @@ source: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.
 
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":64,"columnNumber":7,"component":"qml:PdfPageImage"}
 PdfPageImage {
-id: n302
-objectName: "n302"
+id: n303
+objectName: "n303"
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":64,"columnNumber":7,"component":"qml:PdfPageImage","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/PdfPreview.tsx","lineNumber":64,"columnNumber":7,"component":"qml:PdfPageImage","property":"document"}
@@ -4505,10 +4514,10 @@ anchors.margins: 8
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":165,"columnNumber":9,"component":"qml:Loader","property":"active"}
 active: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.visible&&$qml.root.kind==="video"&&String($qml.root.source).length>0)({"root": ndScope36_root}); })()
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":165,"columnNumber":9,"component":"qml:Loader","property":"sourceComponent"}
-sourceComponent:
+sourceComponent: 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":168,"columnNumber":28,"component":"qml:Component"}
 Component {
-id: n305
+id: n306
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":168,"columnNumber":28,"component":"qml:Component","property":"children"}
 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":168,"columnNumber":42}
@@ -4516,7 +4525,7 @@ id: n305
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":10,"columnNumber":10,"component":"qml:Item"}
 Item {
 id: ndScope38_root
-objectName: "n306"
+objectName: "n307"
 property url source: ""
 readonly property string previewStatus: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.video.error!==MediaPlayer.NoError?"error":$qml.video.hasVideo?"ready":"loading")({"video": ndScope38_video}); })()
 readonly property real aspectRatio: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.video.implicitHeight>0?$qml.video.implicitWidth/$qml.video.implicitHeight:16/9)({"video": ndScope38_video}); })()
@@ -4544,8 +4553,8 @@ autoPlay: false
 
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":19,"columnNumber":5,"component":"qml:RowLayout"}
 RowLayout {
-id: n308
-objectName: "n308"
+id: n309
+objectName: "n309"
 width: (() => { const __name = function(fn) { return fn; }; return (()=>parent.width)({}); })()
 height: 40
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":19,"columnNumber":5,"component":"qml:RowLayout","property":"height"}
@@ -4558,7 +4567,7 @@ anchors.bottom: (() => { const __name = function(fn) { return fn; }; return (()=
 
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":21,"columnNumber":7,"component":"qml:Button"}
 Button {
-id: n309
+id: n310
 objectName: "videoPlayPause"
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":21,"columnNumber":7,"component":"qml:Button","property":"objectName"}
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":21,"columnNumber":7,"component":"qml:Button","property":"text"}
@@ -4571,7 +4580,7 @@ onClicked: function() { (() => { const __name = function(fn) { return fn; }; ret
 
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":25,"columnNumber":7,"component":"qml:Slider"}
 Slider {
-id: n310
+id: n311
 objectName: "videoSeek"
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":25,"columnNumber":7,"component":"qml:Slider","property":"objectName"}
 // @nandomo-source {"fileName":"src/native/VideoPreview.tsx","lineNumber":25,"columnNumber":7,"component":"qml:Slider","property":"from"}
@@ -4598,8 +4607,8 @@ onLoaded: function() { (() => { const __name = function(fn) { return fn; }; retu
 
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":170,"columnNumber":9,"component":"qml:Label"}
 Label {
-id: n311
-objectName: "n311"
+id: n312
+objectName: "n312"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent.width-24)({}); })()
 // @nandomo-source {"fileName":"src/native/FilePreview.tsx","lineNumber":170,"columnNumber":9,"component":"qml:Label","property":"anchors.centerIn"}
 anchors.centerIn: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
@@ -4648,8 +4657,8 @@ onPositionChanged: function() { (() => { const __name = function(fn) { return fn
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":573,"columnNumber":15,"component":"qml:Label"}
 Label {
-id: n313
-objectName: "n313"
+id: n314
+objectName: "n314"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":573,"columnNumber":15,"component":"qml:Label","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>modelData.name)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":573,"columnNumber":15,"component":"qml:Label","property":"font.pixelSize"}
@@ -4672,7 +4681,7 @@ elide: (() => { const __name = function(fn) { return fn; }; return ($qml=>Text.E
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":587,"columnNumber":13,"component":"qml:Item"}
 Item {
 id: ndScope0_dragProxy
-objectName: "n314"
+objectName: "n315"
 width: 1
 height: 1
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":587,"columnNumber":13,"component":"qml:Item","property":"qmlId"}
@@ -4702,8 +4711,8 @@ Drag.onDragFinished: function() { (() => { const __name = function(fn) { return 
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":650,"columnNumber":13,"component":"qml:DropArea"}
 DropArea {
-id: n315
-objectName: "n315"
+id: n316
+objectName: "n316"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":650,"columnNumber":13,"component":"qml:DropArea","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":650,"columnNumber":13,"component":"qml:DropArea","property":"enabled"}
@@ -4717,7 +4726,7 @@ onDropped: function() { (() => { const __name = function(fn) { return fn; }; ret
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":671,"columnNumber":13,"component":"qml:MouseArea"}
 MouseArea {
 id: ndScope0_gridMouse
-objectName: "n316"
+objectName: "n317"
 property bool nbDragging: false
 property real nbOriginX: 0
 property real nbOriginY: 0
@@ -4753,8 +4762,8 @@ onDoubleClicked: function() { (() => { const __name = function(fn) { return fn; 
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":776,"columnNumber":9,"component":"qml:MouseArea"}
 MouseArea {
-id: n317
-objectName: "n317"
+id: n318
+objectName: "n318"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.filesGrid.width)({"filesGrid": ndScope0_filesGrid}); })()
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.filesGrid.height)({"filesGrid": ndScope0_filesGrid}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":776,"columnNumber":9,"component":"qml:MouseArea","property":"parent"}
@@ -4771,8 +4780,8 @@ onClicked: function() { (() => { const __name = function(fn) { return fn; }; ret
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":799,"columnNumber":9,"component":"qml:DropArea"}
 DropArea {
-id: n318
-objectName: "n318"
+id: n319
+objectName: "n319"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":799,"columnNumber":9,"component":"qml:DropArea","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":799,"columnNumber":9,"component":"qml:DropArea","property":"z"}
@@ -4789,7 +4798,7 @@ onDropped: function() { (() => { const __name = function(fn) { return fn; }; ret
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":835,"columnNumber":7,"component":"qml:Flickable"}
 Flickable {
 id: ndScope0_filesColumns
-objectName: "n319"
+objectName: "n320"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":835,"columnNumber":7,"component":"qml:Flickable","property":"qmlId"}
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":835,"columnNumber":7,"component":"qml:Flickable","property":"clip"}
 clip: true
@@ -4798,11 +4807,11 @@ contentWidth: (() => { const __name = function(fn) { return fn; }; return ($qml=
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":835,"columnNumber":7,"component":"qml:Flickable","property":"contentHeight"}
 contentHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>height)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":835,"columnNumber":7,"component":"qml:Flickable","property":"ScrollBar.horizontal"}
-ScrollBar.horizontal:
+ScrollBar.horizontal: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":840,"columnNumber":39,"component":"qml:ScrollBar"}
 ScrollBar {
-id: n320
-objectName: "n320"
+id: n321
+objectName: "n321"
 }
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":835,"columnNumber":7,"component":"qml:Flickable","property":"children"}
 
@@ -4810,8 +4819,8 @@ objectName: "n320"
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":842,"columnNumber":9,"component":"qml:MouseArea"}
 MouseArea {
-id: n321
-objectName: "n321"
+id: n322
+objectName: "n322"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.filesColumns.width)({"filesColumns": ndScope0_filesColumns}); })()
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.filesColumns.height)({"filesColumns": ndScope0_filesColumns}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":842,"columnNumber":9,"component":"qml:MouseArea","property":"width"}
@@ -4824,8 +4833,8 @@ onClicked: function() { (() => { const __name = function(fn) { return fn; }; ret
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":858,"columnNumber":9,"component":"qml:DropArea"}
 DropArea {
-id: n322
-objectName: "n322"
+id: n323
+objectName: "n323"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":858,"columnNumber":9,"component":"qml:DropArea","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":858,"columnNumber":9,"component":"qml:DropArea","property":"z"}
@@ -4841,7 +4850,7 @@ onDropped: function() { (() => { const __name = function(fn) { return fn; }; ret
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":888,"columnNumber":9,"component":"qml:Row"}
 Row {
 id: ndScope0_columnRow
-objectName: "n323"
+objectName: "n324"
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent.height)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":888,"columnNumber":9,"component":"qml:Row","property":"qmlId"}
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":888,"columnNumber":9,"component":"qml:Row","property":"height"}
@@ -4851,16 +4860,16 @@ spacing: 8
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":893,"columnNumber":11,"component":"qml:Repeater"}
 Repeater {
-id: n324
-objectName: "n324"
+id: n325
+objectName: "n325"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":893,"columnNumber":11,"component":"qml:Repeater","property":"model"}
 model: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.columns)({"app": app}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":893,"columnNumber":11,"component":"qml:Repeater","property":"delegate"}
-delegate:
+delegate: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":896,"columnNumber":15,"component":"qml:Rectangle"}
 Rectangle {
 id: ndScope0_columnPanel
-objectName: "n325"
+objectName: "n326"
 width: 260
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.columnRow.height)({"columnRow": ndScope0_columnRow}); })()
 required property var modelData
@@ -4877,8 +4886,8 @@ color: (() => { const __name = function(fn) { return fn; }; return ($qml=>Qt.lig
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":909,"columnNumber":17,"component":"qml:ColumnLayout"}
 ColumnLayout {
-id: n326
-objectName: "n326"
+id: n327
+objectName: "n327"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":909,"columnNumber":17,"component":"qml:ColumnLayout","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":909,"columnNumber":17,"component":"qml:ColumnLayout","property":"anchors.margins"}
@@ -4889,8 +4898,8 @@ anchors.margins: 8
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":915,"columnNumber":19,"component":"qml:Label"}
 Label {
-id: n327
-objectName: "n327"
+id: n328
+objectName: "n328"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":915,"columnNumber":19,"component":"qml:Label","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.columnPanel.modelData.path)({"columnPanel": ndScope0_columnPanel}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":915,"columnNumber":19,"component":"qml:Label","property":"color"}
@@ -4904,7 +4913,7 @@ elide: (() => { const __name = function(fn) { return fn; }; return ($qml=>Text.E
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":924,"columnNumber":19,"component":"qml:ListView"}
 ListView {
 id: ndScope0_columnList
-objectName: "n328"
+objectName: "n329"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":924,"columnNumber":19,"component":"qml:ListView","property":"qmlId"}
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":924,"columnNumber":19,"component":"qml:ListView","property":"Layout.fillWidth"}
 Layout.fillWidth: true
@@ -4915,14 +4924,14 @@ clip: true
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":924,"columnNumber":19,"component":"qml:ListView","property":"model"}
 model: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.columnPanel.modelData.entries)({"columnPanel": ndScope0_columnPanel}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":924,"columnNumber":19,"component":"qml:ListView","property":"ScrollBar.vertical"}
-ScrollBar.vertical:
+ScrollBar.vertical: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":933,"columnNumber":49,"component":"qml:ScrollBar"}
 ScrollBar {
-id: n329
-objectName: "n329"
+id: n330
+objectName: "n330"
 }
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":924,"columnNumber":19,"component":"qml:ListView","property":"delegate"}
-delegate:
+delegate: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":935,"columnNumber":23,"component":"qml:ItemDelegate"}
 ItemDelegate {
 id: ndScope0_columnDelegate
@@ -4936,11 +4945,11 @@ required property var modelData
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":935,"columnNumber":23,"component":"qml:ItemDelegate","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>modelData.name)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":935,"columnNumber":23,"component":"qml:ItemDelegate","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":947,"columnNumber":27,"component":"qml:Label"}
 Label {
-id: n331
-objectName: "n331"
+id: n332
+objectName: "n332"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":947,"columnNumber":27,"component":"qml:Label","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent.text)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":947,"columnNumber":27,"component":"qml:Label","property":"color"}
@@ -4956,8 +4965,8 @@ highlighted: (() => { const __name = function(fn) { return fn; }; return ($qml=>
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":966,"columnNumber":25,"component":"qml:MouseArea"}
 MouseArea {
-id: n332
-objectName: "n332"
+id: n333
+objectName: "n333"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":966,"columnNumber":25,"component":"qml:MouseArea","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return (()=>parent)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":966,"columnNumber":25,"component":"qml:MouseArea","property":"onClicked"}
@@ -4968,8 +4977,8 @@ onDoubleClicked: function() { (() => { const __name = function(fn) { return fn; 
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":985,"columnNumber":25,"component":"qml:TapHandler"}
 TapHandler {
-id: n333
-objectName: "n333"
+id: n334
+objectName: "n334"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":985,"columnNumber":25,"component":"qml:TapHandler","property":"acceptedButtons"}
 acceptedButtons: (() => { const __name = function(fn) { return fn; }; return ($qml=>Qt.RightButton)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":985,"columnNumber":25,"component":"qml:TapHandler","property":"onTapped"}
@@ -4980,8 +4989,8 @@ onTapped: function() { (() => { const __name = function(fn) { return fn; }; retu
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":1002,"columnNumber":21,"component":"qml:MouseArea"}
 MouseArea {
-id: n334
-objectName: "n334"
+id: n335
+objectName: "n335"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.columnList.width)({"columnList": ndScope0_columnList}); })()
 height: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.columnList.height)({"columnList": ndScope0_columnList}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":1002,"columnNumber":21,"component":"qml:MouseArea","property":"parent"}
@@ -5004,8 +5013,8 @@ onClicked: function() { (() => { const __name = function(fn) { return fn; }; ret
 
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":1023,"columnNumber":7,"component":"qml:TapHandler"}
 TapHandler {
-id: n335
-objectName: "n335"
+id: n336
+objectName: "n336"
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":1023,"columnNumber":7,"component":"qml:TapHandler","property":"acceptedButtons"}
 acceptedButtons: (() => { const __name = function(fn) { return fn; }; return ($qml=>Qt.RightButton)({}); })()
 // @nandomo-source {"fileName":"src/native/FileViews.tsx","lineNumber":1023,"columnNumber":7,"component":"qml:TapHandler","property":"onTapped"}
@@ -5014,98 +5023,98 @@ onTapped: function() { (() => { const __name = function(fn) { return fn; }; retu
 }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
 id: ndScope0_detailsContainer
 objectName: "detailsContainer"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"objectName"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"visible"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"objectName"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"visible"}
 visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>!!$qml.app.state.detailsVisible)({"app": app}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"opacity"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"opacity"}
 opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.detailsVisible?1:0)({"app": app}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.preferredWidth"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.preferredWidth"}
 Layout.preferredWidth: 290
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.fillHeight"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"Layout.fillHeight"}
 Layout.fillHeight: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.theme.surfaceContainer)({"theme": ndScope0_theme}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: (() => { const __name = function(fn) { return fn; }; return ($qml=>Style.cornerRadius)({}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle","property":"children"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":330,"columnNumber":11,"component":"qml:Rectangle"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":334,"columnNumber":11,"component":"qml:Rectangle"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":340,"columnNumber":13,"component":"qml:Behavior"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":344,"columnNumber":13,"component":"qml:Behavior"}
 Behavior on opacity {
-id: n337
-objectName: "n337"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":340,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":340,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
-animation:
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":340,"columnNumber":54,"component":"qml:NumberAnimation"}
-NumberAnimation {
 id: n338
 objectName: "n338"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":340,"columnNumber":54,"component":"qml:NumberAnimation","property":"duration"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":344,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":344,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
+animation: 
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":344,"columnNumber":54,"component":"qml:NumberAnimation"}
+NumberAnimation {
+id: n339
+objectName: "n339"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":344,"columnNumber":54,"component":"qml:NumberAnimation","property":"duration"}
 duration: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.preferences&&$qml.app.state.preferences.reduceAnimations?0:110)({"app": app}); })()
 }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":341,"columnNumber":13,"component":"qml:ScrollView"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":345,"columnNumber":13,"component":"qml:ScrollView"}
 ScrollView {
 id: ndScope0_detailsScroll
-objectName: "n339"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":341,"columnNumber":13,"component":"qml:ScrollView","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":341,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.fill"}
+objectName: "n340"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":345,"columnNumber":13,"component":"qml:ScrollView","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":345,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.fill"}
 anchors.fill: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent)({}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":341,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.margins"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":345,"columnNumber":13,"component":"qml:ScrollView","property":"anchors.margins"}
 anchors.margins: 12
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":341,"columnNumber":13,"component":"qml:ScrollView","property":"clip"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":345,"columnNumber":13,"component":"qml:ScrollView","property":"clip"}
 clip: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":341,"columnNumber":13,"component":"qml:ScrollView","property":"contentWidth"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":345,"columnNumber":13,"component":"qml:ScrollView","property":"contentWidth"}
 contentWidth: (() => { const __name = function(fn) { return fn; }; return ($qml=>availableWidth)({}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":341,"columnNumber":13,"component":"qml:ScrollView","property":"children"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":345,"columnNumber":13,"component":"qml:ScrollView","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":348,"columnNumber":15,"component":"qml:Item"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":352,"columnNumber":15,"component":"qml:Item"}
 Item {
 id: ndScope0_detailsSlot
-objectName: "n340"
+objectName: "n341"
 width: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.detailsScroll.availableWidth)({"detailsScroll": ndScope0_detailsScroll}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":348,"columnNumber":15,"component":"qml:Item","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":348,"columnNumber":15,"component":"qml:Item","property":"width"}
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":348,"columnNumber":15,"component":"qml:Item","property":"implicitHeight"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":352,"columnNumber":15,"component":"qml:Item","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":352,"columnNumber":15,"component":"qml:Item","property":"width"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":352,"columnNumber":15,"component":"qml:Item","property":"implicitHeight"}
 implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.detailsObject?$qml.app.detailsObject.implicitHeight:0)({"app": app}); })()
 }
 }
 }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":363,"columnNumber":9,"component":"qml:RowLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout"}
 RowLayout {
-id: n341
-objectName: "n341"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":363,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillWidth"}
-Layout.fillWidth: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":363,"columnNumber":9,"component":"qml:RowLayout","property":"children"}
-
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":363,"columnNumber":9,"component":"qml:RowLayout"}
-
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":364,"columnNumber":9,"component":"qml:Label"}
-Label {
 id: n342
 objectName: "n342"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":364,"columnNumber":9,"component":"qml:Label","property":"text"}
-text: (() => { const __name = function(fn) { return fn; }; return ($qml=>{const state=$qml.app.state;const virtual={"trash:///":"Lixeira","recent:///":"Recentes","applications:///":"Aplicativos"}[state.path];return state.error||state.transferStatus||(state.searchBusy?$qml.app.tr("Buscando\u2026"):"")||(state.busy?$qml.app.tr("Carregando\u2026"):$qml.app.tr(virtual!==void 0?virtual:state.path===state.home?"Pasta pessoal":state.path.split("/").filter(function(p){return p.length}).pop()||"Sistema"))+" \xB7 "+state.path+" \xB7 "+$qml.app.tr("{count} itens",{count:state.entries.length})+" \xB7 "+(state.selectionCount>1?$qml.app.tr("{count} selecionados",{count:state.selectionCount})+" \xB7 ":"")+$qml.app.tr({name:"nome",size:"tamanho",modified:"data",type:"tipo"}[state.order]||"nome")+" \xB7 "+$qml.app.tr(state.descending?"decrescente":"crescente")})({"app": app}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":364,"columnNumber":9,"component":"qml:Label","property":"color"}
-color: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.error?$qml.theme.error:$qml.theme.surfaceVariantText)({"app": app, "theme": ndScope0_theme}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":364,"columnNumber":9,"component":"qml:Label","property":"Layout.fillWidth"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillWidth"}
 Layout.fillWidth: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":364,"columnNumber":9,"component":"qml:Label","property":"elide"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout","property":"children"}
+
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout"}
+
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label"}
+Label {
+id: n343
+objectName: "n343"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"text"}
+text: (() => { const __name = function(fn) { return fn; }; return ($qml=>{const state=$qml.app.state;const virtual={"trash:///":"Lixeira","recent:///":"Recentes","applications:///":"Aplicativos"}[state.path];return state.error||state.transferStatus||(state.searchBusy?$qml.app.tr("Buscando\u2026"):"")||(state.busy?$qml.app.tr("Carregando\u2026"):$qml.app.tr(virtual!==void 0?virtual:state.path===state.home?"Pasta pessoal":state.path.split("/").filter(function(p){return p.length}).pop()||"Sistema"))+" \xB7 "+state.path+" \xB7 "+$qml.app.tr("{count} itens",{count:state.entries.length})+" \xB7 "+(state.selectionCount>1?$qml.app.tr("{count} selecionados",{count:state.selectionCount})+" \xB7 ":"")+$qml.app.tr({name:"nome",size:"tamanho",modified:"data",type:"tipo"}[state.order]||"nome")+" \xB7 "+$qml.app.tr(state.descending?"decrescente":"crescente")})({"app": app}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"color"}
+color: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.error?$qml.theme.error:$qml.theme.surfaceVariantText)({"app": app, "theme": ndScope0_theme}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"Layout.fillWidth"}
+Layout.fillWidth: true
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"elide"}
 elide: (() => { const __name = function(fn) { return fn; }; return ($qml=>Text.ElideMiddle)({}); })()
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":425,"columnNumber":9}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":429,"columnNumber":9}
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":41,"columnNumber":7,"component":"qml:Button"}
 Button {
@@ -5140,11 +5149,11 @@ ToolTip.visible: (() => { const __name = function(fn) { return fn; }; return ($q
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":41,"columnNumber":7,"component":"qml:Button","property":"ToolTip.text"}
 ToolTip.text: (() => { const __name = function(fn) { return fn; }; return ($qml=>Accessible.name)({}); })()
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":41,"columnNumber":7,"component":"qml:Button","property":"background"}
-background:
+background: 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":155,"columnNumber":11,"component":"qml:Rectangle"}
 Rectangle {
-id: n344
-objectName: "n344"
+id: n345
+objectName: "n345"
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":155,"columnNumber":11,"component":"qml:Rectangle","property":"radius"}
 radius: 7
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":155,"columnNumber":11,"component":"qml:Rectangle","property":"color"}
@@ -5153,26 +5162,26 @@ color: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.r
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":168,"columnNumber":13,"component":"qml:Behavior"}
 Behavior on color {
-id: n345
-objectName: "n345"
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":168,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":168,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
-animation:
-// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":169,"columnNumber":15,"component":"qml:ColorAnimation"}
-ColorAnimation {
 id: n346
 objectName: "n346"
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":168,"columnNumber":13,"component":"qml:Behavior","property":"qmlOn"}
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":168,"columnNumber":13,"component":"qml:Behavior","property":"animation"}
+animation: 
+// @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":169,"columnNumber":15,"component":"qml:ColorAnimation"}
+ColorAnimation {
+id: n347
+objectName: "n347"
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":169,"columnNumber":15,"component":"qml:ColorAnimation","property":"duration"}
 duration: (() => { const __name = function(fn) { return fn; }; return (()=>ApplicationWindow.window&&ApplicationWindow.window.reduceAnimations?0:90)({}); })()
 }
 }
 }
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":41,"columnNumber":7,"component":"qml:Button","property":"contentItem"}
-contentItem:
+contentItem: 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":175,"columnNumber":11,"component":"qml:RowLayout"}
 RowLayout {
-id: n347
-objectName: "n347"
+id: n348
+objectName: "n348"
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":175,"columnNumber":11,"component":"qml:RowLayout","property":"spacing"}
 spacing: 10
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":175,"columnNumber":11,"component":"qml:RowLayout","property":"opacity"}
@@ -5183,8 +5192,8 @@ opacity: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":181,"columnNumber":13,"component":"qml:Image"}
 Image {
-id: n348
-objectName: "n348"
+id: n349
+objectName: "n349"
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":181,"columnNumber":13,"component":"qml:Image","property":"visible"}
 visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.iconName.length>0&&!$qml.root.actionIcon)({"root": ndScope39_root}); })()
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":181,"columnNumber":13,"component":"qml:Image","property":"source"}
@@ -5201,8 +5210,8 @@ fillMode: (() => { const __name = function(fn) { return fn; }; return ($qml=>Ima
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon"}
 DankIcon {
-id: n349
-objectName: "n349"
+id: n350
+objectName: "n350"
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"visible"}
 visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.actionIcon.length>0)({"root": ndScope39_root}); })()
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":206,"columnNumber":13,"component":"qml:DankIcon","property":"name"}
@@ -5221,8 +5230,8 @@ Layout.alignment: (() => { const __name = function(fn) { return fn; }; return ($
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":223,"columnNumber":13,"component":"qml:StyledText"}
 StyledText {
-id: n350
-objectName: "n350"
+id: n351
+objectName: "n351"
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":223,"columnNumber":13,"component":"qml:StyledText","property":"visible"}
 visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.root.text.length>0)({"root": ndScope39_root}); })()
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":223,"columnNumber":13,"component":"qml:StyledText","property":"text"}
@@ -5254,8 +5263,8 @@ onClicked: function() { (() => { const __name = function(fn) { return fn; }; ret
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon"}
 DankIcon {
-id: n351
-objectName: "n351"
+id: n352
+objectName: "n352"
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"anchors.right"}
 anchors.right: (() => { const __name = function(fn) { return fn; }; return ($qml=>parent.right)({}); })()
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":243,"columnNumber":9,"component":"qml:DankIcon","property":"anchors.rightMargin"}
@@ -5285,8 +5294,8 @@ visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":37,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n352
-objectName: "n352"
+id: n353
+objectName: "n353"
 property int step: 0
 property int ticks: 0
 property string startingPath: ""
@@ -5303,8 +5312,8 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":65,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n353
-objectName: "n353"
+id: n354
+objectName: "n354"
 property int ticks: 0
 property string startingPath: ""
 property bool startingHidden: false
@@ -5321,8 +5330,8 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":172,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n354
-objectName: "n354"
+id: n355
+objectName: "n355"
 property int step: 0
 property int ticks: 0
 property var originalSidebar: null
@@ -5345,8 +5354,8 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":347,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n355
-objectName: "n355"
+id: n356
+objectName: "n356"
 property int step: 0
 property int ticks: 0
 property string fixturePath: ""

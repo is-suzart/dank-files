@@ -70,11 +70,29 @@ npm test
 
 The QML is generated from TSX, not maintained by hand. The app source is currently developed in the Nandomo workspace; its core/bridge packages are **not yet published as standalone development dependencies**. This repository deliberately does not copy the rest of that framework. The generated runtime works independently, but rebuilding the TSX snapshot still requires the matching Nandomo workspace. See [source build notes](source/README.md).
 
-Before publication, the application passed **124 development tests**, package relocation/widget checks and native QML workflow checks. The local package checker verifies syntax and packaging; it does not simulate a desktop session. Automated GitHub Actions are not configured in this initial publication.
+Before publication, the application passed **139 development tests**, package relocation/widget checks and native QML workflow checks. The local package checker verifies syntax and packaging; it does not simulate a desktop session. Automated GitHub Actions are not configured in this initial publication.
 
 ## Preview limitations
 
 Undo is session-local and does not cover every operation; replacement operations clear earlier undo history. Chinese wording still needs native-speaker review. Network behavior depends on GVfs/mount backends. Restart Dank Files after changing the OS language or DMS application icon theme.
+
+## Browser file dialogs
+
+The optional FileChooser portal lets applications using XDG Desktop Portal open
+and save files through Dank Files. From this repository or installed plugin:
+
+```bash
+node app/install-portal-backend.mjs --enable
+systemctl --user restart xdg-desktop-portal.service
+```
+
+The installer backs up the active user portal configuration and changes only
+its FileChooser preference to `dank-files;gtk`. See [installation details](INSTALL.md#portal-filechooser-backend-opt-in)
+for prerequisites and uninstalling. Restart browsers after enabling the portal.
+Browsers using their own picker must enable portal support separately.
+The chooser currently opens independently; attaching it modally to the browser
+window is not implemented. The public portal-to-chooser flow was tested with
+real Quickshell controls on Wayland, alongside the development and package checks.
 
 ## License
 

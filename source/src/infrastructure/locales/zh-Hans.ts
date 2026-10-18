@@ -163,4 +163,10 @@ export const zhHans: Catalog = {
   'Falha ao aplicar as permissões.': '无法应用权限。',
   'Falha ao montar o volume.': '无法挂载该卷。',
   'Falha ao desmontar o volume.': '无法卸载该卷。',
+  'Selecionar': '选择',
+  'Subir': '上一级',
+  'Filtro': '筛选',
+  'O arquivo já existe. Substituir?': '文件已存在，是否替换？',
+  'não foi possível gerar um nome único': '无法生成唯一名称',
+  'requisição do portal ausente': '缺少门户请求',
 };

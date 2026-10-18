@@ -151,7 +151,11 @@ export const FileWindow = component<{
       />
       <qml.Item qmlId={scope.id("dialogsSlot")} />
       <qml.TextEdit qmlId={scope.id("clipboard")} visible={false} />
-      <FileContextMenus scope={scope} />
+      <qml.Item
+        visible={qmlExpression(scope, ($qml) => !$qml.app.state.chooser)}
+      >
+        <FileContextMenus scope={scope} />
+      </qml.Item>
 
       <qml.Shortcut sequence="Ctrl+F" enabled={qmlExpression(scope,q=>!q.app.state.modalsOpen)} onActivated={qmlHandler(scope,$qml=>{
         const search=$qml.app.findUi('fileSearch',$qml.app.toolbarObject);

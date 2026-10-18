@@ -179,9 +179,10 @@ export function createFileManager(home: string, services: FileManagerServices) {
   });
   let stopWatching: (() => void) | undefined;
 
-  const visibleEntries = computed(() => sortEntries((searchResults() ?? entries()).filter(item=>!searchText().trim() || item.name.toLowerCase().includes(searchText().trim().toLowerCase())), order(), descending(), hidden(),preferences().foldersFirst).map(decorate));
+  const entryFilter = signal<((entry: Entry) => boolean) | undefined>(undefined);
+  const visibleEntries = computed(() => sortEntries((searchResults() ?? entries()).filter(item=>!entryFilter() || entryFilter()!(item)).filter(item=>!searchText().trim() || item.name.toLowerCase().includes(searchText().trim().toLowerCase())), order(), descending(), hidden(),preferences().foldersFirst).map(decorate));
   const visibleColumns = computed(() => (searchText().trim() ? [{path:path(),entries:visibleEntries()}] : columns()).map(column => ({
-    path: column.path, entries: sortEntries(column.entries, order(), descending(), hidden(),preferences().foldersFirst).map(decorate),
+    path: column.path, entries: sortEntries(column.entries.filter(item=>!entryFilter() || entryFilter()!(item)), order(), descending(), hidden(),preferences().foldersFirst).map(decorate),
   })));
   const candidates = () => {
     // The current directory is both entries and the first column, so only the
@@ -355,8 +356,10 @@ export function createFileManager(home: string, services: FileManagerServices) {
     const target=selected();const token=++detailsGeneration;selectedDetails.set(null);
     if(target && services.files.details)void services.files.details(target.path).then(value=>{if(!disposed && token===detailsGeneration)selectedDetails.set(value);}).catch(()=>{});
   });
+  let chooserMode = false;
   const snapshot = computed(() => ({
-    locale:services.locale?.(),detailsOpen:detailsOpen(),detailsVisible:preferences().detailsAlwaysVisible || (!!selected() && detailsOpen()),remote:remote(),transferStatus:transferStatus()+(operationProgress() && operationProgress()!.total>0 ? ' · '+Math.round(operationProgress()!.completed/operationProgress()!.total*100)+'%' : ''),
+    chooser:chooserMode,
+    locale:services.locale?.(),detailsOpen:detailsOpen(),detailsVisible:!chooserMode && (preferences().detailsAlwaysVisible || (!!selected() && detailsOpen())),remote:remote(),transferStatus:transferStatus()+(operationProgress() && operationProgress()!.total>0 ? ' · '+Math.round(operationProgress()!.completed/operationProgress()!.total*100)+'%' : ''),
     destinationPath:destinationPath(),destinationBusy:destinationBusy(),
     canCancelTransfer:mutating() && !!operationProgress(),canUndo:!mutating() && !!services.files.canUndo?.(),searchText:searchText(),searchBusy:searchBusy(),searchRecursive:searchRecursive(),activation:activation(),operationProgress:operationProgress(),canPaste:!!clipboard() || externalClipboardAvailable(),themeReady:themeReady(),videoThumbnails:videoThumbnails(),preferences:preferences(),preferencesOpen:preferencesOpen(),chooserOpen:chooserOpen(),applications:applications(), home, path:path(), entries:visibleEntries(), columns:visibleColumns(), drives:drives(), games:games(), places:places(),
     modalsOpen:modalsOpen(),
@@ -615,6 +618,9 @@ export function createFileManager(home: string, services: FileManagerServices) {
     refresh:()=>loadDirectory(path.peek(),'refresh'),onError:reportError});
   return {
     tools,
+    /** Portal chooser windows browse with the same views but never run file commands. */
+    setEntryFilter(filter: ((entry: Entry) => boolean) | undefined){entryFilter.set(filter);},
+    setChooserMode(value:boolean){chooserMode=value;},
     searchText,searchRecursive,searchBusy,operationProgress,
     setSearch:(value:string)=>searchText.set(value),
     setSearchRecursive:(value:boolean)=>searchRecursive.set(value),

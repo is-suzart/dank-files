@@ -17,7 +17,7 @@ function triggerHoverPopout() { return (() => { const __name = function(fn) { re
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent","property":"pillClickAction"}
 pillClickAction: (() => { const __name = function(fn) { return fn; }; return (()=>function(){const path=decodeURIComponent(Qt.resolvedUrl("app/launch.mjs").toString().replace(/^file:\/\//,""));Quickshell.execDetached(["node",path])})({}); })()
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent","property":"horizontalBarPill"}
-horizontalBarPill:
+horizontalBarPill: 
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":13,"columnNumber":22,"component":"qml:Component"}
 Component {
 id: n1
@@ -36,7 +36,7 @@ color: (() => { const __name = function(fn) { return fn; }; return (()=>Theme.su
 }
 }
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":17,"columnNumber":5,"component":"qml:PluginComponent","property":"verticalBarPill"}
-verticalBarPill:
+verticalBarPill: 
 // @nandomo-source {"fileName":"src/plugin/FilesWidget.tsx","lineNumber":13,"columnNumber":22,"component":"qml:Component"}
 Component {
 id: n3

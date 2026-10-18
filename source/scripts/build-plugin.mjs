@@ -15,11 +15,15 @@ const { renderShell } = await tsImport('../src/native/renderShell.tsx', {parentU
 const { renderFilesWidget } = await tsImport('../src/plugin/FilesWidget.tsx', {parentURL:import.meta.url, tsconfig});
 await writeFile(join(output, 'app/shell.qml'), renderShell().replaceAll(project + '/', ''));
 await writeFile(join(output, 'FilesWidget.qml'), renderFilesWidget().replaceAll(project + '/', ''));
+await build({entryPoints:[join(project, 'src/portal/main.ts')], outfile:join(output, 'app/portal-main.mjs'),
+  bundle:true, platform:'node', format:'esm', target:'node20', tsconfig, minifySyntax:true,
+  define:{'process.env.NANDOMO_FM_DEV':'"0"'},
+});
 await build({entryPoints:[join(project, 'src/main.ts')], outfile:join(output, 'app/backend.mjs'),
   bundle:true, platform:'node', format:'esm', target:'node20', tsconfig, minifySyntax:true,
   define:{'process.env.NANDOMO_FM_DEV':'"0"'},
 });
-for (const [from, to] of [['plugin-launch.mjs','launch.mjs'], ['launch-options.mjs','launch-options.mjs'], ['dms-source.mjs','dms-source.mjs'], ['linux-desktop.py','linux-desktop.py'], ['install-desktop.mjs','register-desktop.mjs']]) {
+for (const [from, to] of [['plugin-launch.mjs','launch.mjs'], ['portal-launch.mjs','portal-launch.mjs'], ['launch-options.mjs','launch-options.mjs'], ['dms-source.mjs','dms-source.mjs'], ['linux-desktop.py','linux-desktop.py'], ['install-desktop.mjs','register-desktop.mjs'], ['portal-backend.py','portal-backend.py'], ['install-portal-backend.mjs','install-portal-backend.mjs']]) {
   await copyFile(join(project, 'scripts', from), join(output, 'app', to));
 }
 await writeFile(join(output, 'plugin.json'), JSON.stringify({id:'dankFiles', name:'Dank Files', author:'Igor Suzart', license:'BSD-3-Clause',
