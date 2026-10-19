@@ -2,7 +2,7 @@
 
 A standalone file manager integrated with [Dank Material Shell](https://github.com/AvengeMedia/DankMaterialShell), built with TypeScript/TSX and Nandomo.
 
-**Version 0.1.0 — public preview.** This repository ships the installable plugin and an application source snapshot. No build is required to install it.
+**Version 0.1.1 — public preview.** This repository ships the installable plugin, application source and its scoped build toolchain. No build is required to install it.
 
 ![Dank Files file manager](assets/preview.png)
 
@@ -79,9 +79,27 @@ If you installed an earlier local **Nandomo Files** plugin, disable its old widg
 npm test
 ```
 
-The QML is generated from TSX, not maintained by hand. The app source is currently developed in the Nandomo workspace; its core/bridge packages are **not yet published as standalone development dependencies**. This repository deliberately does not copy the rest of that framework. The generated runtime works independently, but rebuilding the TSX snapshot still requires the matching Nandomo workspace. See [source build notes](source/README.md).
+The QML is generated from TSX, not maintained by hand. `toolchain/` contains
+only the Nandomo core, shared transport and QML bridge used to build this app.
+GTK, Compose, other adapters and other applications are outside this distribution.
+The SDK commit and JavaScript dependencies are pinned. No separate Nandomo
+repository or unpublished package is required.
 
-Before publication, the application passed **141 development tests**, package relocation/widget checks and native QML workflow checks. The local package checker verifies syntax and packaging; it does not simulate a desktop session. Automated GitHub Actions are not configured in this initial publication.
+With the native dependencies above, Node 20+ and pnpm 9.0.0 installed:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm verify:build
+pnpm test:source
+```
+
+`verify:build` rebuilds from TSX and compares every shipped runtime file byte for
+byte. The first build downloads the pinned upstream DMS SDK into `.build/`;
+it does not modify the installed DMS. See [source build notes](source/README.md)
+for the build boundary, requirements and verification limits.
+
+The package checker verifies syntax and packaging; it does not simulate a desktop
+session. Automated GitHub Actions are not configured.
 
 ## Preview limitations
 

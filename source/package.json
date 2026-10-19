@@ -21,9 +21,9 @@
     "@nandomo/bridge-qml": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "tsx": "^4.23.15",
-    "typescript": "^5.4.0"
+    "@types/node": "20.19.9",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
   },
   "license": "BSD-3-Clause"
 }

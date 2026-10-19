@@ -39,6 +39,7 @@ export const Shell = component<Record<string, any>>("Shell", (props) => {
   scope.id("backend");
   scope.id("window");
   scope.id("dialogsSlot");
+  scope.id("footerSlot");
   scope.id("clipboard");
   scope.id("newMenu");
   scope.id("applicationMenu");
@@ -96,6 +97,8 @@ export const Shell = component<Record<string, any>>("Shell", (props) => {
         sidebarObject: { type: "var", value: null },
         detailsObject: { type: "var", value: null },
         dialogsObject: { type: "var", value: null },
+        footerObject: { type: "var", value: null },
+        footerBridge: {type:"var",value:qmlExpression(scope,($qml)=>({dispatch:function(handler:any,args:any){if(!$qml.app.applyingBindings)$qml.app.send("uiEvent",{scene:"footer",handler:handler,args:args,generation:$qml.app.uiGeneration});}}))},
         detailsBridge: {
           type: "var",
           value: qmlExpression(scope, ($qml) => ({
@@ -197,14 +200,14 @@ export const Shell = component<Record<string, any>>("Shell", (props) => {
           try {
             var command: any = message.command;
             if(command.cmd === "replace_scenes") {
-              var slots: any = {toolbar:$qml.toolbarSlot,sidebar:$qml.sidebarSlot,details:$qml.detailsSlot,dialogs:$qml.dialogsSlot};
-              var objectKeys: any = {toolbar:"toolbarObject",sidebar:"sidebarObject",details:"detailsObject",dialogs:"dialogsObject"};
-              var bridgeKeys: any = {toolbar:"uiBridge",sidebar:"sidebarBridge",details:"detailsBridge",dialogs:"dialogsBridge"};
+              var slots: any = {toolbar:$qml.toolbarSlot,sidebar:$qml.sidebarSlot,details:$qml.detailsSlot,dialogs:$qml.dialogsSlot,footer:$qml.footerSlot};
+              var objectKeys: any = {toolbar:"toolbarObject",sidebar:"sidebarObject",details:"detailsObject",dialogs:"dialogsObject",footer:"footerObject"};
+              var bridgeKeys: any = {toolbar:"uiBridge",sidebar:"sidebarBridge",details:"detailsBridge",dialogs:"dialogsBridge",footer:"footerBridge"};
               var previousBridges: any = {}, candidates: any = {};
               var previousApplying: any = $qml.app.applyingBindings;
               $qml.app.applyingBindings=true;
               try {
-                ["toolbar","sidebar","details","dialogs"].forEach(function(name:any) {
+                ["toolbar","sidebar","details","dialogs","footer"].forEach(function(name:any) {
                   var descriptor:any=command.scenes[name];
                   if(!descriptor || typeof descriptor.source !== "string")throw new Error("Invalid replacement scene: "+name);
                   var bridgeKey:any=bridgeKeys[name];
@@ -212,7 +215,7 @@ export const Shell = component<Record<string, any>>("Shell", (props) => {
                   $qml.app[bridgeKey]=Object.assign({dispatch:previousBridges[name].dispatch},descriptor.bindings);
                   candidates[name]=Qt.createQmlObject(descriptor.source,slots[name],"NandomoReload"+name+".tsx");
                 });
-                ["toolbar","sidebar","details","dialogs"].forEach(function(name:any) {
+                ["toolbar","sidebar","details","dialogs","footer"].forEach(function(name:any) {
                   var old:any=$qml.app[objectKeys[name]];
                   $qml.app[objectKeys[name]]=candidates[name];
                   if(old){old.visible=false;old.parent=null;old.destroy();}
@@ -236,12 +239,14 @@ export const Shell = component<Record<string, any>>("Shell", (props) => {
               sidebar: $qml.app.sidebarObject,
               details: $qml.app.detailsObject,
               dialogs: $qml.app.dialogsObject,
+              footer: $qml.app.footerObject,
             };
             var bridges: any = {
               toolbar: "uiBridge",
               sidebar: "sidebarBridge",
               details: "detailsBridge",
               dialogs: "dialogsBridge",
+              footer: "footerBridge",
             };
             var root: any = roots[scene],
               bridge: any = bridges[scene];
@@ -427,6 +432,13 @@ export const Shell = component<Record<string, any>>("Shell", (props) => {
                   "FileDialogs.tsx",
                 );
                 $qml.app.send("uiMounted", "dialogs");
+              }
+            }
+            if (next.footerUi) {
+              $qml.app.footerBridge=Object.assign({},$qml.app.footerBridge,next.footerUi.bindings);
+              if (!$qml.app.footerObject) {
+                $qml.app.footerObject=Qt.createQmlObject(next.footerUi.source,$qml.footerSlot,"ChooserFooter.tsx");
+                $qml.app.send("uiMounted","footer");
               }
             }
             if (next.newMenuOpen && !$qml.newMenu.visible) {

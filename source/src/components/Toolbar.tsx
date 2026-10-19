@@ -11,8 +11,8 @@ import { NativeTextField } from './NativeTextField.js';
 import { TabBar } from './TabBar.js';
 import { t } from '../infrastructure/i18n.js';
 
-export interface ToolbarProps { manager: FileManager; }
-export const Toolbar = component<ToolbarProps>('Toolbar', ({manager}) => {
+export interface ToolbarProps { manager: FileManager; chooser?: boolean; }
+export const Toolbar = component<ToolbarProps>('Toolbar', ({manager,chooser = false}) => {
   const scope=createQmlScope();
   const searchOpen=signal(false);
   const address = signal(manager.path());
@@ -23,7 +23,7 @@ export const Toolbar = component<ToolbarProps>('Toolbar', ({manager}) => {
 
   return (
     <layouts.ColumnLayout width="fill" spacing={6}>
-      <TabBar manager={manager} />
+      {chooser ? null : <TabBar manager={manager} />}
       <layouts.RowLayout {...{'Layout.fillWidth':true}}>
         <DankButton objectName="toolbarBack" text="" iconName="go-previous" {...{'Accessible.name':t('Voltar')}} enabled={canGoBack} onClicked={() => { void manager.back(); }} />
         <DankButton objectName="toolbarForward" text="" iconName="go-next" {...{'Accessible.name':t('Avançar')}} enabled={canGoForward} onClicked={() => { void manager.forward(); }} />
@@ -48,7 +48,7 @@ export const Toolbar = component<ToolbarProps>('Toolbar', ({manager}) => {
         <SortMenu onError={manager.reportError} objectName="toolbarSort"
           currentIndex={() => sorts.indexOf(manager.order())} onActivated={index => { const sort=sorts[index]; if(sort) manager.setOrder(sort); }} />
         <DankButton objectName="toolbarDescending" {...{"Accessible.name":()=>t(manager.descending()?"Ordem decrescente":"Ordem crescente")}} text={() => manager.descending() ? '↓' : '↑'} onClicked={manager.toggleDescending} />
-        <DankButton text="" iconName="settings" {...{'Accessible.name':t('Preferências')}} onClicked={manager.showPreferences} />
+        <DankButton visible={!chooser} text="" iconName="settings" {...{'Accessible.name':t('Preferências')}} onClicked={manager.showPreferences} />
         <DankButton objectName="toolbarHidden" text="" iconName={()=>manager.hidden() ? "visibility" : "visibility-off"} {...{'Accessible.name':()=>manager.hidden() ? t('Arquivos ocultos visíveis') : t('Arquivos ocultos escondidos')}} selected={manager.hidden} onClicked={manager.toggleHidden} />
       </layouts.RowLayout>
     </layouts.ColumnLayout>

@@ -9,11 +9,11 @@ import { SectionTitle } from './SectionTitle.js';
 import { GameSection } from './GameSection.js';
 import { PlaceItem } from './PlaceItem.js';
 
-export interface SidebarProps { manager: Pick<FileManager,'home'|'drives'|'games'|'navigate'|'volumeUsage'> & Partial<Pick<FileManager,'requestNew'|'places'|'path'|'showApplications'|'special'|'locationAction'|'preferences'>>; }
-export const Sidebar = component<SidebarProps>('Sidebar', ({manager}) => {
+export interface SidebarProps { navigationOnly?:boolean; manager: Pick<FileManager,'home'|'drives'|'games'|'navigate'|'volumeUsage'> & Partial<Pick<FileManager,'requestNew'|'places'|'path'|'showApplications'|'special'|'locationAction'|'preferences'>>; }
+export const Sidebar = component<SidebarProps>('Sidebar', ({manager,navigationOnly=false}) => {
   const hasDrives = computed(() => manager.drives().length > 0);
   const hasGames = computed(() => manager.games().length > 0);
-  const showSidebarSpecial = () => manager.preferences?.().showSidebarSpecial ?? true;
+  const showSidebarSpecial = () => !navigationOnly && (manager.preferences?.().showSidebarSpecial ?? true);
   const showSidebarPlaces = () => manager.preferences?.().showSidebarPlaces ?? true;
   const showSidebarVolumes = () => manager.preferences?.().showSidebarVolumes ?? true;
   const showSidebarGames = () => manager.preferences?.().showSidebarGames ?? true;

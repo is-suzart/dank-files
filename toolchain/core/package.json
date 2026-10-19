@@ -1,0 +1,15 @@
+{
+  "name": "@nandomo/core",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Reactive core of the nandomo framework: signal, computed, effect, capability injection, component decorator, lifecycle hooks, input/output/model.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./forms": "./src/forms.ts",
+    "./router": "./src/router.ts",
+    "./theme": "./src/theme.ts",
+    "./app-meta": "./src/app-meta.ts"
+  },
+  "license": "BSD-3-Clause"
+}

@@ -14,7 +14,7 @@ import QtMultimedia
 
 // @nandomo-source {"fileName":"src/native/renderShell.tsx","lineNumber":6,"columnNumber":35}
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot"}
 ShellRoot {
 id: app
 objectName: "n0"
@@ -26,6 +26,8 @@ property var toolbarObject: null
 property var sidebarObject: null
 property var detailsObject: null
 property var dialogsObject: null
+property var footerObject: null
+property var footerBridge: (() => { const __name = function(fn) { return fn; }; return ($qml=>({dispatch:__name(function(handler,args){if(!$qml.app.applyingBindings)$qml.app.send("uiEvent",{scene:"footer",handler,args,generation:$qml.app.uiGeneration})},"dispatch")}))({"app": app}); })()
 property var detailsBridge: (() => { const __name = function(fn) { return fn; }; return ($qml=>({dispatch:__name(function(handler,args){if(!$qml.app.applyingBindings)$qml.app.send("uiEvent",{scene:"details",handler,args,generation:$qml.app.uiGeneration})},"dispatch")}))({"app": app}); })()
 property var dialogsBridge: (() => { const __name = function(fn) { return fn; }; return ($qml=>({dispatch:__name(function(handler,args){if(!$qml.app.applyingBindings)$qml.app.send("uiEvent",{scene:"dialogs",handler,args,generation:$qml.app.uiGeneration})},"dispatch")}))({"app": app}); })()
 property var contextTarget: null
@@ -39,50 +41,50 @@ function revealSelection() { return (() => { const __name = function(fn) { retur
 function revealKeyboard() { return (() => { const __name = function(fn) { return fn; }; return ($qml=>{$qml.selectionReveal.schedule(true)})({"selectionReveal": ndScope0_selectionReveal}, ...arguments); })(); }
 function fileIcon() { return (() => { const __name = function(fn) { return fn; }; return (($qml,name)=>{const fallback=$qml.app.state.path==="applications:///"?"package-x-generic":"text-x-generic";if(String(name).indexOf("file://")===0)return name;return $qml.app.state.icons&&$qml.app.state.icons[name]?$qml.app.state.icons[name]:Quickshell.hasThemeIcon(name||fallback)?Quickshell.iconPath(name||fallback):($qml.app.state.icons||{})[fallback]||Quickshell.iconPath(fallback,"application-x-executable")})({"app": app}, ...arguments); })(); }
 function context() { return (() => { const __name = function(fn) { return fn; }; return (($qml,entry,x,y)=>{$qml.app.contextTarget=entry;$qml.app.send("selectPath",{path:entry?entry.path:null,mode:"context"});if($qml.app.state.path==="applications:///"&&entry)$qml.applicationMenu.popup(x,y);else $qml.contextMenu.popup(x,y)})({"app": app, "applicationMenu": ndScope0_applicationMenu, "contextMenu": ndScope0_contextMenu}, ...arguments); })(); }
-function patchScene() { return (() => { const __name = function(fn) { return fn; }; return (($qml,message)=>{try{var command=message.command;if(command.cmd==="replace_scenes"){var slots={toolbar:$qml.toolbarSlot,sidebar:$qml.sidebarSlot,details:$qml.detailsSlot,dialogs:$qml.dialogsSlot};var objectKeys={toolbar:"toolbarObject",sidebar:"sidebarObject",details:"detailsObject",dialogs:"dialogsObject"};var bridgeKeys={toolbar:"uiBridge",sidebar:"sidebarBridge",details:"detailsBridge",dialogs:"dialogsBridge"};var previousBridges={},candidates={};var previousApplying=$qml.app.applyingBindings;$qml.app.applyingBindings=true;try{["toolbar","sidebar","details","dialogs"].forEach(function(name){var descriptor=command.scenes[name];if(!descriptor||typeof descriptor.source!=="string")throw new Error("Invalid replacement scene: "+name);var bridgeKey=bridgeKeys[name];previousBridges[name]=$qml.app[bridgeKey];$qml.app[bridgeKey]=Object.assign({dispatch:previousBridges[name].dispatch},descriptor.bindings);candidates[name]=Qt.createQmlObject(descriptor.source,slots[name],"NandomoReload"+name+".tsx")});["toolbar","sidebar","details","dialogs"].forEach(function(name){var old=$qml.app[objectKeys[name]];$qml.app[objectKeys[name]]=candidates[name];if(old){old.visible=false;old.parent=null;old.destroy()}});$qml.app.uiGeneration=command.generation}catch(error){Object.keys(candidates).forEach(function(name){candidates[name].visible=false;candidates[name].parent=null;candidates[name].destroy()});Object.keys(previousBridges).forEach(function(name){$qml.app[bridgeKeys[name]]=previousBridges[name]});throw error}finally{$qml.app.applyingBindings=previousApplying}$qml.app.send("uiResult",{request:message.request,value:null});return}if(typeof command.generation==="number"&&command.generation!==$qml.app.uiGeneration){$qml.app.send("uiResult",{request:message.request,value:null});return}var scene=command.scene||"sidebar";var roots={toolbar:$qml.app.toolbarObject,sidebar:$qml.app.sidebarObject,details:$qml.app.detailsObject,dialogs:$qml.app.dialogsObject};var bridges={toolbar:"uiBridge",sidebar:"sidebarBridge",details:"detailsBridge",dialogs:"dialogsBridge"};var root=roots[scene],bridge=bridges[scene];if(!root||!bridge)throw new Error("Scene not mounted: "+scene);var result=null;if(command.cmd==="native_object"){var object=$qml.app.findUi(command.object,root);if(!object)throw new Error("Native object missing: "+command.object);var identifier=/^[A-Za-z_][A-Za-z0-9_]*$/;if(command.operation==="inspect"){result={};command.properties.forEach(function(property){if(!identifier.test(property))throw new Error("Invalid property");var value=object[property];result[property]=value===void 0?null:value})}else if(command.operation==="set"){if(!identifier.test(command.property))throw new Error("Invalid property");object[command.property]=command.value}else if(command.operation==="invoke"){if(!identifier.test(command.method)||typeof object[command.method]!=="function")throw new Error("Invalid native method");result=object[command.method].apply(object,command.args||[])}else throw new Error("Unknown native operation")}else if(command.cmd==="create_fragment"){var parent=$qml.app.findUi(command.parent,root);if(!parent)throw new Error("Fragment parent missing: "+command.parent);$qml.app[bridge]=Object.assign({},command.bindings,$qml.app[bridge]);Qt.createQmlObject(command.source,parent,"Nandomo"+scene+"Fragment.tsx")}else if(command.cmd==="order_fragments"){var parent=$qml.app.findUi(command.parent,root);if(!parent||!parent.ndReflow)throw new Error("Region missing: "+command.parent);var ordered=[];for(var i=0;i<command.objects.length;i++){var object=$qml.app.findUi(command.objects[i],parent);if(!object||object.parent!==parent)throw new Error("Fragment missing: "+command.objects[i]);ordered.push(object)}parent.ndItems=ordered;parent.ndReflow()}else if(command.cmd==="destroy_fragment"){var object=$qml.app.findUi(command.object,root);if(!object)throw new Error("Removed fragment missing: "+command.object);var parent=object.parent;object.visible=false;object.parent=null;object.destroy();if(parent&&parent.ndReflow)parent.ndReflow()}else throw new Error("Unknown UI patch");$qml.app.send("uiResult",{request:message.request,value:result})}catch(error){$qml.app.send("uiResult",{request:message.request,error:String(error)});console.warn("Scene patch failed",error)}})({"app": app, "dialogsSlot": ndScope0_dialogsSlot, "toolbarSlot": ndScope0_toolbarSlot, "sidebarSlot": ndScope0_sidebarSlot, "detailsSlot": ndScope0_detailsSlot}, ...arguments); })(); }
+function patchScene() { return (() => { const __name = function(fn) { return fn; }; return (($qml,message)=>{try{var command=message.command;if(command.cmd==="replace_scenes"){var slots={toolbar:$qml.toolbarSlot,sidebar:$qml.sidebarSlot,details:$qml.detailsSlot,dialogs:$qml.dialogsSlot,footer:$qml.footerSlot};var objectKeys={toolbar:"toolbarObject",sidebar:"sidebarObject",details:"detailsObject",dialogs:"dialogsObject",footer:"footerObject"};var bridgeKeys={toolbar:"uiBridge",sidebar:"sidebarBridge",details:"detailsBridge",dialogs:"dialogsBridge",footer:"footerBridge"};var previousBridges={},candidates={};var previousApplying=$qml.app.applyingBindings;$qml.app.applyingBindings=true;try{["toolbar","sidebar","details","dialogs","footer"].forEach(function(name){var descriptor=command.scenes[name];if(!descriptor||typeof descriptor.source!=="string")throw new Error("Invalid replacement scene: "+name);var bridgeKey=bridgeKeys[name];previousBridges[name]=$qml.app[bridgeKey];$qml.app[bridgeKey]=Object.assign({dispatch:previousBridges[name].dispatch},descriptor.bindings);candidates[name]=Qt.createQmlObject(descriptor.source,slots[name],"NandomoReload"+name+".tsx")});["toolbar","sidebar","details","dialogs","footer"].forEach(function(name){var old=$qml.app[objectKeys[name]];$qml.app[objectKeys[name]]=candidates[name];if(old){old.visible=false;old.parent=null;old.destroy()}});$qml.app.uiGeneration=command.generation}catch(error){Object.keys(candidates).forEach(function(name){candidates[name].visible=false;candidates[name].parent=null;candidates[name].destroy()});Object.keys(previousBridges).forEach(function(name){$qml.app[bridgeKeys[name]]=previousBridges[name]});throw error}finally{$qml.app.applyingBindings=previousApplying}$qml.app.send("uiResult",{request:message.request,value:null});return}if(typeof command.generation==="number"&&command.generation!==$qml.app.uiGeneration){$qml.app.send("uiResult",{request:message.request,value:null});return}var scene=command.scene||"sidebar";var roots={toolbar:$qml.app.toolbarObject,sidebar:$qml.app.sidebarObject,details:$qml.app.detailsObject,dialogs:$qml.app.dialogsObject,footer:$qml.app.footerObject};var bridges={toolbar:"uiBridge",sidebar:"sidebarBridge",details:"detailsBridge",dialogs:"dialogsBridge",footer:"footerBridge"};var root=roots[scene],bridge=bridges[scene];if(!root||!bridge)throw new Error("Scene not mounted: "+scene);var result=null;if(command.cmd==="native_object"){var object=$qml.app.findUi(command.object,root);if(!object)throw new Error("Native object missing: "+command.object);var identifier=/^[A-Za-z_][A-Za-z0-9_]*$/;if(command.operation==="inspect"){result={};command.properties.forEach(function(property){if(!identifier.test(property))throw new Error("Invalid property");var value=object[property];result[property]=value===void 0?null:value})}else if(command.operation==="set"){if(!identifier.test(command.property))throw new Error("Invalid property");object[command.property]=command.value}else if(command.operation==="invoke"){if(!identifier.test(command.method)||typeof object[command.method]!=="function")throw new Error("Invalid native method");result=object[command.method].apply(object,command.args||[])}else throw new Error("Unknown native operation")}else if(command.cmd==="create_fragment"){var parent=$qml.app.findUi(command.parent,root);if(!parent)throw new Error("Fragment parent missing: "+command.parent);$qml.app[bridge]=Object.assign({},command.bindings,$qml.app[bridge]);Qt.createQmlObject(command.source,parent,"Nandomo"+scene+"Fragment.tsx")}else if(command.cmd==="order_fragments"){var parent=$qml.app.findUi(command.parent,root);if(!parent||!parent.ndReflow)throw new Error("Region missing: "+command.parent);var ordered=[];for(var i=0;i<command.objects.length;i++){var object=$qml.app.findUi(command.objects[i],parent);if(!object||object.parent!==parent)throw new Error("Fragment missing: "+command.objects[i]);ordered.push(object)}parent.ndItems=ordered;parent.ndReflow()}else if(command.cmd==="destroy_fragment"){var object=$qml.app.findUi(command.object,root);if(!object)throw new Error("Removed fragment missing: "+command.object);var parent=object.parent;object.visible=false;object.parent=null;object.destroy();if(parent&&parent.ndReflow)parent.ndReflow()}else throw new Error("Unknown UI patch");$qml.app.send("uiResult",{request:message.request,value:result})}catch(error){$qml.app.send("uiResult",{request:message.request,error:String(error)});console.warn("Scene patch failed",error)}})({"app": app, "dialogsSlot": ndScope0_dialogsSlot, "footerSlot": ndScope0_footerSlot, "toolbarSlot": ndScope0_toolbarSlot, "sidebarSlot": ndScope0_sidebarSlot, "detailsSlot": ndScope0_detailsSlot}, ...arguments); })(); }
 function findUi() { return (() => { const __name = function(fn) { return fn; }; return (($qml,name,object)=>{if(!object)return null;if(object.objectName===name)return object;var children=object.data||object.children||[];for(var i=0;i<children.length;i++){var found=findUi(name,children[i]);if(found)return found}if(object.contentItem&&object.contentItem!==object){var found=findUi(name,object.contentItem);if(found)return found}return null})({}, ...arguments); })(); }
-function receive() { return (() => { const __name = function(fn) { return fn; }; return (($qml,next)=>{if(next.uiPatch){$qml.app.patchScene(next.uiPatch);return}$qml.app.applyingBindings=true;try{if(JSON.stringify(next.entries)===JSON.stringify($qml.app.state.entries))next.entries=$qml.app.state.entries;if(JSON.stringify(next.columns)===JSON.stringify($qml.app.state.columns))next.columns=$qml.app.state.columns;var selectionChanged=(next.selected?next.selected.path:"")!==($qml.app.state.selected?$qml.app.state.selected.path:"")||(next.selection||[]).join("\0")!==($qml.app.state.selection||[]).join("\0");var entriesChanged=next.entries!==$qml.app.state.entries;var activate=Number(next.activation||0)>Number($qml.app.state.activation||0);$qml.app.state=next;if(activate){$qml.window.showNormal();$qml.window.requestActivate()}if(selectionChanged||entriesChanged)$qml.app.revealSelection();if(next.sidebarUi){$qml.app.sidebarBridge=Object.assign({},$qml.app.sidebarBridge,next.sidebarUi.bindings);if(!$qml.app.sidebarObject){$qml.app.sidebarObject=Qt.createQmlObject(next.sidebarUi.source,$qml.sidebarSlot,"NandomoSidebar.tsx");$qml.app.send("uiMounted","sidebar")}}if(next.ui){$qml.app.uiBridge=Object.assign({},$qml.app.uiBridge,next.ui.bindings);if(!$qml.app.toolbarObject){$qml.app.toolbarObject=Qt.createQmlObject(next.ui.source,$qml.toolbarSlot,"NandomoToolbar.tsx");$qml.app.send("uiMounted","toolbar")}}if(next.detailsUi){$qml.app.detailsBridge=Object.assign({},$qml.app.detailsBridge,next.detailsUi.bindings);if(!$qml.app.detailsObject){$qml.app.detailsObject=Qt.createQmlObject(next.detailsUi.source,$qml.detailsSlot,"DetailsPanel.tsx");$qml.app.send("uiMounted","details")}}if(next.dialogsUi){$qml.app.dialogsBridge=Object.assign({},$qml.app.dialogsBridge,next.dialogsUi.bindings);if(!$qml.app.dialogsObject){$qml.app.dialogsObject=Qt.createQmlObject(next.dialogsUi.source,$qml.dialogsSlot,"FileDialogs.tsx");$qml.app.send("uiMounted","dialogs")}}if(next.newMenuOpen&&!$qml.newMenu.visible){var button=$qml.app.findUi("sidebarNew",$qml.app.sidebarObject);var point=button?button.mapToItem($qml.window.contentItem,0,button.height):Qt.point(16,130);$qml.newMenu.popup(point.x,point.y)}}finally{$qml.app.applyingBindings=false}})({"app": app, "window": ndScope0_window, "dialogsSlot": ndScope0_dialogsSlot, "newMenu": ndScope0_newMenu, "toolbarSlot": ndScope0_toolbarSlot, "sidebarSlot": ndScope0_sidebarSlot, "detailsSlot": ndScope0_detailsSlot}, ...arguments); })(); }
+function receive() { return (() => { const __name = function(fn) { return fn; }; return (($qml,next)=>{if(next.uiPatch){$qml.app.patchScene(next.uiPatch);return}$qml.app.applyingBindings=true;try{if(JSON.stringify(next.entries)===JSON.stringify($qml.app.state.entries))next.entries=$qml.app.state.entries;if(JSON.stringify(next.columns)===JSON.stringify($qml.app.state.columns))next.columns=$qml.app.state.columns;var selectionChanged=(next.selected?next.selected.path:"")!==($qml.app.state.selected?$qml.app.state.selected.path:"")||(next.selection||[]).join("\0")!==($qml.app.state.selection||[]).join("\0");var entriesChanged=next.entries!==$qml.app.state.entries;var activate=Number(next.activation||0)>Number($qml.app.state.activation||0);$qml.app.state=next;if(activate){$qml.window.showNormal();$qml.window.requestActivate()}if(selectionChanged||entriesChanged)$qml.app.revealSelection();if(next.sidebarUi){$qml.app.sidebarBridge=Object.assign({},$qml.app.sidebarBridge,next.sidebarUi.bindings);if(!$qml.app.sidebarObject){$qml.app.sidebarObject=Qt.createQmlObject(next.sidebarUi.source,$qml.sidebarSlot,"NandomoSidebar.tsx");$qml.app.send("uiMounted","sidebar")}}if(next.ui){$qml.app.uiBridge=Object.assign({},$qml.app.uiBridge,next.ui.bindings);if(!$qml.app.toolbarObject){$qml.app.toolbarObject=Qt.createQmlObject(next.ui.source,$qml.toolbarSlot,"NandomoToolbar.tsx");$qml.app.send("uiMounted","toolbar")}}if(next.detailsUi){$qml.app.detailsBridge=Object.assign({},$qml.app.detailsBridge,next.detailsUi.bindings);if(!$qml.app.detailsObject){$qml.app.detailsObject=Qt.createQmlObject(next.detailsUi.source,$qml.detailsSlot,"DetailsPanel.tsx");$qml.app.send("uiMounted","details")}}if(next.dialogsUi){$qml.app.dialogsBridge=Object.assign({},$qml.app.dialogsBridge,next.dialogsUi.bindings);if(!$qml.app.dialogsObject){$qml.app.dialogsObject=Qt.createQmlObject(next.dialogsUi.source,$qml.dialogsSlot,"FileDialogs.tsx");$qml.app.send("uiMounted","dialogs")}}if(next.footerUi){$qml.app.footerBridge=Object.assign({},$qml.app.footerBridge,next.footerUi.bindings);if(!$qml.app.footerObject){$qml.app.footerObject=Qt.createQmlObject(next.footerUi.source,$qml.footerSlot,"ChooserFooter.tsx");$qml.app.send("uiMounted","footer")}}if(next.newMenuOpen&&!$qml.newMenu.visible){var button=$qml.app.findUi("sidebarNew",$qml.app.sidebarObject);var point=button?button.mapToItem($qml.window.contentItem,0,button.height):Qt.point(16,130);$qml.newMenu.popup(point.x,point.y)}}finally{$qml.app.applyingBindings=false}})({"app": app, "window": ndScope0_window, "dialogsSlot": ndScope0_dialogsSlot, "footerSlot": ndScope0_footerSlot, "newMenu": ndScope0_newMenu, "toolbarSlot": ndScope0_toolbarSlot, "sidebarSlot": ndScope0_sidebarSlot, "detailsSlot": ndScope0_detailsSlot}, ...arguments); })(); }
 function send() { return (() => { const __name = function(fn) { return fn; }; return (($qml,action,value,index)=>{$qml.backend.write(JSON.stringify({action,value,index})+"\n")})({"backend": ndScope0_backend}, ...arguments); })(); }
 function open() { return (() => { const __name = function(fn) { return fn; }; return (($qml,entry,index)=>{if(entry.directory)send(index===void 0?"navigate":"column",entry.path,index);else send("open",entry.path)})({}, ...arguments); })(); }
 function dropFiles() { return (() => { const __name = function(fn) { return fn; }; return (($qml,drop,folder)=>{if(!drop.hasUrls||$qml.app.state.mutating)return;var urls=[];for(var i=0;i<drop.urls.length;i++)urls.push(String(drop.urls[i]));var mode=drop.proposedAction===Qt.MoveAction?"move":"copy";$qml.app.send("drop",{urls,folder,mode});drop.accept(mode==="move"?Qt.MoveAction:Qt.CopyAction)})({"app": app}, ...arguments); })(); }
 function sizeText() { return (() => { const __name = function(fn) { return fn; }; return (($qml,bytes)=>{return bytes<1024?bytes+" B":bytes<1048576?(bytes/1024).toFixed(1)+" KB":(bytes/1048576).toFixed(1)+" MB"})({}, ...arguments); })(); }
 function dragPayload() { return (() => { const __name = function(fn) { return fn; }; return (($qml,path)=>{var selection=$qml.app.state.selection||[];var uris=$qml.app.state.selectionUris||[];if(uris.length&&selection.indexOf(path)>=0)return uris.join("\r\n")+"\r\n";return"file://"+String(path).split("/").map(encodeURIComponent).join("/")+"\r\n"})({"app": app}, ...arguments); })(); }
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlImports"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlDeclarations"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlMethods"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot","property":"Component.onCompleted"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlImports"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlDeclarations"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot","property":"qmlMethods"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot","property":"Component.onCompleted"}
 Component.onCompleted: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{Style.theme=$qml.theme})({"theme": ndScope0_theme}, ...arguments); })(); }
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot","property":"children"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":63,"columnNumber":5,"component":"qml:ShellRoot"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":64,"columnNumber":5,"component":"qml:ShellRoot"}
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":504,"columnNumber":7,"component":"qml:Timer"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":516,"columnNumber":7,"component":"qml:Timer"}
 Timer {
 id: ndScope0_selectionReveal
 objectName: "n1"
 property int remaining: 0
 property bool keyboardReveal: false
 function schedule() { return (() => { const __name = function(fn) { return fn; }; return (($qml,keyboard)=>{keyboardReveal=!!keyboard;remaining=3;restart()})({}, ...arguments); })(); }
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":504,"columnNumber":7,"component":"qml:Timer","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":504,"columnNumber":7,"component":"qml:Timer","property":"qmlDeclarations"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":504,"columnNumber":7,"component":"qml:Timer","property":"qmlMethods"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":504,"columnNumber":7,"component":"qml:Timer","property":"interval"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":516,"columnNumber":7,"component":"qml:Timer","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":516,"columnNumber":7,"component":"qml:Timer","property":"qmlDeclarations"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":516,"columnNumber":7,"component":"qml:Timer","property":"qmlMethods"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":516,"columnNumber":7,"component":"qml:Timer","property":"interval"}
 interval: 80
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":504,"columnNumber":7,"component":"qml:Timer","property":"repeat"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":516,"columnNumber":7,"component":"qml:Timer","property":"repeat"}
 repeat: true
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":504,"columnNumber":7,"component":"qml:Timer","property":"onTriggered"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":516,"columnNumber":7,"component":"qml:Timer","property":"onTriggered"}
 onTriggered: function() { (() => { const __name = function(fn) { return fn; }; return ($qml=>{if(--remaining<=0)stop();if(!$qml.app.state.detailsVisible&&!keyboardReveal||!$qml.app.state.selected){stop();return}var index=$qml.app.state.entries.findIndex(function(entry){return entry.path===$qml.app.state.selected.path});if(index<0)return;var view=$qml.app.state.view==="grid"?$qml.filesGrid:$qml.app.state.view==="list"?$qml.filesList:null;if(!view)return;view.forceLayout();view.currentIndex=index;view.positionViewAtIndex(index,$qml.app.state.view==="grid"?GridView.Center:ListView.Contain)})({"app": app, "filesList": ndScope0_filesList, "filesGrid": ndScope0_filesGrid}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":546,"columnNumber":7,"component":"qml:SystemPalette"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":558,"columnNumber":7,"component":"qml:SystemPalette"}
 SystemPalette {
 id: ndScope0_osPalette
 objectName: "n2"
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":546,"columnNumber":7,"component":"qml:SystemPalette","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":558,"columnNumber":7,"component":"qml:SystemPalette","property":"qmlId"}
 }
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":547,"columnNumber":7,"component":"qml:QtObject"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":559,"columnNumber":7,"component":"qml:QtObject"}
 QtObject {
 id: ndScope0_theme
 objectName: "n3"
@@ -99,44 +101,44 @@ property color surfaceContainer: (() => { const __name = function(fn) { return f
 property color surfaceContainerHigh: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.palette.surface_container_high||$qml.osPalette.alternateBase)({"app": app, "osPalette": ndScope0_osPalette}); })()
 property color outline: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.palette.outline||$qml.osPalette.mid)({"app": app, "osPalette": ndScope0_osPalette}); })()
 property color error: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.palette.error||"#b3261e")({"app": app}); })()
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":547,"columnNumber":7,"component":"qml:QtObject","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":547,"columnNumber":7,"component":"qml:QtObject","property":"qmlDeclarations"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":559,"columnNumber":7,"component":"qml:QtObject","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":559,"columnNumber":7,"component":"qml:QtObject","property":"qmlDeclarations"}
 }
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process"}
 Process {
 id: ndScope0_backend
 objectName: "n4"
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"qmlId"}
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"command"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process","property":"command"}
 command: (() => { const __name = function(fn) { return fn; }; return ($qml=>[Quickshell.env("NANDOMO_FM_NODE"),Quickshell.env("NANDOMO_FM_BACKEND")])({}); })()
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"stdinEnabled"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process","property":"stdinEnabled"}
 stdinEnabled: true
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"running"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process","property":"running"}
 running: true
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"stdout"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process","property":"stdout"}
 stdout: 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":666,"columnNumber":11,"component":"qml:SplitParser"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":678,"columnNumber":11,"component":"qml:SplitParser"}
 SplitParser {
 id: n5
 objectName: "n5"
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":666,"columnNumber":11,"component":"qml:SplitParser","property":"onRead"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":678,"columnNumber":11,"component":"qml:SplitParser","property":"onRead"}
 onRead: function() { (() => { const __name = function(fn) { return fn; }; return (($qml,...args)=>(data=>{try{$qml.app.receive(JSON.parse(data))}catch(error){console.warn("Resposta inv\xE1lida",error)}})(...args))({"app": app}, ...arguments); })(); }
 }
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"stderr"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process","property":"stderr"}
 stderr: 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":681,"columnNumber":11,"component":"qml:SplitParser"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":693,"columnNumber":11,"component":"qml:SplitParser"}
 SplitParser {
 id: n6
 objectName: "n6"
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":681,"columnNumber":11,"component":"qml:SplitParser","property":"onRead"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":693,"columnNumber":11,"component":"qml:SplitParser","property":"onRead"}
 onRead: function() { (() => { const __name = function(fn) { return fn; }; return (($qml,...args)=>(data=>console.warn("backend:",data))(...args))({}, ...arguments); })(); }
 }
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":657,"columnNumber":7,"component":"qml:Process","property":"onExited"}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":669,"columnNumber":7,"component":"qml:Process","property":"onExited"}
 onExited: function() { (() => { const __name = function(fn) { return fn; }; return (($qml,...args)=>((code,status)=>{if(code!==0)console.warn("Backend encerrado",code)})(...args))({}, ...arguments); })(); }
 }
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":699,"columnNumber":7}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":711,"columnNumber":7}
 
 // @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":24,"columnNumber":3}
 
@@ -5090,31 +5092,33 @@ implicitHeight: (() => { const __name = function(fn) { return fn; }; return ($qm
 }
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:RowLayout"}
 RowLayout {
 id: n342
 objectName: "n342"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillWidth"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:RowLayout","property":"visible"}
+visible: (() => { const __name = function(fn) { return fn; }; return (q=>!q.app.state.chooser||!!q.app.state.error)({"app": app}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:RowLayout","property":"Layout.fillWidth"}
 Layout.fillWidth: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout","property":"children"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:RowLayout","property":"children"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":367,"columnNumber":9,"component":"qml:RowLayout"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:RowLayout"}
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":369,"columnNumber":9,"component":"qml:Label"}
 Label {
 id: n343
 objectName: "n343"
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"text"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":369,"columnNumber":9,"component":"qml:Label","property":"text"}
 text: (() => { const __name = function(fn) { return fn; }; return ($qml=>{const state=$qml.app.state;const virtual={"trash:///":"Lixeira","recent:///":"Recentes","applications:///":"Aplicativos"}[state.path];return state.error||state.transferStatus||(state.searchBusy?$qml.app.tr("Buscando\u2026"):"")||(state.busy?$qml.app.tr("Carregando\u2026"):$qml.app.tr(virtual!==void 0?virtual:state.path===state.home?"Pasta pessoal":state.path.split("/").filter(function(p){return p.length}).pop()||"Sistema"))+" \xB7 "+state.path+" \xB7 "+$qml.app.tr("{count} itens",{count:state.entries.length})+" \xB7 "+(state.selectionCount>1?$qml.app.tr("{count} selecionados",{count:state.selectionCount})+" \xB7 ":"")+$qml.app.tr({name:"nome",size:"tamanho",modified:"data",type:"tipo"}[state.order]||"nome")+" \xB7 "+$qml.app.tr(state.descending?"decrescente":"crescente")})({"app": app}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"color"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":369,"columnNumber":9,"component":"qml:Label","property":"color"}
 color: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml.app.state.error?$qml.theme.error:$qml.theme.surfaceVariantText)({"app": app, "theme": ndScope0_theme}); })()
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"Layout.fillWidth"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":369,"columnNumber":9,"component":"qml:Label","property":"Layout.fillWidth"}
 Layout.fillWidth: true
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":368,"columnNumber":9,"component":"qml:Label","property":"elide"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":369,"columnNumber":9,"component":"qml:Label","property":"elide"}
 elide: (() => { const __name = function(fn) { return fn; }; return ($qml=>Text.ElideMiddle)({}); })()
 }
 
-// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":429,"columnNumber":9}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":430,"columnNumber":9}
 
 // @nandomo-source {"fileName":"src/native/QuietButton.tsx","lineNumber":41,"columnNumber":7,"component":"qml:Button"}
 Button {
@@ -5285,17 +5289,30 @@ visible: (() => { const __name = function(fn) { return fn; }; return ($qml=>$qml
 
 }
 }
+
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":435,"columnNumber":9,"component":"qml:Item"}
+Item {
+id: ndScope0_footerSlot
+objectName: "n353"
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":435,"columnNumber":9,"component":"qml:Item","property":"qmlId"}
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":435,"columnNumber":9,"component":"qml:Item","property":"visible"}
+visible: (() => { const __name = function(fn) { return fn; }; return (q=>!!q.app.state.chooser)({"app": app}); })()
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":435,"columnNumber":9,"component":"qml:Item","property":"Layout.fillWidth"}
+Layout.fillWidth: true
+// @nandomo-source {"fileName":"src/native/FileWindow.tsx","lineNumber":435,"columnNumber":9,"component":"qml:Item","property":"implicitHeight"}
+implicitHeight: (() => { const __name = function(fn) { return fn; }; return (q=>q.app.footerObject?q.app.footerObject.implicitHeight:0)({"app": app}); })()
+}
 }
 }
 
-// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":700,"columnNumber":7}
+// @nandomo-source {"fileName":"src/native/Shell.tsx","lineNumber":712,"columnNumber":7}
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":36,"columnNumber":3}
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":37,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n353
-objectName: "n353"
+id: n354
+objectName: "n354"
 property int step: 0
 property int ticks: 0
 property string startingPath: ""
@@ -5312,8 +5329,8 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":65,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n354
-objectName: "n354"
+id: n355
+objectName: "n355"
 property int ticks: 0
 property string startingPath: ""
 property bool startingHidden: false
@@ -5330,8 +5347,8 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":172,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n355
-objectName: "n355"
+id: n356
+objectName: "n356"
 property int step: 0
 property int ticks: 0
 property var originalSidebar: null
@@ -5354,8 +5371,8 @@ onTriggered: function() { (() => { const __name = function(fn) { return fn; }; r
 
 // @nandomo-source {"fileName":"src/native/NativeSmokeChecks.tsx","lineNumber":347,"columnNumber":5,"component":"qml:Timer"}
 Timer {
-id: n356
-objectName: "n356"
+id: n357
+objectName: "n357"
 property int step: 0
 property int ticks: 0
 property string fixturePath: ""

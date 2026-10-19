@@ -6,7 +6,7 @@ import { formatQmlDiagnostic } from '@nandomo/bridge-qml';
 import { createUiTransport } from './ui-transport.js';
 import { createQuickshellScene } from './quickshellScene.js';
 
-export interface AppRegions { toolbar:unknown; sidebar:unknown; details:unknown; dialogs:unknown; }
+export interface AppRegions { toolbar:unknown; sidebar:unknown; details:unknown; dialogs:unknown; footer?:unknown; }
 export class ViewReloadError extends Error {
   constructor(message:string,readonly committed:boolean,cause:unknown){super(message,{cause});this.name='ViewReloadError';}
 }
@@ -20,7 +20,7 @@ export function runQuickshell(manager:FileManager, regions:AppRegions, options:{
   const revision=signal(0);
   function createScenes(regions:AppRegions, version:number) {
     const built={} as Record<keyof AppRegions,ReturnType<typeof createQuickshellScene>>;
-    const contexts={toolbar:'app.uiBridge',sidebar:'app.sidebarBridge',details:'app.detailsBridge',dialogs:'app.dialogsBridge'};
+    const contexts={toolbar:'app.uiBridge',sidebar:'app.sidebarBridge',details:'app.detailsBridge',dialogs:'app.dialogsBridge',footer:'app.footerBridge'};
     try {
       for(const name of Object.keys(contexts) as Array<keyof AppRegions>) {
         built[name]=createQuickshellScene(regions[name],contexts[name],manager.reportError,
@@ -33,7 +33,7 @@ export function runQuickshell(manager:FileManager, regions:AppRegions, options:{
   let scenes=createScenes(regions,generation);
   const output=effect(()=>{
     revision();
-    const message={...manager.snapshot(),ui:scenes.toolbar.snapshot(),sidebarUi:scenes.sidebar.snapshot(),detailsUi:scenes.details.snapshot(),dialogsUi:scenes.dialogs.snapshot()};
+    const message={...manager.snapshot(),ui:scenes.toolbar.snapshot(),sidebarUi:scenes.sidebar.snapshot(),detailsUi:scenes.details.snapshot(),dialogsUi:scenes.dialogs.snapshot(),footerUi:scenes.footer.snapshot()};
     if(!reloading)send(message);
   });
   const input=createInterface({input:options.input ?? process.stdin});
@@ -52,13 +52,13 @@ export function runQuickshell(manager:FileManager, regions:AppRegions, options:{
         // previous generation would otherwise run a different handler.
         const eventGeneration=(event as {generation?:unknown}).generation;
         if(typeof eventGeneration==='number' && eventGeneration!==generation)return;
-        const scene=event.scene==='sidebar'?scenes.sidebar:event.scene==='details'?scenes.details:event.scene==='dialogs'?scenes.dialogs:scenes.toolbar;
+        const scene=event.scene==='sidebar'?scenes.sidebar:event.scene==='details'?scenes.details:event.scene==='dialogs'?scenes.dialogs:event.scene==='footer'?scenes.footer:scenes.toolbar;
         scene.dispatch(event.handler,event.args);
         break;
       }
       case 'uiMounted': {
         if(reloading)break;
-        if(command.value==='toolbar' || command.value==='sidebar' || command.value==='details' || command.value==='dialogs') scenes[command.value].mount();
+        if(command.value==='toolbar' || command.value==='sidebar' || command.value==='details' || command.value==='dialogs' || command.value==='footer') scenes[command.value].mount();
         break;
       }
       case 'uiResult': {

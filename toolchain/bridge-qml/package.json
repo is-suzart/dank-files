@@ -1,0 +1,32 @@
+{
+  "name": "@nandomo/bridge-qml",
+  "version": "0.0.1",
+  "description": "QML bridge for nandomo: primitives (View/Button/Text/Input/Container/Image) returning SpecNode, plus render() that emits a Qt6 QML file and spawns `qml app.qml` (single-process, V4 JS engine). JSX runtime supports @Component class composition identical to bridge-web. Storage capability backed by an in-memory store (QSettings is wired through a stub for MVP \u2014 QSettings requires a QCoreApplication; see capabilities.ts).",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./jsx-runtime": "./src/jsx-runtime.ts",
+    "./jsx-dev-runtime": "./src/jsx-runtime.ts",
+    "./primitives": "./src/primitives/index.ts",
+    "./qml": "./src/qml.ts",
+    "./tooling": "./scripts/prepare-project.mjs",
+    "./dev": {
+      "types": "./scripts/dev-loader.d.mts",
+      "import": "./scripts/dev-loader.mjs"
+    }
+  },
+  "dependencies": {
+    "@nandomo/core": "workspace:*",
+    "@nandomo/bridge-runtime": "workspace:*",
+    "typescript": "5.9.3",
+    "esbuild": "0.28.2"
+  },
+  "sideEffects": false,
+  "bin": {
+    "nandomo-qml": "./scripts/prepare-project.mjs"
+  },
+  "private": true,
+  "license": "BSD-3-Clause"
+}

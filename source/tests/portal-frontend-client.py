@@ -11,7 +11,8 @@ try:
  (config/'portals.conf').write_text('[preferred]\ndefault=dank-files\norg.freedesktop.impl.portal.FileChooser=dank-files\n')
  native=os.environ.get('PORTAL_NATIVE_APP')
  folder=Path(os.environ['PORTAL_NATIVE_FOLDER']) if native else root
- fixture=folder/'sub/photo.png' if native else root/'test.png'
+ method=os.environ.get('PORTAL_NATIVE_METHOD','OpenFile')
+ fixture=folder/('sub/Edited.pdf' if method=='SaveFile' else 'sub/photo.png') if native else root/'test.png'
  if not native:fixture.write_text('fixture')
  env={**os.environ,'XDG_DATA_HOME':str(root/'data'),'XDG_CONFIG_HOME':str(root/'config'),'XDG_CURRENT_DESKTOP':'niri','XDG_DESKTOP_PORTAL_DIR':str(data),'PORTAL_TEST_FILE':str(fixture)}
  connection=Gio.bus_get_sync(Gio.BusType.SESSION,None)
@@ -30,7 +31,9 @@ try:
  loop=GLib.MainLoop();answers=[]
  def response(conn,sender,path,interface,name,params):answers.append(params.unpack());loop.quit()
  connection.signal_subscribe(None,'org.freedesktop.portal.Request','Response',None,None,Gio.DBusSignalFlags.NONE,response)
- request=connection.call_sync('org.freedesktop.portal.Desktop','/org/freedesktop/portal/desktop','org.freedesktop.portal.FileChooser','OpenFile',GLib.Variant('(ssa{sv})',('','Private portal test',{'handle_token':GLib.Variant('s','danktest'),'current_folder':GLib.Variant('ay',list(os.fsencode(folder)+b'\0')),'filters':GLib.Variant('a(sa(us))',[('Images',[(0,'*.png')])])})),None,Gio.DBusCallFlags.NONE,5000,None).unpack()[0]
+ options={'handle_token':GLib.Variant('s','danktest'),'current_folder':GLib.Variant('ay',list(os.fsencode(folder)+b'\0')),'filters':GLib.Variant('a(sa(us))',[('PDFs',[(0,'*.pdf')]),('All files',[(0,'*')])] if method=='SaveFile' else [('Images',[(0,'*.png')]),('All files',[(0,'*')])])}
+ if method=='SaveFile':options['current_name']=GLib.Variant('s','Report.pdf')
+ request=connection.call_sync('org.freedesktop.portal.Desktop','/org/freedesktop/portal/desktop','org.freedesktop.portal.FileChooser',method,GLib.Variant('(ssa{sv})',('','Private portal test',options)),None,Gio.DBusCallFlags.NONE,5000,None).unpack()[0]
  assert request.startswith('/org/freedesktop/portal/desktop/request/')
  timer=GLib.timeout_add(20000,lambda:(loop.quit(),False)[1]);loop.run()
  if answers:GLib.source_remove(timer)

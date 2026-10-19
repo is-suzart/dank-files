@@ -1,22 +1,56 @@
-# Application source snapshot
+# Building Dank Files
 
-This directory contains only the Dank Files application's TypeScript/TSX source, tests and packaging scripts. It does not contain the Nandomo framework or other example applications.
+This repository includes the application TSX and the build toolchain it uses.
+No private package, global workspace link or full Nandomo checkout is required.
+The scoped toolchain is source code, not an opaque precompiled compiler.
 
-The current development package still uses `workspace:*` dependencies for `@nandomo/core` and `@nandomo/bridge-qml`. Those framework packages are not published independently yet. This is **not** a standalone `npm install` development package; the root repository is the standalone installable distribution.
+## Requirements
 
-To rebuild using a matching Nandomo workspace, place this application's contents in that workspace's `examples/file-manager-qml` directory, retain/regenerate its local QML metadata, and run there:
+Use Node.js 20+ and pnpm 9.0.0 on Linux. Install the native application dependencies
+listed in the root README, including Qt QML development metadata (`qmltypes`),
+Quickshell and Qt Quick PDF/Multimedia. Qt metadata is read from the installed
+modules to generate TypeScript declarations; those declarations are not bundled
+runtime code. Qt packages must expose the APIs used by the TSX source.
+
+Run from the repository root:
 
 ```bash
-pnpm qml:prepare
-pnpm test
-pnpm plugin:test
+pnpm install --frozen-lockfile
+pnpm verify:build
+pnpm test:source
 ```
 
-The workspace's application `tsconfig.json` extends `../../tsconfig.base.json`; this snapshot includes a local copy of that configuration for reference. The workspace packaging command writes `dist/dankFiles/`. Publish the contents of that generated directory as the plugin runtime, and keep this source snapshot in sync.
+The build downloads the upstream shared SDK pinned in `toolchain/sdk.json` to
+`.build/dms-sdk`. To avoid this download, set `NANDOMO_DMS_SOURCE` to a clean git
+checkout at that exact commit. The installed DMS is never changed. The lockfile
+pins the JavaScript tool versions and integrity hashes.
 
-`WORKSPACE.md` contains the longer development notes from the application. Some commands describe the original monorepo layout and are not installation instructions for this standalone repository.
+`pnpm build` typechecks and builds into `source/dist/dankFiles/` and creates the
+installation archive. `pnpm verify:build` also compares `plugin.json`,
+`FilesWidget.qml` and every `app/` file against the checked-in distribution,
+byte for byte. It fails if a source change has not been published to runtime.
+Archive timestamps and documentation are not part of the byte comparison.
 
-Source builds now target the current DCommon SDK. Set `NANDOMO_DMS_SOURCE` to a
-current DMS checkout (with its submodule initialized) when generating declarations
-on a legacy DMS installation. Packaged runtime compatibility is documented in
-[COMPATIBILITY.md](../COMPATIBILITY.md).
+To update the distribution deliberately after editing source, copy the generated
+`app/`, `FilesWidget.qml` and `plugin.json` from `source/dist/dankFiles/` to the
+repository root, review the diff, then run the verification again.
+
+## Scope
+
+- `source/src/`: application UI, domain, use cases and infrastructure.
+- `toolchain/core/`: reactive core used by the app and QML bridge.
+- `toolchain/bridge-runtime/`: shared transport contracts and native update helpers.
+- `toolchain/bridge-qml/`: TSX/native scene compiler, JSX runtime and QML tooling.
+
+These are matching source snapshots of the three required packages. They are
+included under BSD-3-Clause to make the app rebuildable and auditable; this is
+not a release or a readiness claim for the entire Nandomo framework. Other
+adapters and applications are not part of this plugin or its runtime. The
+Nandomo native-host executable is not required: Dank Files uses Quickshell.
+System dependencies and the upstream SDK retain their own licenses.
+
+The build reads metadata without launching the GUI. Source tests cover application
+behavior but do not prove browser integration or inter-app drag and drop in every
+compositor. Native smoke scripts require a compatible desktop/test environment.
+`WORKSPACE.md` retains older monorepo development notes; its absolute workspace
+commands are historical and are not needed for this standalone build.

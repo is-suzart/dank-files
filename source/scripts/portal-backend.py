@@ -69,7 +69,7 @@ class Request:
         self.process,self.timer,self.finished = None,None,False
         try:
             env = {**os.environ,'DANK_FILES_PORTAL_REQUEST':str(request),'NANDOMO_FM_DESKTOP_INTEGRATION':'0'}
-            self.process = subprocess.Popen([*service.chooser,str(request)],env=env,start_new_session=True,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+            self.process = subprocess.Popen([*service.chooser,str(request)],env=env,start_new_session=True,stdin=subprocess.DEVNULL,stdout=sys.stderr)
             service.children.add(self.process)
             self.timer = GLib.timeout_add(60,self.poll)
         except OSError as error:

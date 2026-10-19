@@ -133,3 +133,19 @@ test('a reload suspends events and publishes exactly one state message after it 
     assert.deepEqual(log, []);
   } finally { app.stop(); }
 });
+
+test('footer handlers mount, reload and reject events from the old generation',async()=>{
+  const log:string[]=[],mounts:string[]=[],state=signal(0);
+  const regions=(version:number)=>({...empty,toolbar:qml.Item({}),footer:probe(version,log,mounts,state)});
+  const app=harness(regions);
+  try {
+    app.send('uiMounted','footer');
+    app.send('uiEvent',{scene:'footer',handler:'h0',args:[],generation:0});
+    assert.deepEqual(log,['click:1']);
+    await app.runtime.replaceRegions(regions(2));
+    app.send('uiEvent',{scene:'footer',handler:'h0',args:[],generation:0});
+    app.send('uiEvent',{scene:'footer',handler:'h0',args:[],generation:1});
+    assert.deepEqual(log,['click:1','click:2']);
+  } finally {app.stop();}
+  assert.equal(state.subscriberCount,0);
+});

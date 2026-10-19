@@ -53,3 +53,14 @@ in the compared source. This does not claim the existing project is abandoned,
 or that its normal file-management features are inferior. The registry's
 maintainers decide whether these additions meet the major-improvement exception
 to their duplication policy.
+
+## Rebuilding and dependency scope
+
+The app is independently rebuildable from the source and scoped toolchain in
+this repository; see [build instructions](source/README.md). The plugin review
+surface is the shipped file manager and its included dependencies, not a release
+of unrelated Nandomo adapters. `pnpm verify:build` checks TSX-to-runtime parity.
+
+Arch packages `QtQuick.Pdf` inside `qt6-webengine`; the app does not import
+QtWebEngine. Removing that package on Arch would remove PDF preview support.
+See [package ownership verification](INSTALL.md#qt-pdf-package-names).

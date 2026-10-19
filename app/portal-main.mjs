@@ -275,7 +275,7 @@ var fileToolsEn = {
   "Instale GVfs para abrir locais de rede.": "\u8BF7\u5B89\u88C5 GVfs \u4EE5\u6253\u5F00\u7F51\u7EDC\u4F4D\u7F6E\u3002"
 };
 
-// ../../packages/core/src/runtime.ts
+// ../toolchain/core/src/runtime.ts
 var activeSub = null;
 function getActiveSub() {
   return activeSub;
@@ -324,7 +324,7 @@ function flushNotifications() {
   if (errors.length) throw new AggregateError(errors, "[nandomo/core] notification failures");
 }
 
-// ../../packages/core/src/signal.ts
+// ../toolchain/core/src/signal.ts
 var __signalId = 0, SignalNode = class {
   constructor(_value) {
     this._value = _value;
@@ -407,7 +407,7 @@ function signal(initial) {
   }), callable;
 }
 
-// ../../packages/core/src/dialog.ts
+// ../toolchain/core/src/dialog.ts
 function isDialogNode(value) {
   return typeof value == "object" && value !== null && value.__dialog === !0;
 }
@@ -418,7 +418,7 @@ function requestDialogClose(props, reason) {
   readDialogBinding(props.open) && (reason === "escape" && !readDialogBinding(props.closeOnEscape ?? !0) || reason === "outside" && !readDialogBinding(props.closeOnOutside ?? !1) || props.onCloseRequest?.(reason));
 }
 
-// ../../packages/core/src/scope.ts
+// ../toolchain/core/src/scope.ts
 var Scope = class {
   cleanups = [];
   disposed = !1;
@@ -452,7 +452,7 @@ function ownCleanup(cleanup) {
   activeScope?.own(cleanup);
 }
 
-// ../../packages/core/src/computed.ts
+// ../toolchain/core/src/computed.ts
 var ComputedNode = class {
   constructor(_fn) {
     this._fn = _fn;
@@ -521,7 +521,7 @@ function computed(fn) {
   return callable.peek = () => node2.peek(), callable.dispose = () => node2.dispose(), callable;
 }
 
-// ../../packages/core/src/effect.ts
+// ../toolchain/core/src/effect.ts
 var EffectInstance = class {
   constructor(_fn) {
     this._fn = _fn;
@@ -604,12 +604,12 @@ function effect(fn) {
   };
 }
 
-// ../../packages/core/src/batch.ts
+// ../toolchain/core/src/batch.ts
 function batch(fn) {
   return notificationTransaction(fn);
 }
 
-// ../../packages/core/src/inputs.ts
+// ../toolchain/core/src/inputs.ts
 function isInputRef(v) {
   return typeof v == "object" && v !== null && v.__input === !0;
 }
@@ -617,7 +617,7 @@ function isOutputRef(v) {
   return typeof v == "object" && v !== null && v.__output === !0;
 }
 
-// ../../packages/core/src/define-component.ts
+// ../toolchain/core/src/define-component.ts
 function isDefinedComponentRef(value) {
   return typeof value == "object" && value !== null && value.__definedComponent === !0;
 }
@@ -675,7 +675,7 @@ function defineComponent(options) {
   }), { definition: options });
 }
 
-// ../../packages/core/src/ui.ts
+// ../toolchain/core/src/ui.ts
 function isResponsive(value) {
   return typeof value == "object" && value !== null && "base" in value && "minWidth" in value;
 }
@@ -690,7 +690,7 @@ var ui = {
   HStack: (props = {}) => node("ui:Flex", { ...props, direction: "row" })
 };
 
-// ../../packages/core/src/dynamic.ts
+// ../toolchain/core/src/dynamic.ts
 function For(props) {
   return { __dynamic: !0, kind: "for", props };
 }
@@ -734,10 +734,10 @@ function mountDynamicRegion(node2, adapter) {
           unique.has(key) || (records.delete(key), release(record));
       let created = [], next = /* @__PURE__ */ new Map();
       try {
-        items.forEach((value, index) => {
-          let key = keys[index], record = records.get(key);
+        items.forEach((value, index2) => {
+          let key = keys[index2], record = records.get(key);
           if (!record) {
-            let item = signal(value), position = signal(index), scope = new Scope();
+            let item = signal(value), position = signal(index2), scope = new Scope();
             try {
               record = { handle: withActiveSub(null, () => scope.run(() => {
                 let tree = node2.kind === "for" ? props.children(item, position) : value ? props.children() : props.fallback?.();
@@ -763,9 +763,9 @@ function mountDynamicRegion(node2, adapter) {
       }
       let old = records;
       records = next, batch(() => {
-        items.forEach((value, index) => {
-          let record = next.get(keys[index]);
-          record.item.set(value), record.index.set(index);
+        items.forEach((value, index2) => {
+          let record = next.get(keys[index2]);
+          record.item.set(value), record.index.set(index2);
         });
         let errors = [];
         for (let [key, record] of old) if (!next.has(key))
@@ -786,7 +786,7 @@ function mountDynamicRegion(node2, adapter) {
   }
 }
 
-// ../../packages/core/src/functional-component.ts
+// ../toolchain/core/src/functional-component.ts
 function component(name, render) {
   return (props) => defineComponent({
     name,
@@ -800,10 +800,10 @@ function component(name, render) {
   })({});
 }
 
-// ../../packages/core/src/app-meta.ts
+// ../toolchain/core/src/app-meta.ts
 var COMPONENT_TARGETS = Object.freeze(["html", "qml", "gtk", "compose"]);
 
-// ../../packages/core/src/source-origin.ts
+// ../toolchain/core/src/source-origin.ts
 var origins = /* @__PURE__ */ new WeakMap();
 function sourceOrigin(value) {
   return value !== null && (typeof value == "object" || typeof value == "function") ? origins.get(value) : void 0;
@@ -835,7 +835,7 @@ var SourceError = class extends Error {
   property;
 };
 
-// ../../packages/core/src/i18n.ts
+// ../toolchain/core/src/i18n.ts
 var DEFAULT_LOCALE = "en";
 function normalizeLocale(raw) {
   let base = (String(raw ?? "").trim().split(".")[0] ?? "").split("@")[0]?.replace(/_/g, "-") ?? "";
@@ -1307,8 +1307,8 @@ function createFileTools(options) {
         } else if (current.kind === "bulk") {
           if (!files.renameMany) throw new Error("Renomea\xE7\xE3o em lote indispon\xEDvel.");
           if (!value.includes("{n}") && !value.includes("{name}")) throw new Error("Use {name} para o nome original e/ou {n} para a sequ\xEAncia.");
-          let plan = current.targets.map((item, index) => {
-            let split = item.directory ? -1 : item.name.lastIndexOf("."), extension2 = split > 0 ? item.name.slice(split) : "", stem = split > 0 ? item.name.slice(0, split) : item.name, name = validateName(value.replaceAll("{name}", stem).replaceAll("{n}", String(index + 1)) + extension2);
+          let plan = current.targets.map((item, index2) => {
+            let split = item.directory ? -1 : item.name.lastIndexOf("."), extension2 = split > 0 ? item.name.slice(split) : "", stem = split > 0 ? item.name.slice(0, split) : item.name, name = validateName(value.replaceAll("{name}", stem).replaceAll("{n}", String(index2 + 1)) + extension2);
             return { source: item.path, destination: files.child(files.parent(item.path), name) };
           });
           await files.renameMany(plan);
@@ -1351,8 +1351,8 @@ function normalizePreferences(raw) {
 
 // src/domain/sortEntries.ts
 function extension(name) {
-  let index = name.lastIndexOf(".");
-  return index > 0 && name !== ".." ? name.slice(index) : "";
+  let index2 = name.lastIndexOf(".");
+  return index2 > 0 && name !== ".." ? name.slice(index2) : "";
 }
 function sortEntries(entries, order, descending, hidden, foldersFirst = !0) {
   let compare = new Intl.Collator(void 0, { numeric: !0, sensitivity: "base" });
@@ -1365,18 +1365,18 @@ var virtualTitles = {
   "recent:///": "Recentes",
   "applications:///": "Aplicativos"
 };
-function tabTitle(path2) {
-  let known = virtualTitles[path2];
+function tabTitle(path3) {
+  let known = virtualTitles[path3];
   if (known) return known;
-  let parts = path2.split("/").filter((part) => part.length);
+  let parts = path3.split("/").filter((part) => part.length);
   return parts[parts.length - 1] ?? "/";
 }
-function emptyTabState(path2, view) {
+function emptyTabState(path3, view) {
   return {
-    path: path2,
+    path: path3,
     entries: [],
     columns: [],
-    history: [path2],
+    history: [path3],
     historyIndex: 0,
     selection: [],
     selected: null,
@@ -1406,21 +1406,21 @@ function usageFraction(usage) {
 // src/domain/dragPayload.ts
 function uriList(paths, toUrl) {
   let urls = /* @__PURE__ */ new Set();
-  for (let path2 of paths)
-    if (!(typeof path2 != "string" || !path2))
+  for (let path3 of paths)
+    if (!(typeof path3 != "string" || !path3))
       try {
-        urls.add(toUrl(path2));
+        urls.add(toUrl(path3));
       } catch {
       }
   return [...urls];
 }
 
 // src/application/createFileManager.ts
-function createFileManager(home, services) {
+function createFileManager(home2, services) {
   let iconCatalog = signal({ emblems: [], logos: [] }), folderAppearances = signal({}), appearanceOpen = signal(!1), decorate = (item) => {
     let style = item.directory ? folderAppearances()[item.path] : void 0;
     return style ? { ...item, icon: style.icon || item.icon, folderColor: style.icon ? void 0 : style.color, emblem: style.emblem } : item;
-  }, permissionsTarget = signal(null), preferences = signal({ ...defaultPreferences }), toolsRequest = signal(null), preferencesOpen = signal(!1), chooserOpen = signal(!1), applications = signal([]), chooserTarget, detailsOpen = signal(!1), path2 = signal(home), searchText = signal(""), searchRecursive = signal(!1), searchBusy = signal(!1), searchResults = signal(null), externalClipboardAvailable = signal(!1), activation = signal(0), operationProgress = signal(null), transferAbort, entries = signal([]), columns = signal([]), places = signal([]), drives = signal([]), games = signal([]), hidden = signal(!1), order = signal("name"), descending = signal(!1), view = signal("grid"), busy = signal(!0), error = signal(""), palette = signal({}), themeReady = signal(!1), videoThumbnails = signal({}), icons = signal({}), navigation = signal({ back: !1, forward: !1 }), selected = signal(null), selection = signal([]), selectionAnchor = null, mutating = signal(!1), remote = signal(!1), transferStatus = signal(""), newMenuOpen = signal(!1), previewOpen = signal(!1), clipboard = signal(null), volumeUsage = signal({}), editRequest = signal(null), destinationPath = signal(home), destinationFolders = signal([]), destinationBusy = signal(!1), destinationGeneration = 0;
+  }, permissionsTarget = signal(null), preferences = signal({ ...defaultPreferences }), toolsRequest = signal(null), preferencesOpen = signal(!1), chooserOpen = signal(!1), applications = signal([]), chooserTarget, detailsOpen = signal(!1), path3 = signal(home2), searchText = signal(""), searchRecursive = signal(!1), searchBusy = signal(!1), searchResults = signal(null), externalClipboardAvailable = signal(!1), activation = signal(0), operationProgress = signal(null), transferAbort, entries = signal([]), columns = signal([]), places = signal([]), drives = signal([]), games = signal([]), hidden = signal(!1), order = signal("name"), descending = signal(!1), view = signal("grid"), busy = signal(!0), error = signal(""), palette = signal({}), themeReady = signal(!1), videoThumbnails = signal({}), icons = signal({}), navigation = signal({ back: !1, forward: !1 }), selected = signal(null), selection = signal([]), selectionAnchor = null, mutating = signal(!1), remote = signal(!1), transferStatus = signal(""), newMenuOpen = signal(!1), previewOpen = signal(!1), clipboard = signal(null), volumeUsage = signal({}), editRequest = signal(null), destinationPath = signal(home2), destinationFolders = signal([]), destinationBusy = signal(!1), destinationGeneration = 0;
   async function browseDestination(target) {
     let token = ++destinationGeneration;
     destinationBusy.set(!0);
@@ -1436,8 +1436,8 @@ function createFileManager(home, services) {
       !disposed && token === destinationGeneration && destinationBusy.set(!1);
     }
   }
-  let conflict = signal(null), pendingTransfers = [], transferPath = home;
-  async function runTransfers(tasks, activePath = path2.peek()) {
+  let conflict = signal(null), pendingTransfers = [], transferPath = home2;
+  async function runTransfers(tasks, activePath = path3.peek()) {
     if (disposed) return !1;
     transferPath = activePath, transferAbort = new AbortController(), batch(() => {
       mutating.set(!0), operationProgress.set({ completed: 0, total: 0 }), tabReadAt.clear(), error.set("");
@@ -1460,7 +1460,7 @@ function createFileManager(home, services) {
       }
       return editRequest.set(null), conflict.set(null), pendingTransfers = [], clipboard.peek()?.mode === "move" && clipboard.set(null), await reloadAfterEdit("", destinations, activePath), !0;
     } catch (problem) {
-      return transferAbort?.signal.aborted ? (!disposed && path2.peek() === activePath && await loadDirectory(activePath, "refresh"), reportError("Opera\xE7\xE3o cancelada. Itens j\xE1 conclu\xEDdos foram preservados.")) : (destinations.length && !disposed && path2.peek() === activePath && await loadDirectory(activePath, "refresh"), reportError(problem)), !1;
+      return transferAbort?.signal.aborted ? (!disposed && path3.peek() === activePath && await loadDirectory(activePath, "refresh"), reportError("Opera\xE7\xE3o cancelada. Itens j\xE1 conclu\xEDdos foram preservados.")) : (destinations.length && !disposed && path3.peek() === activePath && await loadDirectory(activePath, "refresh"), reportError(problem)), !1;
     } finally {
       transferAbort = void 0, disposed || (mutating.set(!1), transferStatus.set(""), operationProgress.set(null));
     }
@@ -1497,16 +1497,16 @@ function createFileManager(home, services) {
   }
   function refreshRestoredTab(id, target) {
     Date.now() - (tabReadAt.get(id) ?? 0) < 5e3 || (tabRefreshTimer = setTimeout(() => {
-      tabRefreshTimer = void 0, !disposed && activeTab.peek() === id && path2.peek() === target && !tabLocked() && loadDirectory(target, "refresh", 0, !0);
+      tabRefreshTimer = void 0, !disposed && activeTab.peek() === id && path3.peek() === target && !tabLocked() && loadDirectory(target, "refresh", 0, !0);
     }, 150), tabRefreshTimer.unref?.());
   }
   let tabOrder = signal([]), activeTab = signal(""), tabSequence = 0, generation = 0, locationsGeneration = 0, usageGeneration = 0, themeGeneration = 0, disposed = !1, stopVideoThumbnails = effect(() => {
-    let listed = entries(), enabled = preferences().thumbnails && !remote(), active = !0, index = 0;
+    let listed = entries(), enabled = preferences().thumbnails && !remote(), active = !0, index2 = 0;
     if (videoThumbnails.set({}), enabled && services.files.videoThumbnail) {
       let videos = listed.filter((item) => !item.directory && previewKind(item.name) === "video");
       async function worker() {
-        for (; active && !disposed && index < videos.length; ) {
-          let item = videos[index++], source = await services.files.videoThumbnail(item.path).catch(() => "");
+        for (; active && !disposed && index2 < videos.length; ) {
+          let item = videos[index2++], source = await services.files.videoThumbnail(item.path).catch(() => "");
           active && !disposed && source && videoThumbnails.set({ ...videoThumbnails.peek(), [item.path]: source });
         }
       }
@@ -1516,7 +1516,7 @@ function createFileManager(home, services) {
       active = !1;
     };
   }), stopSearch = effect(() => {
-    let query = searchText().trim(), folder = path2(), deep = searchRecursive(), showHidden = hidden(), network = remote(), active = !0, controller = new AbortController(), timer;
+    let query = searchText().trim(), folder = path3(), deep = searchRecursive(), showHidden = hidden(), network = remote(), active = !0, controller = new AbortController(), timer;
     return searchResults.set(null), searchBusy.set(!1), query && deep && !folder.includes(":///") && !network && services.files.search && (searchBusy.set(!0), searchResults.set([]), timer = setTimeout(() => {
       services.files.search(folder, query, { signal: controller.signal, hidden: showHidden }).then((items) => {
         active && !disposed && searchResults.set(items);
@@ -1529,10 +1529,10 @@ function createFileManager(home, services) {
       active = !1, controller.abort(), clearTimeout(timer);
     };
   }), stopFileWatch = effect(() => {
-    let folder = path2(), network = remote(), timer;
+    let folder = path3(), network = remote(), timer;
     if (folder.includes(":///") || network || !services.files.watch) return;
     function refreshChanged() {
-      if (!(disposed || path2.peek() !== folder)) {
+      if (!(disposed || path3.peek() !== folder)) {
         if (busy.peek() || mutating.peek()) {
           timer = setTimeout(refreshChanged, 250);
           return;
@@ -1544,7 +1544,7 @@ function createFileManager(home, services) {
     return () => {
       stop2(), clearTimeout(timer);
     };
-  }), stopWatching, entryFilter = signal(void 0), visibleEntries = computed(() => sortEntries((searchResults() ?? entries()).filter((item) => !entryFilter() || entryFilter()(item)).filter((item) => !searchText().trim() || item.name.toLowerCase().includes(searchText().trim().toLowerCase())), order(), descending(), hidden(), preferences().foldersFirst).map(decorate)), visibleColumns = computed(() => (searchText().trim() ? [{ path: path2(), entries: visibleEntries() }] : columns()).map((column) => ({
+  }), stopWatching, entryFilter = signal(void 0), visibleEntries = computed(() => sortEntries((searchResults() ?? entries()).filter((item) => !entryFilter() || entryFilter()(item)).filter((item) => !searchText().trim() || item.name.toLowerCase().includes(searchText().trim().toLowerCase())), order(), descending(), hidden(), preferences().foldersFirst).map(decorate)), visibleColumns = computed(() => (searchText().trim() ? [{ path: path3(), entries: visibleEntries() }] : columns()).map((column) => ({
     path: column.path,
     entries: sortEntries(column.entries.filter((item) => !entryFilter() || entryFilter()(item)), order(), descending(), hidden(), preferences().foldersFirst).map(decorate)
   }))), candidates = () => {
@@ -1555,7 +1555,7 @@ function createFileManager(home, services) {
     return visible2.filter((entry2) => seen.has(entry2.path) ? !1 : (seen.add(entry2.path), !0));
   }, orderPaths = (paths) => {
     let wanted = new Set(paths), list = browsable().filter((entry2) => wanted.has(entry2.path)).map((entry2) => entry2.path);
-    for (let path3 of wanted) list.includes(path3) || list.push(path3);
+    for (let path4 of wanted) list.includes(path4) || list.push(path4);
     return list;
   };
   function applySelection(paths, focus) {
@@ -1570,7 +1570,7 @@ function createFileManager(home, services) {
   }), modalsOpen = computed(() => !!(editRequest() || preferencesOpen() || chooserOpen() || toolsRequest() || appearanceOpen() || newMenuOpen() || previewOpen() || conflict() || permissionsTarget()));
   function currentTabState() {
     return {
-      path: path2.peek(),
+      path: path3.peek(),
       entries: entries.peek(),
       columns: columns.peek(),
       history: [...history],
@@ -1588,7 +1588,7 @@ function createFileManager(home, services) {
   }
   function restoreTabState(state) {
     searchText.set(""), history = [...state.history], historyIndex = state.historyIndex, selectionAnchor = state.anchor, batch(() => {
-      path2.set(state.path), entries.set(state.entries), columns.set(state.columns), remote.set(state.remote), view.set(state.view), navigation.set(state.navigation), previewOpen.set(!1);
+      path3.set(state.path), entries.set(state.entries), columns.set(state.columns), remote.set(state.remote), view.set(state.view), navigation.set(state.navigation), previewOpen.set(!1);
     }), applySelection(state.selection, state.selected);
   }
   function tabLocked() {
@@ -1606,15 +1606,15 @@ function createFileManager(home, services) {
     }), error.set(""), loadDirectory(state.path, "refresh");
   }
   let tabsSummary = computed(() => {
-    let active = activeTab(), current = path2();
+    let active = activeTab(), current = path3();
     return tabOrder().map((id) => {
-      let location = id === active ? current : tabStates.get(id)?.path ?? home, title = location === home ? "Pasta pessoal" : tabTitle(location);
-      return { id, title: location === home || location.includes(":///") ? services.translate?.(title) ?? title : title, path: location, active: id === active };
+      let location = id === active ? current : tabStates.get(id)?.path ?? home2, title = location === home2 ? "Pasta pessoal" : tabTitle(location);
+      return { id, title: location === home2 || location.includes(":///") ? services.translate?.(title) ?? title : title, path: location, active: id === active };
     });
   });
   {
     let first = `tab-${++tabSequence}`;
-    storeTabState(first, emptyTabState(home, view.peek())), tabOrder.set([first]), activeTab.set(first);
+    storeTabState(first, emptyTabState(home2, view.peek())), tabOrder.set([first]), activeTab.set(first);
   }
   async function newTab(target) {
     if (disposed) return Promise.resolve();
@@ -1712,8 +1712,8 @@ function createFileManager(home, services) {
     preferencesOpen: preferencesOpen(),
     chooserOpen: chooserOpen(),
     applications: applications(),
-    home,
-    path: path2(),
+    home: home2,
+    path: path3(),
     entries: visibleEntries(),
     columns: visibleColumns(),
     drives: drives(),
@@ -1743,7 +1743,7 @@ function createFileManager(home, services) {
     tabs: tabsSummary(),
     activeTab: activeTab(),
     // One URI per selected entry, so the native drag offers the whole selection.
-    selectionUris: uriList(selectedEntries().map((entry2) => entry2.path), (path3) => services.files.url(path3)),
+    selectionUris: uriList(selectedEntries().map((entry2) => entry2.path), (path4) => services.files.url(path4)),
     volumeUsage: { ...volumeUsage() }
   }));
   function reportError(problem) {
@@ -1773,7 +1773,7 @@ function createFileManager(home, services) {
       tabReadAt.set(activeTab.peek(), Date.now());
       let wanted = new Set(selection.peek()), previousFocus = selected.peek()?.path ?? null;
       batch(() => {
-        kind === "push" || kind === "column" ? (history.splice(historyIndex + 1), history.push(nextPath), historyIndex++) : kind === "back" ? historyIndex-- : kind === "forward" && historyIndex++, nextPath === "recent:///" && kind === "push" && (order.set("modified"), descending.set(!0)), path2.set(nextPath), remote.set(nextRemote), entries.set(nextEntries), previewOpen.set(!1);
+        kind === "push" || kind === "column" ? (history.splice(historyIndex + 1), history.push(nextPath), historyIndex++) : kind === "back" ? historyIndex-- : kind === "forward" && historyIndex++, nextPath === "recent:///" && kind === "push" && (order.set("modified"), descending.set(!0)), path3.set(nextPath), remote.set(nextRemote), entries.set(nextEntries), previewOpen.set(!1);
         let nextColumn = { path: nextPath, entries: nextEntries };
         columns.set(kind === "column" ? [...columns.peek().slice(0, columnIndex + 1), nextColumn] : kind === "refresh" && columns.peek().length ? columns.peek().map((column) => column.path === nextPath ? nextColumn : column) : [nextColumn]), navigation.set({ back: historyIndex > 0, forward: historyIndex < history.length - 1 });
       });
@@ -1786,7 +1786,7 @@ function createFileManager(home, services) {
     }
   }
   async function refreshLocations() {
-    let token = ++locationsGeneration, results = await Promise.allSettled([services.locations.volumes(), services.locations.games(home), services.locations.places?.(home) ?? Promise.resolve([])]);
+    let token = ++locationsGeneration, results = await Promise.allSettled([services.locations.volumes(), services.locations.games(home2), services.locations.places?.(home2) ?? Promise.resolve([])]);
     disposed || token !== locationsGeneration || (batch(() => {
       results[0].status === "fulfilled" ? drives.set(results[0].value) : reportError("N\xE3o foi poss\xEDvel consultar volumes."), results[1].status === "fulfilled" && games.set(results[1].value), results[2].status === "fulfilled" && places.set(results[2].value);
     }), loadVolumeUsage());
@@ -1808,7 +1808,7 @@ function createFileManager(home, services) {
   async function open(target) {
     if (!disposed)
       try {
-        if (path2.peek() === "applications:///") {
+        if (path3.peek() === "applications:///") {
           if (!applications.peek().some((app) => app.id === target)) throw new Error("Aplicativo inv\xE1lido.");
           if (!services.desktop.launch) throw new Error("N\xE3o foi poss\xEDvel iniciar o aplicativo.");
           await services.desktop.launch(target);
@@ -1826,8 +1826,8 @@ function createFileManager(home, services) {
       return;
     }
     if (!candidates().some((entry2) => entry2.path === target)) return;
-    let list = browsable(), index = list.findIndex((entry2) => entry2.path === target);
-    if (index < 0) {
+    let list = browsable(), index2 = list.findIndex((entry2) => entry2.path === target);
+    if (index2 < 0) {
       applySelection([target], target);
       return;
     }
@@ -1838,7 +1838,7 @@ function createFileManager(home, services) {
     if (mode === "toggle") {
       let current = selection.peek();
       if (current.includes(target)) {
-        let remaining = current.filter((path3) => path3 !== target), focus = remaining.length ? remaining.reduce((best, path3) => Math.abs(list.findIndex((entry2) => entry2.path === path3) - index) < Math.abs(list.findIndex((entry2) => entry2.path === best) - index) ? path3 : best) : null;
+        let remaining = current.filter((path4) => path4 !== target), focus = remaining.length ? remaining.reduce((best, path4) => Math.abs(list.findIndex((entry2) => entry2.path === path4) - index2) < Math.abs(list.findIndex((entry2) => entry2.path === best) - index2) ? path4 : best) : null;
         selectionAnchor = focus, applySelection(remaining, focus);
         return;
       }
@@ -1846,7 +1846,7 @@ function createFileManager(home, services) {
       return;
     }
     if (mode === "range") {
-      let anchor = selectionAnchor && list.some((entry2) => entry2.path === selectionAnchor) ? selectionAnchor : target, from = list.findIndex((entry2) => entry2.path === anchor), [start, end] = from <= index ? [from, index] : [index, from];
+      let anchor = selectionAnchor && list.some((entry2) => entry2.path === selectionAnchor) ? selectionAnchor : target, from = list.findIndex((entry2) => entry2.path === anchor), [start, end] = from <= index2 ? [from, index2] : [index2, from];
       applySelection(list.slice(start, end + 1).map((entry2) => entry2.path), target);
       return;
     }
@@ -1883,7 +1883,7 @@ function createFileManager(home, services) {
     target && selectPath(target.path, extend ? "range" : "replace");
   }
   async function trashSelected() {
-    let targets = selectedEntries.peek(), activePath = path2.peek();
+    let targets = selectedEntries.peek(), activePath = path3.peek();
     if (!targets.length || disposed || mutating.peek() || conflict.peek() || activePath.includes(":///")) return;
     let changed = !1;
     try {
@@ -1894,16 +1894,16 @@ function createFileManager(home, services) {
         await services.files.trash(target.path), changed = !0, clipboard.peek()?.entries.some((entry2) => entry2.path === target.path) && clipboard.set(null);
       }
       if (disposed) return;
-      path2.peek() === activePath && await loadDirectory(activePath, "refresh");
+      path3.peek() === activePath && await loadDirectory(activePath, "refresh");
     } catch (problem) {
-      changed && !disposed && path2.peek() === activePath && await loadDirectory(activePath, "refresh"), reportError(problem);
+      changed && !disposed && path3.peek() === activePath && await loadDirectory(activePath, "refresh"), reportError(problem);
     } finally {
       disposed || mutating.set(!1);
     }
   }
   function requestCreate(kind) {
     if (!mutating.peek()) {
-      if (path2.peek().includes(":///")) {
+      if (path3.peek().includes(":///")) {
         reportError("Abra uma pasta para criar um item.");
         return;
       }
@@ -1914,7 +1914,7 @@ function createFileManager(home, services) {
   }
   function requestRename() {
     let targets = selectedEntries.peek();
-    if (path2.peek().includes(":///")) {
+    if (path3.peek().includes(":///")) {
       reportError("Abra a pasta original para renomear este item.");
       return;
     }
@@ -1929,13 +1929,13 @@ function createFileManager(home, services) {
     }
   }
   async function reloadAfterEdit(previous, destinations, activePath) {
-    if (disposed || path2.peek() !== activePath) return;
+    if (disposed || path3.peek() !== activePath) return;
     if (activePath.includes(":///")) {
       await loadDirectory(activePath, "refresh");
       return;
     }
     let token = ++generation, refreshed = await Promise.all(columns.peek().map(async (column) => ({ path: column.path, entries: await services.files.list(column.path) })));
-    disposed || token !== generation || path2.peek() !== activePath || batch(() => {
+    disposed || token !== generation || path3.peek() !== activePath || batch(() => {
       columns.set(refreshed), entries.set(refreshed.find((column) => column.path === activePath)?.entries ?? []);
       let landed = refreshed.flatMap((column) => column.entries).filter((entry2) => destinations.includes(entry2.path));
       (!selected.peek() || selected.peek()?.path === previous || !previous) && applySelection(landed.map((entry2) => entry2.path), landed[landed.length - 1]?.path ?? null);
@@ -1944,7 +1944,7 @@ function createFileManager(home, services) {
   async function submitEdit(name) {
     let request2 = editRequest.peek();
     if (!request2 || disposed || mutating.peek() || conflict.peek()) return !1;
-    let activePath = path2.peek();
+    let activePath = path3.peek();
     try {
       if (activePath === "applications:///") throw new Error("Aplicativos n\xE3o podem ser alterados nesta visualiza\xE7\xE3o.");
       let transfer = request2.kind === "copy" || request2.kind === "move";
@@ -1973,13 +1973,13 @@ function createFileManager(home, services) {
   }
   let tools = createFileTools({
     request: toolsRequest,
-    path: path2,
+    path: path3,
     selected: selectedEntries,
     entries,
     mutating,
     files: services.files,
     desktop: services.desktop,
-    refresh: () => loadDirectory(path2.peek(), "refresh"),
+    refresh: () => loadDirectory(path3.peek(), "refresh"),
     onError: reportError
   });
   return {
@@ -2006,7 +2006,7 @@ function createFileManager(home, services) {
       if (!(mutating.peek() || !services.files.undo)) {
         mutating.set(!0);
         try {
-          await services.files.undo(), tabReadAt.clear(), await loadDirectory(path2.peek(), "refresh");
+          await services.files.undo(), tabReadAt.clear(), await loadDirectory(path3.peek(), "refresh");
         } catch (problem) {
           reportError(problem);
         } finally {
@@ -2015,17 +2015,17 @@ function createFileManager(home, services) {
       }
     },
     reveal: async (urls, properties2 = !1, folders = !1) => {
-      for (let [index, url] of urls.entries()) try {
+      for (let [index2, url] of urls.entries()) try {
         let target = url.startsWith("file:") && services.files.fromUrl ? services.files.fromUrl(url) : await services.desktop.resolveLocation?.(url);
         if (!target) throw new Error("Local indispon\xEDvel.");
-        index > 0 ? await newTab(folders ? target : services.files.parent(target)) : await loadDirectory(folders ? target : services.files.parent(target)), folders || (selectPath(target, "replace"), properties2 && detailsOpen.set(!0));
+        index2 > 0 ? await newTab(folders ? target : services.files.parent(target)) : await loadDirectory(folders ? target : services.files.parent(target)), folders || (selectPath(target, "replace"), properties2 && detailsOpen.set(!0));
       } catch (problem) {
         reportError(problem);
       }
       activation.update((value) => value + 1);
     },
     restoreSelected: async () => {
-      if (path2.peek() !== "trash:///" || mutating.peek() || !services.desktop.restoreTrash) return;
+      if (path3.peek() !== "trash:///" || mutating.peek() || !services.desktop.restoreTrash) return;
       let targets = selectedEntries.peek();
       if (!targets.length) return;
       let failure;
@@ -2040,7 +2040,7 @@ function createFileManager(home, services) {
     },
     permissionsTarget,
     editPermissions: () => {
-      selected.peek() && path2.peek() !== "applications:///" && permissionsTarget.set(selected.peek());
+      selected.peek() && path3.peek() !== "applications:///" && permissionsTarget.set(selected.peek());
     },
     closePermissions: () => {
       mutating.peek() || permissionsTarget.set(null);
@@ -2062,12 +2062,12 @@ function createFileManager(home, services) {
     locationAction: async (action, place) => {
       try {
         if (action === "addCurrent") {
-          if (path2.peek().includes(":///")) throw new Error("Abra uma pasta para adicion\xE1-la a Locais.");
+          if (path3.peek().includes(":///")) throw new Error("Abra uma pasta para adicion\xE1-la a Locais.");
           if (!services.locations.bookmark) throw new Error("Favoritos indispon\xEDveis.");
-          await services.locations.bookmark(home, path2.peek());
+          await services.locations.bookmark(home2, path3.peek());
         } else if (action === "remove" || action === "add") {
           if (!services.locations.bookmark) throw new Error("Favoritos indispon\xEDveis.");
-          await services.locations.bookmark(home, place.path, action === "remove");
+          await services.locations.bookmark(home2, place.path, action === "remove");
         } else if (action === "mount" || action === "unmount") {
           if (!services.locations.volumeAction) throw new Error("Volumes indispon\xEDveis.");
           await services.locations.volumeAction(action, place);
@@ -2081,7 +2081,7 @@ function createFileManager(home, services) {
       let target = selected.peek();
       if (target?.directory)
         try {
-          await services.locations.bookmark?.(home, target.path), await refreshLocations();
+          await services.locations.bookmark?.(home2, target.path), await refreshLocations();
         } catch (problem) {
           reportError(problem);
         }
@@ -2091,7 +2091,7 @@ function createFileManager(home, services) {
     customizeFolder: () => {
       services.desktop.iconCatalog?.().then((value) => {
         disposed || iconCatalog.set(value);
-      }).catch(reportError), selected.peek()?.directory && !path2.peek().includes(":///") && !mutating.peek() && appearanceOpen.set(!0);
+      }).catch(reportError), selected.peek()?.directory && !path3.peek().includes(":///") && !mutating.peek() && appearanceOpen.set(!0);
     },
     closeAppearance: () => appearanceOpen.set(!1),
     saveFolderAppearance: async (value) => {
@@ -2136,7 +2136,7 @@ function createFileManager(home, services) {
     special: (uri) => loadDirectory(uri),
     openDesktopFile: async () => {
       let item = selected.peek();
-      if (!(path2.peek() !== "applications:///" || !item))
+      if (!(path3.peek() !== "applications:///" || !item))
         try {
           if (!services.desktop.openDesktopFile) throw new Error("Editor de texto indispon\xEDvel.");
           await services.desktop.openDesktopFile(item.path);
@@ -2146,7 +2146,7 @@ function createFileManager(home, services) {
     },
     manageApplication: async () => {
       let item = selected.peek();
-      if (!(path2.peek() !== "applications:///" || !item))
+      if (!(path3.peek() !== "applications:///" || !item))
         try {
           if (!services.desktop.manageApplication) throw new Error("Gerenciador de aplicativos indispon\xEDvel.");
           await services.desktop.manageApplication(item.path);
@@ -2156,7 +2156,7 @@ function createFileManager(home, services) {
     },
     hideApplication: async () => {
       let item = selected.peek();
-      if (!(path2.peek() !== "applications:///" || !item))
+      if (!(path3.peek() !== "applications:///" || !item))
         try {
           if (!services.desktop.hideApplication) throw new Error("Ocultar indispon\xEDvel.");
           await services.desktop.hideApplication(item.path), await loadDirectory("applications:///", "refresh");
@@ -2167,13 +2167,13 @@ function createFileManager(home, services) {
     showApplications: () => loadDirectory("applications:///"),
     terminal: async () => {
       try {
-        await services.desktop.terminal?.(path2.peek());
+        await services.desktop.terminal?.(path3.peek());
       } catch (e) {
         reportError(e);
       }
     },
-    home,
-    path: path2,
+    home: home2,
+    path: path3,
     places,
     drives,
     games,
@@ -2236,7 +2236,7 @@ function createFileManager(home, services) {
     confirmDestination: () => destinationBusy.peek() ? Promise.resolve(!1) : submitEdit(destinationPath.peek()),
     dropFiles: async (urls, folder, mode) => {
       if (disposed || mutating.peek() || conflict.peek()) return !1;
-      let activePath = path2.peek();
+      let activePath = path3.peek();
       try {
         if (!services.files.fromUrl || !services.files.transfer) throw new Error("Arrastar arquivos indispon\xEDvel.");
         let sources = [...new Set(urls.map((url) => services.files.fromUrl(url)))];
@@ -2252,32 +2252,32 @@ function createFileManager(home, services) {
     },
     copy: () => {
       let targets = selectedEntries.peek();
-      path2.peek() === "applications:///" || !targets.length || (clipboard.set({ entries: [...targets], mode: "copy" }), services.desktop.writeFileClipboard?.({ urls: targets.map((item) => services.files.url(item.path)), mode: "copy" }).catch(reportError));
+      path3.peek() === "applications:///" || !targets.length || (clipboard.set({ entries: [...targets], mode: "copy" }), services.desktop.writeFileClipboard?.({ urls: targets.map((item) => services.files.url(item.path)), mode: "copy" }).catch(reportError));
     },
     cut: () => {
       let targets = selectedEntries.peek();
-      if (path2.peek().includes(":///")) {
+      if (path3.peek().includes(":///")) {
         reportError("Abra a pasta original para recortar este item.");
         return;
       }
       targets.length && (clipboard.set({ entries: [...targets], mode: "move" }), services.desktop.writeFileClipboard?.({ urls: targets.map((item) => services.files.url(item.path)), mode: "move" }).catch(reportError));
     },
     requestTransfer: (kind) => {
-      if (path2.peek() === "applications:///" || path2.peek() === "trash:///" && kind === "move") {
+      if (path3.peek() === "applications:///" || path3.peek() === "trash:///" && kind === "move") {
         reportError("Abra uma pasta para transferir este item.");
         return;
       }
       let targets = selectedEntries.peek();
-      targets.length && !mutating.peek() && !conflict.peek() && (error.set(""), editRequest.set({ kind, targets: [...targets], name: path2.peek() }), browseDestination(path2.peek().includes(":///") ? home : path2.peek()));
+      targets.length && !mutating.peek() && !conflict.peek() && (error.set(""), editRequest.set({ kind, targets: [...targets], name: path3.peek() }), browseDestination(path3.peek().includes(":///") ? home2 : path3.peek()));
     },
     paste: async () => {
       if (!conflict.peek()) {
-        if (mutating.peek() || path2.peek().includes(":///")) {
+        if (mutating.peek() || path3.peek().includes(":///")) {
           reportError("Escolha uma pasta de destino.");
           return;
         }
         try {
-          let destinationPath2 = path2.peek();
+          let destinationPath2 = path3.peek();
           if (services.desktop.readFileClipboard) {
             let external = await services.desktop.readFileClipboard();
             if (!external) {
@@ -2286,12 +2286,12 @@ function createFileManager(home, services) {
             }
             let targets = external.urls.map((url) => {
               if (!services.files.fromUrl || !url.startsWith("file:")) throw new Error("Copie arquivos de uma localiza\xE7\xE3o local ou montada.");
-              let path3 = services.files.fromUrl(url);
-              return { path: path3, name: path3.split("/").pop(), directory: !1, symlink: !1, size: 0, modified: 0, icon: "text-x-generic" };
+              let path4 = services.files.fromUrl(url);
+              return { path: path4, name: path4.split("/").pop(), directory: !1, symlink: !1, size: 0, modified: 0, icon: "text-x-generic" };
             });
             clipboard.set({ entries: targets, mode: external.mode });
           }
-          if (path2.peek() !== destinationPath2 || mutating.peek() || disposed) return;
+          if (path3.peek() !== destinationPath2 || mutating.peek() || disposed) return;
           let held = clipboard.peek();
           held?.entries.length && await runTransfers(held.entries.map((target) => ({
             source: target.path,
@@ -2315,15 +2315,15 @@ function createFileManager(home, services) {
     navigate: (target) => loadDirectory(target),
     back: () => historyIndex > 0 ? loadDirectory(history[historyIndex - 1], "back") : Promise.resolve(),
     forward: () => historyIndex < history.length - 1 ? loadDirectory(history[historyIndex + 1], "forward") : Promise.resolve(),
-    up: () => loadDirectory(path2.peek().includes(":///") ? home : services.files.parent(path2.peek())),
-    refresh: () => Promise.all([loadDirectory(path2.peek(), "refresh"), refreshLocations()]),
+    up: () => loadDirectory(path3.peek().includes(":///") ? home2 : services.files.parent(path3.peek())),
+    refresh: () => Promise.all([loadDirectory(path3.peek(), "refresh"), refreshLocations()]),
     open,
-    openColumn: (target, index) => !Number.isInteger(index) || index < 0 || index >= columns.peek().length ? Promise.resolve() : loadDirectory(target, "column", index),
+    openColumn: (target, index2) => !Number.isInteger(index2) || index2 < 0 || index2 >= columns.peek().length ? Promise.resolve() : loadDirectory(target, "column", index2),
     toggleHidden: () => hidden.update((value) => !value),
     toggleDescending: () => descending.update((value) => !value),
     setOrder: (value) => order.set(value),
     setView: (value) => view.set(value),
-    async initialize(startPath = home) {
+    async initialize(startPath = home2) {
       if (disposed) return;
       if (services.desktop.readFolderAppearances) {
         let saved = await services.desktop.readFolderAppearances();
@@ -2370,13 +2370,13 @@ async function moveNoClobber(source, destination) {
     throw new Error("J\xE1 existe um item com esse nome. Nada foi substitu\xEDdo.");
   }
 }
-async function fingerprint(path2) {
+async function fingerprint(path3) {
   let rows = [];
-  async function visit(path3, relative) {
-    let stat5 = await lstat(path3);
-    if (rows.push([relative, stat5.dev, stat5.ino, stat5.mode, stat5.size, stat5.mtimeMs, stat5.isSymbolicLink() ? await readlink(path3) : ""]), stat5.isDirectory()) for (let name of (await readdir(path3)).sort()) await visit(join(path3, name), relative + "/" + name);
+  async function visit(path4, relative) {
+    let stat5 = await lstat(path4);
+    if (rows.push([relative, stat5.dev, stat5.ino, stat5.mode, stat5.size, stat5.mtimeMs, stat5.isSymbolicLink() ? await readlink(path4) : ""]), stat5.isDirectory()) for (let name of (await readdir(path4)).sort()) await visit(join(path4, name), relative + "/" + name);
   }
-  return await visit(path2, ""), JSON.stringify(rows);
+  return await visit(path3, ""), JSON.stringify(rows);
 }
 async function transferFile(source, destination, mode, options = {}) {
   if (source === destination) throw new Error("Origem e destino s\xE3o iguais.");
@@ -2390,11 +2390,11 @@ async function transferFile(source, destination, mode, options = {}) {
     return;
   }
   let initial = await fingerprint(source), total = 0, completed = 0, last = 0;
-  async function size(path2) {
+  async function size(path3) {
     options.signal?.throwIfAborted();
-    let s = await lstat(path2);
+    let s = await lstat(path3);
     if (s.isFile()) total += s.size;
-    else if (s.isDirectory()) for (let n of await readdir(path2)) await size(join(path2, n));
+    else if (s.isDirectory()) for (let n of await readdir(path3)) await size(join(path3, n));
   }
   await size(source), options.progress?.({ completed, total });
   let temporary = await mkdtemp(join(dirname(destination), ".nandomo-transfer-"));
@@ -2450,13 +2450,13 @@ async function renameMany(plan) {
   }
 }
 async function createArchive(paths, destination) {
-  if (!paths.length || !paths.every((path2) => dirname(path2) === dirname(paths[0]))) throw new Error("Selecione itens da mesma pasta.");
+  if (!paths.length || !paths.every((path3) => dirname(path3) === dirname(paths[0]))) throw new Error("Selecione itens da mesma pasta.");
   let zip = /\.zip$/i.test(destination);
   if (!zip && !/\.tar\.gz$/i.test(destination)) throw new Error("Use .zip ou .tar.gz.");
   let temporary = await mkdtemp(join(dirname(destination), ".nandomo-archive-"));
   try {
     let staged = join(temporary, "archive");
-    await exec("bsdtar", zip ? ["--format", "zip", "-cf", staged, "--", ...paths.map((path2) => basename(path2))] : ["-czf", staged, "--", ...paths.map((path2) => basename(path2))], { cwd: dirname(paths[0]), maxBuffer: 1024 * 1024 }), await moveNoClobber(staged, destination);
+    await exec("bsdtar", zip ? ["--format", "zip", "-cf", staged, "--", ...paths.map((path3) => basename(path3))] : ["-czf", staged, "--", ...paths.map((path3) => basename(path3))], { cwd: dirname(paths[0]), maxBuffer: 1024 * 1024 }), await moveNoClobber(staged, destination);
   } finally {
     await rm(temporary, { recursive: !0, force: !0 });
   }
@@ -2492,9 +2492,9 @@ function withUndo(base, recovery) {
       await reverse();
     }), history.length > 20 && history.shift();
   }
-  async function unchanged(path2, saved) {
+  async function unchanged(path3, saved) {
     try {
-      return await fingerprint(path2) === saved;
+      return await fingerprint(path3) === saved;
     } catch {
       return !1;
     }
@@ -2511,7 +2511,7 @@ function withUndo(base, recovery) {
       await base.renameMany(plan);
       let fingerprints = await Promise.all(plan.map((item) => fingerprint(item.destination)));
       history.push(async () => {
-        for (let [index, item] of plan.entries()) if (!await unchanged(item.destination, fingerprints[index])) throw new Error("Um item mudou desde a renomea\xE7\xE3o. Nada foi desfeito.");
+        for (let [index2, item] of plan.entries()) if (!await unchanged(item.destination, fingerprints[index2])) throw new Error("Um item mudou desde a renomea\xE7\xE3o. Nada foi desfeito.");
         await base.renameMany(plan.map((item) => ({ source: item.destination, destination: item.source })).reverse());
       }), history.length > 20 && history.shift();
     },
@@ -2519,11 +2519,11 @@ function withUndo(base, recovery) {
       if (!base.replaceFile) throw new Error("Substitui\xE7\xE3o indispon\xEDvel.");
       await base.replaceFile(source, destination, mode), history.length = 0;
     },
-    async trash(path2) {
+    async trash(path3) {
       if (!base.trash) throw new Error("Lixeira indispon\xEDvel.");
-      let version = recovery ? await fingerprint(path2) : "";
-      if (await base.trash(path2), recovery) {
-        let trashed = await recovery.locate(path2, version).catch(() => {
+      let version = recovery ? await fingerprint(path3) : "";
+      if (await base.trash(path3), recovery) {
+        let trashed = await recovery.locate(path3, version).catch(() => {
         });
         trashed ? history.push(async () => {
           if (!await unchanged(trashed, version)) throw new Error("O item mudou desde a opera\xE7\xE3o. Nada foi desfeito.");
@@ -2531,10 +2531,10 @@ function withUndo(base, recovery) {
         }) : history.length = 0;
       }
     },
-    async create(path2, kind) {
-      await base.create(path2, kind), await remember(path2, async () => {
+    async create(path3, kind) {
+      await base.create(path3, kind), await remember(path3, async () => {
         if (!base.trash) throw new Error("Lixeira indispon\xEDvel.");
-        await base.trash(path2);
+        await base.trash(path3);
       });
     },
     async rename(source, destination) {
@@ -2578,11 +2578,11 @@ function entryIcon(name, directory) {
   let extension2 = extname(name).toLowerCase();
   return [".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"].includes(extension2) ? "image-x-generic" : previewKind(name) === "video" ? "video-x-generic" : [".mp3", ".flac", ".ogg", ".wav"].includes(extension2) ? "audio-x-generic" : [".zip", ".tar", ".gz", ".7z", ".rar"].includes(extension2) ? "package-x-generic" : extension2 === ".pdf" ? "application-pdf" : "text-x-generic";
 }
-async function listDirectory(path2) {
-  let children = await readdir2(path2, { withFileTypes: !0 }), entries = [], index = 0;
+async function listDirectory(path3) {
+  let children = await readdir2(path3, { withFileTypes: !0 }), entries = [], index2 = 0;
   return await Promise.all(Array.from({ length: Math.min(16, children.length) }, async () => {
-    for (; index < children.length; ) {
-      let child = children[index++], childPath = join2(path2, child.name);
+    for (; index2 < children.length; ) {
+      let child = children[index2++], childPath = join2(path3, child.name);
       try {
         let info = await stat(childPath);
         entries.push({ name: child.name, path: childPath, directory: info.isDirectory(), symlink: child.isSymbolicLink(), size: info.size, modified: info.mtimeMs, icon: entryIcon(child.name, info.isDirectory()) });
@@ -2598,9 +2598,9 @@ function parseDrives(data) {
     if (Array.isArray(nodes))
       for (let raw of nodes) {
         if (!raw || typeof raw != "object") continue;
-        let node2 = raw, mounts = Array.isArray(node2.mountpoints) ? node2.mountpoints.filter((path2) => typeof path2 == "string" && path2.startsWith("/")) : [];
+        let node2 = raw, mounts = Array.isArray(node2.mountpoints) ? node2.mountpoints.filter((path3) => typeof path3 == "string" && path3.startsWith("/")) : [];
         if (node2.fstype && !["swap", "squashfs"].includes(String(node2.fstype)) && ["disk", "part", "crypt", "lvm"].includes(String(node2.type)))
-          if (mounts.length) for (let path2 of mounts.filter((path3) => !["/boot", "/boot/efi", "/efi"].includes(path3.replace(/\/+$/, "")))) places.push({ id: `${node2.name}:${path2}`, device: String(node2.path || "/dev/" + node2.name), name: String(node2.label || node2.name) + ` (${path2})`, path: path2, mounted: !0 });
+          if (mounts.length) for (let path3 of mounts.filter((path4) => !["/boot", "/boot/efi", "/efi"].includes(path4.replace(/\/+$/, "")))) places.push({ id: `${node2.name}:${path3}`, device: String(node2.path || "/dev/" + node2.name), name: String(node2.label || node2.name) + ` (${path3})`, path: path3, mounted: !0 });
           else places.push({ id: `${node2.name}:unmounted`, device: String(node2.path || "/dev/" + node2.name), name: String(node2.label || node2.name), path: "", mounted: !1 });
         walk(node2.children);
       }
@@ -2611,16 +2611,16 @@ async function discoverDrives() {
   let { stdout } = await exec2("lsblk", ["--json", "--output", "NAME,PATH,LABEL,FSTYPE,TYPE,MOUNTPOINTS"], { timeout: 5e3, maxBuffer: 1048576 });
   return parseDrives(JSON.parse(stdout));
 }
-async function discoverGames(home) {
-  let groups = [], seen = /* @__PURE__ */ new Set(), add = async (places, name, path2) => {
+async function discoverGames(home2) {
+  let groups = [], seen = /* @__PURE__ */ new Set(), add = async (places, name, path3) => {
     try {
-      if (!(await stat(path2)).isDirectory()) return;
-      let resolved = await realpath2(path2);
+      if (!(await stat(path3)).isDirectory()) return;
+      let resolved = await realpath2(path3);
       if (seen.has(resolved)) return;
-      seen.add(resolved), places.push({ name, path: path2 });
+      seen.add(resolved), places.push({ name, path: path3 });
     } catch {
     }
-  }, steam = [], roots = [join2(home, ".local/share/Steam"), join2(home, ".steam/steam"), join2(home, ".var/app/com.valvesoftware.Steam/.local/share/Steam")];
+  }, steam = [], roots = [join2(home2, ".local/share/Steam"), join2(home2, ".steam/steam"), join2(home2, ".var/app/com.valvesoftware.Steam/.local/share/Steam")];
   for (let root of roots) {
     let libraries = [root];
     try {
@@ -2633,7 +2633,7 @@ async function discoverGames(home) {
   }
   steam.length && groups.push({ name: "Steam / Proton", places: steam });
   let heroic = [];
-  for (let root of [join2(home, ".config/heroic"), join2(home, ".var/app/com.heroicgameslauncher.hgl/config/heroic")]) {
+  for (let root of [join2(home2, ".config/heroic"), join2(home2, ".var/app/com.heroicgameslauncher.hgl/config/heroic")]) {
     await add(heroic, t("Configura\xE7\xF5es"), root);
     let titles = /* @__PURE__ */ new Map();
     for (let file of ["store_cache/legendary_library.json", "store_cache/gog_library.json", "store_cache/nile_library.json", "legendaryConfig/legendary/installed.json"])
@@ -2656,9 +2656,9 @@ async function discoverGames(home) {
     } catch {
     }
   }
-  await add(heroic, t("Jogos"), join2(home, "Games/Heroic")), heroic.length && groups.push({ name: "Heroic", places: heroic });
+  await add(heroic, t("Jogos"), join2(home2, "Games/Heroic")), heroic.length && groups.push({ name: "Heroic", places: heroic });
   let lutris = [];
-  for (let root of [join2(home, ".config/lutris"), join2(home, ".var/app/net.lutris.Lutris/config/lutris")]) {
+  for (let root of [join2(home2, ".config/lutris"), join2(home2, ".var/app/net.lutris.Lutris/config/lutris")]) {
     await add(lutris, t("Configura\xE7\xF5es"), root);
     try {
       for (let filename of await readdir2(join2(root, "games"))) {
@@ -2669,10 +2669,10 @@ async function discoverGames(home) {
     } catch {
     }
   }
-  return await add(lutris, t("Jogos"), join2(home, "Games")), lutris.length && groups.push({ name: "Lutris", places: lutris }), groups;
+  return await add(lutris, t("Jogos"), join2(home2, "Games")), lutris.length && groups.push({ name: "Lutris", places: lutris }), groups;
 }
-async function discoverPlaces(home, config = join2(process.env.XDG_CONFIG_HOME || join2(home, ".config"), "user-dirs.dirs")) {
-  for (let bookmarks of [join2(dirname2(config), "gtk-3.0/bookmarks"), join2(home, ".gtk-bookmarks")])
+async function discoverPlaces(home2, config = join2(process.env.XDG_CONFIG_HOME || join2(home2, ".config"), "user-dirs.dirs")) {
+  for (let bookmarks of [join2(dirname2(config), "gtk-3.0/bookmarks"), join2(home2, ".gtk-bookmarks")])
     try {
       let saved = await readFile(bookmarks, "utf8"), result = [], seen2 = /* @__PURE__ */ new Set();
       for (let line of saved.split(`
@@ -2680,9 +2680,9 @@ async function discoverPlaces(home, config = join2(process.env.XDG_CONFIG_HOME |
         let match = line.match(/^(\S+)(?:\s+(.*))?$/);
         if (match)
           try {
-            let path2 = fileURLToPath(match[1]);
-            if (seen2.has(path2) || path2 === home || !(await stat(path2)).isDirectory()) continue;
-            seen2.add(path2), result.push({ id: path2, path: path2, name: match[2]?.trim() || basename2(path2), icon: entryIcon(basename2(path2), !0) });
+            let path3 = fileURLToPath(match[1]);
+            if (seen2.has(path3) || path3 === home2 || !(await stat(path3)).isDirectory()) continue;
+            seen2.add(path3), result.push({ id: path3, path: path3, name: match[2]?.trim() || basename2(path3), icon: entryIcon(basename2(path3), !0) });
           } catch {
           }
       }
@@ -2694,18 +2694,18 @@ async function discoverPlaces(home, config = join2(process.env.XDG_CONFIG_HOME |
     text3 = await readFile(config, "utf8");
   } catch {
   }
-  let labels = { DESKTOP: ["\xC1rea de trabalho", "user-desktop"], DOWNLOAD: ["Downloads", "folder-download"], DOCUMENTS: ["Documentos", "folder-documents"], PICTURES: ["Imagens", "folder-pictures"], MUSIC: ["M\xFAsicas", "folder-music"], VIDEOS: ["V\xEDdeos", "folder-videos"], PROJECTS: ["Projetos", "folder-development"] }, places = [], seen = /* @__PURE__ */ new Set([home]);
+  let labels = { DESKTOP: ["\xC1rea de trabalho", "user-desktop"], DOWNLOAD: ["Downloads", "folder-download"], DOCUMENTS: ["Documentos", "folder-documents"], PICTURES: ["Imagens", "folder-pictures"], MUSIC: ["M\xFAsicas", "folder-music"], VIDEOS: ["V\xEDdeos", "folder-videos"], PROJECTS: ["Projetos", "folder-development"] }, places = [], seen = /* @__PURE__ */ new Set([home2]);
   for (let match of text3.matchAll(/^XDG_([A-Z]+)_DIR="((?:\\.|[^"\\])*)"\s*$/gm)) {
     let label = labels[match[1]];
     if (!label) continue;
-    let path2 = match[2].replace(/\\([\\"$`])/g, "$1");
-    if (path2 = path2.replace(/^\$HOME(?=\/|$)/, () => home), !(!path2.startsWith("/") || seen.has(path2))) {
+    let path3 = match[2].replace(/\\([\\"$`])/g, "$1");
+    if (path3 = path3.replace(/^\$HOME(?=\/|$)/, () => home2), !(!path3.startsWith("/") || seen.has(path3))) {
       try {
-        if (!(await stat(path2)).isDirectory()) continue;
+        if (!(await stat(path3)).isDirectory()) continue;
       } catch {
         continue;
       }
-      seen.add(path2), places.push({ id: match[1], name: t(label[0]), icon: label[1], path: path2 });
+      seen.add(path3), places.push({ id: match[1], name: t(label[0]), icon: label[1], path: path3 });
     }
   }
   return places;
@@ -2715,16 +2715,16 @@ async function discoverPlaces(home, config = join2(process.env.XDG_CONFIG_HOME |
 var SEARCH_RESULT_LIMIT = 1e4;
 async function searchFiles(root, query, options = {}) {
   let result = [], wanted = query.toLowerCase();
-  async function visit(path2, first = !1) {
+  async function visit(path3, first = !1) {
     options.signal?.throwIfAborted();
-    let children = await readdir3(path2, { withFileTypes: !0 }).catch((error) => {
+    let children = await readdir3(path3, { withFileTypes: !0 }).catch((error) => {
       if (first) throw error;
       return [];
     });
     for (let child of children) {
       if (options.signal?.throwIfAborted(), result.length >= SEARCH_RESULT_LIMIT) return;
       if (!options.hidden && child.name.startsWith(".")) continue;
-      let target = join3(path2, child.name);
+      let target = join3(path3, child.name);
       if (child.name.toLowerCase().includes(wanted)) try {
         let info = await lstat2(target);
         result.push({ path: target, name: child.name, directory: info.isDirectory(), symlink: info.isSymbolicLink(), size: info.size, modified: info.mtimeMs, icon: entryIcon(child.name, info.isDirectory()) });
@@ -2748,29 +2748,29 @@ import { join as join4 } from "node:path";
 import { homedir } from "node:os";
 import { pathToFileURL } from "node:url";
 var exec3 = promisify3(execFile3), pending = /* @__PURE__ */ new Map(), running = 0, waiting = [];
-function videoThumbnail(path2) {
-  let existing = pending.get(path2);
+function videoThumbnail(path3) {
+  let existing = pending.get(path3);
   if (existing) return existing;
-  let task = create(path2).catch(() => "").finally(() => {
-    pending.delete(path2);
+  let task = create(path3).catch(() => "").finally(() => {
+    pending.delete(path3);
   });
-  return pending.set(path2, task), task;
+  return pending.set(path3, task), task;
 }
-async function create(path2) {
+async function create(path3) {
   running >= 2 ? await new Promise((resolve3) => waiting.push(resolve3)) : running++;
   let temporary;
   try {
-    let info = await stat2(path2);
+    let info = await stat2(path3);
     if (!info.isFile()) return "";
-    let cache = join4(process.env.XDG_CACHE_HOME || join4(homedir(), ".cache"), "nandomo", "video-thumbnails"), key = createHash("sha256").update(JSON.stringify([path2, info.size, info.mtimeMs])).digest("hex"), target = join4(cache, key + ".png");
+    let cache = join4(process.env.XDG_CACHE_HOME || join4(homedir(), ".cache"), "nandomo", "video-thumbnails"), key = createHash("sha256").update(JSON.stringify([path3, info.size, info.mtimeMs])).digest("hex"), target = join4(cache, key + ".png");
     try {
       return await access(target), pathToFileURL(target).href;
     } catch {
     }
     await mkdir2(cache, { recursive: !0 }), temporary = await mkdtemp2(join4(cache, ".pending-"));
     let image = join4(temporary, "frame.png");
-    await exec3("ffmpegthumbnailer", ["-i", path2, "-o", image, "-s", "384", "-q", "8", "-t", "10%"], { timeout: 1e4, maxBuffer: 64 * 1024 });
-    let after = await stat2(path2);
+    await exec3("ffmpegthumbnailer", ["-i", path3, "-o", image, "-s", "384", "-q", "8", "-t", "10%"], { timeout: 1e4, maxBuffer: 64 * 1024 });
+    let after = await stat2(path3);
     return after.size !== info.size || after.mtimeMs !== info.mtimeMs ? "" : (await rename(image, target), pathToFileURL(target).href);
   } finally {
     try {
@@ -2787,18 +2787,18 @@ import { readFile as readFile2, mkdir as mkdir3, writeFile, rename as rename2, s
 import { join as join5, dirname as dirname3 } from "node:path";
 import { pathToFileURL as pathToFileURL2, fileURLToPath as fileURLToPath2 } from "node:url";
 var pending2 = Promise.resolve();
-function updateBookmark(home, path2, remove = !1) {
+function updateBookmark(home2, path3, remove = !1) {
   return pending2 = pending2.catch(() => {
   }).then(async () => {
-    if (!remove && !(await stat3(path2)).isDirectory()) throw new Error("Escolha uma pasta.");
-    let config = process.env.XDG_CONFIG_HOME || join5(home, ".config"), target = join5(config, "gtk-3.0/bookmarks"), contents;
+    if (!remove && !(await stat3(path3)).isDirectory()) throw new Error("Escolha uma pasta.");
+    let config = process.env.XDG_CONFIG_HOME || join5(home2, ".config"), target = join5(config, "gtk-3.0/bookmarks"), contents;
     try {
       contents = await readFile2(target, "utf8");
     } catch {
       try {
-        target = join5(home, ".gtk-bookmarks"), contents = await readFile2(target, "utf8");
+        target = join5(home2, ".gtk-bookmarks"), contents = await readFile2(target, "utf8");
       } catch {
-        target = join5(config, "gtk-3.0/bookmarks"), contents = (await discoverPlaces(home)).map((place) => pathToFileURL2(place.path).href + " " + place.name).join(`
+        target = join5(config, "gtk-3.0/bookmarks"), contents = (await discoverPlaces(home2)).map((place) => pathToFileURL2(place.path).href + " " + place.name).join(`
 `);
       }
     }
@@ -2806,12 +2806,12 @@ function updateBookmark(home, path2, remove = !1) {
 `).filter((line) => {
       if (!line) return !1;
       try {
-        return fileURLToPath2(line.split(/\s/)[0]) !== path2;
+        return fileURLToPath2(line.split(/\s/)[0]) !== path3;
       } catch {
         return !0;
       }
     });
-    remove || lines.push(pathToFileURL2(path2).href), await mkdir3(dirname3(target), { recursive: !0 });
+    remove || lines.push(pathToFileURL2(path3).href), await mkdir3(dirname3(target), { recursive: !0 });
     let temp = target + `.${process.pid}.tmp`;
     await writeFile(temp, lines.join(`
 `) + `
@@ -2821,17 +2821,17 @@ function updateBookmark(home, path2, remove = !1) {
 
 // src/infrastructure/mountPolicy.ts
 import { readFile as readFile3 } from "node:fs/promises";
-function isRemoteMount(path2, mountinfo) {
+function isRemoteMount(path3, mountinfo) {
   let decode = (value) => value.replace(/\\([0-7]{3})/g, (_, octal) => String.fromCharCode(parseInt(octal, 8))), longest = -1, remote = !1;
   for (let line of mountinfo.split(`
 `)) {
     let [record, kind] = line.split(" - "), target = decode(record?.split(" ")[4] ?? "");
-    !target || !(path2 === target || path2.startsWith(target === "/" ? "/" : target + "/")) || target.length <= longest || (longest = target.length, remote = /^(fuse\.|nfs|cifs|smb|davfs|9p)/.test(kind ?? ""));
+    !target || !(path3 === target || path3.startsWith(target === "/" ? "/" : target + "/")) || target.length <= longest || (longest = target.length, remote = /^(fuse\.|nfs|cifs|smb|davfs|9p)/.test(kind ?? ""));
   }
   return remote;
 }
-async function remotePath(path2) {
-  return isRemoteMount(path2, await readFile3("/proc/self/mountinfo", "utf8"));
+async function remotePath(path3) {
+  return isRemoteMount(path3, await readFile3("/proc/self/mountinfo", "utf8"));
 }
 
 // src/infrastructure/nodeServices.ts
@@ -2843,11 +2843,11 @@ import { pathToFileURL as pathToFileURL3, fileURLToPath as fileURLToPath3 } from
 import { promisify as promisify4 } from "node:util";
 async function statfsUsage(paths) {
   let usage = {};
-  return await Promise.all(paths.map(async (path2) => {
+  return await Promise.all(paths.map(async (path3) => {
     try {
-      let info = await statfs(path2, { bigint: !0 }), total = Number(info.blocks) * Number(info.bsize), free = Number(info.bavail) * Number(info.bsize);
+      let info = await statfs(path3, { bigint: !0 }), total = Number(info.blocks) * Number(info.bsize), free = Number(info.bavail) * Number(info.bsize);
       if (!Number.isFinite(total) || total <= 0) return;
-      usage[path2] = { used: Math.max(0, total - free), total };
+      usage[path3] = { used: Math.max(0, total - free), total };
     } catch {
     }
   })), usage;
@@ -2856,18 +2856,18 @@ var nodeFiles = {
   videoThumbnail,
   search: searchFiles,
   list: listDirectory,
-  async trash(path2) {
-    await promisify4(execFile4)("gio", ["trash", "--", path2]);
+  async trash(path3) {
+    await promisify4(execFile4)("gio", ["trash", "--", path3]);
   },
   remote: remotePath,
-  async setPermissions(path2, mode) {
+  async setPermissions(path3, mode) {
     if (!Number.isInteger(mode) || mode < 0 || mode > 511) throw new Error("Permiss\xF5es inv\xE1lidas.");
-    let info = await lstat3(path2);
+    let info = await lstat3(path3);
     if (info.isSymbolicLink()) throw new Error("Abra o arquivo original para editar permiss\xF5es.");
-    await chmod2(path2, info.mode & 3584 | mode);
+    await chmod2(path3, info.mode & 3584 | mode);
   },
-  async details(path2) {
-    let info = await lstat3(path2), children = info.isDirectory() ? await readdir4(path2, { withFileTypes: !0 }) : void 0;
+  async details(path3) {
+    let info = await lstat3(path3), children = info.isDirectory() ? await readdir4(path3, { withFileTypes: !0 }) : void 0;
     return { permissions: (info.mode & 4095).toString(8), owner: (await readFile4("/etc/passwd", "utf8").catch(() => "")).split(`
 `).find((line) => line.split(":")[2] === String(info.uid))?.split(":")[0] || String(info.uid), items: children?.length, folders: children?.filter((child) => child.isDirectory()).length };
   },
@@ -2875,10 +2875,10 @@ var nodeFiles = {
   parent: dirname4,
   child: join6,
   fromUrl: fileURLToPath3,
-  url: (path2) => pathToFileURL3(path2).href,
-  async exists(path2) {
+  url: (path3) => pathToFileURL3(path3).href,
+  async exists(path3) {
     try {
-      return await lstat3(path2), !0;
+      return await lstat3(path3), !0;
     } catch (error) {
       if (error.code === "ENOENT") return !1;
       throw error;
@@ -2903,18 +2903,18 @@ var nodeFiles = {
       await rm3(temporary, { recursive: !0, force: !0 });
     }
   },
-  async create(path2, kind) {
-    kind === "folder" ? await mkdir4(path2) : await writeFile2(path2, "", { flag: "wx" });
+  async create(path3, kind) {
+    kind === "folder" ? await mkdir4(path3) : await writeFile2(path3, "", { flag: "wx" });
   },
   transfer: transferFile,
   rename: moveNoClobber,
   renameMany,
   archive: createArchive,
   extract: extractArchive,
-  watch(path2, changed) {
+  watch(path3, changed) {
     let timer;
     try {
-      let watcher = watch(path2, () => {
+      let watcher = watch(path3, () => {
         clearTimeout(timer), timer = setTimeout(changed, 180);
       });
       return watcher.on("error", () => {
@@ -2927,12 +2927,12 @@ var nodeFiles = {
       };
     }
   },
-  async open(path2) {
+  async open(path3) {
     try {
-      await promisify4(execFile4)("dms", ["open", path2]);
+      await promisify4(execFile4)("dms", ["open", path3]);
     } catch (error) {
       if (error.code !== "ENOENT") throw error;
-      await promisify4(execFile4)("xdg-open", [path2]);
+      await promisify4(execFile4)("xdg-open", [path3]);
     }
   }
 }, nodeLocations = { bookmark: updateBookmark, volumeAction: async (action, place) => {
@@ -2949,13 +2949,13 @@ import { dirname as dirname5, join as join11 } from "node:path";
 import { readFile as readFile5, readdir as readdir5 } from "node:fs/promises";
 import { join as join7, basename as basename3 } from "node:path";
 import { pathToFileURL as pathToFileURL4 } from "node:url";
-async function discoverIconCatalog(home) {
+async function discoverIconCatalog(home2) {
   let theme = "Adwaita";
   try {
-    theme = JSON.parse(await readFile5(join7(process.env.XDG_CONFIG_HOME || join7(home, ".config"), "DankMaterialShell/settings.json"), "utf8")).iconThemeDark || theme;
+    theme = JSON.parse(await readFile5(join7(process.env.XDG_CONFIG_HOME || join7(home2, ".config"), "DankMaterialShell/settings.json"), "utf8")).iconThemeDark || theme;
   } catch {
   }
-  let roots = [join7(home, ".icons"), join7(process.env.XDG_DATA_HOME || join7(home, ".local/share"), "icons"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":").map((root) => join7(root, "icons"))], emblems = /* @__PURE__ */ new Map(), logos = /* @__PURE__ */ new Map();
+  let roots = [join7(home2, ".icons"), join7(process.env.XDG_DATA_HOME || join7(home2, ".local/share"), "icons"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":").map((root) => join7(root, "icons"))], emblems = /* @__PURE__ */ new Map(), logos = /* @__PURE__ */ new Map();
   for (let name of [.../* @__PURE__ */ new Set([theme, "Adwaita", "hicolor"])].filter((name2) => /^[\w .-]+$/.test(name2)))
     for (let root of roots) {
       let ini = "";
@@ -2996,16 +2996,16 @@ import { fileURLToPath as fileURLToPath4 } from "node:url";
 import { execFile as execFile5 } from "node:child_process";
 import { promisify as promisify5 } from "node:util";
 var exec4 = promisify5(execFile5);
-async function entry(path2, name = basename4(path2)) {
+async function entry(path3, name = basename4(path3)) {
   try {
-    let info = await stat4(path2);
-    return { path: path2, name, directory: info.isDirectory(), symlink: !1, size: info.size, modified: info.mtimeMs, icon: entryIcon(name, info.isDirectory()) };
+    let info = await stat4(path3);
+    return { path: path3, name, directory: info.isDirectory(), symlink: !1, size: info.size, modified: info.mtimeMs, icon: entryIcon(name, info.isDirectory()) };
   } catch {
     return null;
   }
 }
-function virtualLocations(home) {
-  let data = process.env.XDG_DATA_HOME || join8(home, ".local/share");
+function virtualLocations(home2) {
+  let data = process.env.XDG_DATA_HOME || join8(home2, ".local/share");
   return async function(uri) {
     if (uri === "recent:///") {
       let script = `import sys,json,xml.etree.ElementTree as ET
@@ -3053,15 +3053,15 @@ except FileNotFoundError:
 
 // src/infrastructure/desktopActions.ts
 var exec5 = promisify6(execFile6);
-function desktopActions(home) {
-  let config = process.env.NANDOMO_FM_CONFIG_DIR || join9(process.env.XDG_CONFIG_HOME || join9(home, ".config"), "nandomo-file-manager"), pending3 = Promise.resolve();
+function desktopActions(home2) {
+  let config = process.env.NANDOMO_FM_CONFIG_DIR || join9(process.env.XDG_CONFIG_HOME || join9(home2, ".config"), "nandomo-file-manager"), pending3 = Promise.resolve();
   return {
-    iconCatalog: () => discoverIconCatalog(home),
-    virtualEntries: virtualLocations(home),
+    iconCatalog: () => discoverIconCatalog(home2),
+    virtualEntries: virtualLocations(home2),
     async readFolderAppearances() {
       try {
         let data = JSON.parse(await readFile7(join9(config, "folders.json"), "utf8"));
-        return Object.fromEntries(Object.entries(data).filter(([path2]) => path2.startsWith("/")).map(([path2, value]) => [path2, normalizeFolderAppearance(value || {})]));
+        return Object.fromEntries(Object.entries(data).filter(([path3]) => path3.startsWith("/")).map(([path3, value]) => [path3, normalizeFolderAppearance(value || {})]));
       } catch {
         return {};
       }
@@ -3101,7 +3101,7 @@ function desktopActions(home) {
         let locale = value.split(".")[0].replaceAll("-", "_");
         return [locale, locale.split("@")[0], locale.split("_")[0].split("@")[0]];
       });
-      for (let root of [join9(process.env.XDG_DATA_HOME || join9(home, ".local/share"), "applications"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":").map((path2) => join9(path2, "applications"))]) {
+      for (let root of [join9(process.env.XDG_DATA_HOME || join9(home2, ".local/share"), "applications"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":").map((path3) => join9(path3, "applications"))]) {
         let names2 = [];
         try {
           names2 = await readdir7(root);
@@ -3141,15 +3141,15 @@ function desktopActions(home) {
     async openDesktopFile(id) {
       let { stdout } = await exec5("xdg-mime", ["query", "default", "text/plain"], { timeout: 5e3 }), editor = stdout.trim();
       if (!editor || basename5(editor) !== editor) throw new Error("Configure um editor padr\xE3o para arquivos de texto.");
-      let roots = [process.env.XDG_DATA_HOME || join9(home, ".local/share"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":")];
+      let roots = [process.env.XDG_DATA_HOME || join9(home2, ".local/share"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":")];
       for (let root of roots) {
-        let path2 = join9(root, "applications", editor);
+        let path3 = join9(root, "applications", editor);
         try {
-          await readFile7(path2);
+          await readFile7(path3);
         } catch {
           continue;
         }
-        await exec5("gio", ["launch", path2, id], { timeout: 15e3 });
+        await exec5("gio", ["launch", path3, id], { timeout: 15e3 });
         return;
       }
       throw new Error("Editor padr\xE3o n\xE3o encontrado.");
@@ -3177,11 +3177,11 @@ function desktopActions(home) {
     async special(uri) {
       await exec5("gio", ["open", uri], { timeout: 15e3 });
     },
-    async terminal(path2) {
-      for (let [binary, args] of [["xdg-terminal-exec", ["--dir", path2]], ["kgx", ["--working-directory", path2]], ["gnome-terminal", ["--working-directory", path2]], ["konsole", ["--workdir", path2]], ["xfce4-terminal", ["--working-directory", path2]], ["alacritty", ["--working-directory", path2]], ["kitty", ["--directory", path2]]])
+    async terminal(path3) {
+      for (let [binary, args] of [["xdg-terminal-exec", ["--dir", path3]], ["kgx", ["--working-directory", path3]], ["gnome-terminal", ["--working-directory", path3]], ["konsole", ["--workdir", path3]], ["xfce4-terminal", ["--working-directory", path3]], ["alacritty", ["--working-directory", path3]], ["kitty", ["--directory", path3]]])
         try {
           await exec5("which", [binary]), await new Promise((resolve3, reject) => {
-            let child = spawn(binary, args, { cwd: path2, stdio: "ignore", detached: !0 });
+            let child = spawn(binary, args, { cwd: path3, stdio: "ignore", detached: !0 });
             child.once("error", reject), child.once("spawn", () => {
               child.unref(), resolve3();
             });
@@ -3200,20 +3200,20 @@ import { readFile as readFile8, access as access2, readdir as readdir8 } from "n
 import { join as join10 } from "node:path";
 import { pathToFileURL as pathToFileURL6 } from "node:url";
 var names = ["folder", "text-x-generic", "image-x-generic", "video-x-generic", "audio-x-generic", "package-x-generic", "application-pdf", "user-home", "user-desktop", "folder-download", "folder-documents", "folder-pictures", "folder-music", "folder-videos", "folder-development", "drive-harddisk", "applications-games", "go-previous", "go-next", "go-up", "view-refresh", "view-list-details", "view-grid", "view-column", "list-add", "document-open", "edit-rename", "window-close", "document-preview"];
-async function discoverIcons(home, light, requested = []) {
+async function discoverIcons(home2, light, requested = []) {
   let wanted = [.../* @__PURE__ */ new Set([...names, ...requested])].filter((name) => /^[\w .+-]+$/.test(name)), theme = "";
   try {
-    let settings = JSON.parse(await readFile8(join10(process.env.XDG_CONFIG_HOME || join10(home, ".config"), "DankMaterialShell/settings.json"), "utf8"));
+    let settings = JSON.parse(await readFile8(join10(process.env.XDG_CONFIG_HOME || join10(home2, ".config"), "DankMaterialShell/settings.json"), "utf8"));
     theme = settings.iconThemePerMode && light ? settings.iconThemeLight : settings.iconThemeDark;
   } catch {
   }
   if (!theme || theme === "System Default")
     try {
-      theme = (await readFile8(join10(home, ".config/qt6ct/qt6ct.conf"), "utf8")).match(/^icon_theme=(.+)$/m)?.[1]?.trim() || "";
+      theme = (await readFile8(join10(home2, ".config/qt6ct/qt6ct.conf"), "utf8")).match(/^icon_theme=(.+)$/m)?.[1]?.trim() || "";
     } catch {
     }
   if (!theme || !/^[\w .-]+$/.test(theme)) return {};
-  let dataHome = process.env.XDG_DATA_HOME || join10(home, ".local/share"), roots = [join10(home, ".icons"), join10(dataHome, "icons"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":").map((root) => join10(root, "icons"))], result = {}, seen = /* @__PURE__ */ new Set();
+  let dataHome = process.env.XDG_DATA_HOME || join10(home2, ".local/share"), roots = [join10(home2, ".icons"), join10(dataHome, "icons"), ...(process.env.XDG_DATA_DIRS || "/usr/local/share:/usr/share").split(":").map((root) => join10(root, "icons"))], result = {}, seen = /* @__PURE__ */ new Set();
   async function visit(name) {
     if (seen.has(name) || seen.size >= 12 || !/^[\w .-]+$/.test(name)) return;
     seen.add(name);
@@ -3230,9 +3230,9 @@ async function discoverIcons(home, light, requested = []) {
             if (!result[icon])
               for (let file of /\.(svg|png|xpm)$/i.test(icon) ? [icon] : ["svg", "png", "xpm"].map((extension2) => `${icon}.${extension2}`)) {
                 if (!files.has(file)) continue;
-                let path2 = join10(root, name, directory, file);
+                let path3 = join10(root, name, directory, file);
                 try {
-                  await access2(path2), result[icon] = pathToFileURL6(path2).href;
+                  await access2(path3), result[icon] = pathToFileURL6(path3).href;
                   break;
                 } catch {
                 }
@@ -3246,12 +3246,12 @@ async function discoverIcons(home, light, requested = []) {
 }
 
 // src/infrastructure/dmsDesktop.ts
-function createDmsDesktop(home) {
-  let colorsPath = join11(process.env.XDG_CACHE_HOME || join11(home, ".cache"), "DankMaterialShell/dms-colors.json"), desktop = desktopActions(home);
+function createDmsDesktop(home2) {
+  let colorsPath = join11(process.env.XDG_CACHE_HOME || join11(home2, ".cache"), "DankMaterialShell/dms-colors.json"), desktop = desktopActions(home2);
   return {
     ...desktop,
     async applications(target) {
-      let apps = await desktop.applications(target), light = await readFile9(colorsPath, "utf8").then((text3) => JSON.parse(text3).mode === "light").catch(() => !1), icons = await discoverIcons(home, light, apps.map((app) => app.icon || "").filter((icon) => !icon.startsWith("file:")));
+      let apps = await desktop.applications(target), light = await readFile9(colorsPath, "utf8").then((text3) => JSON.parse(text3).mode === "light").catch(() => !1), icons = await discoverIcons(home2, light, apps.map((app) => app.icon || "").filter((icon) => !icon.startsWith("file:")));
       return apps.map((app) => ({ ...app, icon: app.icon ? icons[app.icon] || app.icon : icons["package-x-generic"] || "package-x-generic" }));
     },
     async theme() {
@@ -3270,7 +3270,7 @@ function createDmsDesktop(home) {
         "surface_container_high",
         "outline",
         "error"
-      ].filter((key) => typeof colors?.[key] == "string" && /^#[0-9a-fA-F]{6,8}$/.test(colors[key])).map((key) => [key, colors[key]])), icons: await discoverIcons(home, light) };
+      ].filter((key) => typeof colors?.[key] == "string" && /^#[0-9a-fA-F]{6,8}$/.test(colors[key])).map((key) => [key, colors[key]])), icons: await discoverIcons(home2, light) };
     },
     watchTheme(changed) {
       try {
@@ -3289,13 +3289,40 @@ function createDmsDesktop(home) {
 // src/infrastructure/quickshell.ts
 import { createInterface } from "node:readline";
 
-// ../../packages/bridge-qml/src/native-component.ts
-var identifier = /^[A-Za-z_][A-Za-z0-9_]*$/, path = /^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*$/;
+// ../toolchain/bridge-qml/src/qml.ts
+function createQmlRef(_component) {
+  let current = null;
+  return {
+    get current() {
+      return current;
+    },
+    attach(object) {
+      current = object;
+    }
+  };
+}
+function tag(type) {
+  return (props) => ({ __spec: !0, kind: `qml:${type}`, props: { ...props } });
+}
+var qml = {
+  Item: tag("Item"),
+  ScrollView: tag("ScrollView"),
+  Column: tag("Column"),
+  Row: tag("Row"),
+  Text: tag("Text"),
+  Label: tag("Label"),
+  Button: tag("Button"),
+  TextField: tag("TextField"),
+  Dialog: tag("Dialog")
+};
+
+// ../toolchain/bridge-qml/src/native-component.ts
+var identifier = /^[A-Za-z_][A-Za-z0-9_]*$/, path2 = /^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*$/;
 function defineQmlComponent(definition) {
-  if (!identifier.test(definition.type) || !path.test(definition.module)) throw new TypeError("Invalid QML type or module");
-  for (let property of definition.properties) if (!path.test(property)) throw new TypeError("Invalid QML property");
+  if (!identifier.test(definition.type) || !path2.test(definition.module)) throw new TypeError("Invalid QML type or module");
+  for (let property of definition.properties) if (!path2.test(property)) throw new TypeError("Invalid QML property");
   for (let [event, args] of Object.entries(definition.events ?? {}))
-    if (!/^(?:[A-Za-z_][A-Za-z0-9_]*\.)*on[A-Z][A-Za-z0-9_]*$/.test(event) || args.some((arg) => !path.test(arg))) throw new TypeError("Invalid QML event contract");
+    if (!/^(?:[A-Za-z_][A-Za-z0-9_]*\.)*on[A-Z][A-Za-z0-9_]*$/.test(event) || args.some((arg) => !path2.test(arg))) throw new TypeError("Invalid QML event contract");
   let nativeQmlType = Object.freeze({
     ...definition,
     properties: Object.freeze([...definition.properties]),
@@ -3304,7 +3331,7 @@ function defineQmlComponent(definition) {
   return (props) => ({ __spec: !0, kind: `qml:${nativeQmlType.type}`, props: { ...props }, nativeQmlType });
 }
 
-// ../../packages/bridge-runtime/src/native-updates.ts
+// ../toolchain/bridge-runtime/src/native-updates.ts
 function createWireValueCache() {
   let values = /* @__PURE__ */ new Map();
   return {
@@ -3321,12 +3348,12 @@ function createWireValueCache() {
   };
 }
 
-// ../../packages/bridge-qml/src/native-value.ts
+// ../toolchain/bridge-qml/src/native-value.ts
 function isQmlEnum(value) {
   return typeof value == "object" && value !== null && "__qmlEnum" in value && typeof value.__qmlEnum == "string" && /^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)+$/.test(value.__qmlEnum);
 }
 
-// ../../packages/bridge-qml/src/native-composition.ts
+// ../toolchain/bridge-qml/src/native-composition.ts
 var nextScope = 0;
 function createQmlScope(stableIds = {}) {
   let prefix = `ndScope${nextScope++}_`, ids = { ...stableIds };
@@ -3369,12 +3396,12 @@ function emitNativeClosure(value, args = "") {
   return `(() => { const __name = function(fn) { return fn; }; return (${source})({${objects}}${args ? ", " + args : ""}); })()`;
 }
 
-// ../../packages/bridge-qml/src/primitives/types.ts
+// ../toolchain/bridge-qml/src/primitives/types.ts
 function isSpecNode(value) {
   return typeof value == "object" && value !== null && value.__spec === !0 && typeof value.kind == "string";
 }
 
-// ../../packages/bridge-qml/src/native-scene.ts
+// ../toolchain/bridge-qml/src/native-scene.ts
 var primitives = {
   View: "Column",
   Container: "Item",
@@ -3561,7 +3588,7 @@ ${source}` : source;
           return fragment;
         },
         order(handles) {
-          let changed = ordered.length !== handles.length || ordered.some((handle, index) => handle !== handles[index]);
+          let changed = ordered.length !== handles.length || ordered.some((handle, index2) => handle !== handles[index2]);
           ordered = handles, !initial && changed && patch({ cmd: "order_fragments", parent: id2, objects: handles.map((handle) => handle.name) }).catch(onError);
         },
         remove(handle) {
@@ -3784,15 +3811,15 @@ ${body}
   }
 }
 
-// ../../packages/bridge-qml/src/diagnostics.ts
+// ../toolchain/bridge-qml/src/diagnostics.ts
 function formatQmlDiagnostic(message, source, url = "file:///nandomo.qml") {
   let escaped = url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   return message.replace(new RegExp(`${escaped}:(\\d+)(?::\\d+)?`, "g"), (original, line) => {
     let number = Number(line), lines = source.split(`
 `);
     if (number < 1 || number > lines.length) return original;
-    for (let index = number - 1; index >= 0; index--) {
-      let marker = lines[index].trim().match(/^\/\/ @nandomo-source (.+)$/);
+    for (let index2 = number - 1; index2 >= 0; index2--) {
+      let marker = lines[index2].trim().match(/^\/\/ @nandomo-source (.+)$/);
       if (marker)
         try {
           let origin = JSON.parse(marker[1]);
@@ -3805,7 +3832,7 @@ function formatQmlDiagnostic(message, source, url = "file:///nandomo.qml") {
   });
 }
 
-// ../../packages/bridge-qml/src/component-ref.ts
+// ../toolchain/bridge-qml/src/component-ref.ts
 var COMPONENT_REF_BRAND = "__componentRef";
 function createComponentRef(ctor, props) {
   return {
@@ -3815,7 +3842,7 @@ function createComponentRef(ctor, props) {
   };
 }
 
-// ../../packages/bridge-qml/src/import-qml.ts
+// ../toolchain/bridge-qml/src/import-qml.ts
 function importQml(module) {
   if (!/^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*$/.test(module))
     throw new TypeError(`Invalid QML module: ${module}`);
@@ -3930,7 +3957,7 @@ function runQuickshell(manager2, regions, options = {}) {
 `);
   }), transport = createUiTransport(send), generation = 0, reloading = !1, revision = signal(0);
   function createScenes(regions2, version) {
-    let built = {}, contexts = { toolbar: "app.uiBridge", sidebar: "app.sidebarBridge", details: "app.detailsBridge", dialogs: "app.dialogsBridge" };
+    let built = {}, contexts = { toolbar: "app.uiBridge", sidebar: "app.sidebarBridge", details: "app.detailsBridge", dialogs: "app.dialogsBridge", footer: "app.footerBridge" };
     try {
       for (let name of Object.keys(contexts))
         built[name] = createQuickshellScene(
@@ -3948,7 +3975,7 @@ function runQuickshell(manager2, regions, options = {}) {
   }
   let scenes = createScenes(regions, generation), output2 = effect(() => {
     revision();
-    let message = { ...manager2.snapshot(), ui: scenes.toolbar.snapshot(), sidebarUi: scenes.sidebar.snapshot(), detailsUi: scenes.details.snapshot(), dialogsUi: scenes.dialogs.snapshot() };
+    let message = { ...manager2.snapshot(), ui: scenes.toolbar.snapshot(), sidebarUi: scenes.sidebar.snapshot(), detailsUi: scenes.details.snapshot(), dialogsUi: scenes.dialogs.snapshot(), footerUi: scenes.footer.snapshot() };
     reloading || send(message);
   }), input2 = createInterface({ input: options.input ?? process.stdin }), disposed = !1, resolveClosed, closed = new Promise((resolve3) => {
     resolveClosed = resolve3;
@@ -3962,12 +3989,12 @@ function runQuickshell(manager2, regions, options = {}) {
           if (!event || typeof event.handler != "string" || !Array.isArray(event.args)) throw new Error("Evento de UI inv\xE1lido.");
           let eventGeneration = event.generation;
           if (typeof eventGeneration == "number" && eventGeneration !== generation) return;
-          (event.scene === "sidebar" ? scenes.sidebar : event.scene === "details" ? scenes.details : event.scene === "dialogs" ? scenes.dialogs : scenes.toolbar).dispatch(event.handler, event.args);
+          (event.scene === "sidebar" ? scenes.sidebar : event.scene === "details" ? scenes.details : event.scene === "dialogs" ? scenes.dialogs : event.scene === "footer" ? scenes.footer : scenes.toolbar).dispatch(event.handler, event.args);
           break;
         }
         case "uiMounted": {
           if (reloading) break;
-          (command.value === "toolbar" || command.value === "sidebar" || command.value === "details" || command.value === "dialogs") && scenes[command.value].mount();
+          (command.value === "toolbar" || command.value === "sidebar" || command.value === "details" || command.value === "dialogs" || command.value === "footer") && scenes[command.value].mount();
           break;
         }
         case "uiResult": {
@@ -4397,23 +4424,23 @@ function validateSelection(request2, selection, exists, accepts2 = matchesFilter
   }
   if (!selection.paths.length) return { response: RESPONSE_CANCELLED };
   if (request2.method === "SaveFile") {
-    let path2 = selection.paths[0];
-    return !path2.startsWith("/") || isPlainName(basename6(path2)) === !1 ? { response: RESPONSE_FAILED, error: "destino inv\xE1lido" } : exists(dirname6(path2)).directory ? exists(path2).directory ? { response: RESPONSE_FAILED, error: "destino \xE9 uma pasta" } : exists(path2).exists && selection.overwrite !== !0 ? { response: RESPONSE_FAILED, error: "OVERWRITE_CONFIRMATION_REQUIRED" } : { response: RESPONSE_SUCCESS, paths: [path2] } : { response: RESPONSE_FAILED, error: "pasta de destino inexistente" };
+    let path3 = selection.paths[0];
+    return !path3.startsWith("/") || isPlainName(basename6(path3)) === !1 ? { response: RESPONSE_FAILED, error: "destino inv\xE1lido" } : exists(dirname6(path3)).directory ? exists(path3).directory ? { response: RESPONSE_FAILED, error: "destino \xE9 uma pasta" } : exists(path3).exists && selection.overwrite !== !0 ? { response: RESPONSE_FAILED, error: "OVERWRITE_CONFIRMATION_REQUIRED" } : { response: RESPONSE_SUCCESS, paths: [path3] } : { response: RESPONSE_FAILED, error: "pasta de destino inexistente" };
   }
   let paths = selection.paths;
   if (!request2.multiple && paths.length !== 1) return { response: RESPONSE_FAILED, error: "sele\xE7\xE3o inv\xE1lida" };
-  for (let path2 of paths) {
-    if (!path2.startsWith("/") || path2.includes("\0") || path2 !== "/" && path2.endsWith("/")) return { response: RESPONSE_FAILED, error: "sele\xE7\xE3o inv\xE1lida" };
-    let info = exists(path2);
+  for (let path3 of paths) {
+    if (!path3.startsWith("/") || path3.includes("\0") || path3 !== "/" && path3.endsWith("/")) return { response: RESPONSE_FAILED, error: "sele\xE7\xE3o inv\xE1lida" };
+    let info = exists(path3);
     if (!info.exists) return { response: RESPONSE_FAILED, error: "arquivo inexistente" };
     if (request2.mode === "directory" && !info.directory) return { response: RESPONSE_FAILED, error: "sele\xE7\xE3o inv\xE1lida" };
     if (request2.mode === "file" && info.directory) return { response: RESPONSE_FAILED, error: "sele\xE7\xE3o inv\xE1lida" };
-    if (request2.mode !== "directory" && request2.filters.length > 0 && !request2.filters.some((filter2) => accepts2(basename6(path2), filter2))) return { response: RESPONSE_FAILED, error: "sele\xE7\xE3o inv\xE1lida" };
+    if (request2.mode !== "directory" && request2.filters.length > 0 && !request2.filters.some((filter2) => accepts2(basename6(path3), filter2))) return { response: RESPONSE_FAILED, error: "sele\xE7\xE3o inv\xE1lida" };
   }
   return { response: RESPONSE_SUCCESS, paths };
 }
-function toFileUri(path2) {
-  return `file://${path2.split("/").map((part, index) => index === 0 ? part : encodeURIComponent(part)).join("/")}`;
+function toFileUri(path3) {
+  return `file://${path3.split("/").map((part, index2) => index2 === 0 ? part : encodeURIComponent(part)).join("/")}`;
 }
 function buildResults(request2, selection) {
   let results = {
@@ -4451,39 +4478,197 @@ function createSystemFilterMatcher() {
   };
 }
 
-// ../../packages/bridge-qml/src/jsx-runtime.ts
+// ../toolchain/bridge-qml/src/jsx-runtime.ts
 var COMPONENT_NAME2 = "__componentName";
-function isComponentClass(tag) {
-  if (typeof tag != "function") return !1;
-  let marker = tag[COMPONENT_NAME2];
+function isComponentClass(tag2) {
+  if (typeof tag2 != "function") return !1;
+  let marker = tag2[COMPONENT_NAME2];
   return typeof marker == "string" && marker.length > 0;
 }
-function route(tag, props) {
-  if (tag == null) return tag;
+function route(tag2, props) {
+  if (tag2 == null) return tag2;
   let safeProps = props ?? {};
-  return isComponentClass(tag) ? createComponentRef(
-    tag,
+  return isComponentClass(tag2) ? createComponentRef(
+    tag2,
     safeProps
-  ) : tag(safeProps);
+  ) : tag2(safeProps);
 }
-function jsxDEV(tag, props, _key, _isStatic, _source, _self) {
+function jsxDEV(tag2, props, _key, _isStatic, _source, _self) {
   try {
-    return withSourceOrigin(route(tag, props), _source);
+    return withSourceOrigin(route(tag2, props), _source);
   } catch (error) {
     let probe = withSourceOrigin({}, _source);
     throw sourceError(error, sourceOrigin(probe));
   }
 }
 
+// src/native/ContextAction.tsx
+var controls = importQml("QtQuick.Controls"), layouts = importQml("QtQuick.Layouts"), dms = importQml("qs.DCommon.Widgets"), qml2 = importQml("QtQuick"), ContextAction = component(
+  "ContextAction",
+  (props) => {
+    let scope = createQmlScope({ ...props.qmlId ? { root: props.qmlId } : {}, app: "app" });
+    return scope.id("root"), /* @__PURE__ */ jsxDEV(
+      controls.MenuItem,
+      {
+        qmlImports: ["Quickshell", "qs.DCommon.Common"],
+        qmlId: scope.id("root"),
+        qmlDeclarations: {
+          hint: { type: "string", value: "" }
+        },
+        implicitHeight: qmlExpression(scope, ($qml) => visible ? 36 : 0),
+        indicator: /* @__PURE__ */ jsxDEV(qml2.Item, { width: 0, height: 0 }, void 0, !1, {
+          fileName: "src/native/ContextAction.tsx",
+          lineNumber: 30,
+          columnNumber: 20
+        }),
+        leftPadding: 12,
+        rightPadding: 12,
+        contentItem: /* @__PURE__ */ jsxDEV(
+          layouts.RowLayout,
+          {
+            opacity: qmlExpression(
+              scope,
+              ($qml) => $qml.root.enabled ? 1 : 0.35
+            ),
+            children: [
+              /* @__PURE__ */ jsxDEV(
+                dms.StyledText,
+                {
+                  text: qmlExpression(scope, ($qml) => $qml.root.checked ? "\u2713" : ""),
+                  visible: qmlExpression(scope, ($qml) => $qml.root.checkable),
+                  "Layout.minimumWidth": 16,
+                  "Layout.maximumWidth": 16,
+                  color: qmlExpression(scope, () => Style.primary)
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "src/native/ContextAction.tsx",
+                  lineNumber: 39,
+                  columnNumber: 13
+                }
+              ),
+              /* @__PURE__ */ jsxDEV(
+                dms.StyledText,
+                {
+                  text: qmlExpression(scope, ($qml) => $qml.root.text),
+                  color: qmlExpression(scope, ($qml) => Style.surfaceText),
+                  "font.pixelSize": 14,
+                  "Layout.fillWidth": !0
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "src/native/ContextAction.tsx",
+                  lineNumber: 45,
+                  columnNumber: 13
+                }
+              ),
+              /* @__PURE__ */ jsxDEV(
+                dms.StyledText,
+                {
+                  text: qmlExpression(scope, ($qml) => $qml.root.hint),
+                  color: qmlExpression(scope, ($qml) => Style.surfaceVariantText),
+                  "font.pixelSize": 12
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "src/native/ContextAction.tsx",
+                  lineNumber: 51,
+                  columnNumber: 13
+                }
+              )
+            ]
+          },
+          void 0,
+          !0,
+          {
+            fileName: "src/native/ContextAction.tsx",
+            lineNumber: 34,
+            columnNumber: 11
+          }
+        ),
+        background: /* @__PURE__ */ jsxDEV(
+          qml2.Rectangle,
+          {
+            radius: 7,
+            color: qmlExpression(
+              scope,
+              ($qml) => $qml.root.highlighted ? Style.withAlpha(Style.primary, 0.15) : "transparent"
+            )
+          },
+          void 0,
+          !1,
+          {
+            fileName: "src/native/ContextAction.tsx",
+            lineNumber: 59,
+            columnNumber: 11
+          }
+        ),
+        ...props
+      },
+      void 0,
+      !1,
+      {
+        fileName: "src/native/ContextAction.tsx",
+        lineNumber: 23,
+        columnNumber: 7
+      }
+    );
+  }
+);
+
+// src/native/AppMenu.tsx
+var controls2 = importQml("QtQuick.Controls"), qml3 = importQml("QtQuick"), AppMenu = component("AppMenu", (props) => {
+  let scope = createQmlScope(props.qmlId ? { root: props.qmlId } : {});
+  return /* @__PURE__ */ jsxDEV(
+    controls2.Menu,
+    {
+      qmlImports: ["Quickshell", "qs.DCommon.Common"],
+      padding: 6,
+      overlap: 0,
+      implicitWidth: 260,
+      background: /* @__PURE__ */ jsxDEV(
+        qml3.Rectangle,
+        {
+          color: qmlExpression(scope, ($qml) => Style.surfaceContainerHigh),
+          radius: 12,
+          "border.width": 1,
+          "border.color": qmlExpression(
+            scope,
+            ($qml) => Style.withAlpha(Style.surfaceText, 0.1)
+          )
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/native/AppMenu.tsx",
+          lineNumber: 22,
+          columnNumber: 9
+        }
+      ),
+      ...props
+    },
+    void 0,
+    !1,
+    {
+      fileName: "src/native/AppMenu.tsx",
+      lineNumber: 16,
+      columnNumber: 5
+    }
+  );
+});
+
 // src/native/QuietButton.tsx
-var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layouts = importQml("QtQuick.Layouts"), dms = importQml("qs.DCommon.Widgets"), QuietButton = component(
+var controls3 = importQml("QtQuick.Controls"), qml4 = importQml("QtQuick"), layouts2 = importQml("QtQuick.Layouts"), dms2 = importQml("qs.DCommon.Widgets"), QuietButton = component(
   "QuietButton",
   (props) => {
     let { qmlDeclarations: inheritedDeclarations, ...rest } = props;
     props = rest;
     let scope = createQmlScope({ ...props.qmlId ? { root: props.qmlId } : {}, app: "app" });
     return scope.id("root"), /* @__PURE__ */ jsxDEV(
-      controls.Button,
+      controls3.Button,
       {
         qmlImports: ["Quickshell", "qs.DCommon.Common"],
         qmlId: scope.id("root"),
@@ -4586,14 +4771,14 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
         ),
         "ToolTip.text": qmlExpression(scope, ($qml) => Accessible.name),
         background: /* @__PURE__ */ jsxDEV(
-          qml.Rectangle,
+          qml4.Rectangle,
           {
             radius: 7,
             color: qmlExpression(
               scope,
               ($qml) => $qml.root.selected ? Style.withAlpha(Style.primary, 0.14) : $qml.root.down ? Style.withAlpha(Style.surfaceText, 0.16) : $qml.root.hovered || $qml.root.activeFocus ? Style.withAlpha(Style.surfaceText, 0.08) : "transparent"
             ),
-            children: /* @__PURE__ */ jsxDEV(qml.Behavior, { qmlOn: "color", animation: /* @__PURE__ */ jsxDEV(qml.ColorAnimation, { duration: qmlExpression(scope, () => ApplicationWindow.window && ApplicationWindow.window.reduceAnimations ? 0 : 90) }, void 0, !1, {
+            children: /* @__PURE__ */ jsxDEV(qml4.Behavior, { qmlOn: "color", animation: /* @__PURE__ */ jsxDEV(qml4.ColorAnimation, { duration: qmlExpression(scope, () => ApplicationWindow.window && ApplicationWindow.window.reduceAnimations ? 0 : 90) }, void 0, !1, {
               fileName: "src/native/QuietButton.tsx",
               lineNumber: 169,
               columnNumber: 15
@@ -4612,7 +4797,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
           }
         ),
         contentItem: /* @__PURE__ */ jsxDEV(
-          layouts.RowLayout,
+          layouts2.RowLayout,
           {
             spacing: 10,
             opacity: qmlExpression(
@@ -4621,7 +4806,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
             ),
             children: [
               /* @__PURE__ */ jsxDEV(
-                qml.Image,
+                qml4.Image,
                 {
                   visible: qmlExpression(
                     scope,
@@ -4648,7 +4833,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
                 }
               ),
               /* @__PURE__ */ jsxDEV(
-                dms.DIcon,
+                dms2.DIcon,
                 {
                   visible: qmlExpression(
                     scope,
@@ -4673,7 +4858,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
                 }
               ),
               /* @__PURE__ */ jsxDEV(
-                dms.StyledText,
+                dms2.StyledText,
                 {
                   visible: qmlExpression(
                     scope,
@@ -4711,7 +4896,7 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
         ...props,
         children: [
           /* @__PURE__ */ jsxDEV(
-            dms.DIcon,
+            dms2.DIcon,
             {
               "anchors.right": qmlExpression(scope, ($qml) => parent.right),
               "anchors.rightMargin": 8,
@@ -4749,9 +4934,681 @@ var controls = importQml("QtQuick.Controls"), qml = importQml("QtQuick"), layout
   }
 );
 
+// src/components/SortMenu.tsx
+var controls4 = importQml("QtQuick.Controls"), SortMenu = component("SortMenu", ({ objectName, currentIndex, onActivated, onError }) => {
+  let menu = createQmlRef(controls4.Menu);
+  return /* @__PURE__ */ jsxDEV(
+    QuietButton,
+    {
+      objectName,
+      text: "",
+      iconName: "sort",
+      "Accessible.name": t("Ordenar"),
+      onClicked: () => {
+        menu.current?.invoke("open").catch(onError);
+      },
+      children: /* @__PURE__ */ jsxDEV(AppMenu, { objectName: `${objectName || "sort"}Popup`, ref: menu.attach, children: ["Nome", "Tamanho", "Modificado", "Tipo"].map((label, index2) => /* @__PURE__ */ jsxDEV(
+        ContextAction,
+        {
+          objectName: `sortOption:${index2}`,
+          text: t(label),
+          checkable: !0,
+          checked: () => currentIndex() === index2,
+          onTriggered: () => onActivated(index2)
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/components/SortMenu.tsx",
+          lineNumber: 15,
+          columnNumber: 66
+        }
+      )) }, void 0, !1, {
+        fileName: "src/components/SortMenu.tsx",
+        lineNumber: 14,
+        columnNumber: 5
+      })
+    },
+    void 0,
+    !1,
+    {
+      fileName: "src/components/SortMenu.tsx",
+      lineNumber: 12,
+      columnNumber: 10
+    }
+  );
+});
+
+// src/components/ViewGroup.tsx
+var qml5 = importQml("QtQuick"), ViewGroup = component("ViewGroup", ({ view, surface, onChanged }) => /* @__PURE__ */ jsxDEV(qml5.Rectangle, { width: 112, height: 38, radius: 9, color: surface, children: /* @__PURE__ */ jsxDEV(qml5.Row, { x: 1, y: 1, spacing: 1, children: [
+  /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarList", text: "", iconName: "view-list-details", "Accessible.name": t("Visualiza\xE7\xE3o em lista"), selected: () => view() === "list", onClicked: () => onChanged("list") }, void 0, !1, {
+    fileName: "src/components/ViewGroup.tsx",
+    lineNumber: 11,
+    columnNumber: 5
+  }),
+  /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarGrid", text: "", iconName: "view-grid", "Accessible.name": t("Visualiza\xE7\xE3o em grade"), selected: () => view() === "grid", onClicked: () => onChanged("grid") }, void 0, !1, {
+    fileName: "src/components/ViewGroup.tsx",
+    lineNumber: 12,
+    columnNumber: 5
+  }),
+  /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarColumns", text: "", iconName: "view-column", "Accessible.name": t("Visualiza\xE7\xE3o em colunas"), selected: () => view() === "columns", onClicked: () => onChanged("columns") }, void 0, !1, {
+    fileName: "src/components/ViewGroup.tsx",
+    lineNumber: 13,
+    columnNumber: 5
+  })
+] }, void 0, !0, {
+  fileName: "src/components/ViewGroup.tsx",
+  lineNumber: 10,
+  columnNumber: 3
+}) }, void 0, !1, {
+  fileName: "src/components/ViewGroup.tsx",
+  lineNumber: 9,
+  columnNumber: 44
+}));
+
+// src/native/PathBar.tsx
+var qml6 = importQml("QtQuick"), qt = importQml("QtQml"), dms3 = importQml("qs.DCommon.Widgets"), PathBar = component("PathBar", (props) => {
+  props = {
+    ...props,
+    onNavigate: props.onNavigate ? qmlReadEvent(["target"], props.onNavigate) : void 0,
+    onTextEdited: props.onTextEdited ? qmlReadEvent(["draft"], props.onTextEdited) : void 0,
+    onAccepted: props.onAccepted ? qmlReadEvent(["draft"], props.onAccepted) : void 0
+  };
+  let scope = createQmlScope({ ...props.qmlId ? { root: props.qmlId } : {}, app: "app" });
+  return scope.id("root"), scope.id("crumbs"), scope.id("crumb"), scope.id("click"), scope.id("editor"), /* @__PURE__ */ jsxDEV(
+    qml6.Rectangle,
+    {
+      qmlImports: ["Quickshell", "qs.DCommon.Common"],
+      qmlId: scope.id("root"),
+      qmlDeclarations: {
+        text: { type: "string", value: "" },
+        path: { type: "string", value: "" },
+        home: { type: "string", value: "" },
+        target: { type: "string", value: "" },
+        draft: { type: "string", value: "" },
+        editing: { type: "bool", value: !1 }
+      },
+      qmlSignals: { navigate: [], textEdited: [], accepted: [] },
+      qmlMethods: {
+        clear: qmlHandler(scope, ($qml) => {
+          editing = !0, $qml.editor.clear();
+        }),
+        insertText: qmlHandler(scope, ($qml, value) => {
+          $qml.editor.insertText(value);
+        }),
+        edit: qmlHandler(scope, ($qml) => {
+          editing = !0, $qml.editor.forceActiveFocus(), $qml.editor.selectAll();
+        }),
+        segment: qmlHandler(scope, ($qml, destination) => {
+          for (var i = 0; i < $qml.crumbs.children.length; i++)
+            for (var row = $qml.crumbs.children[i], j = 0; j < row.children.length; j++)
+              if (row.children[j].objectName === "breadcrumb:" + destination)
+                return row.children[j];
+          return null;
+        }),
+        parts: qmlHandler(scope, ($qml) => {
+          var virtualName = {
+            "trash:///": "Lixeira",
+            "recent:///": "Recentes",
+            "applications:///": "Aplicativos"
+          }[path];
+          if (virtualName)
+            return [{ name: $qml.app.tr(virtualName), path }];
+          var inside = path === home || path.indexOf(home + "/") === 0, base = inside ? home : "/", result = [
+            { name: $qml.app.tr(inside ? "Pasta pessoal" : "Sistema"), path: base }
+          ], remaining = inside ? path.slice(home.length) : path;
+          return remaining.split("/").filter(function(p) {
+            return p.length;
+          }).forEach(function(p) {
+            base = base === "/" ? "/" + p : base + "/" + p, result.push({ name: p, path: base });
+          }), result;
+        })
+      },
+      implicitWidth: 300,
+      implicitHeight: 40,
+      radius: 10,
+      color: qmlExpression(scope, ($qml) => Style.surfaceContainerHigh),
+      onActiveFocusChanged: qmlHandler(scope, ($qml) => {
+        activeFocus && edit();
+      }),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxDEV(
+          qml6.Flickable,
+          {
+            "anchors.fill": qmlExpression(scope, ($qml) => parent),
+            "anchors.margins": 4,
+            visible: qmlExpression(scope, ($qml) => !$qml.root.editing),
+            contentWidth: qmlExpression(scope, ($qml) => $qml.crumbs.width),
+            contentHeight: qmlExpression(scope, ($qml) => height),
+            clip: !0,
+            children: /* @__PURE__ */ jsxDEV(
+              qml6.Row,
+              {
+                qmlId: scope.id("crumbs"),
+                height: qmlExpression(scope, ($qml) => parent.height),
+                children: [
+                  /* @__PURE__ */ jsxDEV(
+                    qml6.Repeater,
+                    {
+                      model: qmlExpression(scope, ($qml) => $qml.root.parts()),
+                      children: /* @__PURE__ */ jsxDEV(
+                        qml6.Row,
+                        {
+                          qmlId: scope.id("crumb"),
+                          qmlDeclarations: {
+                            modelData: { type: "var", required: !0 },
+                            index: { type: "int", required: !0 }
+                          },
+                          height: qmlExpression(scope, ($qml) => $qml.crumbs.height),
+                          children: [
+                            /* @__PURE__ */ jsxDEV(
+                              QuietButton,
+                              {
+                                objectName: qmlExpression(
+                                  scope,
+                                  ($qml) => "breadcrumb:" + $qml.crumb.modelData.path
+                                ),
+                                height: qmlExpression(scope, ($qml) => $qml.crumb.height),
+                                text: qmlExpression(scope, ($qml) => $qml.crumb.modelData.name),
+                                iconName: qmlExpression(
+                                  scope,
+                                  ($qml) => $qml.crumb.index === 0 ? "user-home" : ""
+                                ),
+                                onClicked: qmlHandler(scope, ($qml) => {
+                                  $qml.root.editing || ($qml.click.pendingPath = $qml.crumb.modelData.path, $qml.click.restart());
+                                }),
+                                children: [
+                                  /* @__PURE__ */ jsxDEV(
+                                    qt.Timer,
+                                    {
+                                      qmlId: scope.id("click"),
+                                      qmlDeclarations: {
+                                        pendingPath: { type: "string", value: "" }
+                                      },
+                                      interval: 250,
+                                      onTriggered: qmlHandler(scope, ($qml) => {
+                                        $qml.root.target = $qml.click.pendingPath, $qml.root.navigate();
+                                      })
+                                    },
+                                    void 0,
+                                    !1,
+                                    {
+                                      fileName: "src/native/PathBar.tsx",
+                                      lineNumber: 163,
+                                      columnNumber: 17
+                                    }
+                                  ),
+                                  /* @__PURE__ */ jsxDEV(
+                                    qml6.TapHandler,
+                                    {
+                                      onDoubleTapped: qmlHandler(scope, ($qml) => {
+                                        $qml.click.stop(), $qml.root.edit();
+                                      })
+                                    },
+                                    void 0,
+                                    !1,
+                                    {
+                                      fileName: "src/native/PathBar.tsx",
+                                      lineNumber: 174,
+                                      columnNumber: 17
+                                    }
+                                  )
+                                ]
+                              },
+                              void 0,
+                              !0,
+                              {
+                                fileName: "src/native/PathBar.tsx",
+                                lineNumber: 146,
+                                columnNumber: 15
+                              }
+                            ),
+                            /* @__PURE__ */ jsxDEV(
+                              qml6.Text,
+                              {
+                                text: "/",
+                                color: qmlExpression(scope, ($qml) => Style.surfaceText),
+                                opacity: 0.4,
+                                "anchors.verticalCenter": qmlExpression(
+                                  scope,
+                                  ($qml) => parent.verticalCenter
+                                ),
+                                visible: qmlExpression(
+                                  scope,
+                                  ($qml) => index < $qml.root.parts().length - 1
+                                )
+                              },
+                              void 0,
+                              !1,
+                              {
+                                fileName: "src/native/PathBar.tsx",
+                                lineNumber: 181,
+                                columnNumber: 15
+                              }
+                            )
+                          ]
+                        },
+                        void 0,
+                        !0,
+                        {
+                          fileName: "src/native/PathBar.tsx",
+                          lineNumber: 138,
+                          columnNumber: 13
+                        }
+                      )
+                    },
+                    void 0,
+                    !1,
+                    {
+                      fileName: "src/native/PathBar.tsx",
+                      lineNumber: 135,
+                      columnNumber: 11
+                    }
+                  ),
+                  /* @__PURE__ */ jsxDEV(
+                    qml6.MouseArea,
+                    {
+                      width: 60,
+                      height: qmlExpression(scope, ($qml) => $qml.crumbs.height),
+                      onDoubleClicked: qmlHandler(scope, ($qml) => {
+                        $qml.root.edit();
+                      })
+                    },
+                    void 0,
+                    !1,
+                    {
+                      fileName: "src/native/PathBar.tsx",
+                      lineNumber: 198,
+                      columnNumber: 11
+                    }
+                  )
+                ]
+              },
+              void 0,
+              !0,
+              {
+                fileName: "src/native/PathBar.tsx",
+                lineNumber: 131,
+                columnNumber: 9
+              }
+            )
+          },
+          void 0,
+          !1,
+          {
+            fileName: "src/native/PathBar.tsx",
+            lineNumber: 123,
+            columnNumber: 7
+          }
+        ),
+        /* @__PURE__ */ jsxDEV(
+          dms3.DTextField,
+          {
+            qmlId: scope.id("editor"),
+            "anchors.fill": qmlExpression(scope, ($qml) => parent),
+            visible: qmlExpression(scope, ($qml) => $qml.root.editing),
+            text: qmlExpression(scope, ($qml) => $qml.root.text),
+            onTextEdited: qmlHandler(scope, ($qml) => {
+              $qml.root.draft = $qml.editor.text, $qml.root.textEdited();
+            }),
+            onAccepted: qmlHandler(scope, ($qml) => {
+              $qml.root.draft = $qml.editor.text, $qml.root.accepted(), $qml.root.editing = !1;
+            }),
+            "Keys.onEscapePressed": qmlHandler(scope, ($qml) => {
+              $qml.root.editing = !1, $qml.editor.text = $qml.root.path;
+            }),
+            onActiveFocusChanged: qmlHandler(scope, ($qml) => {
+              activeFocus || ($qml.root.editing = !1);
+            })
+          },
+          void 0,
+          !1,
+          {
+            fileName: "src/native/PathBar.tsx",
+            lineNumber: 207,
+            columnNumber: 7
+          }
+        ),
+        props.children
+      ]
+    },
+    void 0,
+    !0,
+    {
+      fileName: "src/native/PathBar.tsx",
+      lineNumber: 52,
+      columnNumber: 5
+    }
+  );
+});
+
+// src/components/NativeTextField.tsx
+var dms4 = importQml("qs.DCommon.Widgets"), NativeTextField = component(
+  "NativeTextField",
+  ({ onTextEdited, onAccepted, ...props }) => /* @__PURE__ */ jsxDEV(
+    dms4.DTextField,
+    {
+      ...props,
+      ...onTextEdited ? { onTextEdited: qmlReadEvent(["text"], onTextEdited) } : {},
+      ...onAccepted ? { onAccepted: qmlReadEvent(["text"], onAccepted) } : {}
+    },
+    void 0,
+    !1,
+    {
+      fileName: "src/components/NativeTextField.tsx",
+      lineNumber: 9,
+      columnNumber: 3
+    }
+  )
+);
+
+// src/components/TabBar.tsx
+var qml7 = importQml("QtQuick"), layouts3 = importQml("QtQuick.Layouts"), TabBar = component("TabBar", ({ manager: manager2 }) => {
+  let scope = createQmlScope(), ids = signal(manager2.tabs().map((tab) => tab.id));
+  return effect(() => {
+    let next = manager2.tabs().map((tab) => tab.id), previous = ids.peek();
+    (next.length !== previous.length || next.some((id, index2) => id !== previous[index2])) && ids.set(next);
+  }), /* @__PURE__ */ jsxDEV(
+    layouts3.RowLayout,
+    {
+      qmlId: scope.id("bar"),
+      width: "fill",
+      spacing: 4,
+      qmlDeclarations: {
+        titles: { type: "var", value: () => Object.fromEntries(manager2.tabs().map((tab) => [tab.id, tab.title])) },
+        activeTab: { type: "string", value: () => manager2.tabs().find((tab) => tab.active)?.id ?? "" }
+      },
+      children: [
+        /* @__PURE__ */ jsxDEV(
+          qml7.Flickable,
+          {
+            objectName: "tabViewport",
+            clip: !0,
+            "Layout.fillWidth": !0,
+            "Layout.minimumWidth": 0,
+            "Layout.preferredWidth": 0,
+            "Layout.preferredHeight": 40,
+            contentWidth: qmlExpression(scope, (q) => q.tabsStrip.width),
+            contentHeight: 40,
+            children: /* @__PURE__ */ jsxDEV(qml7.Row, { qmlId: scope.id("tabsStrip"), height: 40, spacing: 4, width: qmlExpression(scope, () => implicitWidth), children: /* @__PURE__ */ jsxDEV(qml7.Repeater, { model: ids, delegate: /* @__PURE__ */ jsxDEV(qml7.Item, { width: 200, height: 40, qmlDeclarations: { modelData: { type: "var", required: !0 } }, children: /* @__PURE__ */ jsxDEV(layouts3.RowLayout, { "anchors.fill": qmlExpression(scope, () => parent), spacing: 0, children: [
+              /* @__PURE__ */ jsxDEV(
+                QuietButton,
+                {
+                  objectName: qmlExpression(scope, () => `tab:${modelData}`),
+                  "Layout.fillWidth": !0,
+                  "Layout.minimumWidth": 0,
+                  qmlDeclarations: { tabId: { type: "string", value: qmlExpression(scope, () => modelData) } },
+                  text: qmlExpression(scope, (q) => q.bar.titles[modelData]),
+                  selected: qmlExpression(scope, (q) => q.bar.activeTab === modelData),
+                  onClicked: qmlReadEvent(["tabId"], (id) => {
+                    manager2.selectTab(id);
+                  })
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "src/components/TabBar.tsx",
+                  lineNumber: 33,
+                  columnNumber: 15
+                }
+              ),
+              /* @__PURE__ */ jsxDEV(
+                QuietButton,
+                {
+                  objectName: qmlExpression(scope, () => `tabClose:${modelData}`),
+                  text: "",
+                  iconName: "window-close",
+                  "Accessible.name": t("Fechar"),
+                  enabled: () => manager2.tabs().length > 1,
+                  qmlDeclarations: { tabId: { type: "string", value: qmlExpression(scope, () => modelData) } },
+                  onClicked: qmlReadEvent(["tabId"], (id) => {
+                    manager2.closeTab(id);
+                  })
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "src/components/TabBar.tsx",
+                  lineNumber: 38,
+                  columnNumber: 15
+                }
+              )
+            ] }, void 0, !0, {
+              fileName: "src/components/TabBar.tsx",
+              lineNumber: 32,
+              columnNumber: 13
+            }) }, void 0, !1, {
+              fileName: "src/components/TabBar.tsx",
+              lineNumber: 31,
+              columnNumber: 11
+            }) }, void 0, !1, {
+              fileName: "src/components/TabBar.tsx",
+              lineNumber: 30,
+              columnNumber: 9
+            }) }, void 0, !1, {
+              fileName: "src/components/TabBar.tsx",
+              lineNumber: 29,
+              columnNumber: 7
+            })
+          },
+          void 0,
+          !1,
+          {
+            fileName: "src/components/TabBar.tsx",
+            lineNumber: 26,
+            columnNumber: 5
+          }
+        ),
+        /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "tabNew", text: t("Nova aba"), iconName: "list-add", onClicked: () => {
+          manager2.newTab();
+        } }, void 0, !1, {
+          fileName: "src/components/TabBar.tsx",
+          lineNumber: 47,
+          columnNumber: 5
+        })
+      ]
+    },
+    void 0,
+    !0,
+    {
+      fileName: "src/components/TabBar.tsx",
+      lineNumber: 21,
+      columnNumber: 10
+    }
+  );
+});
+
+// src/components/Toolbar.tsx
+var layouts4 = importQml("QtQuick.Layouts"), Toolbar = component("Toolbar", ({ manager: manager2, chooser: chooser2 = !1 }) => {
+  let scope = createQmlScope(), searchOpen = signal(!1), address = signal(manager2.path());
+  effect(() => {
+    address.set(manager2.path()), searchOpen.set(!1);
+  });
+  let canGoBack = computed(() => manager2.navigation().back && !manager2.busy()), canGoForward = computed(() => manager2.navigation().forward && !manager2.busy()), sorts = ["name", "size", "modified", "type"];
+  return /* @__PURE__ */ jsxDEV(layouts4.ColumnLayout, { width: "fill", spacing: 6, children: [
+    chooser2 ? null : /* @__PURE__ */ jsxDEV(TabBar, { manager: manager2 }, void 0, !1, {
+      fileName: "src/components/Toolbar.tsx",
+      lineNumber: 26,
+      columnNumber: 25
+    }),
+    /* @__PURE__ */ jsxDEV(layouts4.RowLayout, { "Layout.fillWidth": !0, children: [
+      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarBack", text: "", iconName: "go-previous", "Accessible.name": t("Voltar"), enabled: canGoBack, onClicked: () => {
+        manager2.back();
+      } }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 28,
+        columnNumber: 9
+      }),
+      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarForward", text: "", iconName: "go-next", "Accessible.name": t("Avan\xE7ar"), enabled: canGoForward, onClicked: () => {
+        manager2.forward();
+      } }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 29,
+        columnNumber: 9
+      }),
+      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarUp", text: "", iconName: "go-up", "Accessible.name": t("Pasta acima"), onClicked: () => {
+        manager2.up();
+      } }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 30,
+        columnNumber: 9
+      }),
+      /* @__PURE__ */ jsxDEV(
+        PathBar,
+        {
+          objectName: "toolbarAddress",
+          visible: () => !searchOpen(),
+          text: address,
+          path: manager2.path,
+          home: manager2.home,
+          onNavigate: (target) => {
+            manager2.navigate(target);
+          },
+          "Layout.fillWidth": !0,
+          onTextEdited: (text3) => address.set(text3),
+          onAccepted: (text3) => {
+            manager2.navigate(text3);
+          }
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/components/Toolbar.tsx",
+          lineNumber: 31,
+          columnNumber: 9
+        }
+      ),
+      /* @__PURE__ */ jsxDEV(
+        NativeTextField,
+        {
+          qmlId: scope.id("search"),
+          objectName: "fileSearch",
+          visible: searchOpen,
+          text: manager2.searchText,
+          placeholderText: t("Buscar nesta pasta\u2026"),
+          "Layout.fillWidth": !0,
+          "Accessible.name": t("Buscar arquivos"),
+          onTextEdited: manager2.setSearch,
+          onVisibleChanged: qmlHandler(scope, (q) => {
+            q.search.visible && (q.search.forceActiveFocus(), q.search.selectAll());
+          }),
+          "Keys.onEscapePressed": qmlHandler(scope, (q) => {
+            q.searchToggle.clicked();
+          })
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/components/Toolbar.tsx",
+          lineNumber: 34,
+          columnNumber: 9
+        }
+      ),
+      /* @__PURE__ */ jsxDEV(
+        QuietButton,
+        {
+          qmlId: scope.id("searchToggle"),
+          objectName: "toolbarSearch",
+          text: "",
+          iconName: () => searchOpen() ? "window-close" : "search",
+          selected: searchOpen,
+          "Accessible.name": () => t(searchOpen() ? "Fechar busca" : "Buscar arquivos"),
+          onClicked: () => {
+            searchOpen.set(!searchOpen()), searchOpen() || manager2.setSearch("");
+          }
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/components/Toolbar.tsx",
+          lineNumber: 39,
+          columnNumber: 9
+        }
+      ),
+      /* @__PURE__ */ jsxDEV(
+        QuietButton,
+        {
+          objectName: "trashRestore",
+          text: t("Restaurar"),
+          iconName: "edit-undo",
+          visible: () => manager2.path() === "trash:///",
+          enabled: () => manager2.selection().length > 0 && !manager2.mutating(),
+          onClicked: () => {
+            manager2.restoreSelected();
+          }
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/components/Toolbar.tsx",
+          lineNumber: 42,
+          columnNumber: 9
+        }
+      ),
+      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarRefresh", text: "", iconName: "view-refresh", "Accessible.name": t("Atualizar"), onClicked: () => {
+        manager2.refresh();
+      } }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 44,
+        columnNumber: 9
+      }),
+      /* @__PURE__ */ jsxDEV(ViewGroup, { view: manager2.view, surface: () => manager2.palette().surface_container_high || "#25282b", onChanged: (value) => {
+        (value === "list" || value === "grid" || value === "columns") && manager2.setView(value);
+      } }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 46,
+        columnNumber: 9
+      }),
+      /* @__PURE__ */ jsxDEV(
+        SortMenu,
+        {
+          onError: manager2.reportError,
+          objectName: "toolbarSort",
+          currentIndex: () => sorts.indexOf(manager2.order()),
+          onActivated: (index2) => {
+            let sort = sorts[index2];
+            sort && manager2.setOrder(sort);
+          }
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/components/Toolbar.tsx",
+          lineNumber: 48,
+          columnNumber: 9
+        }
+      ),
+      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarDescending", "Accessible.name": () => t(manager2.descending() ? "Ordem decrescente" : "Ordem crescente"), text: () => manager2.descending() ? "\u2193" : "\u2191", onClicked: manager2.toggleDescending }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 50,
+        columnNumber: 9
+      }),
+      /* @__PURE__ */ jsxDEV(QuietButton, { visible: !chooser2, text: "", iconName: "settings", "Accessible.name": t("Prefer\xEAncias"), onClicked: manager2.showPreferences }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 51,
+        columnNumber: 9
+      }),
+      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarHidden", text: "", iconName: () => manager2.hidden() ? "visibility" : "visibility-off", "Accessible.name": () => manager2.hidden() ? t("Arquivos ocultos vis\xEDveis") : t("Arquivos ocultos escondidos"), selected: manager2.hidden, onClicked: manager2.toggleHidden }, void 0, !1, {
+        fileName: "src/components/Toolbar.tsx",
+        lineNumber: 52,
+        columnNumber: 9
+      })
+    ] }, void 0, !0, {
+      fileName: "src/components/Toolbar.tsx",
+      lineNumber: 27,
+      columnNumber: 7
+    })
+  ] }, void 0, !0, {
+    fileName: "src/components/Toolbar.tsx",
+    lineNumber: 25,
+    columnNumber: 5
+  });
+});
+
 // src/components/SectionTitle.tsx
-var qml2 = importQml("QtQuick"), dms2 = importQml("qs.DCommon.Widgets"), SectionTitle = component("SectionTitle", ({ text: text3, width = "fill", objectName }) => /* @__PURE__ */ jsxDEV(qml2.Item, { objectName, width, height: 30, children: /* @__PURE__ */ jsxDEV(
-  dms2.StyledText,
+var qml8 = importQml("QtQuick"), dms5 = importQml("qs.DCommon.Widgets"), SectionTitle = component("SectionTitle", ({ text: text3, width = "fill", objectName }) => /* @__PURE__ */ jsxDEV(qml8.Item, { objectName, width, height: 30, children: /* @__PURE__ */ jsxDEV(
+  dms5.StyledText,
   {
     width: "fill",
     y: 10,
@@ -4774,9 +5631,9 @@ var qml2 = importQml("QtQuick"), dms2 = importQml("qs.DCommon.Widgets"), Section
 }));
 
 // src/components/GameSection.tsx
-var qml3 = importQml("QtQuick"), GameSection = component("GameSection", ({ objectName, title, iconName: iconName2 = "applications-games", width = "fill", visible: visible2 = !0, children }) => {
+var qml9 = importQml("QtQuick"), GameSection = component("GameSection", ({ objectName, title, iconName: iconName2 = "applications-games", width = "fill", visible: visible2 = !0, children }) => {
   let expanded = signal(!1), name = objectName || "advancedSection";
-  return /* @__PURE__ */ jsxDEV(qml3.Column, { objectName: name, width, spacing: 4, visible: visible2, children: [
+  return /* @__PURE__ */ jsxDEV(qml9.Column, { objectName: name, width, spacing: 4, visible: visible2, children: [
     /* @__PURE__ */ jsxDEV(
       QuietButton,
       {
@@ -4795,7 +5652,7 @@ var qml3 = importQml("QtQuick"), GameSection = component("GameSection", ({ objec
       }
     ),
     /* @__PURE__ */ jsxDEV(Show, { when: expanded, children: () => /* @__PURE__ */ jsxDEV(ui.HStack, { width: "fill", gap: 0, children: [
-      /* @__PURE__ */ jsxDEV(qml3.Item, { width: 18, height: 1 }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV(qml9.Item, { width: 18, height: 1 }, void 0, !1, {
         fileName: "src/components/GameSection.tsx",
         lineNumber: 17,
         columnNumber: 9
@@ -4821,166 +5678,8 @@ var qml3 = importQml("QtQuick"), GameSection = component("GameSection", ({ objec
   });
 });
 
-// src/native/AppMenu.tsx
-var controls2 = importQml("QtQuick.Controls"), qml4 = importQml("QtQuick"), AppMenu = component("AppMenu", (props) => {
-  let scope = createQmlScope(props.qmlId ? { root: props.qmlId } : {});
-  return /* @__PURE__ */ jsxDEV(
-    controls2.Menu,
-    {
-      qmlImports: ["Quickshell", "qs.DCommon.Common"],
-      padding: 6,
-      overlap: 0,
-      implicitWidth: 260,
-      background: /* @__PURE__ */ jsxDEV(
-        qml4.Rectangle,
-        {
-          color: qmlExpression(scope, ($qml) => Style.surfaceContainerHigh),
-          radius: 12,
-          "border.width": 1,
-          "border.color": qmlExpression(
-            scope,
-            ($qml) => Style.withAlpha(Style.surfaceText, 0.1)
-          )
-        },
-        void 0,
-        !1,
-        {
-          fileName: "src/native/AppMenu.tsx",
-          lineNumber: 22,
-          columnNumber: 9
-        }
-      ),
-      ...props
-    },
-    void 0,
-    !1,
-    {
-      fileName: "src/native/AppMenu.tsx",
-      lineNumber: 16,
-      columnNumber: 5
-    }
-  );
-});
-
-// src/native/ContextAction.tsx
-var controls3 = importQml("QtQuick.Controls"), layouts2 = importQml("QtQuick.Layouts"), dms3 = importQml("qs.DCommon.Widgets"), qml5 = importQml("QtQuick"), ContextAction = component(
-  "ContextAction",
-  (props) => {
-    let scope = createQmlScope({ ...props.qmlId ? { root: props.qmlId } : {}, app: "app" });
-    return scope.id("root"), /* @__PURE__ */ jsxDEV(
-      controls3.MenuItem,
-      {
-        qmlImports: ["Quickshell", "qs.DCommon.Common"],
-        qmlId: scope.id("root"),
-        qmlDeclarations: {
-          hint: { type: "string", value: "" }
-        },
-        implicitHeight: qmlExpression(scope, ($qml) => visible ? 36 : 0),
-        indicator: /* @__PURE__ */ jsxDEV(qml5.Item, { width: 0, height: 0 }, void 0, !1, {
-          fileName: "src/native/ContextAction.tsx",
-          lineNumber: 30,
-          columnNumber: 20
-        }),
-        leftPadding: 12,
-        rightPadding: 12,
-        contentItem: /* @__PURE__ */ jsxDEV(
-          layouts2.RowLayout,
-          {
-            opacity: qmlExpression(
-              scope,
-              ($qml) => $qml.root.enabled ? 1 : 0.35
-            ),
-            children: [
-              /* @__PURE__ */ jsxDEV(
-                dms3.StyledText,
-                {
-                  text: qmlExpression(scope, ($qml) => $qml.root.checked ? "\u2713" : ""),
-                  visible: qmlExpression(scope, ($qml) => $qml.root.checkable),
-                  "Layout.minimumWidth": 16,
-                  "Layout.maximumWidth": 16,
-                  color: qmlExpression(scope, () => Style.primary)
-                },
-                void 0,
-                !1,
-                {
-                  fileName: "src/native/ContextAction.tsx",
-                  lineNumber: 39,
-                  columnNumber: 13
-                }
-              ),
-              /* @__PURE__ */ jsxDEV(
-                dms3.StyledText,
-                {
-                  text: qmlExpression(scope, ($qml) => $qml.root.text),
-                  color: qmlExpression(scope, ($qml) => Style.surfaceText),
-                  "font.pixelSize": 14,
-                  "Layout.fillWidth": !0
-                },
-                void 0,
-                !1,
-                {
-                  fileName: "src/native/ContextAction.tsx",
-                  lineNumber: 45,
-                  columnNumber: 13
-                }
-              ),
-              /* @__PURE__ */ jsxDEV(
-                dms3.StyledText,
-                {
-                  text: qmlExpression(scope, ($qml) => $qml.root.hint),
-                  color: qmlExpression(scope, ($qml) => Style.surfaceVariantText),
-                  "font.pixelSize": 12
-                },
-                void 0,
-                !1,
-                {
-                  fileName: "src/native/ContextAction.tsx",
-                  lineNumber: 51,
-                  columnNumber: 13
-                }
-              )
-            ]
-          },
-          void 0,
-          !0,
-          {
-            fileName: "src/native/ContextAction.tsx",
-            lineNumber: 34,
-            columnNumber: 11
-          }
-        ),
-        background: /* @__PURE__ */ jsxDEV(
-          qml5.Rectangle,
-          {
-            radius: 7,
-            color: qmlExpression(
-              scope,
-              ($qml) => $qml.root.highlighted ? Style.withAlpha(Style.primary, 0.15) : "transparent"
-            )
-          },
-          void 0,
-          !1,
-          {
-            fileName: "src/native/ContextAction.tsx",
-            lineNumber: 59,
-            columnNumber: 11
-          }
-        ),
-        ...props
-      },
-      void 0,
-      !1,
-      {
-        fileName: "src/native/ContextAction.tsx",
-        lineNumber: 23,
-        columnNumber: 7
-      }
-    );
-  }
-);
-
 // src/native/PlaceButton.tsx
-var qml6 = importQml("QtQuick"), PlaceButton = component(
+var qml10 = importQml("QtQuick"), PlaceButton = component(
   "PlaceButton",
   (props) => {
     props = {
@@ -5015,7 +5714,7 @@ var qml6 = importQml("QtQuick"), PlaceButton = component(
         ...props,
         children: [
           /* @__PURE__ */ jsxDEV(
-            qml6.TapHandler,
+            qml10.TapHandler,
             {
               acceptedButtons: qmlExpression(scope, ($qml) => Qt.RightButton),
               onTapped: qmlHandler(scope, ($qml) => {
@@ -5129,10 +5828,10 @@ var qml6 = importQml("QtQuick"), PlaceButton = component(
 );
 
 // src/components/VolumeUsageBar.tsx
-var qml7 = importQml("QtQuick"), VolumeUsageBar = component("VolumeUsageBar", ({ usage, shown }) => {
+var qml11 = importQml("QtQuick"), VolumeUsageBar = component("VolumeUsageBar", ({ usage, shown }) => {
   let scope = createQmlScope(), fraction = () => usageFraction(usage());
   return /* @__PURE__ */ jsxDEV(
-    qml7.Item,
+    qml11.Item,
     {
       qmlId: scope.id("usageBar"),
       width: "fill",
@@ -5143,7 +5842,7 @@ var qml7 = importQml("QtQuick"), VolumeUsageBar = component("VolumeUsageBar", ({
       },
       children: [
         /* @__PURE__ */ jsxDEV(
-          qml7.Rectangle,
+          qml11.Rectangle,
           {
             width: "fill",
             height: 3,
@@ -5159,7 +5858,7 @@ var qml7 = importQml("QtQuick"), VolumeUsageBar = component("VolumeUsageBar", ({
           }
         ),
         /* @__PURE__ */ jsxDEV(
-          qml7.Rectangle,
+          qml11.Rectangle,
           {
             height: 3,
             radius: 1.5,
@@ -5235,8 +5934,8 @@ var nativeQuick = importQml("QtQuick"), PlaceItem = component("PlaceItem", ({ pl
 }));
 
 // src/components/Sidebar.tsx
-var nativeWidgets = importQml("qs.DCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2 }) => {
-  let hasDrives = computed(() => manager2.drives().length > 0), hasGames = computed(() => manager2.games().length > 0), showSidebarSpecial = () => manager2.preferences?.().showSidebarSpecial ?? !0, showSidebarPlaces = () => manager2.preferences?.().showSidebarPlaces ?? !0, showSidebarVolumes = () => manager2.preferences?.().showSidebarVolumes ?? !0, showSidebarGames = () => manager2.preferences?.().showSidebarGames ?? !0;
+var nativeWidgets = importQml("qs.DCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2, navigationOnly = !1 }) => {
+  let hasDrives = computed(() => manager2.drives().length > 0), hasGames = computed(() => manager2.games().length > 0), showSidebarSpecial = () => !navigationOnly && (manager2.preferences?.().showSidebarSpecial ?? !0), showSidebarPlaces = () => manager2.preferences?.().showSidebarPlaces ?? !0, showSidebarVolumes = () => manager2.preferences?.().showSidebarVolumes ?? !0, showSidebarGames = () => manager2.preferences?.().showSidebarGames ?? !0;
   return /* @__PURE__ */ jsxDEV(nativeQuick2.Column, { width: "fill", spacing: 4, children: [
     /* @__PURE__ */ jsxDEV(Show, { when: showSidebarSpecial, children: () => /* @__PURE__ */ jsxDEV(QuietButton, { width: "fill", iconName: "applications-other", selected: () => manager2.path?.() === "applications:///", text: t("Aplicativos"), onClicked: () => {
       manager2.showApplications?.();
@@ -5392,256 +6091,228 @@ var nativeWidgets = importQml("qs.DCommon.Widgets"), nativeQuick2 = importQml("Q
   });
 });
 
-// src/components/NativeTextField.tsx
-var dms4 = importQml("qs.DCommon.Widgets"), NativeTextField = component(
-  "NativeTextField",
-  ({ onTextEdited, onAccepted, ...props }) => /* @__PURE__ */ jsxDEV(
-    dms4.DTextField,
-    {
-      ...props,
-      ...onTextEdited ? { onTextEdited: qmlReadEvent(["text"], onTextEdited) } : {},
-      ...onAccepted ? { onAccepted: qmlReadEvent(["text"], onAccepted) } : {}
-    },
-    void 0,
-    !1,
-    {
-      fileName: "src/components/NativeTextField.tsx",
-      lineNumber: 9,
-      columnNumber: 3
-    }
-  )
-);
-
 // src/portal/app.tsx
-var qml8 = importQml("QtQuick"), dms5 = importQml("qs.DCommon.Widgets"), controls4 = importQml("QtQuick.Controls"), layouts3 = importQml("QtQuick.Layouts"), ChooserHeader = component(
-  "ChooserHeader",
-  ({ manager: manager2, chooser: chooser2 }) => /* @__PURE__ */ jsxDEV(layouts3.ColumnLayout, { objectName: "chooserHeader", spacing: 6, "Layout.fillWidth": !0, children: [
-    /* @__PURE__ */ jsxDEV(layouts3.RowLayout, { spacing: 6, "Layout.fillWidth": !0, children: [
-      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "chooserBack", text: t("Voltar"), onClicked: () => {
-        manager2().back();
-      } }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 20,
-        columnNumber: 9
-      }),
-      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "chooserUp", text: t("Subir"), onClicked: () => {
-        manager2().up();
-      } }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 21,
-        columnNumber: 9
-      }),
-      /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "chooserRefresh", text: t("Atualizar"), onClicked: () => {
-        manager2().refresh();
-      } }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 22,
-        columnNumber: 9
-      }),
-      /* @__PURE__ */ jsxDEV(dms5.StyledText, { objectName: "chooserTitle", text: () => chooser2().title(), "Layout.fillWidth": !0 }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 23,
-        columnNumber: 9
-      })
-    ] }, void 0, !0, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 19,
-      columnNumber: 7
-    }),
-    /* @__PURE__ */ jsxDEV(NativeTextField, { objectName: "chooserFolder", text: () => manager2().path(), onAccepted: (path2) => {
-      manager2().navigate(path2);
-    }, "Layout.fillWidth": !0 }, void 0, !1, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 25,
-      columnNumber: 7
-    }),
-    /* @__PURE__ */ jsxDEV(Show, { when: () => chooser2().filterLabels().length > 1, children: () => /* @__PURE__ */ jsxDEV(layouts3.RowLayout, { objectName: "chooserFilterRow", spacing: 6, children: [
-      /* @__PURE__ */ jsxDEV(dms5.StyledText, { text: t("Filtro") }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 28,
-        columnNumber: 11
-      }),
-      /* @__PURE__ */ jsxDEV(
-        controls4.ComboBox,
-        {
-          objectName: "chooserFilter",
-          model: chooser2().filterLabels,
-          currentIndex: chooser2().filterIndex,
-          onActivated: qmlReadEvent(["currentIndex"], (index) => chooser2().setFilterIndex(Number(index)))
-        },
-        void 0,
-        !1,
-        {
-          fileName: "src/portal/app.tsx",
-          lineNumber: 29,
-          columnNumber: 11
-        }
-      )
-    ] }, void 0, !0, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 27,
-      columnNumber: 16
-    }) }, void 0, !1, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 26,
-      columnNumber: 7
-    }),
-    /* @__PURE__ */ jsxDEV(Show, { when: () => chooser2().choices().length > 0, children: () => /* @__PURE__ */ jsxDEV(layouts3.RowLayout, { objectName: "chooserChoices", spacing: 6, children: /* @__PURE__ */ jsxDEV(For, { each: chooser2().choices, by: (item) => item.id, children: (item) => /* @__PURE__ */ jsxDEV(layouts3.RowLayout, { spacing: 4, children: [
-      /* @__PURE__ */ jsxDEV(dms5.StyledText, { text: () => item().label }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 38,
-        columnNumber: 15
-      }),
-      /* @__PURE__ */ jsxDEV(Show, { when: () => item().kind === "checkbox", children: () => /* @__PURE__ */ jsxDEV(
-        controls4.CheckBox,
-        {
-          objectName: `chooserChoice:${item().id}`,
-          checked: () => chooser2().selectedChoice(item().id)() === "true",
-          onToggled: qmlReadEvent(["checked"], (checked) => chooser2().setChoice(item().id, checked === !0 ? "true" : "false"))
-        },
-        void 0,
-        !1,
-        {
-          fileName: "src/portal/app.tsx",
-          lineNumber: 40,
-          columnNumber: 24
-        }
-      ) }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 39,
-        columnNumber: 15
-      }),
-      /* @__PURE__ */ jsxDEV(Show, { when: () => item().kind === "combo", children: () => /* @__PURE__ */ jsxDEV(
-        controls4.ComboBox,
-        {
-          objectName: `chooserChoice:${item().id}`,
-          model: () => item().optionLabels,
-          currentIndex: chooser2().choiceIndex(item().id),
-          onActivated: qmlReadEvent(["currentIndex"], (index) => {
-            let option = item().options[Number(index)];
-            option && chooser2().setChoice(item().id, option.value);
-          })
-        },
-        void 0,
-        !1,
-        {
-          fileName: "src/portal/app.tsx",
-          lineNumber: 44,
-          columnNumber: 24
-        }
-      ) }, void 0, !1, {
-        fileName: "src/portal/app.tsx",
-        lineNumber: 43,
-        columnNumber: 15
-      })
-    ] }, void 0, !0, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 37,
-      columnNumber: 49
-    }) }, void 0, !1, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 36,
-      columnNumber: 11
-    }) }, void 0, !1, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 35,
-      columnNumber: 16
-    }) }, void 0, !1, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 34,
-      columnNumber: 7
-    }),
-    /* @__PURE__ */ jsxDEV(ChooserActionBar, { chooser: chooser2 }, void 0, !1, {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 55,
-      columnNumber: 7
-    })
-  ] }, void 0, !0, {
-    fileName: "src/portal/app.tsx",
-    lineNumber: 18,
-    columnNumber: 5
-  })
-), ChooserActionBar = component("ChooserActionBar", ({ chooser: chooser2 }) => /* @__PURE__ */ jsxDEV(layouts3.RowLayout, { objectName: "chooserActions", spacing: 6, "Layout.fillWidth": !0, children: [
-  /* @__PURE__ */ jsxDEV(Show, { when: () => chooser2().needsName(), children: () => /* @__PURE__ */ jsxDEV(
-    NativeTextField,
-    {
-      objectName: "chooserName",
-      text: chooser2().name,
-      onTextEdited: (text3) => chooser2().setName(text3)
-    },
-    void 0,
-    !1,
-    {
-      fileName: "src/portal/app.tsx",
-      lineNumber: 63,
-      columnNumber: 14
-    }
-  ) }, void 0, !1, {
-    fileName: "src/portal/app.tsx",
-    lineNumber: 62,
-    columnNumber: 5
-  }),
-  /* @__PURE__ */ jsxDEV(Show, { when: () => chooser2().overwritePrompt(), children: () => /* @__PURE__ */ jsxDEV(dms5.StyledText, { objectName: "chooserOverwrite", text: t("O arquivo j\xE1 existe. Substituir?") }, void 0, !1, {
-    fileName: "src/portal/app.tsx",
-    lineNumber: 67,
-    columnNumber: 14
-  }) }, void 0, !1, {
-    fileName: "src/portal/app.tsx",
-    lineNumber: 66,
-    columnNumber: 5
-  }),
-  /* @__PURE__ */ jsxDEV(qml8.Item, { "Layout.fillWidth": !0 }, void 0, !1, {
-    fileName: "src/portal/app.tsx",
-    lineNumber: 69,
-    columnNumber: 5
-  }),
-  /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "chooserCancel", text: t("Cancelar"), onClicked: () => chooser2().cancel() }, void 0, !1, {
-    fileName: "src/portal/app.tsx",
-    lineNumber: 70,
-    columnNumber: 5
-  }),
-  /* @__PURE__ */ jsxDEV(
+var qml12 = importQml("QtQuick"), dms6 = importQml("qs.DCommon.Widgets"), controls5 = importQml("QtQuick.Controls"), layouts5 = importQml("QtQuick.Layouts"), ChooserSelect = component("ChooserSelect", ({ objectName, options, value, onChanged, onError }) => {
+  let menu = createQmlRef(controls5.Menu);
+  return /* @__PURE__ */ jsxDEV(
     QuietButton,
     {
-      objectName: "chooserAccept",
-      text: chooser2().acceptLabel,
-      enabled: chooser2().canAccept,
-      onClicked: () => chooser2().accept()
+      objectName,
+      text: () => options()[value()] || "",
+      statusIcon: "expand_more",
+      implicitWidth: qmlExpression(createQmlScope(), () => Math.min(300, Math.max(120, contentItem.implicitWidth + leftPadding + rightPadding))),
+      "Layout.maximumWidth": 300,
+      onClicked: () => {
+        menu.current?.invoke("open").catch(onError);
+      },
+      children: /* @__PURE__ */ jsxDEV(AppMenu, { objectName: `${objectName}Popup`, ref: menu.attach, children: options().map((label, index2) => /* @__PURE__ */ jsxDEV(
+        ContextAction,
+        {
+          objectName: `${objectName}Option:${index2}`,
+          text: label,
+          checkable: !0,
+          checked: () => value() === index2,
+          onTriggered: () => onChanged(index2)
+        },
+        void 0,
+        !1,
+        {
+          fileName: "src/portal/app.tsx",
+          lineNumber: 28,
+          columnNumber: 37
+        }
+      )) }, void 0, !1, {
+        fileName: "src/portal/app.tsx",
+        lineNumber: 27,
+        columnNumber: 5
+      })
     },
     void 0,
     !1,
     {
       fileName: "src/portal/app.tsx",
-      lineNumber: 71,
+      lineNumber: 24,
+      columnNumber: 10
+    }
+  );
+}), ChooserFooter = component("ChooserFooter", ({ chooser: chooser2, onError }) => /* @__PURE__ */ jsxDEV(layouts5.ColumnLayout, { objectName: "chooserFooter", width: "fill", spacing: 4, children: [
+  chooser2().needsName() ? /* @__PURE__ */ jsxDEV(layouts5.RowLayout, { "Layout.fillWidth": !0, spacing: 12, children: [
+    /* @__PURE__ */ jsxDEV(dms6.StyledText, { text: t("Nome") }, void 0, !1, {
+      fileName: "src/portal/app.tsx",
+      lineNumber: 38,
+      columnNumber: 7
+    }),
+    /* @__PURE__ */ jsxDEV(
+      NativeTextField,
+      {
+        objectName: "chooserName",
+        text: chooser2().name,
+        "Layout.fillWidth": !0,
+        "Accessible.name": t("Nome"),
+        onTextEdited: (text3) => chooser2().setName(text3),
+        onAccepted: () => {
+          chooser2().canAccept() && chooser2().accept();
+        }
+      },
+      void 0,
+      !1,
+      {
+        fileName: "src/portal/app.tsx",
+        lineNumber: 39,
+        columnNumber: 7
+      }
+    )
+  ] }, void 0, !0, {
+    fileName: "src/portal/app.tsx",
+    lineNumber: 37,
+    columnNumber: 30
+  }) : null,
+  /* @__PURE__ */ jsxDEV(
+    dms6.StyledText,
+    {
+      objectName: "chooserOverwrite",
+      visible: chooser2().overwritePrompt,
+      text: t("O arquivo j\xE1 existe. Substituir?")
+    },
+    void 0,
+    !1,
+    {
+      fileName: "src/portal/app.tsx",
+      lineNumber: 44,
       columnNumber: 5
     }
-  )
+  ),
+  chooser2().choices().length ? /* @__PURE__ */ jsxDEV(layouts5.RowLayout, { objectName: "chooserChoices", spacing: 12, children: chooser2().choices().map((item) => /* @__PURE__ */ jsxDEV(layouts5.RowLayout, { spacing: 6, children: [
+    /* @__PURE__ */ jsxDEV(dms6.StyledText, { text: item.label }, void 0, !1, {
+      fileName: "src/portal/app.tsx",
+      lineNumber: 48,
+      columnNumber: 9
+    }),
+    item.kind === "checkbox" ? /* @__PURE__ */ jsxDEV(
+      controls5.CheckBox,
+      {
+        objectName: `chooserChoice:${item.id}`,
+        checked: () => chooser2().choiceValues()[item.id] === "true",
+        onToggled: qmlReadEvent(["checked"], (checked) => chooser2().setChoice(item.id, checked === !0 ? "true" : "false"))
+      },
+      void 0,
+      !1,
+      {
+        fileName: "src/portal/app.tsx",
+        lineNumber: 49,
+        columnNumber: 35
+      }
+    ) : /* @__PURE__ */ jsxDEV(
+      ChooserSelect,
+      {
+        objectName: `chooserChoice:${item.id}`,
+        options: () => item.optionLabels,
+        value: chooser2().choiceIndex(item.id),
+        onError,
+        onChanged: (index2) => {
+          let option = item.options[index2];
+          option && chooser2().setChoice(item.id, option.value);
+        }
+      },
+      void 0,
+      !1,
+      {
+        fileName: "src/portal/app.tsx",
+        lineNumber: 52,
+        columnNumber: 13
+      }
+    )
+  ] }, void 0, !0, {
+    fileName: "src/portal/app.tsx",
+    lineNumber: 47,
+    columnNumber: 38
+  })) }, void 0, !1, {
+    fileName: "src/portal/app.tsx",
+    lineNumber: 46,
+    columnNumber: 35
+  }) : null,
+  /* @__PURE__ */ jsxDEV(layouts5.RowLayout, { objectName: "chooserActions", spacing: 8, "Layout.fillWidth": !0, children: [
+    chooser2().filterLabels().length > 1 ? /* @__PURE__ */ jsxDEV(
+      ChooserSelect,
+      {
+        objectName: "chooserFilter",
+        options: chooser2().filterLabels,
+        value: chooser2().filterIndex,
+        onChanged: chooser2().setFilterIndex,
+        onError
+      },
+      void 0,
+      !1,
+      {
+        fileName: "src/portal/app.tsx",
+        lineNumber: 58,
+        columnNumber: 46
+      }
+    ) : null,
+    /* @__PURE__ */ jsxDEV(qml12.Item, { "Layout.fillWidth": !0 }, void 0, !1, {
+      fileName: "src/portal/app.tsx",
+      lineNumber: 60,
+      columnNumber: 7
+    }),
+    /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "chooserCancel", implicitWidth: 96, text: t("Cancelar"), onClicked: () => chooser2().cancel() }, void 0, !1, {
+      fileName: "src/portal/app.tsx",
+      lineNumber: 61,
+      columnNumber: 7
+    }),
+    /* @__PURE__ */ jsxDEV(
+      dms6.DButton,
+      {
+        objectName: "chooserAccept",
+        "Layout.minimumWidth": 96,
+        buttonHeight: 36,
+        text: () => chooser2().overwritePrompt() ? t("Substituir") : chooser2().acceptLabel(),
+        enabled: chooser2().canAccept,
+        onClicked: () => chooser2().accept()
+      },
+      void 0,
+      !1,
+      {
+        fileName: "src/portal/app.tsx",
+        lineNumber: 62,
+        columnNumber: 7
+      }
+    )
+  ] }, void 0, !0, {
+    fileName: "src/portal/app.tsx",
+    lineNumber: 57,
+    columnNumber: 5
+  })
 ] }, void 0, !0, {
   fileName: "src/portal/app.tsx",
-  lineNumber: 61,
+  lineNumber: 36,
   columnNumber: 3
 }));
 function ChooserApp({ manager: manager2, chooser: chooser2 }) {
   return {
-    toolbar: /* @__PURE__ */ jsxDEV(ChooserHeader, { manager: () => manager2, chooser: () => chooser2 }, void 0, !1, {
+    toolbar: /* @__PURE__ */ jsxDEV(Toolbar, { manager: manager2, chooser: !0 }, void 0, !1, {
       fileName: "src/portal/app.tsx",
-      lineNumber: 79,
+      lineNumber: 71,
       columnNumber: 14
     }, this),
-    sidebar: /* @__PURE__ */ jsxDEV(Sidebar, { manager: { ...manager2, preferences: signal({ ...manager2.preferences(), showSidebarSpecial: !1 }), locationAction: void 0 } }, void 0, !1, {
+    sidebar: /* @__PURE__ */ jsxDEV(Sidebar, { manager: { ...manager2, locationAction: void 0 }, navigationOnly: !0 }, void 0, !1, {
       fileName: "src/portal/app.tsx",
-      lineNumber: 80,
+      lineNumber: 72,
       columnNumber: 14
     }, this),
-    details: /* @__PURE__ */ jsxDEV(qml8.Item, {}, void 0, !1, {
+    details: /* @__PURE__ */ jsxDEV(qml12.Item, {}, void 0, !1, {
       fileName: "src/portal/app.tsx",
-      lineNumber: 81,
+      lineNumber: 73,
       columnNumber: 14
     }, this),
-    dialogs: /* @__PURE__ */ jsxDEV(qml8.Item, {}, void 0, !1, {
+    dialogs: /* @__PURE__ */ jsxDEV(qml12.Item, {}, void 0, !1, {
       fileName: "src/portal/app.tsx",
-      lineNumber: 82,
+      lineNumber: 74,
       columnNumber: 14
+    }, this),
+    footer: /* @__PURE__ */ jsxDEV(ChooserFooter, { chooser: () => chooser2, onError: manager2.reportError }, void 0, !1, {
+      fileName: "src/portal/app.tsx",
+      lineNumber: 75,
+      columnNumber: 13
     }, this)
   };
 }
@@ -5664,13 +6335,13 @@ function createChooserController(request2, host) {
   effect(() => {
     host.folder(), name(), overwritePrompt.set(!1);
   });
-  let start = request2.currentFolder ?? (request2.currentFile ? dirname7(request2.currentFile) : homedir3()), activeFilter = computed(() => request2.filters[filterIndex()]), selectedFiles = computed(() => host.selection().filter((path2) => !host.exists(path2).directory));
+  let start = request2.currentFolder ?? (request2.currentFile ? dirname7(request2.currentFile) : homedir3()), activeFilter = computed(() => request2.filters[filterIndex()]), selectedFiles = computed(() => host.selection().filter((path3) => !host.exists(path3).directory));
   function candidates() {
     if (request2.method === "SaveFiles") return [];
     if (request2.method === "SaveFile") return name() && !name().includes("/") ? [join14(host.folder(), name())] : [];
     let filter2 = activeFilter();
     if (request2.mode === "directory") return host.selection().length ? host.selection() : [host.folder()];
-    let paths = selectedFiles().filter((path2) => !filter2 || accepts2(basename7(path2), filter2));
+    let paths = selectedFiles().filter((path3) => !filter2 || accepts2(basename7(path3), filter2));
     return request2.multiple ? paths : paths.slice(0, 1);
   }
   function answer() {
@@ -5698,7 +6369,7 @@ function createChooserController(request2, host) {
     name,
     needsName: computed(() => request2.method === "SaveFile"),
     acceptLabel: computed(() => request2.acceptLabel || t(request2.method === "SaveFiles" ? "Salvar" : request2.mode === "directory" ? "Selecionar" : request2.method === "SaveFile" ? "Salvar" : "Abrir")),
-    filterLabels: computed(() => request2.filters.map((item, index) => item.name || item.patterns.join(", ") || (index === 0 ? "Todos" : `Filtro ${index}`))),
+    filterLabels: computed(() => request2.filters.map((item, index2) => item.name || item.patterns.join(", ") || (index2 === 0 ? "Todos" : `Filtro ${index2}`))),
     filterIndex,
     choices: computed(() => buildChoices(request2)),
     /** Selected choice values, so a checkbox or combo can be read reactively. */
@@ -5715,23 +6386,23 @@ function createChooserController(request2, host) {
       if (request2.method === "SaveFile") return isPlainName(name());
       if (request2.mode === "directory") return host.selection().length > 0 || host.exists(host.folder()).directory;
       let filter2 = activeFilter();
-      return selectedFiles().some((path2) => !filter2 || accepts2(basename7(path2), filter2));
+      return selectedFiles().some((path3) => !filter2 || accepts2(basename7(path3), filter2));
     }),
     setName(value) {
       name.set(value), overwritePrompt.set(!1);
     },
-    setFilterIndex(index) {
-      !Number.isInteger(index) || index < 0 || index >= request2.filters.length || filterIndex.set(index);
+    setFilterIndex(index2) {
+      !Number.isInteger(index2) || index2 < 0 || index2 >= request2.filters.length || filterIndex.set(index2);
     },
     setChoice(id, value) {
       buildChoices(request2).some((item) => item.id === id) && choiceValues.set({ ...choiceValues(), [id]: value });
     },
     /** Double click: a file confirms, a folder only navigates (the caller decides). */
-    pathChosen(path2) {
-      return host.exists(path2).directory || request2.mode === "directory" ? !1 : (host.select(path2), request2.method === "SaveFile" && name.set(basename7(path2)), !0);
+    pathChosen(path3) {
+      return host.exists(path3).directory || request2.mode === "directory" ? !1 : (host.select(path3), request2.method === "SaveFile" && name.set(basename7(path3)), !0);
     },
-    selectPath(path2) {
-      host.select(path2);
+    selectPath(path3) {
+      host.select(path3);
     },
     accept() {
       if (done()) return;
@@ -5771,12 +6442,12 @@ var accepts = createSystemFilterMatcher(), chooser = createChooserController(req
   matchesFilter: accepts,
   folder: () => manager.path(),
   selection: () => manager.selectedEntries().map((entry2) => entry2.path),
-  select: (path2) => {
-    manager.selectPath(path2, "replace");
+  select: (path3) => {
+    manager.selectPath(path3, "replace");
   },
-  exists: (path2) => {
+  exists: (path3) => {
     try {
-      return { exists: !0, directory: statSync(path2).isDirectory() };
+      return { exists: !0, directory: statSync(path3).isDirectory() };
     } catch {
       return { exists: !1, directory: !1 };
     }

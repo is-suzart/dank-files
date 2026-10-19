@@ -1,0 +1,18 @@
+{
+  "name": "@nandomo/bridge-runtime",
+  "version": "0.0.1",
+  "description": "Capability contracts and shared native bridge transport utilities.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./native-updates": "./src/native-updates.ts"
+  },
+  "dependencies": {
+    "@nandomo/core": "workspace:*"
+  },
+  "sideEffects": false,
+  "private": true,
+  "license": "BSD-3-Clause"
+}

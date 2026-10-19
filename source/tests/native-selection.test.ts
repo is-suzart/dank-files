@@ -91,6 +91,6 @@ test('list and grid delegates follow the selection and map modifiers to modes', 
 test('the shell keeps a context menu inside the selection and stamps every event', () => {
   const source = render(Shell({}));
   assert.equal(occurrences(source, '$qml.app.send("selectPath",{path:entry?entry.path:null,mode:"context"})'), 1);
-  assert.equal(occurrences(source, 'generation:$qml.app.uiGeneration'), 4);
+  assert.equal(occurrences(source, 'generation:$qml.app.uiGeneration'), 5);
   assert.match(source, /next\.selection/);
 });

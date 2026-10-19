@@ -291,7 +291,7 @@ var fileToolsEn, fileToolsZh, init_fileTools = __esm({
   }
 });
 
-// ../../packages/core/src/runtime.ts
+// ../toolchain/core/src/runtime.ts
 function getActiveSub() {
   return activeSub;
 }
@@ -338,14 +338,14 @@ function flushNotifications() {
   if (errors.length) throw new AggregateError(errors, "[nandomo/core] notification failures");
 }
 var activeSub, transactionDepth, flushing, derivedJobs, effectJobs, listenerJobs, init_runtime = __esm({
-  "../../packages/core/src/runtime.ts"() {
+  "../toolchain/core/src/runtime.ts"() {
     "use strict";
     activeSub = null;
     transactionDepth = 0, flushing = !1, derivedJobs = /* @__PURE__ */ new Map(), effectJobs = /* @__PURE__ */ new Map(), listenerJobs = /* @__PURE__ */ new Map();
   }
 });
 
-// ../../packages/core/src/signal.ts
+// ../toolchain/core/src/signal.ts
 function signal(initial) {
   let node2 = new SignalNode(initial), callable = (() => node2.read());
   return callable.peek = () => node2.peek(), callable.set = (next) => node2.set(next), callable.update = (fn) => node2.update(fn), callable.subscribe = (fn) => node2.subscribe(fn), callable.with_name = (name) => (node2.name = name, callable), Object.defineProperty(callable, "id", {
@@ -360,7 +360,7 @@ function signal(initial) {
   }), callable;
 }
 var __signalId, SignalNode, init_signal = __esm({
-  "../../packages/core/src/signal.ts"() {
+  "../toolchain/core/src/signal.ts"() {
     "use strict";
     init_runtime();
     __signalId = 0, SignalNode = class {
@@ -434,7 +434,7 @@ var __signalId, SignalNode, init_signal = __esm({
   }
 });
 
-// ../../packages/core/src/dialog.ts
+// ../toolchain/core/src/dialog.ts
 function Dialog(props) {
   if (props.open == null || props.title == null) throw new TypeError("[nandomo/core] Dialog requires open and title");
   if (props.onCloseRequest != null && typeof props.onCloseRequest != "function")
@@ -451,17 +451,17 @@ function requestDialogClose(props, reason2) {
   readDialogBinding(props.open) && (reason2 === "escape" && !readDialogBinding(props.closeOnEscape ?? !0) || reason2 === "outside" && !readDialogBinding(props.closeOnOutside ?? !1) || props.onCloseRequest?.(reason2));
 }
 var init_dialog = __esm({
-  "../../packages/core/src/dialog.ts"() {
+  "../toolchain/core/src/dialog.ts"() {
     "use strict";
   }
 });
 
-// ../../packages/core/src/scope.ts
+// ../toolchain/core/src/scope.ts
 function ownCleanup(cleanup) {
   activeScope?.own(cleanup);
 }
 var Scope, activeScope, init_scope = __esm({
-  "../../packages/core/src/scope.ts"() {
+  "../toolchain/core/src/scope.ts"() {
     "use strict";
     Scope = class {
       cleanups = [];
@@ -495,7 +495,7 @@ var Scope, activeScope, init_scope = __esm({
   }
 });
 
-// ../../packages/core/src/computed.ts
+// ../toolchain/core/src/computed.ts
 function computed(fn) {
   let node2 = new ComputedNode(fn);
   ownCleanup(() => node2.dispose());
@@ -503,7 +503,7 @@ function computed(fn) {
   return callable.peek = () => node2.peek(), callable.dispose = () => node2.dispose(), callable;
 }
 var ComputedNode, init_computed = __esm({
-  "../../packages/core/src/computed.ts"() {
+  "../toolchain/core/src/computed.ts"() {
     "use strict";
     init_runtime();
     init_scope();
@@ -571,7 +571,7 @@ var ComputedNode, init_computed = __esm({
   }
 });
 
-// ../../packages/core/src/effect.ts
+// ../toolchain/core/src/effect.ts
 function effect(fn) {
   let instance = new EffectInstance(fn);
   ownCleanup(() => instance.dispose());
@@ -585,7 +585,7 @@ function effect(fn) {
   };
 }
 var EffectInstance, init_effect = __esm({
-  "../../packages/core/src/effect.ts"() {
+  "../toolchain/core/src/effect.ts"() {
     "use strict";
     init_runtime();
     init_scope();
@@ -661,18 +661,18 @@ var EffectInstance, init_effect = __esm({
   }
 });
 
-// ../../packages/core/src/batch.ts
+// ../toolchain/core/src/batch.ts
 function batch(fn) {
   return notificationTransaction(fn);
 }
 var init_batch = __esm({
-  "../../packages/core/src/batch.ts"() {
+  "../toolchain/core/src/batch.ts"() {
     "use strict";
     init_runtime();
   }
 });
 
-// ../../packages/core/src/inputs.ts
+// ../toolchain/core/src/inputs.ts
 function isInputRef(v) {
   return typeof v == "object" && v !== null && v.__input === !0;
 }
@@ -680,13 +680,13 @@ function isOutputRef(v) {
   return typeof v == "object" && v !== null && v.__output === !0;
 }
 var init_inputs = __esm({
-  "../../packages/core/src/inputs.ts"() {
+  "../toolchain/core/src/inputs.ts"() {
     "use strict";
     init_signal();
   }
 });
 
-// ../../packages/core/src/define-component.ts
+// ../toolchain/core/src/define-component.ts
 function isDefinedComponentRef(value2) {
   return typeof value2 == "object" && value2 !== null && value2.__definedComponent === !0;
 }
@@ -744,7 +744,7 @@ function defineComponent(options) {
   }), { definition: options });
 }
 var init_define_component = __esm({
-  "../../packages/core/src/define-component.ts"() {
+  "../toolchain/core/src/define-component.ts"() {
     "use strict";
     init_effect();
     init_inputs();
@@ -753,28 +753,28 @@ var init_define_component = __esm({
   }
 });
 
-// ../../packages/core/src/capability.ts
+// ../toolchain/core/src/capability.ts
 var init_capability = __esm({
-  "../../packages/core/src/capability.ts"() {
+  "../toolchain/core/src/capability.ts"() {
     "use strict";
   }
 });
 
-// ../../packages/core/src/component.ts
+// ../toolchain/core/src/component.ts
 var init_component = __esm({
-  "../../packages/core/src/component.ts"() {
+  "../toolchain/core/src/component.ts"() {
     "use strict";
   }
 });
 
-// ../../packages/core/src/lifecycle.ts
+// ../toolchain/core/src/lifecycle.ts
 var init_lifecycle = __esm({
-  "../../packages/core/src/lifecycle.ts"() {
+  "../toolchain/core/src/lifecycle.ts"() {
     "use strict";
   }
 });
 
-// ../../packages/core/src/ui.ts
+// ../toolchain/core/src/ui.ts
 function isResponsive(value2) {
   return typeof value2 == "object" && value2 !== null && "base" in value2 && "minWidth" in value2;
 }
@@ -783,7 +783,7 @@ function node(kind2, props) {
   return { __spec: !0, kind: kind2, props: { ...props } };
 }
 var ui, init_ui = __esm({
-  "../../packages/core/src/ui.ts"() {
+  "../toolchain/core/src/ui.ts"() {
     "use strict";
     ui = {
       Div: (props = {}) => node("ui:Div", props),
@@ -794,7 +794,7 @@ var ui, init_ui = __esm({
   }
 });
 
-// ../../packages/core/src/dynamic.ts
+// ../toolchain/core/src/dynamic.ts
 function For(props) {
   return { __dynamic: !0, kind: "for", props };
 }
@@ -890,7 +890,7 @@ function mountDynamicRegion(node2, adapter) {
   }
 }
 var init_dynamic = __esm({
-  "../../packages/core/src/dynamic.ts"() {
+  "../toolchain/core/src/dynamic.ts"() {
     "use strict";
     init_batch();
     init_effect();
@@ -900,9 +900,9 @@ var init_dynamic = __esm({
   }
 });
 
-// ../../packages/core/src/forms.ts
+// ../toolchain/core/src/forms.ts
 var init_forms = __esm({
-  "../../packages/core/src/forms.ts"() {
+  "../toolchain/core/src/forms.ts"() {
     "use strict";
     init_signal();
     init_computed();
@@ -911,9 +911,9 @@ var init_forms = __esm({
   }
 });
 
-// ../../packages/core/src/router.ts
+// ../toolchain/core/src/router.ts
 var init_router = __esm({
-  "../../packages/core/src/router.ts"() {
+  "../toolchain/core/src/router.ts"() {
     "use strict";
     init_signal();
     init_computed();
@@ -922,7 +922,7 @@ var init_router = __esm({
   }
 });
 
-// ../../packages/core/src/functional-component.ts
+// ../toolchain/core/src/functional-component.ts
 function component(name, render) {
   return (props) => defineComponent({
     name,
@@ -936,15 +936,15 @@ function component(name, render) {
   })({});
 }
 var init_functional_component = __esm({
-  "../../packages/core/src/functional-component.ts"() {
+  "../toolchain/core/src/functional-component.ts"() {
     "use strict";
     init_define_component();
   }
 });
 
-// ../../packages/core/src/theme.ts
+// ../toolchain/core/src/theme.ts
 var init_theme = __esm({
-  "../../packages/core/src/theme.ts"() {
+  "../toolchain/core/src/theme.ts"() {
     "use strict";
     init_computed();
     init_scope();
@@ -952,16 +952,16 @@ var init_theme = __esm({
   }
 });
 
-// ../../packages/core/src/app-meta.ts
+// ../toolchain/core/src/app-meta.ts
 var COMPONENT_TARGETS, init_app_meta = __esm({
-  "../../packages/core/src/app-meta.ts"() {
+  "../toolchain/core/src/app-meta.ts"() {
     "use strict";
     init_theme();
     COMPONENT_TARGETS = Object.freeze(["html", "qml", "gtk", "compose"]);
   }
 });
 
-// ../../packages/core/src/source-origin.ts
+// ../toolchain/core/src/source-origin.ts
 function sourceOrigin(value2) {
   return value2 !== null && (typeof value2 == "object" || typeof value2 == "function") ? origins.get(value2) : void 0;
 }
@@ -982,7 +982,7 @@ function sourceError(error, origin, property) {
   return origin ? error instanceof SourceError ? error : new SourceError(error, origin, property) : error instanceof Error ? error : new Error(String(error));
 }
 var origins, SourceError, init_source_origin = __esm({
-  "../../packages/core/src/source-origin.ts"() {
+  "../toolchain/core/src/source-origin.ts"() {
     "use strict";
     origins = /* @__PURE__ */ new WeakMap();
     SourceError = class extends Error {
@@ -998,7 +998,7 @@ var origins, SourceError, init_source_origin = __esm({
   }
 });
 
-// ../../packages/core/src/i18n.ts
+// ../toolchain/core/src/i18n.ts
 function normalizeLocale(raw) {
   let base = (String(raw ?? "").trim().split(".")[0] ?? "").split("@")[0]?.replace(/_/g, "-") ?? "";
   if (!base || /^(?:c|posix)$/i.test(base)) return null;
@@ -1052,16 +1052,16 @@ function createTranslator(options) {
   };
 }
 var DEFAULT_LOCALE, init_i18n = __esm({
-  "../../packages/core/src/i18n.ts"() {
+  "../toolchain/core/src/i18n.ts"() {
     "use strict";
     init_signal();
     DEFAULT_LOCALE = "en";
   }
 });
 
-// ../../packages/core/src/index.ts
+// ../toolchain/core/src/index.ts
 var init_src = __esm({
-  "../../packages/core/src/index.ts"() {
+  "../toolchain/core/src/index.ts"() {
     "use strict";
     init_signal();
     init_dialog();
@@ -2975,7 +2975,7 @@ function createFileManager(home3, services) {
 init_i18n2();
 init_src();
 
-// ../../packages/bridge-qml/src/qml.ts
+// ../toolchain/bridge-qml/src/qml.ts
 function createQmlRef(_component) {
   let current = null;
   return {
@@ -3002,7 +3002,7 @@ var qml = {
   Dialog: tag("Dialog")
 };
 
-// ../../packages/bridge-qml/src/native-component.ts
+// ../toolchain/bridge-qml/src/native-component.ts
 var identifier = /^[A-Za-z_][A-Za-z0-9_]*$/, path2 = /^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*$/;
 function defineQmlComponent(definition) {
   if (!identifier.test(definition.type) || !path2.test(definition.module)) throw new TypeError("Invalid QML type or module");
@@ -3017,7 +3017,7 @@ function defineQmlComponent(definition) {
   return (props) => ({ __spec: !0, kind: `qml:${nativeQmlType.type}`, props: { ...props }, nativeQmlType });
 }
 
-// ../../packages/bridge-runtime/src/native-updates.ts
+// ../toolchain/bridge-runtime/src/native-updates.ts
 function createWireValueCache() {
   let values = /* @__PURE__ */ new Map();
   return {
@@ -3034,10 +3034,10 @@ function createWireValueCache() {
   };
 }
 
-// ../../packages/bridge-qml/src/native-scene.ts
+// ../toolchain/bridge-qml/src/native-scene.ts
 init_src();
 
-// ../../packages/bridge-qml/src/native-value.ts
+// ../toolchain/bridge-qml/src/native-value.ts
 function qmlEnum(reference) {
   if (!/^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)+$/.test(reference)) throw new TypeError("Invalid QML enum reference");
   return Object.freeze({ __qmlEnum: reference });
@@ -3046,7 +3046,7 @@ function isQmlEnum(value2) {
   return typeof value2 == "object" && value2 !== null && "__qmlEnum" in value2 && typeof value2.__qmlEnum == "string" && /^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)+$/.test(value2.__qmlEnum);
 }
 
-// ../../packages/bridge-qml/src/native-composition.ts
+// ../toolchain/bridge-qml/src/native-composition.ts
 var nextScope = 0;
 function createQmlScope(stableIds = {}) {
   let prefix = `ndScope${nextScope++}_`, ids = { ...stableIds };
@@ -3089,15 +3089,15 @@ function emitNativeClosure(value2, args = "") {
   return `(() => { const __name = function(fn) { return fn; }; return (${source})({${objects}}${args ? ", " + args : ""}); })()`;
 }
 
-// ../../packages/bridge-qml/src/native-scene.ts
+// ../toolchain/bridge-qml/src/native-scene.ts
 init_src();
 
-// ../../packages/bridge-qml/src/primitives/types.ts
+// ../toolchain/bridge-qml/src/primitives/types.ts
 function isSpecNode(value2) {
   return typeof value2 == "object" && value2 !== null && value2.__spec === !0 && typeof value2.kind == "string";
 }
 
-// ../../packages/bridge-qml/src/native-scene.ts
+// ../toolchain/bridge-qml/src/native-scene.ts
 var primitives = {
   View: "Column",
   Container: "Item",
@@ -3507,7 +3507,7 @@ ${body}
   }
 }
 
-// ../../packages/bridge-qml/src/diagnostics.ts
+// ../toolchain/bridge-qml/src/diagnostics.ts
 init_src();
 function formatQmlDiagnostic(message, source, url = "file:///nandomo.qml") {
   let escaped = url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -3529,7 +3529,7 @@ function formatQmlDiagnostic(message, source, url = "file:///nandomo.qml") {
   });
 }
 
-// ../../packages/bridge-qml/src/component-ref.ts
+// ../toolchain/bridge-qml/src/component-ref.ts
 var COMPONENT_REF_BRAND = "__componentRef";
 function createComponentRef(ctor, props) {
   return {
@@ -3539,7 +3539,7 @@ function createComponentRef(ctor, props) {
   };
 }
 
-// ../../packages/bridge-qml/src/import-qml.ts
+// ../toolchain/bridge-qml/src/import-qml.ts
 function importQml(module) {
   if (!/^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*$/.test(module))
     throw new TypeError(`Invalid QML module: ${module}`);
@@ -3563,7 +3563,7 @@ function importQml(module) {
 // src/components/NativeTextField.tsx
 init_src();
 
-// ../../packages/bridge-qml/src/jsx-runtime.ts
+// ../toolchain/bridge-qml/src/jsx-runtime.ts
 init_src();
 var COMPONENT_NAME2 = "__componentName";
 function isComponentClass(tag2) {
@@ -4579,17 +4579,17 @@ var qml8 = importQml("QtQuick"), layouts4 = importQml("QtQuick.Layouts"), TabBar
 
 // src/components/Toolbar.tsx
 init_i18n2();
-var layouts5 = importQml("QtQuick.Layouts"), Toolbar = component("Toolbar", ({ manager: manager2 }) => {
+var layouts5 = importQml("QtQuick.Layouts"), Toolbar = component("Toolbar", ({ manager: manager2, chooser = !1 }) => {
   let scope = createQmlScope(), searchOpen = signal(!1), address = signal(manager2.path());
   effect(() => {
     address.set(manager2.path()), searchOpen.set(!1);
   });
   let canGoBack = computed(() => manager2.navigation().back && !manager2.busy()), canGoForward = computed(() => manager2.navigation().forward && !manager2.busy()), sorts = ["name", "size", "modified", "type"];
   return /* @__PURE__ */ jsxDEV(layouts5.ColumnLayout, { width: "fill", spacing: 6, children: [
-    /* @__PURE__ */ jsxDEV(TabBar, { manager: manager2 }, void 0, !1, {
+    chooser ? null : /* @__PURE__ */ jsxDEV(TabBar, { manager: manager2 }, void 0, !1, {
       fileName: "src/components/Toolbar.tsx",
       lineNumber: 26,
-      columnNumber: 7
+      columnNumber: 25
     }),
     /* @__PURE__ */ jsxDEV(layouts5.RowLayout, { "Layout.fillWidth": !0, children: [
       /* @__PURE__ */ jsxDEV(QuietButton, { objectName: "toolbarBack", text: "", iconName: "go-previous", "Accessible.name": t("Voltar"), enabled: canGoBack, onClicked: () => {
@@ -4743,7 +4743,7 @@ var layouts5 = importQml("QtQuick.Layouts"), Toolbar = component("Toolbar", ({ m
         lineNumber: 50,
         columnNumber: 9
       }),
-      /* @__PURE__ */ jsxDEV(QuietButton, { text: "", iconName: "settings", "Accessible.name": t("Prefer\xEAncias"), onClicked: manager2.showPreferences }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV(QuietButton, { visible: !chooser, text: "", iconName: "settings", "Accessible.name": t("Prefer\xEAncias"), onClicked: manager2.showPreferences }, void 0, !1, {
         fileName: "src/components/Toolbar.tsx",
         lineNumber: 51,
         columnNumber: 9
@@ -5104,8 +5104,8 @@ var nativeQuick = importQml("QtQuick"), PlaceItem = component("PlaceItem", ({ pl
 }));
 
 // src/components/Sidebar.tsx
-var nativeWidgets = importQml("qs.DCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2 }) => {
-  let hasDrives = computed(() => manager2.drives().length > 0), hasGames = computed(() => manager2.games().length > 0), showSidebarSpecial = () => manager2.preferences?.().showSidebarSpecial ?? !0, showSidebarPlaces = () => manager2.preferences?.().showSidebarPlaces ?? !0, showSidebarVolumes = () => manager2.preferences?.().showSidebarVolumes ?? !0, showSidebarGames = () => manager2.preferences?.().showSidebarGames ?? !0;
+var nativeWidgets = importQml("qs.DCommon.Widgets"), nativeQuick2 = importQml("QtQuick"), Sidebar = component("Sidebar", ({ manager: manager2, navigationOnly = !1 }) => {
+  let hasDrives = computed(() => manager2.drives().length > 0), hasGames = computed(() => manager2.games().length > 0), showSidebarSpecial = () => !navigationOnly && (manager2.preferences?.().showSidebarSpecial ?? !0), showSidebarPlaces = () => manager2.preferences?.().showSidebarPlaces ?? !0, showSidebarVolumes = () => manager2.preferences?.().showSidebarVolumes ?? !0, showSidebarGames = () => manager2.preferences?.().showSidebarGames ?? !0;
   return /* @__PURE__ */ jsxDEV(nativeQuick2.Column, { width: "fill", spacing: 4, children: [
     /* @__PURE__ */ jsxDEV(Show, { when: showSidebarSpecial, children: () => /* @__PURE__ */ jsxDEV(QuietButton, { width: "fill", iconName: "applications-other", selected: () => manager2.path?.() === "applications:///", text: t("Aplicativos"), onClicked: () => {
       manager2.showApplications?.();
@@ -8314,7 +8314,7 @@ function runQuickshell(manager2, regions, options = {}) {
 `);
   }), transport = createUiTransport(send), generation = 0, reloading = !1, revision = signal(0);
   function createScenes(regions2, version) {
-    let built = {}, contexts = { toolbar: "app.uiBridge", sidebar: "app.sidebarBridge", details: "app.detailsBridge", dialogs: "app.dialogsBridge" };
+    let built = {}, contexts = { toolbar: "app.uiBridge", sidebar: "app.sidebarBridge", details: "app.detailsBridge", dialogs: "app.dialogsBridge", footer: "app.footerBridge" };
     try {
       for (let name of Object.keys(contexts))
         built[name] = createQuickshellScene(
@@ -8332,7 +8332,7 @@ function runQuickshell(manager2, regions, options = {}) {
   }
   let scenes = createScenes(regions, generation), output2 = effect(() => {
     revision();
-    let message = { ...manager2.snapshot(), ui: scenes.toolbar.snapshot(), sidebarUi: scenes.sidebar.snapshot(), detailsUi: scenes.details.snapshot(), dialogsUi: scenes.dialogs.snapshot() };
+    let message = { ...manager2.snapshot(), ui: scenes.toolbar.snapshot(), sidebarUi: scenes.sidebar.snapshot(), detailsUi: scenes.details.snapshot(), dialogsUi: scenes.dialogs.snapshot(), footerUi: scenes.footer.snapshot() };
     reloading || send(message);
   }), input2 = createInterface2({ input: options.input ?? process.stdin }), disposed = !1, resolveClosed, closed = new Promise((resolve4) => {
     resolveClosed = resolve4;
@@ -8346,12 +8346,12 @@ function runQuickshell(manager2, regions, options = {}) {
           if (!event || typeof event.handler != "string" || !Array.isArray(event.args)) throw new Error("Evento de UI inv\xE1lido.");
           let eventGeneration = event.generation;
           if (typeof eventGeneration == "number" && eventGeneration !== generation) return;
-          (event.scene === "sidebar" ? scenes.sidebar : event.scene === "details" ? scenes.details : event.scene === "dialogs" ? scenes.dialogs : scenes.toolbar).dispatch(event.handler, event.args);
+          (event.scene === "sidebar" ? scenes.sidebar : event.scene === "details" ? scenes.details : event.scene === "dialogs" ? scenes.dialogs : event.scene === "footer" ? scenes.footer : scenes.toolbar).dispatch(event.handler, event.args);
           break;
         }
         case "uiMounted": {
           if (reloading) break;
-          (command.value === "toolbar" || command.value === "sidebar" || command.value === "details" || command.value === "dialogs") && scenes[command.value].mount();
+          (command.value === "toolbar" || command.value === "sidebar" || command.value === "details" || command.value === "dialogs" || command.value === "footer") && scenes[command.value].mount();
           break;
         }
         case "uiResult": {

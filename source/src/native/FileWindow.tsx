@@ -364,7 +364,8 @@ export const FileWindow = component<{
             </controls.ScrollView>
           </qml.Rectangle>
         </layouts.RowLayout>
-        <layouts.RowLayout {...{"Layout.fillWidth":true}}>
+
+        <layouts.RowLayout visible={qmlExpression(scope,q=>!q.app.state.chooser || !!q.app.state.error)} {...{"Layout.fillWidth":true}}>
         <controls.Label
           text={qmlExpression(
             scope,
@@ -431,6 +432,10 @@ export const FileWindow = component<{
           visible={qmlExpression(scope,q=>!!q.app.state.canCancelTransfer)}
           onClicked={qmlHandler(scope,q=>{q.app.send('cancelTransfer');})} />
         </layouts.RowLayout>
+        <qml.Item qmlId={scope.id("footerSlot")}
+          visible={qmlExpression(scope,q=>!!q.app.state.chooser)}
+          {...{"Layout.fillWidth":true}}
+          implicitHeight={qmlExpression(scope,q=>q.app.footerObject ? q.app.footerObject.implicitHeight : 0)} />
       </layouts.ColumnLayout>
     </controls.ApplicationWindow>
   </>

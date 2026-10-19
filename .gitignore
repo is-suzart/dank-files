@@ -4,3 +4,5 @@ __pycache__/
 *.pyc
 *.update
 .DS_Store
+source/dist/
+.build/

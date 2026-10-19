@@ -69,13 +69,22 @@ catalogs. Language is selected at startup; filenames and user labels are preserv
 Undo is session-local and does not cover every operation. Replacement operations
 clear previous undo history. Real network behavior depends on the mounted backend.
 
+## Qt PDF package names
+
+Dank Files imports `QtQuick.Pdf`, not `QtWebEngine`. On Arch Linux the
+`QtQuick/Pdf/qmldir` module is supplied by **qt6-webengine** (verified with
+`pacman -Qo /usr/lib/qt6/qml/QtQuick/Pdf/qmldir`, package 6.11.2-2).
+The package dependency is necessary for PDF previews even though no WebEngine
+API is used. Other distributions may provide Qt PDF as a separate package.
+
 ## Source
 
 Project: https://github.com/is-suzart/dank-files
 
 Application sources are TypeScript/TSX; generated `.qml` files are installation
-artifacts. The distribution repository includes the application source snapshot
-but not the entire Nandomo framework workspace. See its README for build details.
+artifacts. The distribution repository includes the application source and the three
+scoped Nandomo packages needed to rebuild it. See source/README.md for the pinned
+build and byte-for-byte runtime verification instructions.
 
 Dank Files is licensed under BSD-3-Clause. Third-party runtime dependencies retain their own licenses; see LICENSE and THIRD_PARTY_NOTICES.md in the distribution repository.
 
