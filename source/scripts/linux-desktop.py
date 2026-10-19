@@ -120,8 +120,9 @@ def bus_ready(connection, name):
         emit({'event':'reveal','method':method,'urls':urls})
         invocation.return_value(GLib.Variant('()',()))
     connection.register_object('/org/freedesktop/FileManager1',Gio.DBusNodeInfo.new_for_xml(xml).interfaces[0],called,None,None)
-Gio.bus_own_name(Gio.BusType.SESSION,'org.freedesktop.FileManager1',Gio.BusNameOwnerFlags.DO_NOT_QUEUE,bus_ready,
-                lambda *_:emit({'event':'dbus','owned':True}),lambda *_:emit({'event':'dbus','owned':False}))
+if '--dbus' in sys.argv[1:]:
+    Gio.bus_own_name(Gio.BusType.SESSION,'org.freedesktop.FileManager1',Gio.BusNameOwnerFlags.DO_NOT_QUEUE,bus_ready,
+                    lambda *_:emit({'event':'dbus','owned':True}),lambda *_:emit({'event':'dbus','owned':False}))
 
 def read_input():
     for line in sys.stdin:

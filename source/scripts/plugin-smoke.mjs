@@ -46,17 +46,21 @@ try {
   const fakeQs=join(root,'fake-qs');
   await writeFile(fakeQs, '#!'+process.execPath+'\n'+`
 import('node:fs').then(fs => {
-  fs.writeFileSync(process.env.PROBE_OUTPUT, JSON.stringify({args:process.argv.slice(2),platform:process.env.QT_QPA_PLATFORM,path:process.env.NANDOMO_FM_START_PATH,backend:process.env.NANDOMO_FM_BACKEND}));
+  fs.writeFileSync(process.env.PROBE_OUTPUT, JSON.stringify({args:process.argv.slice(2),platform:process.env.QT_QPA_PLATFORM,path:process.env.NANDOMO_FM_START_PATH,backend:process.env.NANDOMO_FM_BACKEND,dbus:process.env.NANDOMO_FM_DBUS}));
 });\n`, {mode:0o755});
   const probe=join(root,'probe.json');
   execFileSync(process.execPath, [join(app,'launch.mjs'), fixture], {cwd:root, env:{...env,
     WAYLAND_DISPLAY:'wayland-test', QT_QPA_PLATFORM:'xcb', NANDOMO_FM_QT_PLATFORM:'wayland',
-    NANDOMO_QUICKSHELL_BINARY:fakeQs, PROBE_OUTPUT:probe}, stdio:'pipe'});
+    NANDOMO_FM_DBUS:'1', NANDOMO_QUICKSHELL_BINARY:fakeQs, PROBE_OUTPUT:probe}, stdio:'pipe'});
   const result=JSON.parse(await readFile(probe,'utf8'));
   assert.equal(result.platform,'wayland');
   assert.equal(result.path,fixture);
   assert.equal(result.backend,join(app,'backend.mjs'));
+  assert.equal(result.dbus,'0');
   await assert.rejects(access(result.args[1]), {code:'ENOENT'}); // runtime removed after exit
+  execFileSync(process.execPath, [join(app,'launch.mjs'), '--dbus', fixture], {cwd:root,
+    env:{...env, NANDOMO_QUICKSHELL_BINARY:fakeQs, PROBE_OUTPUT:probe}, stdio:'pipe'});
+  assert.equal(JSON.parse(await readFile(probe,'utf8')).dbus,'1');
   console.log('PLUGIN_PACKAGE_PASS: relocated backend, startup folder, launcher, Wayland and cleanup');
   if (process.argv.includes('--native')) {
     const native = spawn(process.execPath, [join(app,'launch.mjs'), fixture], {cwd:root,

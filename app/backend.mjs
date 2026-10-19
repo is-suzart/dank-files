@@ -1718,7 +1718,7 @@ import { spawn } from "node:child_process";
 import { createInterface } from "node:readline";
 import { fileURLToPath } from "node:url";
 function createLinuxDesktop(onEvent) {
-  let child = spawn("python3", [process.env.NANDOMO_FM_LINUX_HELPER || fileURLToPath(new URL("../../scripts/linux-desktop.py", import.meta.url))], { stdio: ["pipe", "pipe", "pipe"] }), sequence = 0, closed = !1, pending3 = /* @__PURE__ */ new Map();
+  let child = spawn("python3", [process.env.NANDOMO_FM_LINUX_HELPER || fileURLToPath(new URL("../../scripts/linux-desktop.py", import.meta.url)), ...process.env.NANDOMO_FM_DBUS === "1" ? ["--dbus"] : []], { stdio: ["pipe", "pipe", "pipe"] }), sequence = 0, closed = !1, pending3 = /* @__PURE__ */ new Map();
   function fail(error) {
     closed = !0;
     for (let operation of pending3.values())
@@ -7765,7 +7765,7 @@ async function remotePath(path3) {
 
 // src/infrastructure/nodeServices.ts
 import { dirname as dirname5, resolve as resolve3, join as join7 } from "node:path";
-import { spawn as spawn2, execFile as execFile4 } from "node:child_process";
+import { execFile as execFile4 } from "node:child_process";
 import { mkdir as mkdir5, writeFile as writeFile2, lstat as lstat4, readdir as readdir4, copyFile, chmod as chmod2, readFile as readFile5, mkdtemp as mkdtemp3, rename as rename3, unlink as unlink2, rm as rm4, statfs } from "node:fs/promises";
 import { constants } from "node:fs";
 import { pathToFileURL as pathToFileURL4, fileURLToPath as fileURLToPath4 } from "node:url";
@@ -7856,11 +7856,13 @@ var nodeFiles = {
       };
     }
   },
-  open(path3) {
-    return new Promise((done, reject) => {
-      let child = spawn2("xdg-open", [path3], { stdio: "ignore" });
-      child.once("error", reject), child.once("exit", (code) => code === 0 ? done() : reject(new Error("N\xE3o foi poss\xEDvel abrir o arquivo.")));
-    });
+  async open(path3) {
+    try {
+      await promisify4(execFile4)("dms", ["open", path3]);
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      await promisify4(execFile4)("xdg-open", [path3]);
+    }
   }
 }, nodeLocations = { bookmark: updateBookmark, volumeAction: async (action, place) => {
   if (!place.device?.startsWith("/dev/")) throw new Error("Dispositivo indispon\xEDvel.");
@@ -7913,7 +7915,7 @@ async function discoverIconCatalog(home3) {
 import { readFile as readFile8, writeFile as writeFile3, mkdir as mkdir6, rename as rename4, readdir as readdir7 } from "node:fs/promises";
 import { pathToFileURL as pathToFileURL6 } from "node:url";
 import { join as join10, basename as basename6 } from "node:path";
-import { execFile as execFile6, spawn as spawn3 } from "node:child_process";
+import { execFile as execFile6, spawn as spawn2 } from "node:child_process";
 import { promisify as promisify6 } from "node:util";
 
 // src/infrastructure/virtualLocations.ts
@@ -8108,7 +8110,7 @@ function desktopActions(home3) {
       for (let [binary, args] of [["xdg-terminal-exec", ["--dir", path3]], ["kgx", ["--working-directory", path3]], ["gnome-terminal", ["--working-directory", path3]], ["konsole", ["--workdir", path3]], ["xfce4-terminal", ["--working-directory", path3]], ["alacritty", ["--working-directory", path3]], ["kitty", ["--directory", path3]]])
         try {
           await exec5("which", [binary]), await new Promise((resolve4, reject) => {
-            let child = spawn3(binary, args, { cwd: path3, stdio: "ignore", detached: !0 });
+            let child = spawn2(binary, args, { cwd: path3, stdio: "ignore", detached: !0 });
             child.once("error", reject), child.once("spawn", () => {
               child.unref(), resolve4();
             });

@@ -21,9 +21,9 @@ A standalone file manager integrated with [Dank Material Shell](https://github.c
 
 ## Requirements
 
-Linux, Node.js **20+**, DMS **1.6.3+**, Quickshell, and Qt Quick Controls/Layouts/Dialogs/PDF/Multimedia. Install GLib/GIO (`gio`), libarchive (`bsdtar`), Python 3, PyGObject and GTK 4 for the corresponding file and desktop integrations.
+Linux, Node.js **20+**, DMS **1.6.3+**, Quickshell, and Qt Quick Controls/Layouts/Dialogs/PDF/Multimedia. Install GLib/GIO (`gio`), libarchive (`bsdtar`), Python 3, PyGObject, GTK 4, udisks2 (`udisksctl`, mount/unmount) and xdg-utils (`xdg-mime` associations, `xdg-open` fallback).
 
-Optional: GVfs/FUSE and protocol backends for mounted network locations, `ffmpegthumbnailer` for video thumbnails, `udisksctl` for volume actions, and the codecs used by Qt Multimedia. Package names vary by distribution. See [installation notes](INSTALL.md).
+Optional: GVfs/FUSE and protocol backends for mounted network locations, `ffmpegthumbnailer` for video thumbnails, and the codecs used by Qt Multimedia. Without `ffmpegthumbnailer`, video thumbnails are unavailable. Package names vary by distribution. See [installation notes](INSTALL.md).
 
 ## Install
 
@@ -46,6 +46,15 @@ Register an application entry and folder support, without changing your default 
 ```bash
 node ~/.config/DankMaterialShell/plugins/dankFiles/app/register-desktop.mjs
 ```
+
+FileManager1 D-Bus integration is opt-in. Launch with `node app/launch.mjs --dbus`
+to handle other applications' "show in folder" requests while that window is open,
+or register on-demand activation with `node app/register-desktop.mjs --dbus`.
+Normal launches do not claim `org.freedesktop.FileManager1`; clipboard and GIO
+support remain available. Existing owners and user activation files are preserved.
+
+Files open through `dms open <path>`, with `xdg-open` as a fallback only when the
+`dms` executable is unavailable. Errors from an available `dms` are reported.
 
 ## Update or remove
 

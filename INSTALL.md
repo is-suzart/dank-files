@@ -9,14 +9,15 @@ Nandomo checkout, pnpm, TypeScript or a build step.
 
 - Linux, Node.js 20+, Dank Material Shell 1.6.3+ and Quickshell.
 - Qt Quick Controls, Layouts, Dialogs, PDF and Multimedia modules.
-- GLib/GIO (`gio`) and libarchive (`bsdtar`).
+- GLib/GIO (`gio`), libarchive (`bsdtar`), udisks2 (`udisksctl`, mount/unmount)
+  and xdg-utils (`xdg-mime` associations, `xdg-open` fallback).
 - Python 3, PyGObject and GTK 4 for desktop clipboard, D-Bus and network integration.
 - Optional: GVfs/FUSE and the appropriate GVfs backends for network locations;
-  `ffmpegthumbnailer` for video thumbnails; `udisksctl` for volume actions.
+  `ffmpegthumbnailer` for video thumbnails. Without it, video thumbnails are unavailable.
 - Video playback also depends on the codecs available to Qt Multimedia.
 
-Package names vary by distribution. On Arch, the relevant optional integration
-packages include `python-gobject`, `gtk4`, `gvfs`, `ffmpegthumbnailer` and `udisks2`.
+Package names vary by distribution. On Arch, install `python-gobject`, `gtk4`,
+`udisks2` and `xdg-utils`; `gvfs` and `ffmpegthumbnailer` are optional.
 
 ## Install in DMS
 
@@ -45,8 +46,13 @@ node app/register-desktop.mjs
 
 This creates the Dank Files application entry and advertises folder support.
 It does not change your default file manager. Optional FileManager1 D-Bus
-activation is available with `--dbus`; it refuses to replace an existing user
-activation file.
+activation is available with `node app/register-desktop.mjs --dbus`; it refuses
+to replace an existing user activation file. To enable it for a single window,
+run `node app/launch.mjs --dbus`. Normal launches do not claim
+`org.freedesktop.FileManager1`; clipboard and GIO support remain available.
+
+Files open through `dms open <path>`. If the `dms` executable is unavailable,
+Dank Files falls back to `xdg-open`; errors from an available `dms` are reported.
 
 Preferences currently retain the `nandomo-file-manager` configuration directory
 for compatibility with earlier local previews. Framework-related environment

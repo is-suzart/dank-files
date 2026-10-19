@@ -4,7 +4,7 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 import type { FileClipboard } from '../application/ports.js';
 
 export function createLinuxDesktop(onEvent:(event:{event:string;available?:boolean;method?:string;urls?:string[]})=>void) {
-  const child=spawn('python3',[process.env.NANDOMO_FM_LINUX_HELPER || fileURLToPath(new URL('../../scripts/linux-desktop.py',import.meta.url))],{stdio:['pipe','pipe','pipe']});
+  const child=spawn('python3',[process.env.NANDOMO_FM_LINUX_HELPER || fileURLToPath(new URL('../../scripts/linux-desktop.py',import.meta.url)),...(process.env.NANDOMO_FM_DBUS==='1'?['--dbus']:[])],{stdio:['pipe','pipe','pipe']});
   let sequence=0, closed=false;
   const pending=new Map<number,{resolve(value:any):void;reject(error:Error):void;timer:ReturnType<typeof setTimeout>}>();
   function fail(error:Error){closed=true;for(const operation of pending.values()){clearTimeout(operation.timer);operation.reject(error);}pending.clear();}

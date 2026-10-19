@@ -17,7 +17,10 @@
     "qs",
     "gio",
     "python3",
-    "bsdtar"
+    "bsdtar",
+    "udisksctl",
+    "xdg-open",
+    "xdg-mime"
   ],
   "permissions": [
     "process"

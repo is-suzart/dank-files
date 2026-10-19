@@ -2836,7 +2836,7 @@ async function remotePath(path2) {
 
 // src/infrastructure/nodeServices.ts
 import { dirname as dirname4, resolve as resolve2, join as join6 } from "node:path";
-import { spawn, execFile as execFile4 } from "node:child_process";
+import { execFile as execFile4 } from "node:child_process";
 import { mkdir as mkdir4, writeFile as writeFile2, lstat as lstat3, readdir as readdir4, copyFile, chmod as chmod2, readFile as readFile4, mkdtemp as mkdtemp3, rename as rename3, unlink, rm as rm3, statfs } from "node:fs/promises";
 import { constants } from "node:fs";
 import { pathToFileURL as pathToFileURL3, fileURLToPath as fileURLToPath3 } from "node:url";
@@ -2927,11 +2927,13 @@ var nodeFiles = {
       };
     }
   },
-  open(path2) {
-    return new Promise((done, reject) => {
-      let child = spawn("xdg-open", [path2], { stdio: "ignore" });
-      child.once("error", reject), child.once("exit", (code) => code === 0 ? done() : reject(new Error("N\xE3o foi poss\xEDvel abrir o arquivo.")));
-    });
+  async open(path2) {
+    try {
+      await promisify4(execFile4)("dms", ["open", path2]);
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      await promisify4(execFile4)("xdg-open", [path2]);
+    }
   }
 }, nodeLocations = { bookmark: updateBookmark, volumeAction: async (action, place) => {
   if (!place.device?.startsWith("/dev/")) throw new Error("Dispositivo indispon\xEDvel.");
@@ -2984,7 +2986,7 @@ async function discoverIconCatalog(home) {
 import { readFile as readFile7, writeFile as writeFile3, mkdir as mkdir5, rename as rename4, readdir as readdir7 } from "node:fs/promises";
 import { pathToFileURL as pathToFileURL5 } from "node:url";
 import { join as join9, basename as basename5 } from "node:path";
-import { execFile as execFile6, spawn as spawn2 } from "node:child_process";
+import { execFile as execFile6, spawn } from "node:child_process";
 import { promisify as promisify6 } from "node:util";
 
 // src/infrastructure/virtualLocations.ts
@@ -3179,7 +3181,7 @@ function desktopActions(home) {
       for (let [binary, args] of [["xdg-terminal-exec", ["--dir", path2]], ["kgx", ["--working-directory", path2]], ["gnome-terminal", ["--working-directory", path2]], ["konsole", ["--workdir", path2]], ["xfce4-terminal", ["--working-directory", path2]], ["alacritty", ["--working-directory", path2]], ["kitty", ["--directory", path2]]])
         try {
           await exec5("which", [binary]), await new Promise((resolve3, reject) => {
-            let child = spawn2(binary, args, { cwd: path2, stdio: "ignore", detached: !0 });
+            let child = spawn(binary, args, { cwd: path2, stdio: "ignore", detached: !0 });
             child.once("error", reject), child.once("spawn", () => {
               child.unref(), resolve3();
             });

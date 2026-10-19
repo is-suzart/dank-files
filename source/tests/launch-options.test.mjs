@@ -10,6 +10,8 @@ test('launch opens one local folder and prefers native Wayland without breaking 
   assert.equal(launchOptions(['--dev', 'uma pasta'], {}).startPath, resolve('uma pasta'));
   assert.equal(launchOptions(['file:///tmp/imagens%20e%20a%C3%A7%C3%A3o'], {}).startPath, '/tmp/imagens e ação');
   assert.equal(launchOptions([], {}).startPath, undefined);
+  assert.equal(launchOptions([], {NANDOMO_FM_DBUS:'1'}).dbus, false);
+  assert.equal(launchOptions(['--dbus'], {}).dbus, true);
   assert.equal(launchOptions([], {WAYLAND_DISPLAY:'wayland-1', QT_QPA_PLATFORM:'xcb'}).platform, 'wayland');
   assert.equal(launchOptions([], {WAYLAND_DISPLAY:'wayland-1', QT_QPA_PLATFORM:'offscreen'}).platform, 'offscreen');
   assert.equal(launchOptions([], {WAYLAND_DISPLAY:'wayland-1', NANDOMO_FM_QT_PLATFORM:'xcb'}).platform, 'xcb');
@@ -36,5 +38,14 @@ test('desktop installer registers folders and quotes paths without changing MIME
     assert.throws(() => execFileSync(launcher, ['--not-a-valid-option'], {
       encoding:'utf8', stdio:'pipe',
     }), error => String(error.stderr).includes('Unknown option'));
+    const service=join(data,'dbus-1/services/org.freedesktop.FileManager1.service');
+    await assert.rejects(readFile(service), {code:'ENOENT'});
+    const installArgs=[new URL('../scripts/install-desktop.mjs', import.meta.url).pathname, '--dbus'];
+    execFileSync(process.execPath, installArgs, {env:{...process.env,XDG_DATA_HOME:data},stdio:'pipe'});
+    const activation=await readFile(service,'utf8');
+    assert.match(activation,/ --dbus\n$/);
+    assert.throws(() => execFileSync(process.execPath, installArgs, {env:{...process.env,XDG_DATA_HOME:data},stdio:'pipe'}),
+      error => String(error.stderr).includes('Já existe uma ativação D-Bus'));
+    assert.equal(await readFile(service,'utf8'),activation);
   } finally { await rm(root, {recursive:true, force:true}); }
 });

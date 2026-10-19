@@ -5,7 +5,7 @@ import { videoThumbnail } from './videoThumbnail.js';
 import { updateBookmark } from './bookmarks.js';
 import { remotePath } from './mountPolicy.js';
 import { dirname, resolve, join } from 'node:path';
-import { spawn, execFile } from 'node:child_process';
+import { execFile } from 'node:child_process';
 import { mkdir, writeFile, lstat, readdir, readlink, symlink, copyFile, chmod, readFile, realpath, mkdtemp, rename, unlink, rm, statfs } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { pathToFileURL, fileURLToPath } from 'node:url';
@@ -87,12 +87,12 @@ export const nodeFiles: FileSystem = {
       return ()=>{clearTimeout(timer);watcher.close();};
     }catch{return ()=>{};}
   },
-  open(path) {
-    return new Promise<void>((done, reject) => {
-      const child = spawn('xdg-open', [path], {stdio:'ignore'});
-      child.once('error', reject);
-      child.once('exit', code => code === 0 ? done() : reject(new Error('Não foi possível abrir o arquivo.')));
-    });
+  async open(path) {
+    try { await promisify(execFile)('dms', ['open', path]); }
+    catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+      await promisify(execFile)('xdg-open', [path]);
+    }
   },
 };
 export const nodeLocations: Locations = {bookmark:updateBookmark,volumeAction:async(action,place)=>{
